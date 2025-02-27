@@ -20,7 +20,7 @@ h1 {
 }
 
 #detection-log {
-  height: 90%;
+  height: 80%;
   overflow-y: auto;
   font-size: 1.5em;
   display: flex;
@@ -32,4 +32,12 @@ h1 {
     border-radius: 8px;
     padding: 15px;
   }
+}
+
+#matching-street-container {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  font-size: 1.5em;
+  margin: 20px auto;
 }

@@ -1,36 +1,49 @@
+import { fetchCurrentTraffic } from "./js/fetchCurrentTraffic.js";
+import { updateDetectionLog } from "./js/updateDetectionLog.js";
+import { findClosestMatch } from "./js/trafficMatcher.js";
+import { updateMatchingStreet } from "./js/updateMatchingStreet.js";
+
+// Keep track of the latest detections globally
+let latestDetections = null;
+
 async function fetchDetections() {
   try {
     const response = await fetch("/api/detections");
-    const data = await response.json();
+    const dataTracked = await response.json();
+    const data = {
+      car: dataTracked.tesa || 50,
+      bike: dataTracked.clip || 40,
+      pedestrian: dataTracked["ear plug"] || 10,
+    };
+    latestDetections = data;
     updateDetectionLog(data);
-    updateDetectionLog(data);
+
+    // After getting new detections, find and update the closest match
+    await findAndDisplayMatch();
   } catch (err) {
     console.error("Error fetching detections:", err);
   }
 }
 
-function updateDetectionLog(detections) {
-  const logElement = document.getElementById("detection-log");
+// Combined function to fetch traffic data and find match
+async function findAndDisplayMatch() {
+  if (!latestDetections) return;
 
-  if (detections) {
-    // Clear previously tracked elements
-    logElement.innerHTML = "";
+  try {
+    const trafficData = await fetchCurrentTraffic();
+    const closestMatch = findClosestMatch(latestDetections, trafficData);
 
-    // Create a new div for each detected element
-    for (const [label, percentage] of Object.entries(detections)) {
-      const percentageRounded = Math.floor(percentage);
-      const detectionDiv = document.createElement("div");
-      detectionDiv.textContent = `${label} ${percentageRounded}%`;
-
-      // Use percentageRounded as the width in percentage
-      detectionDiv.style.width = `${percentageRounded}%`;
-
-      logElement.appendChild(detectionDiv);
+    if (closestMatch) {
+      const coordinates = closestMatch.geometry.coordinates[0][0];
+      updateMatchingStreet(coordinates);
     }
-  } else {
-    logElement.innerHTML = `<div>No objects detected</div>`;
+  } catch (error) {
+    console.error("Error finding and displaying match:", error);
   }
 }
 
-// Poll the detections endpoint every 500ms
+// Start the detection polling
 setInterval(fetchDetections, 1000);
+
+// Initial fetch to start the process
+fetchDetections();
