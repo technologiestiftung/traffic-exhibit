@@ -6,61 +6,55 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-# {repo-template}
+# Traffic Exhibit
 
-## TODO (after you generated the repo)
+## Installation backend
 
-- [ ] Review the content of the README.md and adjust to your liking
-- [ ] Read the README.md till the end and adjust the content licensing,
-      logos, etc (I know you stopped at tbd...)
-- [ ] Adjust the file [.github/CODEOWNERS](./.github/CODEOWNERS)
-- [ ] Adjust the files under [.github/ISSUE_TEMPLATE](./.github/ISSUE_TEMPLATE)
-- [ ] If you need renovate, enable it for your repository in the renovate app in the settings of your organisation
-- [ ] If you use staging and main branches use this template for [.github/renovate.json](./.github/renovate.json)
+currently running on Python 3.12.7
 
-```json
-{
-	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"extends": ["github>technologiestiftung/renovate-config"],
-	"baseBranches": ["staging"]
-}
-```
-
-- [ ] Do you want to honor all kinds of contributions? Use [all-contributors](https://allcontributors.org/)
-
-```bash
-npx all-contributors-cli check
-npx all-contributors-cli add ff6347 doc
-```
-
-You can use it on GitHub just by commenting on PRs and issues:
+### create virtual environment
 
 ```plain
-@all-contributors please add @ff6347 for infrastructure, tests and code
+cd traffic-exhibit/object-detection/ && python -m venv venv
 ```
 
-- [ ] Add your project description
-- [ ] Get fancy shields at https://shields.io
+### activate virtual environment
 
-## Prerequisites
+```plain
+source venv/bin/activate
+```
 
-tbd...
+### install requirements
 
-## Installation
+```plain
+pip install -r requirements.txt
+```
 
-tbd...
+## Installation frontend
 
-## Usage or Deployment
+### Install npm dependencies
 
-tbd...
+```plain
+cd traffic-exhibit && npm ci
+```
 
-## Development
+## Run it
 
-tbd...
+### Run backend
 
-## Tests
+```plain
+python object_detection.py --model my_model.pt --source usb0
+```
 
-tbd...
+--source usb0 uses usb camera or webcam. It's also possible to use video/img/picamera.
+
+for example: --source=test_vid.mp4
+
+### Run frontend
+
+```plain
+npm run start
+```
 
 ## Contributing
 
@@ -88,8 +82,6 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 ## Content Licensing
 
 Texts and content available as [CC BY](https://creativecommons.org/licenses/by/3.0/de/).
-
-Illustrations by {MARIA_MUSTERFRAU}, all rights reserved.
 
 ## Credits
 
