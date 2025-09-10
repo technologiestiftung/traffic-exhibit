@@ -14,13 +14,14 @@ const io = new Server(httpServer, {
 io.on("connection", (socket) => {
 	console.log("Frontend connected");
 
-	// Simulate camera data
+	// TO DO: get filled block positions from camera
 	setInterval(() => {
-		const numbers = Array.from({ length: 10 }, () =>
-			Math.floor(Math.random() * 100),
-		);
+		const count = Math.floor(Math.random() * 10) + 1;
+		const numbers = Array.from({ length: 10 }, (_, i) => i + 1)
+			.sort(() => Math.random() - 0.5)
+			.slice(0, count);
 		socket.emit("camera-data", numbers);
-	}, 2000);
+	}, 4000);
 
 	// Handle stop motor command
 	socket.on("stop-motor", async () => {

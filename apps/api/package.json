@@ -5,13 +5,16 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts",
-		"start": "node dist/server.js"
+		"start": "node dist/server.js",
+		"prettier": "prettier --write src",
+		"prettier:ci": "prettier --check src"
 	},
 	"keywords": [],
 	"author": "",
 	"license": "ISC",
 	"description": "",
 	"devDependencies": {
+		"@technologiestiftung/prettier-config": "^1.0.0",
 		"@types/express": "5.0.3",
 		"nodemon": "3.1.10",
 		"ts-node": "10.9.2",

@@ -10,8 +10,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run dev --workspace=api\" \"npm run dev --workspace=web-app\"",
-    "prettier": "prettier --write apps/**/*.{ts,tsx,js,json,md}",
-    "prettier:ci": "prettier --check apps/**/*.{ts,tsx,js,json,md}",
+    "prettier": "concurrently \"npm run prettier --write --workspace=api\" \"npm run prettier --write --workspace=web-app\"",
+    "prettier:ci": "concurrently \"npm run prettier:ci --workspace=api\" \"npm run prettier:ci --workspace=web-app\"",
     "build": "npm run build --workspace=web-app",
     "lint": "ESLINT_USE_FLAT_CONFIG=true eslint \"apps/web-app/src/**/*.{ts,tsx}\""
   },
@@ -28,8 +28,6 @@
   "homepage": "https://github.com/technologiestiftung/traffic-exhibit#readme",
   "description": "",
   "devDependencies": {
-    "@technologiestiftung/eslint-config": "0.4.0",
-    "@technologiestiftung/prettier-config": "1.0.0",
     "@typescript-eslint/eslint-plugin": "8.43.0",
     "@typescript-eslint/parser": "8.43.0",
     "concurrently": "9.2.1",
