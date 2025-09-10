@@ -18,9 +18,9 @@ export const useWebSocket = () => {
 		};
 	}, []);
 
-	const stopMotor = () => {
-		socket?.emit("stop-motor");
+	const goBackToStart = () => {
+		socket?.emit("go-back-to-start");
 	};
 
-	return { numbers, stopMotor };
+	return { numbers, goBackToStart };
 };

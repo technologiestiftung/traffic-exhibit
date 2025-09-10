@@ -1,11 +1,11 @@
 import { useWebSocket } from "./hooks/useWebSocket";
 
 function App() {
-	const { numbers, stopMotor } = useWebSocket();
+	const { numbers, goBackToStart } = useWebSocket();
 
 	return (
 		<div className="p-5">
-			<p className="text-2xl font-bold">Belegte Blocks</p>
+			<p className="text-2xl font-bold py-2">Belegte Blocks</p>
 			<div className="flex gap-2 mb-4">
 				{Array.from({ length: 10 }, (_, i) => i + 1).map((num) => (
 					<div
@@ -20,7 +20,7 @@ function App() {
 			</div>
 			<button
 				className="cursor-pointer rounded-sm p-2 hover:bg-green-200 bg-green-300"
-				onClick={stopMotor}
+				onClick={goBackToStart}
 			>
 				Neuen Mix erstellen
 			</button>
