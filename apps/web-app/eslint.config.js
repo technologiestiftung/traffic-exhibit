@@ -1,23 +1,30 @@
-import js from '@eslint/js'
-import globals from 'globals'
-import reactHooks from 'eslint-plugin-react-hooks'
-import reactRefresh from 'eslint-plugin-react-refresh'
-import tseslint from 'typescript-eslint'
-import { globalIgnores } from 'eslint/config'
+import globals from "globals";
+import technologiestiftung from "@technologiestiftung/eslint-config";
+import react from "eslint-plugin-react";
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      js.configs.recommended,
-      tseslint.configs.recommended,
-      reactHooks.configs['recommended-latest'],
-      reactRefresh.configs.vite,
-    ],
-    languageOptions: {
-      ecmaVersion: 2020,
-      globals: globals.browser,
-    },
-  },
-])
+export default [
+	...technologiestiftung,
+	{
+		files: ["**/*.{js,jsx,mjs,cjs,ts,tsx}"],
+		plugins: {
+			react,
+		},
+		languageOptions: {
+			parserOptions: {
+				ecmaFeatures: {
+					jsx: true,
+				},
+			},
+			globals: {
+				...globals.browser,
+				...globals.node,
+			},
+		},
+		rules: {
+			// suppress errors for missing 'import React' in files
+			"react/react-in-jsx-scope": "off",
+			// self close react components when possible
+			"react/self-closing-comp": "error",
+		},
+	},
+];

@@ -8,7 +8,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "concurrently \"npm run dev --workspace=api\" \"npm run dev --workspace=web-app\""
+    "dev": "concurrently \"npm run dev --workspace=api\" \"npm run dev --workspace=web-app\"",
+    "prettier": "prettier --write src tests",
+    "prettier:ci": "prettier --check src tests"
   },
   "repository": {
     "type": "git",
