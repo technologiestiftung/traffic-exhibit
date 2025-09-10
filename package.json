@@ -1,6 +1,7 @@
 {
   "name": "traffic-exhibit",
   "private": true,
+  "type": "module",
   "workspaces": [
     "apps/*"
   ],
@@ -9,8 +10,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run dev --workspace=api\" \"npm run dev --workspace=web-app\"",
-    "prettier": "prettier --write src tests",
-    "prettier:ci": "prettier --check src tests"
+    "prettier": "prettier --write apps/**/*.{ts,tsx,js,json,md}",
+    "prettier:ci": "prettier --check apps/**/*.{ts,tsx,js,json,md}",
+    "build": "npm run build --workspace=web-app",
+    "lint": "ESLINT_USE_FLAT_CONFIG=true eslint \"apps/web-app/src/**/*.{ts,tsx}\""
   },
   "repository": {
     "type": "git",
@@ -25,9 +28,19 @@
   "homepage": "https://github.com/technologiestiftung/traffic-exhibit#readme",
   "description": "",
   "devDependencies": {
-    "concurrently": "^9.2.1"
+    "@typescript-eslint/eslint-plugin": "8.43.0",
+    "@typescript-eslint/parser": "8.43.0",
+    "concurrently": "^9.2.1",
+    "eslint": "9.11.1",
+    "typescript": "5.5.4"
   },
   "dependencies": {
-    "typescript": "^5.9.2"
+    "@technologiestiftung/eslint-config": "0.4.0",
+    "@technologiestiftung/prettier-config": "1.0.0",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "16.4.0",
+    "prettier": "3.6.2"
   }
 }
