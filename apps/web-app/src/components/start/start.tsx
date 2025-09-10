@@ -2,7 +2,7 @@ import { useWebSocket } from "../../hooks/useWebSocket";
 import { useScreenStore } from "../../stores/useScreenStore";
 
 export const Start = () => {
-	const { numbers } = useWebSocket();
+	const { occupiedBlocks } = useWebSocket();
 	const { setLoadingScreen } = useScreenStore();
 
 	return (
@@ -14,7 +14,7 @@ export const Start = () => {
 					<div
 						key={num}
 						className={`w-10 h-10 flex items-center justify-center border rounded ${
-							numbers.includes(num) ? "bg-green-300" : "bg-white"
+							occupiedBlocks.includes(num) ? "bg-green-300" : "bg-white"
 						}`}
 					>
 						{num}

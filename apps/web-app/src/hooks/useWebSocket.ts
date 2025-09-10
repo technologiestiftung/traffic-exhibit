@@ -6,7 +6,7 @@ const wsUrl = import.meta.env.VITE_WS_URL;
 
 export const useWebSocket = () => {
 	const [socket, setSocket] = useState<Socket | null>(null);
-	const [numbers, setNumbers] = useState<number[]>([]);
+	const [occupiedBlocks, setOccupiedBlocks] = useState<number[]>([]);
 
 	const { setCurrentScreen } = useScreenStore();
 
@@ -14,7 +14,7 @@ export const useWebSocket = () => {
 		const newSocket = io(wsUrl);
 		setSocket(newSocket);
 		newSocket.on("camera-data", (data: number[]) => {
-			setNumbers(data);
+			setOccupiedBlocks(data);
 		});
 		return () => {
 			newSocket.disconnect();
@@ -26,5 +26,5 @@ export const useWebSocket = () => {
 		socket?.emit("go-back-to-start");
 	};
 
-	return { numbers, goBackToStart };
+	return { occupiedBlocks, goBackToStart };
 };
