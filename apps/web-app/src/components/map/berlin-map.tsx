@@ -6,8 +6,6 @@ import { BerlinDistrictPaths } from "./berlin-district-paths";
 const CURRENT_LOCATION = {
 	lat: 52.52,
 	lon: 13.405,
-	radius: 7,
-	color: d3.color("#ff5722")?.toString(),
 };
 
 export const BerlinMap: React.FC = () => {
@@ -50,8 +48,8 @@ export const BerlinMap: React.FC = () => {
 								<circle
 									cx={x}
 									cy={y}
-									r={CURRENT_LOCATION.radius ?? 6}
-									fill={CURRENT_LOCATION.color ?? "#ff5722"}
+									r={7}
+									fill={d3.color("#ff5722")?.toString() ?? "#ff5722"}
 									stroke="#ffffff"
 									strokeWidth={2}
 									role="img"
