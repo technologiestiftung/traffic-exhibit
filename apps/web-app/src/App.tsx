@@ -7,12 +7,7 @@ import { NoiseChart } from "./components/visualisations/noise/noise-chart";
 
 function App() {
 	const { currentScreen } = useScreenStore();
-	//Spandauerstrasse/ Marienkirche
-	// const currentLocation = {
-	// 	lat: 52.52,
-	// 	lon: 13.41,
-	// };
-
+	// Example location:
 	//Checkpoint Charlie
 	const currentLocation = {
 		lat: 52.507,

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { fetchLden } from "./get-noise-data";
+import { getNoise } from "./get-noise-data";
 
 type NoiseChartProps = { lat: number; lon: number };
 
@@ -12,7 +12,7 @@ export const NoiseChart = ({ lat, lon }: NoiseChartProps) => {
 		setError(null);
 		setNoiseIndex(null);
 
-		fetchLden(lat, lon)
+		getNoise(lat, lon)
 			.then((json) => {
 				if (!cancelled) {
 					setNoiseIndex(json.lden);
@@ -31,11 +31,11 @@ export const NoiseChart = ({ lat, lon }: NoiseChartProps) => {
 
 	return (
 		<div>
-			<h2>Noise Chart</h2>
+			<h2>Lärmindex</h2>
 			{error ? (
 				<p style={{ color: "red" }}>Error: {error}</p>
 			) : (
-				<p>LDEN: {noiseIndex !== null ? noiseIndex : "Loading..."}</p>
+				<p>{noiseIndex !== null ? `${noiseIndex} dB(A)` : "Loading..."}</p>
 			)}
 		</div>
 	);

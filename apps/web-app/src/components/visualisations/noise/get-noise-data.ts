@@ -1,5 +1,5 @@
-export async function fetchLden(lat: number, lon: number) {
-	const r = await fetch(`/api/lden2017?lat=${lat}&lon=${lon}`);
+export async function getNoise(lat: number, lon: number) {
+	const r = await fetch(`/api/noise?lat=${lat}&lon=${lon}`);
 
 	if (!r.ok) {
 		const text = await r.text().catch(() => "");

@@ -5,7 +5,7 @@ const WFS_ENDPOINT = "https://gdi.berlin.de/services/wfs/ua_stratlaerm_2017";
 const NOISE_LAYER_TYPE = "ua_stratlaerm_2017:ba_fp_gesamt2017_lden"; //façade LDEN points
 
 // Attribute field for LDEN noise level in dB(A)
-const NOISE_LEVEL_FIELD = "ld_ges"; // dB(A)
+const NOISE_LEVEL_FIELD = "ld_ges";
 
 type Coordinates = {
 	lon: number;
@@ -138,7 +138,7 @@ export async function fetchNearestNoiseLevel(
  * @param points Array of objects with { lat, lon } to query
  * @param res Express response object used to send the HTTP response
  */
-export async function handleLdenBatch(
+export async function handleNoiseBatch(
 	points: { lat: number; lon: number }[],
 	res: express.Response,
 ) {
@@ -160,7 +160,7 @@ export async function handleLdenBatch(
 }
 
 /**
- * Handle a single LDEN request coming from `GET /api/lden2017`.
+ * Handle a single LDEN request coming from `GET /api/noise`.
  *
  * Expected query parameters: `?lat=<number>&lon=<number>`.
  * - Returns 400 when lat or lon are missing or not finite.
@@ -171,7 +171,7 @@ export async function handleLdenBatch(
  * @param req Express request object (reads req.query.lat and req.query.lon)
  * @param res Express response object used to send the HTTP response
  */
-export async function handleLdenRequest(
+export async function handleNoiseRequest(
 	req: express.Request,
 	res: express.Response,
 ) {
