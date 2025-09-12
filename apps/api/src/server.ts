@@ -1,9 +1,24 @@
+// apps/api/src/server.ts
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import { runPythonScript } from "./runPythonScripts";
+import { handleLdenBatch, handleLdenRequest } from "./lden";
 
 const app = express();
+app.use(express.json()); // for JSON POST bodies
+
+// --- routes ---
+app.get("/api/health", (_req, res) => res.json({ ok: true }));
+
+app.get("/api/lden2017", handleLdenRequest);
+
+app.post("/api/lden2017/batch", async (req, res) => {
+	const points: { lat: number; lon: number }[] = req.body?.points || [];
+	return handleLdenBatch(points, res);
+});
+
+// --- socket/http (kept in this file, as requested) ---
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
 	cors: {
@@ -12,6 +27,7 @@ const io = new Server(httpServer, {
 });
 
 io.on("connection", (socket) => {
+	// eslint-disable-next-line no-console
 	console.log("Frontend connected");
 
 	/* OPTIONAL
@@ -48,6 +64,7 @@ io.on("connection", (socket) => {
 	socket.on("go-back-to-start", async () => {
 		try {
 			await runPythonScript("./scripts/control_motor.py");
+			// eslint-disable-next-line no-console
 			console.log("Motor stopped via Python script");
 		} catch (err) {
 			console.error("Failed to stop motor:", err);
@@ -56,5 +73,6 @@ io.on("connection", (socket) => {
 });
 
 httpServer.listen(3001, () => {
+	// eslint-disable-next-line no-console
 	console.log("Backend running on http://localhost:3001");
 });
