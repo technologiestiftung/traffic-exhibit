@@ -1,9 +1,8 @@
-// apps/api/src/server.ts
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import { runPythonScript } from "./runPythonScripts";
-import { handleNoiseBatch, handleNoiseRequest } from "./noise.servise.ts";
+import { handleNoiseBatch, handleNoiseRequest } from "./noise.servise";
 
 const app = express();
 app.use(express.json()); // for JSON POST bodies

@@ -18,5 +18,7 @@ export async function getNoise(lat: number, lon: number) {
 		lden: number | null;
 		unit: string;
 		distance_m: number | null;
+		feature_id: string | undefined;
+		note?: string;
 	};
 }
