@@ -3,12 +3,14 @@ import React, { useCallback } from "react";
 import { useBerlinDistrictsGeojson } from "./hooks/use-berlin-districts-geojson";
 import { BerlinDistrictPaths } from "./berlin-district-paths";
 
-const CURRENT_LOCATION = {
-	lat: 52.52,
-	lon: 13.405,
+type BerlinMapProps = {
+	lat: number;
+	lon: number;
 };
 
-export const BerlinMap: React.FC = () => {
+export const BerlinMap: React.FC<BerlinMapProps> = (
+	location: BerlinMapProps,
+) => {
 	const width = 600;
 	const height = 600;
 	const berlinDistrictsGeoJson = useBerlinDistrictsGeojson();
@@ -33,12 +35,9 @@ export const BerlinMap: React.FC = () => {
 				berlinDistrictsGeoJson={berlinDistrictsGeoJson}
 			/>
 
-			{CURRENT_LOCATION && projection
+			{location && projection
 				? (() => {
-						const point = projection([
-							CURRENT_LOCATION.lon,
-							CURRENT_LOCATION.lat,
-						]);
+						const point = projection([location.lon, location.lat]);
 						if (!point) {
 							return null;
 						}
@@ -53,7 +52,7 @@ export const BerlinMap: React.FC = () => {
 									stroke="#ffffff"
 									strokeWidth={2}
 									role="img"
-									aria-label={`location ${CURRENT_LOCATION.lat}, ${CURRENT_LOCATION.lon}`}
+									aria-label={`location ${location.lat}, ${location.lon}`}
 								/>
 							</g>
 						);
