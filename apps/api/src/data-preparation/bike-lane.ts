@@ -1,13 +1,19 @@
 import * as turf from "@turf/turf";
 
-// Base URL for Berlin's WFS (Web Feature Service) endpoint for bike lane network
+// Constants for WFS endpoints and configuration
 const BIKE_NETWORK_WFS_ENDPOINT =
 	"https://gdi.berlin.de/services/wfs/radverkehrsnetz";
-const BIKE_NETWORK_LAYER_NAME = "radverkehrsnetz:radverkehrsnetz"; // Main bike lane network layer
+const BIKE_NETWORK_LAYER_NAME = "radverkehrsnetz:radverkehrsnetz";
 
 const BIKE_LANES_WFS_ENDPOINT =
 	"https://gdi.berlin.de/services/wfs/fahrradstrassen";
-const BIKE_LANES_LAYER_NAME = "fahrradstrassen:fahrradstrassen"; // Dedicated bike streets layer
+const BIKE_LANES_LAYER_NAME = "fahrradstrassen:fahrradstrassen";
+
+// Configuration constants
+const BUFFER_DISTANCE_METERS = 10;
+const SEGMENT_LENGTH_METERS = 10;
+const MAX_FEATURES_PER_QUERY = 5;
+const COORDINATE_PRECISION = 0.00001;
 
 type Coordinates = {
 	lon: number;
@@ -52,6 +58,40 @@ function createLineStringFromCoordinates(
 }
 
 /**
+ * Create a bounding box filter for WFS queries
+ */
+function createBoundingBox(coordinates: Coordinates[]): string {
+	const lons = coordinates.map((c) => c.lon);
+	const lats = coordinates.map((c) => c.lat);
+	const minLon = Math.min(...lons) - COORDINATE_PRECISION;
+	const maxLon = Math.max(...lons) + COORDINATE_PRECISION;
+	const minLat = Math.min(...lats) - COORDINATE_PRECISION;
+	const maxLat = Math.max(...lats) + COORDINATE_PRECISION;
+
+	return `BBOX(geom,${minLon},${minLat},${maxLon},${maxLat},'EPSG:4326')`;
+}
+
+/**
+ * Build WFS query URL with standard parameters
+ */
+function buildWfsUrl(
+	endpoint: string,
+	layerName: string,
+	bboxFilter: string,
+): URL {
+	const url = new URL(endpoint);
+	url.searchParams.set("service", "WFS");
+	url.searchParams.set("version", "2.0.0");
+	url.searchParams.set("request", "GetFeature");
+	url.searchParams.set("typeNames", layerName);
+	url.searchParams.set("srsName", "EPSG:4326");
+	url.searchParams.set("outputFormat", "json");
+	url.searchParams.set("cql_filter", bboxFilter);
+	url.searchParams.set("maxFeatures", MAX_FEATURES_PER_QUERY.toString());
+	return url;
+}
+
+/**
  * Calculate overlap between route and a single bike lane feature
  */
 function calculateFeatureOverlap(
@@ -62,33 +102,38 @@ function calculateFeatureOverlap(
 	totalRouteLength: number,
 ): number {
 	try {
-		// Create a buffer around the bike lane to account for proximity (10 meters)
-		const bikeLaneBuffer = turf.buffer(bikeLaneFeature, 10, {
-			units: "meters",
-		});
+		// Create a buffer around the bike lane to account for proximity
+		const bikeLaneBuffer = turf.buffer(
+			bikeLaneFeature,
+			BUFFER_DISTANCE_METERS,
+			{
+				units: "meters",
+			},
+		);
 
 		if (!bikeLaneBuffer) {
 			return 0;
 		}
 
 		// Split route into small segments and check which ones overlap with bike lane buffer
-		const segmentLength = 10; // meters
-		const numSegments = Math.ceil(totalRouteLength / segmentLength);
+		const numSegments = Math.ceil(totalRouteLength / SEGMENT_LENGTH_METERS);
 		let overlapLength = 0;
 
 		for (let i = 0; i < numSegments; i++) {
-			const along = i * segmentLength;
+			const along = i * SEGMENT_LENGTH_METERS;
 			const segmentPoint = turf.along(routeFeature, along, { units: "meters" });
 
 			if (turf.booleanPointInPolygon(segmentPoint, bikeLaneBuffer)) {
-				overlapLength += Math.min(segmentLength, totalRouteLength - along);
+				overlapLength += Math.min(
+					SEGMENT_LENGTH_METERS,
+					totalRouteLength - along,
+				);
 			}
 		}
 
 		return overlapLength;
 	} catch (error) {
-		// eslint-disable-next-line no-console
-		console.log("Error in buffer-based calculation:", error);
+		console.error("Error in overlap calculation:", error);
 		return 0;
 	}
 }
@@ -107,12 +152,7 @@ async function calculateIntersectionWithBikeLanes(
 	const totalRouteLength = turf.length(routeFeature, { units: "meters" });
 	const intersectingFeatures: IntersectionFeature[] = [];
 
-	// eslint-disable-next-line no-console
-	console.log(`Calculating overlaps for ${features.length} features`);
-	// eslint-disable-next-line no-console
-	console.log("Route length (meters):", totalRouteLength);
-
-	// For each bike lane feature, calculate actual geometric overlap
+	// Process each bike lane feature to calculate geometric overlap
 	for (const [index, feature] of features.entries()) {
 		try {
 			const properties = feature.properties || {};
@@ -123,7 +163,7 @@ async function calculateIntersectionWithBikeLanes(
 			const laneType = properties.ist_radvorrangnetz as string;
 
 			// Skip if feature doesn't have valid geometry
-			if (!feature.geometry || !feature.geometry.coordinates) {
+			if (!feature.geometry?.coordinates) {
 				continue;
 			}
 
@@ -149,11 +189,6 @@ async function calculateIntersectionWithBikeLanes(
 				routeFeature,
 				bikeLaneFeature,
 				totalRouteLength,
-			);
-
-			// eslint-disable-next-line no-console
-			console.log(
-				`Feature ${index} (${featureName}): ${overlapLength.toFixed(2)}m overlap`,
 			);
 
 			if (overlapLength > 0) {
@@ -182,41 +217,21 @@ async function calculateIntersectionWithBikeLanes(
 export async function checkBikeLaneOverlap(
 	coordinates: Coordinates[],
 ): Promise<OverlapResult> {
-	// eslint-disable-next-line no-console
-	console.log("🚴 Starting bike lane overlap analysis...");
-
 	try {
-		// First, let's use the working BBOX approach to get actual features (not just counts)
-		const lons = coordinates.map((c) => c.lon);
-		const lats = coordinates.map((c) => c.lat);
-		const minLon = Math.min(...lons) - 0.00001;
-		const maxLon = Math.max(...lons) + 0.00001;
-		const minLat = Math.min(...lats) - 0.00001;
-		const maxLat = Math.max(...lats) + 0.00001;
+		// Create bounding box filter for WFS queries
+		const bboxFilter = createBoundingBox(coordinates);
 
-		const bboxFilter = `BBOX(geom,${minLon},${minLat},${maxLon},${maxLat},'EPSG:4326')`;
-
-		// Query bike network features
-		const networkUrl = new URL(BIKE_NETWORK_WFS_ENDPOINT);
-		networkUrl.searchParams.set("service", "WFS");
-		networkUrl.searchParams.set("version", "2.0.0");
-		networkUrl.searchParams.set("request", "GetFeature");
-		networkUrl.searchParams.set("typeNames", BIKE_NETWORK_LAYER_NAME);
-		networkUrl.searchParams.set("srsName", "EPSG:4326");
-		networkUrl.searchParams.set("outputFormat", "json");
-		networkUrl.searchParams.set("cql_filter", bboxFilter);
-		networkUrl.searchParams.set("maxFeatures", "5");
-
-		// Query bike lanes features
-		const lanesUrl = new URL(BIKE_LANES_WFS_ENDPOINT);
-		lanesUrl.searchParams.set("service", "WFS");
-		lanesUrl.searchParams.set("version", "2.0.0");
-		lanesUrl.searchParams.set("request", "GetFeature");
-		lanesUrl.searchParams.set("typeNames", BIKE_LANES_LAYER_NAME);
-		lanesUrl.searchParams.set("srsName", "EPSG:4326");
-		lanesUrl.searchParams.set("outputFormat", "json");
-		lanesUrl.searchParams.set("cql_filter", bboxFilter);
-		lanesUrl.searchParams.set("maxFeatures", "5");
+		// Build URLs for both bike network and bike lanes endpoints
+		const networkUrl = buildWfsUrl(
+			BIKE_NETWORK_WFS_ENDPOINT,
+			BIKE_NETWORK_LAYER_NAME,
+			bboxFilter,
+		);
+		const lanesUrl = buildWfsUrl(
+			BIKE_LANES_WFS_ENDPOINT,
+			BIKE_LANES_LAYER_NAME,
+			bboxFilter,
+		);
 
 		// Fetch both endpoints in parallel
 		const [networkResponse, lanesResponse] = await Promise.all([
@@ -228,42 +243,8 @@ export async function checkBikeLaneOverlap(
 			throw new Error(`Both WFS queries failed`);
 		}
 
-		// Parse responses
-		let networkFeatures: Array<{
-			geometry?: { type: string; coordinates: number[][] | number[][][] };
-			properties?: Record<string, unknown>;
-		}> = [];
-		let lanesFeatures: Array<{
-			geometry?: { type: string; coordinates: number[][] | number[][][] };
-			properties?: Record<string, unknown>;
-		}> = [];
-
-		if (networkResponse.ok) {
-			const networkData = JSON.parse(await networkResponse.text());
-			networkFeatures = networkData.features || [];
-		}
-
-		if (lanesResponse.ok) {
-			const lanesData = JSON.parse(await lanesResponse.text());
-			lanesFeatures = (lanesData.features || []).map(
-				(feature: {
-					geometry?: { type: string; coordinates: number[][] | number[][][] };
-					properties?: Record<string, unknown>;
-				}) => ({
-					...feature,
-					properties: {
-						...feature.properties,
-						ist_radvorrangnetz: "bike-lane", // Set lane type for bike lanes
-					},
-				}),
-			);
-		}
-
-		// Combine all features
-		const features = [...networkFeatures, ...lanesFeatures];
-
-		// eslint-disable-next-line no-console
-		console.log(`Found ${features.length} features in bounding box`);
+		// Parse responses and combine features
+		const features = await parseWfsResponses(networkResponse, lanesResponse);
 
 		if (features.length === 0) {
 			return {
@@ -272,14 +253,14 @@ export async function checkBikeLaneOverlap(
 			};
 		}
 
-		// Calculate actual geometric intersection using simplified approach
+		// Calculate actual geometric intersection
 		const routeLineString = createLineStringFromCoordinates(coordinates);
 		const intersectionResults = await calculateIntersectionWithBikeLanes(
 			routeLineString,
 			features,
 		);
 
-		// Process overlapping features with actual intersection data
+		// Process overlapping features
 		const overlappingFeatures = intersectionResults.intersectingFeatures.map(
 			(feature) => ({
 				name: feature.name,
@@ -296,8 +277,52 @@ export async function checkBikeLaneOverlap(
 		return {
 			overlaps: false,
 			overlappingFeatures: [],
-			note:
-				error instanceof Error ? error.message : "Advanced WFS query failed",
+			note: error instanceof Error ? error.message : "WFS query failed",
 		};
 	}
+}
+
+/**
+ * Parse WFS responses and combine features from both endpoints
+ */
+async function parseWfsResponses(
+	networkResponse: Response,
+	lanesResponse: Response,
+): Promise<
+	Array<{
+		geometry?: { type: string; coordinates: number[][] | number[][][] };
+		properties?: Record<string, unknown>;
+	}>
+> {
+	let networkFeatures: Array<{
+		geometry?: { type: string; coordinates: number[][] | number[][][] };
+		properties?: Record<string, unknown>;
+	}> = [];
+	let lanesFeatures: Array<{
+		geometry?: { type: string; coordinates: number[][] | number[][][] };
+		properties?: Record<string, unknown>;
+	}> = [];
+
+	if (networkResponse.ok) {
+		const networkData = JSON.parse(await networkResponse.text());
+		networkFeatures = networkData.features || [];
+	}
+
+	if (lanesResponse.ok) {
+		const lanesData = JSON.parse(await lanesResponse.text());
+		lanesFeatures = (lanesData.features || []).map(
+			(feature: {
+				geometry?: { type: string; coordinates: number[][] | number[][][] };
+				properties?: Record<string, unknown>;
+			}) => ({
+				...feature,
+				properties: {
+					...feature.properties,
+					ist_radvorrangnetz: "bike-lane", // Set lane type for bike lanes
+				},
+			}),
+		);
+	}
+
+	return [...networkFeatures, ...lanesFeatures];
 }
