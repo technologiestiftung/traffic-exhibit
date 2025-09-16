@@ -2,12 +2,9 @@ import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import { runPythonScript } from "./runPythonScripts";
-import {
-	handleNoiseBatch,
-	handleNoiseRequest,
-} from "./data-preparation/noise.service";
-import { findWorstIndexForCoordinate } from "./data-preparation/air-quality";
-import { checkBikeLaneOverlap } from "./data-preparation/bike-lane";
+import { handleNoiseRequest } from "./data-preparation/noise-service";
+import { findWorstIndexForCoordinate } from "./data-preparation/air-quality-service";
+import { checkBikeLaneOverlap } from "./data-preparation/bike-lane-service";
 
 const app = express();
 app.use(express.json()); // for JSON POST bodies
@@ -16,11 +13,6 @@ app.use(express.json()); // for JSON POST bodies
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
 
 app.get("/api/noise", handleNoiseRequest);
-
-app.post("/api/noise/batch", async (req, res) => {
-	const points: { lat: number; lon: number }[] = req.body?.points || [];
-	return handleNoiseBatch(points, res);
-});
 
 // --- socket/http (kept in this file, as requested) ---
 const httpServer = createServer(app);
@@ -48,22 +40,27 @@ try {
 async function testBikeLaneOverlap() {
 	try {
 		const coordinates = [
-			{ lon: 13.441038087632554, lat: 52.48638635381149 },
-			{ lon: 13.44259134184144, lat: 52.48560814086235 },
+			{ lon: 13.381331328675396, lat: 52.489793757305165 },
+			{ lon: 13.382287106334381, lat: 52.48989928205013 },
 		];
+
+		// 	{ lon: 13.387929865667388, lat: 52.483641481858655 },
+		// 	{ lon: 13.388140899999883, lat: 52.48398972106418 },
+		// 	{ lon: 13.388161322677405, lat: 52.48430271942601 }
+		// Platz d. Luftbrücke
 
 		// { lon: 13.381331328675396, lat: 52.489793757305165 },
 		// { lon: 13.382287106334381, lat: 52.48989928205013 },
 		// Kreuzbergstr.
 
-		// { lon: 13.40680172677554, lat: 52.53577669525484 },
+		//  { lon: 13.40680172677554, lat: 52.53577669525484 },
 		// 	{ lon: 13.409654935660228, lat: 52.53854107631082 },
 		// Kastanienallee
 
-		const result = await checkBikeLaneOverlap(coordinates);
+		const { overlappingLaneTypes } = await checkBikeLaneOverlap(coordinates);
 
 		// eslint-disable-next-line no-console
-		console.log(`Bike lane overlap result:`, result);
+		console.log(`Bike lane overlap result:`, overlappingLaneTypes);
 	} catch (error) {
 		console.error("Error calling checkBikeLaneOverlap:", error);
 	}

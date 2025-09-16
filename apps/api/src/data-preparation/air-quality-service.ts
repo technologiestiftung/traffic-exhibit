@@ -4,7 +4,7 @@ import { FeatureCollection, MultiPolygon } from "geojson";
 import * as turf from "@turf/turf";
 
 // Load the GeoJSON file
-const geojsonFilePath = path.join(__dirname, "airquality_index.geojson");
+const geojsonFilePath = path.join(__dirname, "./data/airquality_index.geojson");
 const geojsonData = fs.readFileSync(geojsonFilePath, "utf8");
 const geojson: FeatureCollection<MultiPolygon, { Worst_Index: number }> =
 	JSON.parse(geojsonData);

@@ -1,4 +1,16 @@
 import * as turf from "@turf/turf";
+import type {
+	Coordinates,
+	LineString,
+	OverlapResult,
+	IntersectionFeature,
+	IntersectionResult,
+} from "../common";
+import {
+	createBoundingBox,
+	buildWfsUrl,
+	createLineStringFromCoordinates,
+} from "../utils";
 
 // Constants for WFS endpoints and configuration
 const BIKE_NETWORK_WFS_ENDPOINT =
@@ -12,84 +24,6 @@ const BIKE_LANES_LAYER_NAME = "fahrradstrassen:fahrradstrassen";
 // Configuration constants
 const BUFFER_DISTANCE_METERS = 10;
 const SEGMENT_LENGTH_METERS = 10;
-const MAX_FEATURES_PER_QUERY = 5;
-const COORDINATE_PRECISION = 0.00001;
-
-type Coordinates = {
-	lon: number;
-	lat: number;
-};
-
-type OverlapResult = {
-	overlaps: boolean;
-	overlappingFeatures: Array<{
-		name: string;
-		overlapPercentage: number;
-		laneType?: string; // Type of bike lane (ist_radvorrangnetz)
-	}>;
-	note?: string;
-};
-
-type LineString = {
-	type: "LineString";
-	coordinates: number[][];
-};
-
-type IntersectionFeature = {
-	name: string;
-	intersectionPercentage: number;
-	laneType?: string; // Type of bike lane (ist_radvorrangnetz)
-};
-
-type IntersectionResult = {
-	intersectingFeatures: IntersectionFeature[];
-};
-
-/**
- * Create a GeoJSON LineString from coordinates array
- */
-function createLineStringFromCoordinates(
-	coordinates: Coordinates[],
-): LineString {
-	return {
-		type: "LineString",
-		coordinates: coordinates.map((coord) => [coord.lon, coord.lat]),
-	};
-}
-
-/**
- * Create a bounding box filter for WFS queries
- */
-function createBoundingBox(coordinates: Coordinates[]): string {
-	const lons = coordinates.map((c) => c.lon);
-	const lats = coordinates.map((c) => c.lat);
-	const minLon = Math.min(...lons) - COORDINATE_PRECISION;
-	const maxLon = Math.max(...lons) + COORDINATE_PRECISION;
-	const minLat = Math.min(...lats) - COORDINATE_PRECISION;
-	const maxLat = Math.max(...lats) + COORDINATE_PRECISION;
-
-	return `BBOX(geom,${minLon},${minLat},${maxLon},${maxLat},'EPSG:4326')`;
-}
-
-/**
- * Build WFS query URL with standard parameters
- */
-function buildWfsUrl(
-	endpoint: string,
-	layerName: string,
-	bboxFilter: string,
-): URL {
-	const url = new URL(endpoint);
-	url.searchParams.set("service", "WFS");
-	url.searchParams.set("version", "2.0.0");
-	url.searchParams.set("request", "GetFeature");
-	url.searchParams.set("typeNames", layerName);
-	url.searchParams.set("srsName", "EPSG:4326");
-	url.searchParams.set("outputFormat", "json");
-	url.searchParams.set("cql_filter", bboxFilter);
-	url.searchParams.set("maxFeatures", MAX_FEATURES_PER_QUERY.toString());
-	return url;
-}
 
 /**
  * Calculate overlap between route and a single bike lane feature
@@ -211,6 +145,51 @@ async function calculateIntersectionWithBikeLanes(
 }
 
 /**
+ * Parse WFS responses and combine features from both endpoints
+ */
+async function parseWfsResponses(
+	networkResponse: Response,
+	lanesResponse: Response,
+): Promise<
+	Array<{
+		geometry?: { type: string; coordinates: number[][] | number[][][] };
+		properties?: Record<string, unknown>;
+	}>
+> {
+	let networkFeatures: Array<{
+		geometry?: { type: string; coordinates: number[][] | number[][][] };
+		properties?: Record<string, unknown>;
+	}> = [];
+	let lanesFeatures: Array<{
+		geometry?: { type: string; coordinates: number[][] | number[][][] };
+		properties?: Record<string, unknown>;
+	}> = [];
+
+	if (networkResponse.ok) {
+		const networkData = JSON.parse(await networkResponse.text());
+		networkFeatures = networkData.features || [];
+	}
+
+	if (lanesResponse.ok) {
+		const lanesData = JSON.parse(await lanesResponse.text());
+		lanesFeatures = (lanesData.features || []).map(
+			(feature: {
+				geometry?: { type: string; coordinates: number[][] | number[][][] };
+				properties?: Record<string, unknown>;
+			}) => ({
+				...feature,
+				properties: {
+					...feature.properties,
+					ist_radvorrangnetz: "Fahrradstrasse", // Set lane type for bike lanes
+				},
+			}),
+		);
+	}
+
+	return [...networkFeatures, ...lanesFeatures];
+}
+
+/**
  * Check bike lane overlap with detailed feature information
  * Returns overlap percentage and feature details
  */
@@ -248,8 +227,7 @@ export async function checkBikeLaneOverlap(
 
 		if (features.length === 0) {
 			return {
-				overlaps: false,
-				overlappingFeatures: [],
+				overlappingLaneTypes: [],
 			};
 		}
 
@@ -269,60 +247,23 @@ export async function checkBikeLaneOverlap(
 			}),
 		);
 
+		// create array of overlapping lanetypes with more than 30% overlap
+		const overlappingLaneTypes = Array.from(
+			new Set(
+				overlappingFeatures
+					.filter((feature) => feature.overlapPercentage > 30)
+					.map((feature) => feature.laneType)
+					.filter((type): type is string => !!type),
+			),
+		);
+
 		return {
-			overlaps: overlappingFeatures.length > 0,
-			overlappingFeatures: overlappingFeatures,
+			overlappingLaneTypes,
 		};
 	} catch (error) {
 		return {
-			overlaps: false,
-			overlappingFeatures: [],
+			overlappingLaneTypes: [],
 			note: error instanceof Error ? error.message : "WFS query failed",
 		};
 	}
-}
-
-/**
- * Parse WFS responses and combine features from both endpoints
- */
-async function parseWfsResponses(
-	networkResponse: Response,
-	lanesResponse: Response,
-): Promise<
-	Array<{
-		geometry?: { type: string; coordinates: number[][] | number[][][] };
-		properties?: Record<string, unknown>;
-	}>
-> {
-	let networkFeatures: Array<{
-		geometry?: { type: string; coordinates: number[][] | number[][][] };
-		properties?: Record<string, unknown>;
-	}> = [];
-	let lanesFeatures: Array<{
-		geometry?: { type: string; coordinates: number[][] | number[][][] };
-		properties?: Record<string, unknown>;
-	}> = [];
-
-	if (networkResponse.ok) {
-		const networkData = JSON.parse(await networkResponse.text());
-		networkFeatures = networkData.features || [];
-	}
-
-	if (lanesResponse.ok) {
-		const lanesData = JSON.parse(await lanesResponse.text());
-		lanesFeatures = (lanesData.features || []).map(
-			(feature: {
-				geometry?: { type: string; coordinates: number[][] | number[][][] };
-				properties?: Record<string, unknown>;
-			}) => ({
-				...feature,
-				properties: {
-					...feature.properties,
-					ist_radvorrangnetz: "bike-lane", // Set lane type for bike lanes
-				},
-			}),
-		);
-	}
-
-	return [...networkFeatures, ...lanesFeatures];
 }

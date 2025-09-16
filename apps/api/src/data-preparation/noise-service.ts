@@ -1,4 +1,6 @@
 import express from "express";
+import type { Coordinates } from "../common";
+import { calculateDistanceMeters } from "../utils";
 
 // Base URL for Berlin's WFS (Web Feature Service) endpoint for environmental noise data (2022)
 const WFS_ENDPOINT = "https://gdi.berlin.de/services/wfs/ua_stratlaerm_2022";
@@ -6,29 +8,6 @@ const NOISE_LAYER_NAME = "ua_stratlaerm_2022:aa_fp_gesamt2022"; // façade LDEN 
 
 // Attribute field for LDEN noise level in dB(A)
 const NOISE_LEVEL_FIELD = "ges_den";
-
-type Coordinates = {
-	lon: number;
-	lat: number;
-};
-
-/**
- * Calculate approximate distance in meters between two geographic coordinates.
- * Uses average scale factors for degrees → meters:
- * - mx: meters per degree longitude (depends on latitude, hence cosine)
- * - my: meters per degree latitude (roughly constant)
- */
-function calculateDistanceMeters(
-	pointA: Coordinates,
-	pointB: Coordinates,
-): number {
-	const mx = 111320 * Math.cos((pointA.lat * Math.PI) / 180); // meters per degree longitude
-	const my = 110540; // meters per degree latitude
-	return Math.hypot(
-		(pointB.lon - pointA.lon) * mx,
-		(pointB.lat - pointA.lat) * my,
-	);
-}
 
 /**
  * Query LDEN façade point at the specific coordinate using WFS GetFeature.
@@ -114,32 +93,6 @@ export async function fetchNearestNoiseLevel(lat: number, lon: number) {
 		distance_m: Math.round(closestDistance),
 		feature_id: closestFeature.id as string | undefined,
 	};
-}
-
-/**
- * Handle a batch request for LDEN values.
- *
- * @param points Array of coordinate objects with lat/lon properties
- * @param res Express response object for sending HTTP response
- * @returns JSON array with noise data for each point, or error response
- */
-export async function handleNoiseBatch(
-	points: { lat: number; lon: number }[],
-	res: express.Response,
-) {
-	if (!Array.isArray(points) || !points.length) {
-		return res.status(400).json({ error: "Send { points: [{lat,lon}, ...] }" });
-	}
-
-	try {
-		const results = await Promise.all(
-			points.map((p) => fetchNearestNoiseLevel(p.lat, p.lon)),
-		);
-		return res.json(results);
-	} catch (error) {
-		const message = error instanceof Error ? error.message : "Upstream error";
-		return res.status(502).json({ error: message });
-	}
 }
 
 /**
