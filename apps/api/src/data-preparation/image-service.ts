@@ -6,8 +6,6 @@ interface MapillaryImage {
 	is_pano: boolean;
 	thumb_256_url?: string;
 	thumb_1024_url?: string;
-	thumb_2048_url?: string;
-	thumb_original_url?: string;
 }
 
 interface MapillaryResponse {
@@ -32,7 +30,7 @@ export async function getNewestImageInBoundingBox(
 ): Promise<string | null> {
 	try {
 		// Request images with required fields
-		const url = `https://graph.mapillary.com/images?access_token=${ACCESS_TOKEN}&fields=id,captured_at,is_pano,thumb_256_url,thumb_1024_url,thumb_2048_url,thumb_original_url&bbox=${bbox}&limit=${limit}`;
+		const url = `https://graph.mapillary.com/images?access_token=${ACCESS_TOKEN}&fields=id,is_pano,altitude,thumb_256_url,thumb_1024_url&bbox=${bbox}&limit=${limit}`;
 
 		const response = await fetch(url);
 
@@ -46,23 +44,16 @@ export async function getNewestImageInBoundingBox(
 			return null;
 		}
 
-		// Filter for non-panoramic images and sort by captured_at (newest first)
-		const nonPanoImages = data.data
-			.filter((image) => image.is_pano === false)
-			.sort((a, b) => b.captured_at - a.captured_at);
+		// Filter for non-panoramic images
+		const nonPanoImages = data.data.filter((image) => image.is_pano === false);
 
 		if (nonPanoImages.length === 0) {
 			return null;
 		}
 
-		const newestImage = nonPanoImages[0];
-
 		// Return the highest quality thumbnail available
 		const imageUrl =
-			newestImage.thumb_original_url ||
-			newestImage.thumb_2048_url ||
-			newestImage.thumb_1024_url ||
-			newestImage.thumb_256_url;
+			nonPanoImages[0].thumb_1024_url || nonPanoImages[0].thumb_256_url;
 
 		if (!imageUrl) {
 			return null;

@@ -42,9 +42,9 @@ try {
 
 async function testImageSearch() {
 	try {
-		const berlinBbox = "113.3813,52.4897,13.3823,52.4899"; // Kreuzbergstr.
+		const BBOX =
+			"13.387659213019873,52.48371622960855,13.388254502647385,52.48425012472177";
 
-		const BBOX = "13.38,52.483,13.388,52.49";
 		const berlinResult = await getNewestImageInBoundingBox(BBOX);
 		// eslint-disable-next-line no-console
 		console.log("Berlin image:", berlinResult);
