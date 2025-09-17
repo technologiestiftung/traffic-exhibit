@@ -5,10 +5,13 @@ import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import { runPythonScript } from "./runPythonScripts";
-import { handleNoiseRequest } from "./data-preparation/noise-service";
-import { findWorstIndexForCoordinates } from "./data-preparation/air-quality-service";
-import { checkBikeLaneOverlap } from "./data-preparation/bike-lane-service";
-import { getNewestImageForCoordinates } from "./data-preparation/image-service";
+import { findClosestMatch } from "./data-processing/find-modal-split-match";
+import telraamDataRaw from "./../data/telraam-data-snippet.json";
+import enrichedTelraamDataRaw from "./../data/enriched-telraam-data.json";
+import type { TrafficFeature } from "./common";
+
+const telraamData = telraamDataRaw as { features: TrafficFeature[] };
+const enrichedTelraamData = enrichedTelraamDataRaw as any[];
 
 const app = express();
 app.use(express.json()); // for JSON POST bodies
@@ -16,7 +19,18 @@ app.use(express.json()); // for JSON POST bodies
 // --- routes ---
 app.get("/api/health", (_req, res) => res.json({ ok: true }));
 
-app.get("/api/noise", handleNoiseRequest);
+const closestMatch = findClosestMatch(
+	{ car: 50, bike: 30, pedestrian: 15, heavy: 5 },
+	telraamData.features,
+);
+
+// match the closestresult with enriched-telraam-data.json with the segment_id and return the enrichedMatch
+const enrichedMatch =
+	enrichedTelraamData.find(
+		(feature: any) =>
+			feature.originalProperties.segment_id ===
+			closestMatch?.properties.segment_id,
+	) || null;
 
 // --- socket/http (kept in this file, as requested) ---
 const httpServer = createServer(app);
@@ -25,66 +39,6 @@ const io = new Server(httpServer, {
 		origin: "*",
 	},
 });
-
-// Test coordinates for different locations
-const testCoordinates = [
-	{ lon: 13.387929865667388, lat: 52.483641481858655 },
-	{ lon: 13.388140899999883, lat: 52.48398972106418 },
-	{ lon: 13.388161322677405, lat: 52.48430271942601 },
-];
-// Platz d. Luftbrücke
-
-const kreuzbergCoordinates = [
-	{ lon: 13.381331328675396, lat: 52.489793757305165 },
-	{ lon: 13.382287106334381, lat: 52.48989928205013 },
-];
-// Kreuzbergstr.
-
-const _kastanienalleeCoordinates = [
-	{ lon: 13.40680172677554, lat: 52.53577669525484 },
-	{ lon: 13.409654935660228, lat: 52.53854107631082 },
-];
-// Kastanienallee
-
-// Test the air quality function and log the result
-try {
-	const worstIndex = findWorstIndexForCoordinates([
-		{ lon: 13.441177599882215, lat: 52.528336599682355 },
-	]);
-	// eslint-disable-next-line no-console
-	console.log(`Air quality worst index for coordinates: ${worstIndex}`);
-} catch (error) {
-	console.error("Error calling findWorstIndexForCoordinates:", error);
-}
-
-// Test the image search function
-async function testImageSearch() {
-	try {
-		const berlinResult = await getNewestImageForCoordinates(testCoordinates);
-		// eslint-disable-next-line no-console
-		console.log("Berlin image:", berlinResult);
-	} catch (error) {
-		console.error("Error calling getNewestImageForCoordinates:", error);
-	}
-}
-
-testImageSearch();
-
-// Test the bike lane overlap function
-async function testBikeLaneOverlap() {
-	try {
-		const { overlappingLaneTypes } =
-			await checkBikeLaneOverlap(kreuzbergCoordinates);
-
-		// eslint-disable-next-line no-console
-		console.log(`Bike lane overlap result:`, overlappingLaneTypes);
-	} catch (error) {
-		console.error("Error calling checkBikeLaneOverlap:", error);
-	}
-}
-
-// Call the test function
-testBikeLaneOverlap();
 
 io.on("connection", (socket) => {
 	// eslint-disable-next-line no-console
@@ -113,6 +67,8 @@ io.on("connection", (socket) => {
 	 * 6. send match to frontend
 	 * 7. (optional: turn on audio mix for the match)
 	 */
+
+	socket.emit("telraam-match", enrichedMatch);
 
 	/*
 	 * TO DO: Handle "go-back-to-start" event from frontend

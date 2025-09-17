@@ -7,7 +7,7 @@ import type {
 	IntersectionResult,
 } from "../common";
 import {
-	createBoundingBox,
+	createBoundingBoxWFS,
 	buildWfsUrl,
 	createLineStringFromCoordinates,
 } from "../utils";
@@ -193,12 +193,12 @@ async function parseWfsResponses(
  * Check bike lane overlap with detailed feature information
  * Returns overlap percentage and feature details
  */
-export async function checkBikeLaneOverlap(
+export async function getBikeLaneOverlap(
 	coordinates: Coordinates[],
 ): Promise<OverlapResult> {
 	try {
 		// Create bounding box filter for WFS queries
-		const bboxFilter = createBoundingBox(coordinates);
+		const bboxFilter = createBoundingBoxWFS(coordinates);
 
 		// Build URLs for both bike network and bike lanes endpoints
 		const networkUrl = buildWfsUrl(

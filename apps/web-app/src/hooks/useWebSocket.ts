@@ -7,6 +7,7 @@ const wsUrl = import.meta.env.VITE_WS_URL;
 export const useWebSocket = () => {
 	const [socket, setSocket] = useState<Socket | null>(null);
 	const [occupiedBlocks, setOccupiedBlocks] = useState<number[]>([]);
+	const [telraamMatch, setTelraamMatch] = useState(null);
 
 	const { setCurrentScreen } = useScreenStore();
 
@@ -15,6 +16,9 @@ export const useWebSocket = () => {
 		setSocket(newSocket);
 		newSocket.on("camera-data", (data: number[]) => {
 			setOccupiedBlocks(data);
+		});
+		newSocket.on("telraam-match", (data) => {
+			setTelraamMatch(data);
 		});
 		return () => {
 			newSocket.disconnect();
@@ -26,5 +30,5 @@ export const useWebSocket = () => {
 		socket?.emit("go-back-to-start");
 	};
 
-	return { occupiedBlocks, goBackToStart };
+	return { occupiedBlocks, goBackToStart, telraamMatch };
 };

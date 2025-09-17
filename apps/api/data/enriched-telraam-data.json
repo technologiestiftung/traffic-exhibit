@@ -1,0 +1,5401 @@
+[
+  {
+    "segment_id": 9000001786,
+    "coordinates": [
+      [
+        13.552789594,
+        52.439608503
+      ],
+      [
+        13.554253994,
+        52.440129403
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-B2Xcl8hyuS1ID_0tLTv2D8h1OJsLY-4mUCng7Xd6NvDyDMLiwPNwJylb2Pbf_Kvql-bl8iv7MIN-lZQS-NlTmRHvj35zt1UERKvRbZKPN_yIGEGZwTdKRiHGExN_jutSJDXcfnp_7Bafb7rSMHQ?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=14-KVbTdhuBHnXuEPvMaWg&_nc_oc=Admma531DRN0eLPfpr-4pSRmpmlvFcrNQk8-gajL2q43LczZOkJbddk6uCaN6RqJ1HM&ccb=10-5&oh=00_Afat9eAN8l9ZzhfxdSQOJ9px5ipZafIWJLeRqDv54rX_tQ&oe=68F25581&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 69,
+    "address": "Dörpfeldstraße, 67, 12489, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000001786,
+      "last_data_package": "2025-09-17 15:30:32.653200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9997222222222222,
+      "heavy": 141,
+      "car": 777,
+      "bike": 209,
+      "pedestrian": 124,
+      "night": 0,
+      "car_percentage": 62.11031175059952,
+      "bike_percentage": 16.706634692246205,
+      "pedestrian_percentage": 9.91207034372502,
+      "heavy_percentage": 11.270983213429256
+    }
+  },
+  {
+    "segment_id": 9000002074,
+    "coordinates": [
+      [
+        13.543889794,
+        52.436378003
+      ],
+      [
+        13.544742294,
+        52.436697703
+      ],
+      [
+        13.544768094,
+        52.436707403
+      ],
+      [
+        13.544932394,
+        52.436769003
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_tNGH-77dcGDPH1r6No1eYgH7NyjaJDHbfdSeEXmTXyEcBBC34UwABQoVK0TAUWyuWSx9oyMuoDnLZ2_wE3CNEvFiRjIa7YKmWpRhhkmqFmgVTGFsU9GVa9yoZItzpB0YAPbsQCrevatSca9L3Qg?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=TVFulVgQPDGU1AO0blZXyQ&_nc_oc=Adm30gkSQ5Z93v1CHJUM5JJy1u4ZpF8fe9n2j3McyvFEF3EzJNOQl3YcCv8XLY_Qhbw&ccb=10-5&oh=00_AfbBf9oWOapiDb50bTBUPdMjjaPS2Sjh-VHc17TytEqr1g&oe=68F25E9A&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 66,
+    "address": "Dörpfeldstraße, 18, 12489, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000002074,
+      "last_data_package": "2025-09-17 15:33:34.063300+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7391666666666666,
+      "heavy": 111.05919248238945,
+      "car": 665.7425821336457,
+      "bike": 144.96058473197107,
+      "pedestrian": 55.39983445727495,
+      "night": "",
+      "car_percentage": 68.13020257579755,
+      "bike_percentage": 14.834853993630592,
+      "pedestrian_percentage": 5.669461508896082,
+      "heavy_percentage": 11.365481921675755
+    }
+  },
+  {
+    "segment_id": 9000002109,
+    "coordinates": [
+      [
+        13.528925394,
+        52.433085603
+      ],
+      [
+        13.528373494,
+        52.432766203
+      ],
+      [
+        13.528132794,
+        52.432626803
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8KDcU-PBpBF_XsYLRKX4FBF5JbyI7wiLvxFV0vYwlYreo1UsVCm_xDqg5SZYV6OUhlWfF7c-2JyQIX2Z3pfi64opl8Th3n8X5oEXaUJ9ucNWQEl6fdt-5usPbm-JJDSpyjTmjn2nLls1McAhzNaw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=g2MzWQGB6dl-uFJcTbUWZg&_nc_oc=AdllBEAQY63N8NMYD0CffF-in547P2nQTG3qYsmNJB8KfCtKF1IR_5dK5H6IfkRO-GI&ccb=10-5&oh=00_Afa6JQuQ3NCkSMqSjq4b5z_FwN2hqlLvRIpl3VZ331Pjvw&oe=68F24D2F&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 46,
+    "address": "Abram-Joffe-Straße, 8, 12489, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000002109,
+      "last_data_package": "2025-09-17 15:28:57.087000+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.16722222222222222,
+      "heavy": 0,
+      "car": 0,
+      "bike": 0,
+      "pedestrian": 0,
+      "night": "",
+      "car_percentage": null,
+      "bike_percentage": null,
+      "pedestrian_percentage": null,
+      "heavy_percentage": null
+    }
+  },
+  {
+    "segment_id": 9000002582,
+    "coordinates": [
+      [
+        13.406749894,
+        52.509225703
+      ],
+      [
+        13.407258794,
+        52.509565303
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-j4rLl8OomQRLJCbocuRCEXg1m8H76jruvexq4g-OOl7sRHiefvhmYrJj42nnOX4vC_4SpW4BUc5e8VSI189Nc8eJ6P3bDWPptqxbYOfRoJB0to8__Pqx_EBvmL3WlB6b3eYE3jNb6QWXH0Cz7YQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=n2b7_2N5gwUkRL9pv2Bq6Q&_nc_oc=AdknJZ-wpllQLSofwKw5PQLapdaTXCwGuUS0GfCHU26Ok_tmwmxioegCZ2K10hBUGG4&ccb=10-5&oh=00_AfYNI1zqPtzDUfD4iIFAWNe8eHbc6nSYTaTe7IFYiy4cig&oe=68F241E2&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 63,
+    "address": "Alte Jakobstraße, 89, 10179, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000002582,
+      "last_data_package": "2025-09-17 15:33:33.937000+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7191666666666666,
+      "heavy": 97.71249193985324,
+      "car": 381.5234094355558,
+      "bike": 397.63031506948334,
+      "pedestrian": 20.885922133697417,
+      "night": "",
+      "car_percentage": 42.497633037067615,
+      "bike_percentage": 44.291770298542666,
+      "pedestrian_percentage": 2.326468658349963,
+      "heavy_percentage": 10.884128006039768
+    }
+  },
+  {
+    "segment_id": 9000002889,
+    "coordinates": [
+      [
+        13.448047794,
+        52.477697603
+      ],
+      [
+        13.448009494,
+        52.477568703
+      ],
+      [
+        13.447999894,
+        52.477535203
+      ],
+      [
+        13.447944194,
+        52.477351003
+      ],
+      [
+        13.447936194,
+        52.477324503
+      ],
+      [
+        13.447913994,
+        52.477251303
+      ],
+      [
+        13.447696494,
+        52.476535403
+      ],
+      [
+        13.447663394,
+        52.476426603
+      ],
+      [
+        13.447640194,
+        52.476380703
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-MCDaiAyAHtvylpPWQwdcOklD-E3FuvAzhlbgqsmR4iVbu3QlSmocVLX9LG3rqpCqGMfxkWSoMhny2ZvIPrUoY2aFAqvCOAVZ8aNcTvPuRlXSijmIhxZBAie3ZzRZ0Y-GEY7xlLT9ndpKTw069gA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=LH2h9WVPuX0B21BvwSgW5Q&_nc_oc=AdkeP7MfWdRiOVDUEo1pU9UCN9osj9r58Q5PuCmrEHnqaJUOPcv3CWrToiItvN_9API&ccb=10-5&oh=00_Afan6xcI2VRy4mAA17TpDrMLkrshC9ggfR388deTv6w9DA&oe=68F2563B&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 73,
+    "address": "Sonnenallee, 166, 12059, Berlin",
+    "district": "Neukölln",
+    "originalProperties": {
+      "segment_id": 9000002889,
+      "last_data_package": "2025-09-17 15:33:20.829200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6211111111111111,
+      "heavy": 4.660905132603246,
+      "car": 70.406200025684,
+      "bike": 86.57720776440566,
+      "pedestrian": 0,
+      "night": "",
+      "car_percentage": 43.556249367929254,
+      "bike_percentage": 53.56031783550071,
+      "pedestrian_percentage": 0,
+      "heavy_percentage": 2.8834327965700504
+    }
+  },
+  {
+    "segment_id": 9000003000,
+    "coordinates": [
+      [
+        13.459240394,
+        52.514195303
+      ],
+      [
+        13.459406994,
+        52.514360103
+      ],
+      [
+        13.459943594,
+        52.514890003
+      ],
+      [
+        13.460052994,
+        52.514996003
+      ],
+      [
+        13.460075694,
+        52.515028603
+      ],
+      [
+        13.460126194,
+        52.515101303
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8YChnFjbaNi-2Y92B64s7QqI3a-L01cDCBFPDUGWgJWx5KrPZ7NPGSeVGh0xX0sWQpbGyr1erorcf8f7Jyc7cWrphgxpo4PJA3iHbiNiQwO4XUHTKnWdsVAVUhGmvdHDENkmBjWVLiBiZ3DAeKmg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=f4vKu7haT02H29jnjW-8xQ&_nc_oc=AdkHQrJfZ4iFFvN6xrJUf9PjdbjlMW7o3WlYVOxdI93z8FxhliXceuEvKpDdT-lE0xM&ccb=10-5&oh=00_AfYJ18zpBdngjQaFLf00EYNowTirE_hW7pAD3dHM3ljCIQ&oe=68F259BF&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 55,
+    "address": "Niederbarnimstraße, 22, 10247, Berlin",
+    "district": "Friedrichshain-Kreuzberg",
+    "originalProperties": {
+      "segment_id": 9000003000,
+      "last_data_package": "2025-09-17 15:33:07.185200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6233333333333333,
+      "heavy": 22.95324369663104,
+      "car": 49.363509266837085,
+      "bike": 11.354280324466666,
+      "pedestrian": 0,
+      "night": "",
+      "car_percentage": 58.99713117795954,
+      "bike_percentage": 13.570144742199489,
+      "pedestrian_percentage": 0,
+      "heavy_percentage": 27.43272407984097
+    }
+  },
+  {
+    "segment_id": 9000003045,
+    "coordinates": [
+      [
+        13.459240394,
+        52.514195303
+      ],
+      [
+        13.457824394,
+        52.512798403
+      ],
+      [
+        13.457811494,
+        52.512785703
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9DzRfqdO3OZE0rOyAGdSFP81l_zkobEHGLw91JGoSs_n8HEdhZOBBW0_tS68Sk7zH2bWuxWDe4rQNsQAGyn6Tq9exicr_KhCBpi_SK2_JZZPcx5-NCrjmjfENvqqNnx4Z2tVbIAYUS72cxINrx_aQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=jfi1x8PgwnI6aKey0C3BOA&_nc_oc=AdmGRqWh1Jp3b0Y2XKGXR6uzQwGqb_Ayu2ZSAahYPxPNvqjQ9HvlI1m7SCKjPQ8oMX8&ccb=10-5&oh=00_AfaFrMslO9vlGumG14_-ZbxvKGWyBb-lWwa1beMZMmQ3QQ&oe=68F23292&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 55,
+    "address": "Niederbarnimstraße, 22, 10247, Berlin",
+    "district": "Friedrichshain-Kreuzberg",
+    "originalProperties": {
+      "segment_id": 9000003045,
+      "last_data_package": "2025-09-17 15:33:32.466100+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7055555555555556,
+      "heavy": 0,
+      "car": 1.495016611295681,
+      "bike": 1.3574660633484164,
+      "pedestrian": 0,
+      "night": "",
+      "car_percentage": 52.4110671936759,
+      "bike_percentage": 47.58893280632412,
+      "pedestrian_percentage": 0,
+      "heavy_percentage": 0
+    }
+  },
+  {
+    "segment_id": 9000003077,
+    "coordinates": [
+      [
+        13.459547294,
+        52.508039403
+      ],
+      [
+        13.459918794,
+        52.508854903
+      ],
+      [
+        13.459933294,
+        52.508886903
+      ],
+      [
+        13.459980094,
+        52.508973003
+      ],
+      [
+        13.459984794,
+        52.508982003
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9jozGzxm7Woku4pn4ZmKIZezBWk-RTY3wjoLv8Nj6DeegRwSYh8SZvPw0D9GWc_ceCppUOhJk_DGKSMLN1M2tYkHwHxgxQeZB4CuBm3cOU0_YuE-4AWnNe8WiO3ZvMJ4Dy5Fzg50EE0uwD5wUsSDg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=pn2DMndzFOkpYyhxqVcSng&_nc_oc=Adk2lbpbSSu1XTHKsN6WcFIwMIACzd_n-SJ4_YuuwzhsXzZ5tSXMIimf2DuqQj_S6Yg&ccb=10-5&oh=00_Afapp40UjkQckT02ZNpz0tByn11rTMcFkvVSMR7PRpwpxw&oe=68F232DE&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 61,
+    "address": "Simplonstraße, 10245, Berlin",
+    "district": "Friedrichshain-Kreuzberg",
+    "originalProperties": {
+      "segment_id": 9000003077,
+      "last_data_package": "2025-09-17 15:33:38.470900+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6908333333333334,
+      "heavy": 24.63816942158376,
+      "car": 28.822038585683128,
+      "bike": 266.38370952693765,
+      "pedestrian": 14.427329972453215,
+      "night": "",
+      "car_percentage": 8.62235050147682,
+      "bike_percentage": 79.69088323147867,
+      "pedestrian_percentage": 4.316054725037595,
+      "heavy_percentage": 7.3707115420069265
+    }
+  },
+  {
+    "segment_id": 9000003088,
+    "coordinates": [
+      [
+        13.394411794,
+        52.487373003
+      ],
+      [
+        13.394412894,
+        52.488268203
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8fGruuD1Ti4mp2ijI_gI33DHm2GTJslyfmbZBc1lYroZjAU3pfNflKiQtkk2QFGbRe6New1bwqNv3kxkhztRyADqQjpbAydQ8G6EgMmLAKTM52mv7MFoWfp6LVUjmrOAgCPisbPX58tisfZh_Wico?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=ynvjGhpg_PG16N0i017W6g&_nc_oc=AdmQBw_AFQhnl7p6uTw8fieNEiwpm6HGoqLKt4nL75SO_gxHE2j--SmCRMOZGrXPJGM&ccb=10-5&oh=00_AfYcUnOzKdebw9ZrZ-QYLVWMAS2jNV_9WFPYjh5KdGtjrg&oe=68F24A2D&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 62,
+    "address": "Willibald-Alexis-Straße, 6, 10965, Berlin",
+    "district": "Friedrichshain-Kreuzberg",
+    "originalProperties": {
+      "segment_id": 9000003088,
+      "last_data_package": "2025-09-17 15:32:37.199400+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.74,
+      "heavy": 78.20101728029394,
+      "car": 490.5634617796962,
+      "bike": 214.7128803531767,
+      "pedestrian": 149.95234363009214,
+      "night": "",
+      "car_percentage": 52.554944435592,
+      "bike_percentage": 23.002576375398032,
+      "pedestrian_percentage": 16.06466380287694,
+      "heavy_percentage": 8.377815386133024
+    }
+  },
+  {
+    "segment_id": 9000003172,
+    "coordinates": [
+      [
+        13.530875094,
+        52.485870403
+      ],
+      [
+        13.531230194,
+        52.485315303
+      ],
+      [
+        13.531980894,
+        52.484141503
+      ],
+      [
+        13.532014894,
+        52.484088403
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_vDlxeHIsUnkUC7R6B2RRDneOfEtRAjGR0ZiZfP0XIsVuRvVWclnDGg-J1UX4FM_M6EbuocIaHS3Z6bJyGcCCetwWbg3aFy-lcYrVYX1tPh-w85VhrXRG8x4abJX__YtjrnS8y5qdOvZEMGk-R6g?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=KfyHdIH7SpxOTsJ9VtICAg&_nc_oc=AdlIulzssNtOKE-59oyAXwHyjQD6goWLmdtky18PetugL-tR1SO8Rc6qHqe9VPNtvx4&ccb=10-5&oh=00_AfZSNMYDwwXKuOOJcUocBOR_7JsxgxUhQvFcYOGDSay_4g&oe=68F248CB&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 56,
+    "address": "Rhenser Weg, 2, 10318, Berlin",
+    "district": "Lichtenberg",
+    "originalProperties": {
+      "segment_id": 9000003172,
+      "last_data_package": "2025-09-17 15:32:46.494200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7352777777777778,
+      "heavy": 24.31743883348768,
+      "car": 311.65620400042945,
+      "bike": 60.22314802361883,
+      "pedestrian": 16.921510872390193,
+      "night": "",
+      "car_percentage": 75.43994122152763,
+      "bike_percentage": 14.577700327348216,
+      "pedestrian_percentage": 4.096044837890658,
+      "heavy_percentage": 5.886313613233499
+    }
+  },
+  {
+    "segment_id": 9000003310,
+    "coordinates": [
+      [
+        13.381502594,
+        52.474331003
+      ],
+      [
+        13.381584694,
+        52.474301703
+      ],
+      [
+        13.382391094,
+        52.473958203
+      ],
+      [
+        13.382462394,
+        52.473918103
+      ],
+      [
+        13.382606294,
+        52.473830603
+      ],
+      [
+        13.382872694,
+        52.473634103
+      ],
+      [
+        13.383234894,
+        52.473355603
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-o5_npZG-XS34xFIuUXnu8CoQiWR-bqZbqS5YbT5YgEYNTzhHzzT1AWMNbW_IE5lLz77oj9fuhAJJ8uYy6Ga0BRh6mP_l67Bjiv3SsQyJ3WGmeObS5nbO7Rm20XAuXQnKqVVQ3jYLB9zkqLXnV_Q?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=QXUsfHOQp2EJcIzbqZpcbw&_nc_oc=AdnLQB6H1bq4zxso9YENujUL9I7ntaeSZtzinkEGzOMxtgEsmLuUpuYO6OZegm5Rfc4&ccb=10-5&oh=00_AfamtBlXYDPM19kmnikv_LB61K8hZcfplTwoZhxevy_eHA&oe=68F239B9&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 50,
+    "address": "Manfred-von-Richthofen-Straße, 12101, Berlin",
+    "district": "Tempelhof-Schöneberg",
+    "originalProperties": {
+      "segment_id": 9000003310,
+      "last_data_package": "2025-09-17 15:32:27.358200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.5994444444444444,
+      "heavy": 25.708979091302115,
+      "car": 73.92387674178043,
+      "bike": 63.507322835899785,
+      "pedestrian": 0,
+      "night": "",
+      "car_percentage": 45.31310272239851,
+      "bike_percentage": 38.928069929823096,
+      "pedestrian_percentage": 0,
+      "heavy_percentage": 15.75882734777839
+    }
+  },
+  {
+    "segment_id": 9000003318,
+    "coordinates": [
+      [
+        13.547628094,
+        52.436597903
+      ],
+      [
+        13.548212894,
+        52.436897803
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": null,
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 47,
+    "address": "Friedenstraße, 18A, 12489, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000003318,
+      "last_data_package": "2025-09-15 05:00:22.176400+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "NaT",
+      "period": "",
+      "uptime": "",
+      "heavy": "",
+      "car": "",
+      "bike": "",
+      "pedestrian": "",
+      "night": ""
+    }
+  },
+  {
+    "segment_id": 9000003320,
+    "coordinates": [
+      [
+        13.490319494,
+        52.514757703
+      ],
+      [
+        13.490346594,
+        52.514839803
+      ],
+      [
+        13.490425694,
+        52.514980803
+      ],
+      [
+        13.490475494,
+        52.515034503
+      ],
+      [
+        13.490534594,
+        52.515080003
+      ],
+      [
+        13.490605394,
+        52.515120203
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9GdchIKV4HrN_45mueOBG9T48rzsBdFesDIIb7Opn5Xu4CSgL8bPkj133D2OIc1Vyct6-FTZbvzEI6i8NZFOaKZQP5xcFTEf3V34I86s9Omf4JXA5-rNS8t80dXfL06PJUbThU6jXlEMH5G2c2OS8?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=Z9th-1svfaWN8T-pL10zgw&_nc_oc=Adkk9O5Fs2xTSYzT6TymguKvpotkmryuLd_c-TFXKIPAUlzuAhMuSYcaJri9zP27VTQ&ccb=10-5&oh=00_AfYBEFhPpyg9Rq5764pNf0Phs3UE31q7Xu1TEWvApHjXTQ&oe=68F2506E&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 63,
+    "address": "Schottstraße, 2, 10365, Berlin",
+    "district": "Lichtenberg",
+    "originalProperties": {
+      "segment_id": 9000003320,
+      "last_data_package": "2025-09-17 15:32:45.642000+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6625000000000001,
+      "heavy": 15.632060691020037,
+      "car": 12.084895628596321,
+      "bike": 41.33305435662598,
+      "pedestrian": 17.169195583881837,
+      "night": "",
+      "car_percentage": 14.016477479665118,
+      "bike_percentage": 47.9394976473383,
+      "pedestrian_percentage": 19.91342338745524,
+      "heavy_percentage": 18.130601485541355
+    }
+  },
+  {
+    "segment_id": 9000003479,
+    "coordinates": [
+      [
+        13.525972294,
+        52.483964303
+      ],
+      [
+        13.525861894,
+        52.483614303
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9-Sidkar1PQIIklBhCAM1HrOpGHZen2iTutInlpbufTTGL2ruProBKxqXg59x94Vmele4YoljRfYvsUpUklc5FsXulwJIlMDNBaGq73SVlQMMfQfMWdZT_mWj2AlHAAjtStm0hr4T4z_uo4kP5acY?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=r3QhBC6dhMs41V2gFruwrg&_nc_oc=AdmcOXetn1qTZMNPsPwQLbJI8sJMn6fwl6DB37zCRzgcCvgYWJMfBrUf7Mi8ruleNpA&ccb=10-5&oh=00_AfZkEPOXWKtEhwMAq6njsOnpPYf3HbKmWI1QawtLq0tLJg&oe=68F232D3&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 68,
+    "address": "Treskowallee, 92, 10318, Berlin",
+    "district": "Lichtenberg",
+    "originalProperties": {
+      "segment_id": 9000003479,
+      "last_data_package": "2025-09-17 15:30:13.993800+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9833333333333334,
+      "heavy": 86.23990498812351,
+      "car": 1008.7410926365795,
+      "bike": 82.23990498812351,
+      "pedestrian": 42.826603325415675,
+      "night": 0,
+      "car_percentage": 82.68047659839577,
+      "bike_percentage": 6.740713340082547,
+      "pedestrian_percentage": 3.5102406354645272,
+      "heavy_percentage": 7.068569426057161
+    }
+  },
+  {
+    "segment_id": 9000003520,
+    "coordinates": [
+      [
+        13.376362294,
+        52.540647503
+      ],
+      [
+        13.377251594,
+        52.541263303
+      ],
+      [
+        13.377329494,
+        52.541317203
+      ],
+      [
+        13.377798194,
+        52.541633803
+      ],
+      [
+        13.378010294,
+        52.541775203
+      ],
+      [
+        13.378103494,
+        52.541837203
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8faqwKZGmg-hw_nCRjne7U_vva-oSXODug8WNB-nAxO7cWIjHd3bHPLlatSQ87wTgFRM94GJZgKbvK3ubrBgl2QzmXe113PG67rf1Z2VIl9qigH9xAzgkEMJ9o_HgxVCYZ-OL4lvkscCzLi-FFgg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=h_puWwW-UyFWYHc4_GEE-g&_nc_oc=Adl2NUmeQFmlL0AJcBYglnPRLB0JH_LA1FNtHceksU0C_AtmzjeFPQZqJhydEq5Gu4w&ccb=10-5&oh=00_AfbDMzvS9h2lgz6KpLZRBvVitv242cG_QgtxsUjgmRwfGA&oe=68F24869&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 59,
+    "address": "Grenzstraße, 21, 13355, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000003520,
+      "last_data_package": "2025-09-17 15:32:26.279300+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6869444444444445,
+      "heavy": 39.14619575227227,
+      "car": 207.0818124213471,
+      "bike": 60.904252278363174,
+      "pedestrian": 1.468189233278956,
+      "night": "",
+      "car_percentage": 67.10353553682367,
+      "bike_percentage": 19.735633029854238,
+      "pedestrian_percentage": 0.47575732140907356,
+      "heavy_percentage": 12.68507411191302
+    }
+  },
+  {
+    "segment_id": 9000003561,
+    "coordinates": [
+      [
+        13.315488794,
+        52.495556803
+      ],
+      [
+        13.315759394,
+        52.496414003
+      ],
+      [
+        13.315770094,
+        52.496447703
+      ],
+      [
+        13.315797194,
+        52.496533603
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8c6IdB4kGFRcD37FHwhXdGgC-k6QuCoyeV528s0Rnnlg2YU6FWsnlD0CtXZ_C0uWP5LCKTLRMpMg1WNrJ2RN1D9li6v-ZTL8V62J9GemS3jj7VqJW1Tax4K3zbDGCCYkr3W0z-Sc6Q93o8GH8jMcw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=FimucJtG82delIwlTJPdiw&_nc_oc=AdmAq6sye4oqyoC1QGZeLzilODhlmYRsDgv-c0yGLN1UwdVc1XhLtWWrz8nOpvXWrFo&ccb=10-5&oh=00_AfY7u6CS_JDZ3rOFIn5D5jSIBryuGvP1WOCxsw5DC2IDtw&oe=68F240D8&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 61,
+    "address": "Württembergische Straße, 20, 10707, Berlin",
+    "district": "Charlottenburg-Wilmersdorf",
+    "originalProperties": {
+      "segment_id": 9000003561,
+      "last_data_package": "2025-09-17 15:32:51.349800+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.5636111111111111,
+      "heavy": 14.621216846904577,
+      "car": 66.75314656952769,
+      "bike": 28.330544098470167,
+      "pedestrian": 0,
+      "night": "",
+      "car_percentage": 60.84791289802589,
+      "bike_percentage": 25.82431792727387,
+      "pedestrian_percentage": 0,
+      "heavy_percentage": 13.327769174700244
+    }
+  },
+  {
+    "segment_id": 9000003564,
+    "coordinates": [
+      [
+        13.523624294,
+        52.486966703
+      ],
+      [
+        13.523399094,
+        52.486993103
+      ],
+      [
+        13.522492594,
+        52.487099203
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9fqnpqrR5qVZPqFXGv8UQLizO_H84FudEArCzosYVyGB5VS7XNDFqF9Iv2YQ0Qe-e0jYScvjvBATjAmLZiN8J2xJS57oAjNenx7fEhCDx4TxP6hEZ9p05DwTm3E0br_xYVdvy4ZuB6JjYuE1WfNw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=ARo-vpkmA-H9tXmDz5zgVw&_nc_oc=Adm3rXbvfT0fim87ZmaNk3pfDOxXdoDrUdRvuydcLiLH46Ns0EKm4GW0yF94GmGG_Pc&ccb=10-5&oh=00_AfZqS38UWxXdGgbMjlMjvrfVeRHhufcPdt3vFi0jbjL-Pg&oe=68F261D2&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 44,
+    "address": "Marksburgstraße, 34, 10318, Berlin",
+    "district": "Lichtenberg",
+    "originalProperties": {
+      "segment_id": 9000003564,
+      "last_data_package": "2025-09-17 15:33:08.159700+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6577777777777778,
+      "heavy": 5.830848057102642,
+      "car": 32.38619628848187,
+      "bike": 69.5820049424561,
+      "pedestrian": 7.511167018905345,
+      "night": "",
+      "car_percentage": 28.086146506110598,
+      "bike_percentage": 60.34331316943743,
+      "pedestrian_percentage": 6.513878179632636,
+      "heavy_percentage": 5.056662144819348
+    }
+  },
+  {
+    "segment_id": 9000003738,
+    "coordinates": [
+      [
+        13.481651794,
+        52.514434703
+      ],
+      [
+        13.481321794,
+        52.514732003
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8wFAN2JltGz1zXJo3l9ICUDv6uhiQaFHgdLry7LPKYZPcbCchpcPdO0oLb2HeWwYHuChwEBi_Kc04eO5MRQVQI887xCZ15hOtfIAgRV2uvHfkex0pUcJeiORzHAUY8fGsf_pj9uTxfoK-W8Vukgg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=p0Hr5ms2xtYdGqFwk9Cf9g&_nc_oc=AdnUg_YRIblcoRAcRhwZGiDmLW2RnILrXPiGWoXpHR8LF1kt4CeQEsuxPtp7BVER_oI&ccb=10-5&oh=00_AfZbKrLxGqDGJPRsCXiERCsmA3Gm-n5KZJF3fs3OBa6O9A&oe=68F22D04&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 53,
+    "address": "Rathausstraße, 7, 10367, Berlin",
+    "district": "Lichtenberg",
+    "originalProperties": {
+      "segment_id": 9000003738,
+      "last_data_package": "2025-09-17 05:21:52.398800+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "NaT",
+      "period": "",
+      "uptime": "",
+      "heavy": "",
+      "car": "",
+      "bike": "",
+      "pedestrian": "",
+      "night": ""
+    }
+  },
+  {
+    "segment_id": 9000003747,
+    "coordinates": [
+      [
+        13.486724694,
+        52.502412603
+      ],
+      [
+        13.486915994,
+        52.502428203
+      ],
+      [
+        13.487014894,
+        52.502433203
+      ],
+      [
+        13.487093294,
+        52.502431603
+      ],
+      [
+        13.487129094,
+        52.502423803
+      ],
+      [
+        13.487832794,
+        52.502262203
+      ],
+      [
+        13.488368194,
+        52.502128303
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-FHMh3lR5Lec_KvKR9Cv22Toj8QKLhQ_Pr0jsWbzRtXfUtVOpwvR7Ea-ADWkoG1Y8RyBCu31CRG8HuEbugHT8wSi2b6bvSaobOOC2K0zXK4B6-yJWYX7wMWQbpdVxYCBRyhST9XdQdV6HqokKgZhk?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=IK5H1VjJlq4qNfLDv5p3uA&_nc_oc=AdmXfp9uM3PIvNiWvOB0DUZwMoFejXAk5GoR891bUmY7BS5naEI5LEKA0PRh5j34svM&ccb=10-5&oh=00_AfZCOb7MUjL0gNFzaEHlnXj8eKnrAxa4qkDj6r5NZA5ciQ&oe=68F2479B&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 71,
+    "address": "Lückstraße, 73, 10317, Berlin",
+    "district": "Lichtenberg",
+    "originalProperties": {
+      "segment_id": 9000003747,
+      "last_data_package": "2025-09-17 15:32:35.251000+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.5705555555555556,
+      "heavy": 146.24207988980714,
+      "car": 646.4087465564738,
+      "bike": 227.5151515151515,
+      "pedestrian": 22.97210743801653,
+      "night": "",
+      "car_percentage": 61.96770644309708,
+      "bike_percentage": 21.81064565656512,
+      "pedestrian_percentage": 2.2022115537292284,
+      "heavy_percentage": 14.019436346608574
+    }
+  },
+  {
+    "segment_id": 9000003760,
+    "coordinates": [
+      [
+        13.335820494,
+        52.528562803
+      ],
+      [
+        13.336652094,
+        52.528486703
+      ],
+      [
+        13.337132294,
+        52.528442703
+      ],
+      [
+        13.338111694,
+        52.528353003
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-tRQxqIDAOLhePcmUvLfobJ0DQFAHNZj9NOtu4DyH-VRbsZ7V3WTwA7ImsGYtajzRThm_LXaJDFUPTh1JyTUt8WTLBEuh0tN8tlBDfH7jpqGKFh7j0FbdAZ_xq7HeJ6z3KbazxYZmufxDFgtqBIg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=1vDhNeJFTGGQkBzb9BSDtQ&_nc_oc=Adlxss4RzPzjFM8IJWUg_RNAW6yQqBQ76ikiKRfCC2DK1-HlGPrnyOF7blw5oPG7V4c&ccb=10-5&oh=00_AfZ7FfaZ8rITBnNyzck7HZ7GLzRbnyDkjI0FdpuMr5K0UA&oe=68F22DC0&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 51,
+    "address": "Waldenserstraße, 7, 10551, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000003760,
+      "last_data_package": "2025-09-17 15:32:47.858500+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6963888888888888,
+      "heavy": 14.447150123273925,
+      "car": 44.10563644167182,
+      "bike": 37.34092915190925,
+      "pedestrian": 27.430362563008106,
+      "night": "",
+      "car_percentage": 35.76401061079212,
+      "bike_percentage": 30.278701185319495,
+      "pedestrian_percentage": 22.24250360968403,
+      "heavy_percentage": 11.714784594204358
+    }
+  },
+  {
+    "segment_id": 9000003769,
+    "coordinates": [
+      [
+        13.437878394,
+        52.520164003
+      ],
+      [
+        13.437976594,
+        52.520130103
+      ],
+      [
+        13.438082994,
+        52.520062703
+      ],
+      [
+        13.438476194,
+        52.519818603
+      ],
+      [
+        13.438969594,
+        52.519512303
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8D91omwODxQlct5A4Si1xYiBLV9kXLT3-sfbrqGzrlENM2sXFwbKJdtNJE2rofZkRLZAMncvF8B2iZFxtx-if6T1Jh-1Cs0JXMqZqGcqNKlQT7Z-0yAxJ7b1Wv-oYQ7AMtwR111-vKjx929Zf22w?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=bP6_q5NMWv9e7qBAcIlw5w&_nc_oc=Adn1oOd8KMIvrnMv1vN0hx7oaHZOJTW5e7-rd4v51qf2pppUdkxQYWppp6rX3riqdjM&ccb=10-5&oh=00_AfZ8w_GegHvmQUAxEPKT3uG5ikWDgTnecGrhS7V9BB7mbw&oe=68F24A60&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 63,
+    "address": "Koppenstraße, 45, 10243, Berlin",
+    "district": "Friedrichshain-Kreuzberg",
+    "originalProperties": {
+      "segment_id": 9000003769,
+      "last_data_package": "2025-09-12 06:11:27.046400+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "NaT",
+      "period": "",
+      "uptime": "",
+      "heavy": "",
+      "car": "",
+      "bike": "",
+      "pedestrian": "",
+      "night": ""
+    }
+  },
+  {
+    "segment_id": 9000003786,
+    "coordinates": [
+      [
+        13.410411494,
+        52.550976103
+      ],
+      [
+        13.410425994,
+        52.551045403
+      ],
+      [
+        13.410506494,
+        52.551431103
+      ],
+      [
+        13.410514394,
+        52.551468603
+      ],
+      [
+        13.410572294,
+        52.551746203
+      ],
+      [
+        13.410688094,
+        52.552300803
+      ],
+      [
+        13.410702194,
+        52.552368503
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An87byaWaU7l8pR1do0axq0PqbcM3oGPEhtO_IIlgcFHCk9yYHsYl6kPhOB73A91UTCfe4-eooe7dcm8g35FWTWf_hh-Ja9mFGnPfcuPI71HGh9M_U4DhZKKHQ-DK0dWvCMHVQmRJH9NIzf4RfAOlw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=1D5QWbIE1Y9V9A6X8tZQrw&_nc_oc=AdloGPvBCazqStJZr-waWq0NRyFJfVbCaw1dMQjmNoq8x7TONeU__7KC16AIoXShsHY&ccb=10-5&oh=00_Afbgyu6C0RACVrVJVBTK7mv0QcxRliZ6UWYFp4QIX3nv4w&oe=68F2531D&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 67,
+    "address": "Schivelbeiner Straße, 10439, Berlin",
+    "district": "Pankow",
+    "originalProperties": {
+      "segment_id": 9000003786,
+      "last_data_package": "2025-09-17 15:32:49.589800+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6572222222222223,
+      "heavy": 20.177122475747133,
+      "car": 104.57611554233996,
+      "bike": 86.55045438400008,
+      "pedestrian": 28.922221535620974,
+      "night": "",
+      "car_percentage": 43.53240407255027,
+      "bike_percentage": 36.02877514972971,
+      "pedestrian_percentage": 12.039592674052917,
+      "heavy_percentage": 8.399228103667104
+    }
+  },
+  {
+    "segment_id": 9000003790,
+    "coordinates": [
+      [
+        13.550804494,
+        52.438898403
+      ],
+      [
+        13.549419894,
+        52.438383003
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-yCyTAvSvCZfy8lyMYDnVhGonZXad8jadF7z34yVy29Pf_xyDHwu1yGDTcPP2RH0M-bSL6EQtGyUTazQVV4VQ_E83Qg_cu7bbKFeHH56Gy0DffRpkRePqf5E23zN8l6Xi5kJTcYTCbr2mRFOIDEy4?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=YanVKmLI3gP64VasE5YuPw&_nc_oc=AdkX04027mEkmRrtHEhfEMl_3xqq2pkqdIhHYqgUvsqWxob8w0sVoC-mReszNk58vcA&ccb=10-5&oh=00_AfZ0-uHovii0Jn3MTsxj1iDBk4zcoK5SiMM0-XDpDTnDOg&oe=68F26073&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 69,
+    "address": "Dörpfeldstraße, 60, 12489, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000003790,
+      "last_data_package": "2025-09-17 15:33:19.803300+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7463888888888889,
+      "heavy": 97.45755021662175,
+      "car": 676.3532440832905,
+      "bike": 148.6120767689257,
+      "pedestrian": 52.32401285533313,
+      "night": "",
+      "car_percentage": 69.3875769430935,
+      "bike_percentage": 15.246222298309679,
+      "pedestrian_percentage": 5.367958976661227,
+      "heavy_percentage": 9.998241781935599
+    }
+  },
+  {
+    "segment_id": 9000003997,
+    "coordinates": [
+      [
+        13.362750994,
+        52.488958503
+      ],
+      [
+        13.362654694,
+        52.489016303
+      ],
+      [
+        13.362611394,
+        52.489042303
+      ],
+      [
+        13.362079894,
+        52.489361403
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_EO3B9ksNqEVXm3uV2QS51zo6zYjeBSy72g7hIwbA0gna6fcu24l6Ny_TkiPOUzKvrFpBOz7s8-8-UwSLHh-_p6eeZNUpLmRZh0xMkxVh8Cqjk9xomb62uyAROxNJCDjOmfBiDDt5Nq9Xj15N6aA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=c2hnP_y1WQBs03FI0nUwHw&_nc_oc=AdmRbM4XZ6ySRpXjLIFNr6Orwpm0NYVUC0jcLkFEGd0vPggPQMkMTSO5M0c7W7BpL_U&ccb=10-5&oh=00_AfZVGasru9EZhu5atE5qjSX-PVjG5i_FYgTNTJEUEubUEw&oe=68F24A6A&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 66,
+    "address": "Crellestraße, 33, 10827, Berlin",
+    "district": "Tempelhof-Schöneberg",
+    "originalProperties": {
+      "segment_id": 9000003997,
+      "last_data_package": "2025-09-17 15:32:55.242000+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7241666666666666,
+      "heavy": 1.4263074484944531,
+      "car": 0,
+      "bike": 4.11051243838129,
+      "pedestrian": 2.8526148969889062,
+      "night": "",
+      "car_percentage": 0,
+      "bike_percentage": 48.996297656273754,
+      "pedestrian_percentage": 34.002468229150836,
+      "heavy_percentage": 17.001234114575418
+    }
+  },
+  {
+    "segment_id": 9000004010,
+    "coordinates": [
+      [
+        13.366809894,
+        52.585518303
+      ],
+      [
+        13.366417594,
+        52.585007903
+      ],
+      [
+        13.366315294,
+        52.584874503
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9Nt1-ERG1VZdEeAZCaX_k6GCJLec0u6fESUXZGRXVYC8MGceAtYJNZzRRSZe3AQYak5LSlf5jkurYLHDxlpL2oLeATNz33vzsISveEygSqIQHmdoH9Wdzihaj6k8veyeb_enGTI0u2SxgowlghwAQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=IV--d26T5PymnBOmAseRdQ&_nc_oc=AdkttUe9qhHMqhO9yM5qGhQQc_CUYmPbCsZGI--i3u564eF4NtBX_o0uFk7UN-DpnA4&ccb=10-5&oh=00_AfZSOAvq3Wq7w_aS5DyO_s9CUcOaY82a892yPjjYuOJoOw&oe=68F23991&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 64,
+    "address": "Garibaldistraße, 13158, Berlin",
+    "district": "Pankow",
+    "originalProperties": {
+      "segment_id": 9000004010,
+      "last_data_package": "2025-09-17 15:33:19.739700+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.3355555555555555,
+      "heavy": 98.27572873197904,
+      "car": 402.4337795443902,
+      "bike": 245.79870138861384,
+      "pedestrian": 8.911662536387936,
+      "night": "",
+      "car_percentage": 53.27286114034264,
+      "bike_percentage": 32.5380242741472,
+      "pedestrian_percentage": 1.1796965984517243,
+      "heavy_percentage": 13.009417987058441
+    }
+  },
+  {
+    "segment_id": 9000004016,
+    "coordinates": [
+      [
+        13.452570394,
+        52.486146503
+      ],
+      [
+        13.452464994,
+        52.486201103
+      ],
+      [
+        13.452422794,
+        52.486222903
+      ],
+      [
+        13.451210294,
+        52.486849203
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-EoHR29CZEgHsLPCsYlZvPZRu2V2EbQaHGsd99qXvC2JdhR3j9Xh4yoWlJyjWDxeorYFNzJuZ5BUxxpDwzjI3H9eu2_OTD9MU-SyV5H8g4uFtBACZJW9DMP7aKJtrq79Vz7VITpUSF2TclCRUZWA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=iNKLWgSynqDW7xvLWS3HFw&_nc_oc=Adn3RsZeQBkb_UIY4SH6nu0QnsNxZ2P0fNHWpws2Vz51nAnh2F8MkdsDwo9qEfMsL7U&ccb=10-5&oh=00_AfaBQWuTGU8NYETnwxyvVeY4VGCZVOx-4Xrh6E7nUxXATg&oe=68F24BF7&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 48,
+    "address": "Heidelberger Straße, 32A, 12059, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000004016,
+      "last_data_package": "2025-09-17 15:33:30.390900+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7244444444444444,
+      "heavy": 19.33314400262295,
+      "car": 124.43683960342781,
+      "bike": 75.62206252744716,
+      "pedestrian": 23.69042463264919,
+      "night": "",
+      "car_percentage": 51.19120239778208,
+      "bike_percentage": 31.109632170967167,
+      "pedestrian_percentage": 9.745838339548603,
+      "heavy_percentage": 7.953327091702156
+    }
+  },
+  {
+    "segment_id": 9000004024,
+    "coordinates": [
+      [
+        13.322693194,
+        52.624569903
+      ],
+      [
+        13.321872794,
+        52.624305103
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9t7zfZXhFZx3KoBtyZqJhImbAm1jTO-AupsFrYyumBP0lCsDiF6LDF8aMb3F3f5aXZBFlIZ6ZRo_Fk1BkxFz3L4iB-apgPDimsHj90mcns2_IYB1YBMOLJPHNlO4RP-KrdPPsSEmOMoyt6q-tvfwo?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=WjF23qdWkC-hNAEC7YOEEw&_nc_oc=Adk23HTrOjyOg19gFlfQeKVl1CwZglZkg8soLx7Zi3jOjjGxDM8Q1m0RejIDS6KPLCo&ccb=10-5&oh=00_AfY-ZXOnjgoGqXsiZZIDHnxuq-ct4T8Ge9DwCIThzm_h8g&oe=68F2494A&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 44,
+    "address": "Gertrudstraße, 18, 13467, Berlin",
+    "district": "Reinickendorf",
+    "originalProperties": {
+      "segment_id": 9000004024,
+      "last_data_package": "2025-09-17 15:33:00.429300+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.5875,
+      "heavy": 15.83739136956343,
+      "car": 91.63822314794734,
+      "bike": 45.77910573283147,
+      "pedestrian": 6.8343909951639334,
+      "night": "",
+      "car_percentage": 57.24200880059524,
+      "bike_percentage": 28.59601466749758,
+      "pedestrian_percentage": 4.269116707558572,
+      "heavy_percentage": 9.892859824348607
+    }
+  },
+  {
+    "segment_id": 9000004033,
+    "coordinates": [
+      [
+        13.393540794,
+        52.526400903
+      ],
+      [
+        13.393565294,
+        52.526340003
+      ],
+      [
+        13.393585994,
+        52.526288603
+      ],
+      [
+        13.393407294,
+        52.525992403
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9y461v5gCHI6SjPDSoY_IkLUVF1d8A2POodYgyi4Vp1zIdNDS3pZFSVYRGNjaXpt8ql25Y-0k3KgQDamTPFLaSUM1A0PCs_RH-cnRne_FkSzMGjwy0HMEpjz9Yuh-NyHeuxwWSGqc9qKS7590WyLM?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=g5XpqlyKCtLSSDxabhuSAw&_nc_oc=AdmIOa7STkoDoes1DfHm2-nCpciOvC3SCpv4CVUmopCJBnalbY99tRelr3Xlv5fvcZA&ccb=10-5&oh=00_AfauTmt28Y1pqDTzUPpGFqD3dIV8GvqHK5j_55NbQQP8qg&oe=68F23A35&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz",
+      "Fahrradstrasse"
+    ],
+    "nearestNoiseLevel": 65,
+    "address": "Tucholskystraße, 34, 10117, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000004033,
+      "last_data_package": "2025-09-17 15:33:03.806200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6841666666666666,
+      "heavy": 5.763777349123522,
+      "car": 130.36507211108,
+      "bike": 255.57093911218234,
+      "pedestrian": 26.560577412522147,
+      "night": "",
+      "car_percentage": 31.168401960367415,
+      "bike_percentage": 61.10331264841958,
+      "pedestrian_percentage": 6.350249646527716,
+      "heavy_percentage": 1.3780357446852842
+    }
+  },
+  {
+    "segment_id": 9000004035,
+    "coordinates": [
+      [
+        13.312629394,
+        52.499254303
+      ],
+      [
+        13.312430994,
+        52.499258903
+      ],
+      [
+        13.312394694,
+        52.499259703
+      ],
+      [
+        13.312363794,
+        52.499257903
+      ],
+      [
+        13.311960394,
+        52.499233903
+      ],
+      [
+        13.311076094,
+        52.499181403
+      ],
+      [
+        13.309871194,
+        52.499108503
+      ],
+      [
+        13.309141494,
+        52.499064303
+      ],
+      [
+        13.308813794,
+        52.499044503
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An91vxuLqfIafYZ4xqVQdOWP17fx4g2hMhfMFZtKn2TcD7lX-O2PCKMdhFwO3ZGbdHt3vL-jGXxbSG9t89kLutQYwyYtPoVomQRUOiO1S51MHVozyQ31x-HM547TdJQn1FaXLlIlSpSfGEQkNmgdzQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=I6Hcw7nKLS9r8lEV54sP7Q&_nc_oc=Adnal8XT0cqETQUdP0Symsl-INrGqp8A7rwQnOAvWhJVQcHNtEQ_r6Twqavc41bYGLg&ccb=10-5&oh=00_AfYnMTTZzAGsovkwGYC3Uzo6RCLQ2FT7OtoNQkSFkgvkTA&oe=68F23430&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 66,
+    "address": "Xantener Straße, 10707, Berlin",
+    "district": "Charlottenburg-Wilmersdorf",
+    "originalProperties": {
+      "segment_id": 9000004035,
+      "last_data_package": "2025-09-17 15:33:31.802200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6366666666666666,
+      "heavy": 0,
+      "car": 3.146287764131954,
+      "bike": 22.207056323038124,
+      "pedestrian": 0,
+      "night": "",
+      "car_percentage": 12.409754521195946,
+      "bike_percentage": 87.59024547880405,
+      "pedestrian_percentage": 0,
+      "heavy_percentage": 0
+    }
+  },
+  {
+    "segment_id": 9000004039,
+    "coordinates": [
+      [
+        13.379049694,
+        52.599984103
+      ],
+      [
+        13.380135994,
+        52.599568703
+      ],
+      [
+        13.381864894,
+        52.598852603
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_lpkISI7mHVV5p8I36Jf-K8v04N1Gk4sIFnr69Sp725K7clnoKicvzagcrkpmV4fFGpsKSjVgs64u6f5FSHl0LL6yAoU_AtxDAxI_t2bayNHqOaccLY3sHuuSlR8JQxzDO8Ka5Kx4tNHuM5pzU0ck?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=k6HzxmAa63WfHFQI-JcCjw&_nc_oc=Adl8d0TYNATg6U3hGbRZYRDeJiI6Xb7HSKmiGn6U1QZyE_wqt-XGdGngWjeBuBNFt0I&ccb=10-5&oh=00_AfZxfQ9LU8LKnYdzRi2yO5o4n9COaoKv7Hi4PwhpjRVM0g&oe=68F24FFC&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 65,
+    "address": "Schönhauser Straße, 2, 13158, Berlin",
+    "district": "Pankow",
+    "originalProperties": {
+      "segment_id": 9000004039,
+      "last_data_package": "2025-09-17 15:33:30.962400+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7319444444444445,
+      "heavy": 50.09290244648044,
+      "car": 319.04240026590327,
+      "bike": 53.07012683568454,
+      "pedestrian": 5.466138230235458,
+      "night": "",
+      "car_percentage": 74.59986220811584,
+      "bike_percentage": 12.409084642071653,
+      "pedestrian_percentage": 1.2781158819210994,
+      "heavy_percentage": 11.712937267891418
+    }
+  },
+  {
+    "segment_id": 9000004074,
+    "coordinates": [
+      [
+        13.321168994,
+        52.507432903
+      ],
+      [
+        13.321238294,
+        52.507346703
+      ],
+      [
+        13.321707994,
+        52.506762703
+      ],
+      [
+        13.321858194,
+        52.506575803
+      ],
+      [
+        13.321903094,
+        52.506482003
+      ],
+      [
+        13.321956494,
+        52.506387303
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An81_xrLH7D59_igeBRJNcwHc5DBOOjyC44z74DhZ9M84ncAAipx6dwr_4eNAiowpNdQMPxyDQeYw5N6CAfWieMZS8Br0ay6T0gALP3uYCh16HLGrtGDO8eNLSqkhDR0GV9rPKiAzRYBXuGXI5HFRg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=4dhILz1ZADwSRoce8qY2ww&_nc_oc=AdkElJxEKD5SqtCjAvDzdG-NMdVn4rM9fVO3JOC63GLgj3OBGl0EUw3QIZkN9k3NUJk&ccb=10-5&oh=00_AfY-idRujpOIiMbxoEW6XxDQGzNqu6OCgZNDhn12d1b0MQ&oe=68F22C8B&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 59,
+    "address": "Grolmanstraße, 21, 10623, Berlin",
+    "district": "Charlottenburg-Wilmersdorf",
+    "originalProperties": {
+      "segment_id": 9000004074,
+      "last_data_package": "2025-09-11 05:21:10.584400+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "NaT",
+      "period": "",
+      "uptime": "",
+      "heavy": "",
+      "car": "",
+      "bike": "",
+      "pedestrian": "",
+      "night": ""
+    }
+  },
+  {
+    "segment_id": 9000004118,
+    "coordinates": [
+      [
+        13.427934194,
+        52.488340903
+      ],
+      [
+        13.427925894,
+        52.488383103
+      ],
+      [
+        13.427918994,
+        52.488414603
+      ],
+      [
+        13.427569494,
+        52.490177703
+      ],
+      [
+        13.427584294,
+        52.490267703
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9etD3SMIduCc15oLAK5LUDl9j7H2yIYjAgfd0IWSCCv-Dkp5qZhgp2iGy92AITc7OvdI4SiPNhvrXQtgVx2q5VeojRsJvbzdh9jFVq9p-2Vc7EP9-RGBbCm0TpH2wD8aaQCwfWthnsFIhR6vulmiM?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=CiGRRKJ04zyErF_7E6KuIg&_nc_oc=AdlwXPlPoiglFq-AZgCbRz9i3XRanqgkJlkkBps1C-Fzoj5TWAMyV4InDVBmT4RP0II&ccb=10-5&oh=00_AfaA9KvOGilCyr1xmScvRo-VWXTAyW5S3j6DGm2XVWwYbA&oe=68F24EC7&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 47,
+    "address": "Weserstraße, 210, 12047, Berlin",
+    "district": "Neukölln",
+    "originalProperties": {
+      "segment_id": 9000004118,
+      "last_data_package": "2025-09-17 15:32:42.922200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7655555555555555,
+      "heavy": 0,
+      "car": 22.230957207698065,
+      "bike": 7.851711802964328,
+      "pedestrian": 0,
+      "night": "",
+      "car_percentage": 73.89955060110725,
+      "bike_percentage": 26.10044939889275,
+      "pedestrian_percentage": 0,
+      "heavy_percentage": 0
+    }
+  },
+  {
+    "segment_id": 9000004129,
+    "coordinates": [
+      [
+        13.624735394,
+        52.446840303
+      ],
+      [
+        13.624757394,
+        52.446840103
+      ],
+      [
+        13.625189294,
+        52.446822303
+      ],
+      [
+        13.625318194,
+        52.446816103
+      ],
+      [
+        13.626952194,
+        52.446748103
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An82x_niEpqvtuLvlFEZPYCnc90x6lCnDlWipsEiqUtYw5IJl6zF3EvxeXX-Cth4ArETUYz95Kh198gR6o2qDxntPZLCKSCm7sxNDUUtsueN2u4teI_QPRdVFiD8C-LeOVwvhBFwSWDdywnC76rF2A?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=Re2NMEF6DKjMjnzCbU5Twg&_nc_oc=AdmxqXBfLMeT_tUymxZUrifcZ_ye-R86FCEcFm16xh8LrKsiqesGHbT0szIr_iIP1dQ&ccb=10-5&oh=00_AfbQr73w-GKiSKTJIm4i42j04vDA5tGPWGWKyl9Ojaqulw&oe=68F25DB5&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 69,
+    "address": "Müggelseedamm, 167, 12587, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000004129,
+      "last_data_package": "2025-09-17 15:32:35.318400+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7269444444444444,
+      "heavy": 48.13924956730616,
+      "car": 688.0297272549931,
+      "bike": 110.48737703922392,
+      "pedestrian": 13.812995663936132,
+      "night": "",
+      "car_percentage": 79.95981816603171,
+      "bike_percentage": 12.840361728184352,
+      "pedestrian_percentage": 1.605286193117032,
+      "heavy_percentage": 5.594533912666907
+    }
+  },
+  {
+    "segment_id": 9000004187,
+    "coordinates": [
+      [
+        13.370578294,
+        52.488200403
+      ],
+      [
+        13.370651294,
+        52.489252103
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9cAukm47t_vpBgVBPV45uhaWpr4bwh3ucAETknp4hq-Pfowjg6J8Q23U4H-OUUfcegA_gVB-utS1IFPugLL1EPJlg29i8ldhbdT7L1lP6NJ6viN7yWDlzTTNsKZzgLmj1z7c8RF3y2OzK2kWuG9w?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=eybzcNlqd1aUSFmlU0fYAg&_nc_oc=Adk8j6dz-XvSDCB0nGrsvq1_U_89okrteHf3TaLNDAHlq5hBRKy0HnLEk0TNzUH4P2Y&ccb=10-5&oh=00_AfYz2c8pZ_E8AF7hnT9yogjejPMrYyAe9ukQkdYQjwmmtA&oe=68F25413&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 67,
+    "address": "Bautzener Straße, 19, 10829, Berlin",
+    "district": "Tempelhof-Schöneberg",
+    "originalProperties": {
+      "segment_id": 9000004187,
+      "last_data_package": "2025-09-17 15:32:37.982200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7883333333333333,
+      "heavy": 73.65163746580724,
+      "car": 195.67265672269218,
+      "bike": 104.0494075484669,
+      "pedestrian": 22.38701076641626,
+      "night": "",
+      "car_percentage": 49.44216303962202,
+      "bike_percentage": 26.290989545248905,
+      "pedestrian_percentage": 5.656703674502536,
+      "heavy_percentage": 18.610143740626537
+    }
+  },
+  {
+    "segment_id": 9000004233,
+    "coordinates": [
+      [
+        13.419801794,
+        52.579004703
+      ],
+      [
+        13.420498894,
+        52.579235303
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_n4paxqYsu6QnMorR_hmXdTLawt0IVY2s6Ybmi3YxixddkUFMP5Fzrsmtw_MIDfaqFWg-gFCC713xmebNOan865mj7KSYekn37y7ZqvCfRWdbFKp9vVXxtK4gKHu_vKBn0YU7Z-yZ2DdbtOKU1e3Q?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=yLsh6966QGbNproytBlKxw&_nc_oc=AdkvwOJdFvkl-qqoXqU0Mmmxz81GEBQtod6PCwCLZI5PEg7zaqfyOtJXWGnaNCpyHU4&ccb=10-5&oh=00_AfZbjvROHJFL3pZIWv67oqMGu6neR2U44kSQP5KXCM9Wqg&oe=68F235BB&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 48,
+    "address": "Galenusstraße, 13187, Berlin",
+    "district": "Pankow",
+    "originalProperties": {
+      "segment_id": 9000004233,
+      "last_data_package": "2025-09-17 15:32:50.059400+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7047222222222222,
+      "heavy": 31.2434402021292,
+      "car": 118.5925057818759,
+      "bike": 50.703371485181584,
+      "pedestrian": 5.301765650080257,
+      "night": "",
+      "car_percentage": 57.61362308473761,
+      "bike_percentage": 24.63228949091927,
+      "pedestrian_percentage": 2.575659615533769,
+      "heavy_percentage": 15.178427808809362
+    }
+  },
+  {
+    "segment_id": 9000004284,
+    "coordinates": [
+      [
+        13.536485994,
+        52.485495903
+      ],
+      [
+        13.534746094,
+        52.485042703
+      ],
+      [
+        13.534342094,
+        52.484922303
+      ],
+      [
+        13.534117894,
+        52.484844403
+      ],
+      [
+        13.534005294,
+        52.484805303
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-66lWlUgU6xCkovlbhnRrDbYnqtPdxCaLSE-N8DrqAYxLd_BIsOlJX-vAoB5Wsga-WB-KyPTc0mhU42VWDarEnskQ2iw5C3WYit33t9fKZ7LyF4XlwvbHCWYsikUctgsY1C80oBS2NsMtLtDP6QQ?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=VBXRbBQI-E2AaRNjObzkPg&_nc_oc=AdmH9w8m2Zxj2l1Z7yBw4_BxKnO1D_KtgTtCs0iaJpj5DnCrLGQwhNOPG4yoKLuiDkA&ccb=10-5&oh=00_AfZYs875ZO0sidPbVaER6nuBx7UYAv-rVXZR6XLqlky3Iw&oe=68F234AC&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 46,
+    "address": "Rheinsteinstraße, 94, 10318, Berlin",
+    "district": "Lichtenberg",
+    "originalProperties": {
+      "segment_id": 9000004284,
+      "last_data_package": "2025-09-17 15:32:46.071100+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6930555555555555,
+      "heavy": 67.23969076335815,
+      "car": 134.70363419842965,
+      "bike": 115.63006366933399,
+      "pedestrian": 11.207687389835716,
+      "night": "",
+      "car_percentage": 40.97061662692631,
+      "bike_percentage": 35.16931846222298,
+      "pedestrian_percentage": 3.408860243866743,
+      "heavy_percentage": 20.451204666983962
+    }
+  },
+  {
+    "segment_id": 9000004286,
+    "coordinates": [
+      [
+        13.456196194,
+        52.509915203
+      ],
+      [
+        13.456282594,
+        52.509892303
+      ],
+      [
+        13.456945894,
+        52.509718203
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-bXeBNJwcfGdTmyjav20J9nsIN9wJEWajk0y1drR3KPxKX9ceAyI5ys4ipgCeCyXK_KB4fzL2XVz1NiIXx8LFkSJhQorCgTUj3KjzBwh_SGEvDJYYlspRxtSOSlq5Lr7lSKBFkCJ2EzcewefI4uw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=ZbsehfousOXcvaSrdE9qdQ&_nc_oc=AdmDk1YhGWG3796Gwaej2gfi1Z3wyieuwWKviAFs6O-I9XoaODQFNgsXlG2UWn7_W-Y&ccb=10-5&oh=00_AfasTt2m-M_Cc09Ro_6TOXfNgat2YkCEbfzBTqTxNe6kzA&oe=68F24EED&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 65,
+    "address": "Wühlischstraße, 33b, 10245, Berlin",
+    "district": "Friedrichshain-Kreuzberg",
+    "originalProperties": {
+      "segment_id": 9000004286,
+      "last_data_package": "2025-09-17 15:33:37.482500+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.706388888888889,
+      "heavy": 0,
+      "car": 1.3138686131386863,
+      "bike": 5.941605839416059,
+      "pedestrian": 3.3138686131386863,
+      "night": "",
+      "car_percentage": 12.430939226519339,
+      "bike_percentage": 56.21546961325967,
+      "pedestrian_percentage": 31.353591160220994,
+      "heavy_percentage": 0
+    }
+  },
+  {
+    "segment_id": 9000004471,
+    "coordinates": [
+      [
+        13.352969794,
+        52.521235003
+      ],
+      [
+        13.353256494,
+        52.522050403
+      ],
+      [
+        13.353513994,
+        52.522789203
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8K23J8xUdQ1AmmEuwUtyHp_PmW1u6a7Qxq5d9Q2d9S1g5th42F852djDzum3F5GkVfIj2ni38TD4fMB0w3MRG1MF0EQMYKGo4a81t4UdR1grmulefSMZaOEk5Sn9XC5wAwzlOXb7zU2rKhLgelg1I?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=FYPm9QdHqM7umEpkkuEDlw&_nc_oc=AdkaHo99ue-r6RmLyrQ8bsKiqDJLuZ0TAn7rtQ2zqeZBwg_M5Y5--yNJKxHTCc5Grq4&ccb=10-5&oh=00_Afb_3m5k46o5l5fxEmgN78CJrIqA47JrJ_H1LSH2jXYoKA&oe=68F229D5&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 54,
+    "address": "Spenerstraße, 25A, 10557, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000004471,
+      "last_data_package": "2025-09-17 15:31:58.929200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.5819444444444444,
+      "heavy": 4.785691266516275,
+      "car": 52.50584947829869,
+      "bike": 8.350838223239254,
+      "pedestrian": 0,
+      "night": "",
+      "car_percentage": 79.9877309502317,
+      "bike_percentage": 12.721717820896322,
+      "pedestrian_percentage": 0,
+      "heavy_percentage": 7.290551228871972
+    }
+  },
+  {
+    "segment_id": 9000004519,
+    "coordinates": [
+      [
+        13.625467594,
+        52.456948103
+      ],
+      [
+        13.625464594,
+        52.456927903
+      ],
+      [
+        13.625437994,
+        52.456747003
+      ],
+      [
+        13.625436994,
+        52.456740203
+      ],
+      [
+        13.625428894,
+        52.456682903
+      ],
+      [
+        13.625413094,
+        52.456571603
+      ],
+      [
+        13.625399794,
+        52.456481003
+      ],
+      [
+        13.625391794,
+        52.456416303
+      ],
+      [
+        13.625375594,
+        52.456285903
+      ],
+      [
+        13.625351394,
+        52.456090103
+      ],
+      [
+        13.625310594,
+        52.455754603
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9wyHHn9q9CyMc8KDIP-on__GKherB1XEG4sZpfKFSWcwST6M9CT2B0sfunja2V3vQumMcsqee_dGwFdTtgkyydgq2Tyd3AbpB7gE0GK1laMvjD1jFqflgbHfHeByebQAmXEqpRricpyHayWBmvlA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=rG66W92c3eegUV7unoyAJQ&_nc_oc=AdkcBzMPy2NZ1tTX2iOJ4G47Y8TtDwwho7E66N4ciODAGuTABjwCmzKkHfDc51WuH7E&ccb=10-5&oh=00_AfYtu7rdiIsLxtjD8aJUxHWTHbiSmQrPMAozaYKgTDMzJg&oe=68F25A7E&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 73,
+    "address": "Fürstenwalder Damm, 484, 12587, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000004519,
+      "last_data_package": "2025-09-17 15:33:26.629600+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7141666666666667,
+      "heavy": 25.064405177538077,
+      "car": 189.81986269868486,
+      "bike": 37.81646387330375,
+      "pedestrian": 8.159057437407952,
+      "night": "",
+      "car_percentage": 72.76700762901334,
+      "bike_percentage": 14.496854417912648,
+      "pedestrian_percentage": 3.127755896314511,
+      "heavy_percentage": 9.608382056759496
+    }
+  },
+  {
+    "segment_id": 9000004542,
+    "coordinates": [
+      [
+        13.577035694,
+        52.445333103
+      ],
+      [
+        13.577181394,
+        52.445130403
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_G45s_W8G-M7VaSVpTwVqhp4L5tV3cLq1alV4f9WDxd3VQSlL-sqMmfcxAKXG8lDXpRvcyYdZDOcmNC9WOPuj_iHuhAKpOSvMhQBXqSeMPVxMQPd5wDHAU6ng54BQqI0MHQS_tsn4KFVZubNnxGw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=xeOXt78FtbtzoVmSMMtM0g&_nc_oc=AdmF1Xr0BmzZyenymsU3imocHKAyMYuQq5i4vJ46u_pbSZD4HEJyMqp92MvaNlgHmJw&ccb=10-5&oh=00_AfYpwccqk6nLno55pMW7aQu8v1j7zHhSN0iezSyRbXbLdg&oe=68F24A4B&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 61,
+    "address": "Kietzer Straße, 11, 12555, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000004542,
+      "last_data_package": "2025-09-17 15:32:48.715600+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7550000000000001,
+      "heavy": 0,
+      "car": 181.4398912689632,
+      "bike": 171.6759361665912,
+      "pedestrian": 91.56122379542741,
+      "night": "",
+      "car_percentage": 40.802620860845046,
+      "bike_percentage": 38.606880137247366,
+      "pedestrian_percentage": 20.590499001907588,
+      "heavy_percentage": 0
+    }
+  },
+  {
+    "segment_id": 9000004544,
+    "coordinates": [
+      [
+        13.463834994,
+        52.485124003
+      ],
+      [
+        13.464433094,
+        52.485791903
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8rB-zjag0fJ8iiVf-8hekQHPWttYePbMsvGlNfe4zQuseWDLW8xMzBdttqXx2dd1v5s33Z4FNJ_-M3JKyt4gSLkZ0hRMEChNjVT_aWRlv-DEFJb68ekro0N5bd1W1j8GSUtLfQczwIXikSVcKUWg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=GoZunAoJJcVGi8k8cyBiug&_nc_oc=Admm-MOE7MF1DD8eaaC15fivk-RI6i0Ysk9djVhbZnQ1KXbKnafIg7X4jbVlJeKg6eE&ccb=10-5&oh=00_AfZKwUnpgG_wP3JaE6opKOzVXDubNhdIkAOrHRo4aB-0Sw&oe=68F23DDC&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 68,
+    "address": "Stuckstraße, 12, 12435, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000004544,
+      "last_data_package": "2025-09-17 15:32:04.010300+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7388888888888889,
+      "heavy": 13.658276478039513,
+      "car": 65.19053232263559,
+      "bike": 81.27055109419227,
+      "pedestrian": 17.597314701152754,
+      "night": "",
+      "car_percentage": 36.68228232990777,
+      "bike_percentage": 45.73040277674218,
+      "pedestrian_percentage": 9.901892853416488,
+      "heavy_percentage": 7.685422039933545
+    }
+  },
+  {
+    "segment_id": 9000004546,
+    "coordinates": [
+      [
+        13.391631594,
+        52.530252903
+      ],
+      [
+        13.391233994,
+        52.530564103
+      ],
+      [
+        13.390453894,
+        52.531174703
+      ],
+      [
+        13.390311194,
+        52.531286403
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-hIs8HBmHk6AvX3BYmxhj0tsGnaXYp2Vw2DHASTLOATYvO4zlvGWzGAJxceVg15m5fQTlPlfg-nz0L73JDnjgcKNutqUxC6oY6RL7sI7rn7poDopuj8ye2lJAy4SuhKFUd1SLC-5qfJ92JqDegqMQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=gdgLR8kgFfBCh_-0rSXZ4w&_nc_oc=AdmE3eO8mxS4VOt19AN8DsnbHMshYKRe7zNx7LP3JF339RtR3mDQy0q5w1vgSsK6G7g&ccb=10-5&oh=00_Afar0kWgBmNMWOcv-h4PLbxSNWtl7DC1P1eFLVb5Y5uGkw&oe=68F25A01&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 46,
+    "address": "Gartenstraße, 10115, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000004546,
+      "last_data_package": "2025-09-17 15:33:23.059600+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6594444444444445,
+      "heavy": 7.028900768459739,
+      "car": 34.98367047210708,
+      "bike": 271.73978647438076,
+      "pedestrian": 4.723459745043721,
+      "night": "",
+      "car_percentage": 10.98471800814262,
+      "bike_percentage": 85.32509269986197,
+      "pedestrian_percentage": 1.4831454967965059,
+      "heavy_percentage": 2.207043795198908
+    }
+  },
+  {
+    "segment_id": 9000004561,
+    "coordinates": [
+      [
+        13.340183294,
+        52.449984003
+      ],
+      [
+        13.340269994,
+        52.449980003
+      ],
+      [
+        13.340684994,
+        52.449941903
+      ],
+      [
+        13.340964494,
+        52.449907703
+      ],
+      [
+        13.341117494,
+        52.449886003
+      ],
+      [
+        13.341249394,
+        52.449865503
+      ],
+      [
+        13.341371094,
+        52.449838903
+      ],
+      [
+        13.341439794,
+        52.449819003
+      ],
+      [
+        13.341623894,
+        52.449762603
+      ],
+      [
+        13.341838894,
+        52.449680503
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9n_Z5KQ4RDB15DCQn2Zo-HjdpDB85Nff15PMQNkBM-uKMaDr82yNzANE5TsdNo3VbvMBAW8WOFuy6XdT6VT4erfzPnFVWHxp0LtvQkYUjWba6-ksEvXC4p4guovWulgo7GC65EL9tSoA9i__2ZNg?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=QhmCtgOX5uDDrZy8RBEr5Q&_nc_oc=AdmJ09MJzPgqF78disnd95XApEAWieGvO16mtild1tlX1Cgg-BLN-il7daAiybdJlvI&ccb=10-5&oh=00_AfbykW_cBCl_CqEX71AH1Cse1VYreOQwwjdJetoMic1n2A&oe=68F23C61&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 53,
+    "address": "Karl-Stieler-Straße, 5, 12167, Berlin",
+    "district": "Teltow",
+    "originalProperties": {
+      "segment_id": 9000004561,
+      "last_data_package": "2025-09-17 15:33:27.172000+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6308333333333334,
+      "heavy": 1.5280135823429541,
+      "car": 21.99429112795396,
+      "bike": 42.91717868096374,
+      "pedestrian": 12.568132419109267,
+      "night": "",
+      "car_percentage": 27.838191169751976,
+      "bike_percentage": 54.32030601198166,
+      "pedestrian_percentage": 15.90749485375519,
+      "heavy_percentage": 1.9340079645111874
+    }
+  },
+  {
+    "segment_id": 9000004597,
+    "coordinates": [
+      [
+        13.487061194,
+        52.465583803
+      ],
+      [
+        13.486952194,
+        52.465493303
+      ],
+      [
+        13.486908394,
+        52.465457003
+      ],
+      [
+        13.486742094,
+        52.465319403
+      ],
+      [
+        13.486612094,
+        52.465211903
+      ],
+      [
+        13.486524694,
+        52.465139503
+      ],
+      [
+        13.486434794,
+        52.465065103
+      ],
+      [
+        13.486331794,
+        52.464979903
+      ],
+      [
+        13.486242394,
+        52.464905103
+      ],
+      [
+        13.486225194,
+        52.464890803
+      ],
+      [
+        13.485988994,
+        52.464693203
+      ],
+      [
+        13.485922694,
+        52.464638903
+      ],
+      [
+        13.485867394,
+        52.464593603
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_l6-sucDXQosSkEBDaeTKrp8KYIrzdRNyeRRyONP0XrCMVgfjnP5rgz8tJipLIa0q0wIGo2_nl2ZJSSLxeWIgYRr4a6eUwNYjNbbIux8P7T6eS9YIn1xCTVJbAjriErbktdQz3h1sAcvIAlDHcBA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=NeEDpnTTAVbcJz-_L4S5uw&_nc_oc=AdkjtyZYpr0c8K2dZifZt6Kh_7TieaHt3sj5s0h1LgmhxW7Ykb6VTDNmb9P5o7ABZyY&ccb=10-5&oh=00_AfalutaYZZZhblTnDrDLActCdNoz_XDx6AzyBCG7CT7n_A&oe=68F25974&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 73,
+    "address": "Kiefholzstraße, 258, 12437, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000004597,
+      "last_data_package": "2025-09-17 15:33:13.419800+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6363888888888889,
+      "heavy": 183.71431346259843,
+      "car": 399.6112865000674,
+      "bike": 172.31756115034415,
+      "pedestrian": 25.30132271161557,
+      "night": "",
+      "car_percentage": 51.17025534811345,
+      "bike_percentage": 22.06527668989093,
+      "pedestrian_percentage": 3.2398362797447477,
+      "heavy_percentage": 23.524631682250877
+    }
+  },
+  {
+    "segment_id": 9000004602,
+    "coordinates": [
+      [
+        13.437476994,
+        52.463546703
+      ],
+      [
+        13.437352194,
+        52.463951803
+      ],
+      [
+        13.437219294,
+        52.464383103
+      ],
+      [
+        13.437197994,
+        52.464452303
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_cgY6YPqn-YTLy75KFwigp_FYawxj2agGYxOiASxLTbTuH5232ns1a__WYU2oO44GjkwYFC1J979BYQxC0IMH2RyLSDfduo0Atj_PpOgYPnPwm6PN1d_WwrkXh-TmoLsh8jviQMA29g3f1N7vMesI?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=yVALbfChamwwZ3Cf5gKunA&_nc_oc=AdlL_g5WMUwW6BgBYt-mVwubcItuzTdyxXqSESPx0cL-LrwEz9D1fjBwEpVZbwGDhSg&ccb=10-5&oh=00_AfYsCRwxnKV1c7-KGD7JKQCKWlFbw7bqFjeMrv3pkj12Yg&oe=68F2319A&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 46,
+    "address": "Bendastraße, 11, 12051, Berlin",
+    "district": "Neukölln",
+    "originalProperties": {
+      "segment_id": 9000004602,
+      "last_data_package": "2025-09-17 15:32:22.708200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6105555555555555,
+      "heavy": 0,
+      "car": 87.98961997029735,
+      "bike": 94.31231677735317,
+      "pedestrian": 4.411764705882352,
+      "night": "",
+      "car_percentage": 47.1254221223798,
+      "bike_percentage": 50.51172787168194,
+      "pedestrian_percentage": 2.362850005938263,
+      "heavy_percentage": 0
+    }
+  },
+  {
+    "segment_id": 9000004676,
+    "coordinates": [
+      [
+        13.448726394,
+        52.490358203
+      ],
+      [
+        13.448783194,
+        52.490395303
+      ],
+      [
+        13.448796094,
+        52.490403703
+      ],
+      [
+        13.449022194,
+        52.490552103
+      ],
+      [
+        13.449313994,
+        52.490740903
+      ],
+      [
+        13.449492094,
+        52.490856203
+      ],
+      [
+        13.449648094,
+        52.490957103
+      ],
+      [
+        13.449910894,
+        52.491127203
+      ],
+      [
+        13.450416394,
+        52.491454303
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_33YA25c9XNxyElUTZw-laJLjwrEwEiqKqQwAxX0mNBxeLQBc2fSfQYJMEdLyKg-Toi8VkpK6Zn4U88IBPuDw7YTmEq_D6vcCu7uUBJoeL-8wOMXC3QMX0flij5NrrvY8KjRBB1oY_frFJJLP4tw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=Qp6MHfI4YXpCYm8_LuU7Ew&_nc_oc=AdlH5qqMjYkVSz_-R0RJgxwjMSmcovGc0s_LtfDe4wW2ILvhjdXedMFNy6p_wQFqfFk&ccb=10-5&oh=00_AfaoknVYGjRH8K6PhgVLbksCisWSPkP5Cz5XVSnvHYZzZA&oe=68F24883&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 50,
+    "address": "Karl-Kunger-Straße, 20, 12435, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000004676,
+      "last_data_package": "2025-09-17 15:33:30.450500+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6147222222222222,
+      "heavy": 22.453274263815153,
+      "car": 59.417269446902736,
+      "bike": 83.24170795890606,
+      "pedestrian": 11.454166324475278,
+      "night": "",
+      "car_percentage": 33.65151206096758,
+      "bike_percentage": 47.144699940442784,
+      "pedestrian_percentage": 6.487171487421844,
+      "heavy_percentage": 12.71661651116779
+    }
+  },
+  {
+    "segment_id": 9000004685,
+    "coordinates": [
+      [
+        13.435681794,
+        52.469108403
+      ],
+      [
+        13.435777994,
+        52.468819003
+      ],
+      [
+        13.435873094,
+        52.468533003
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-a-I8eCk7_JHyz-Dlnh9hQZf2TwO5m46oXnMd-vPWAxDoohWRtQNZZ8svaqfn7AA1z3nQUzqRfFSUZGnx0nmaPzud_EpIlKE0W0FwnTXJFoDAVSrMnggRlX0ifp2TByhJaDwY0zf271J_hILK3OQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=NIWiwBByWpPksAZ8ZxYu8w&_nc_oc=AdnkTay65m6k6pf6ktlcq3fb3Ll19zZ7ZqOR5eqSctWHSs7T0TsQtR3WvGcGRjiVbxQ&ccb=10-5&oh=00_AfY59f-CUG2xNda_uTaFI0RFpGGKffe1WcFrACVkII5mjQ&oe=68F23BA2&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz",
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 48,
+    "address": "Emser Straße, 122, 12051, Berlin",
+    "district": "Neukölln",
+    "originalProperties": {
+      "segment_id": 9000004685,
+      "last_data_package": "2025-09-17 15:32:48.639400+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7483333333333333,
+      "heavy": 61.42314574485519,
+      "car": 353.3955890480604,
+      "bike": 68.13558355332081,
+      "pedestrian": 12.19271999446303,
+      "night": "",
+      "car_percentage": 71.3718474884418,
+      "bike_percentage": 13.760676784345073,
+      "pedestrian_percentage": 2.462444294390285,
+      "heavy_percentage": 12.405031432822856
+    }
+  },
+  {
+    "segment_id": 9000004712,
+    "coordinates": [
+      [
+        13.442901694,
+        52.488138603
+      ],
+      [
+        13.442134894,
+        52.488530603
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_A1nMiYuyNP7cEg8MKxIJOuo9LwKZTSPK4voe6SJYu5LWGLcq3fm2TNzTu2oRGA8yQ8FI8Iu9fWBKrqyh-25Z7naCM8pg9hFOUvbYNhIs7xpGNhy942oyIyki0G_2xJdn4ei8XhSXqhYveF0cK9Q?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=cXxjJFuZbzUicH8pwl1bLQ&_nc_oc=AdkhU3MWQ4JtaVc1SR7daitUTWZNVs4LRfGferVJGTsFR7RfQYTrOi_5xUy_8k4Qksk&ccb=10-5&oh=00_AfZoxOwbdDLcCzlSOniw04gdLKhhc1mzS4NZRkRW52eCQw&oe=68F24650&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 39,
+    "address": "Harzer Straße, 11, 12059, Berlin",
+    "district": "Neukölln",
+    "originalProperties": {
+      "segment_id": 9000004712,
+      "last_data_package": "2025-09-17 15:30:15.887200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9991666666666668,
+      "heavy": 76,
+      "car": 436,
+      "bike": 130,
+      "pedestrian": 25,
+      "night": 0,
+      "car_percentage": 65.36731634182908,
+      "bike_percentage": 19.490254872563717,
+      "pedestrian_percentage": 3.7481259370314843,
+      "heavy_percentage": 11.394302848575713
+    }
+  },
+  {
+    "segment_id": 9000004758,
+    "coordinates": [
+      [
+        13.536429094,
+        52.432898003
+      ],
+      [
+        13.536538994,
+        52.432966403
+      ],
+      [
+        13.537029494,
+        52.433278703
+      ],
+      [
+        13.537371294,
+        52.433495703
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8X75TBywiq9435J4FcIiR1q_V3i5R_hJxZHfSn91ZOT23MgDvTzLpPeEm4o98S6riYDgX7qyYm75mwsFdpEX3y4MD0eRAlAj0K4VYe5_1R-AQhkd8Zb4aX-9AWYl1kf5zJ7PXFUXoppWe4T-VPCQ?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=Qo1KGVULpVNZSDpTALuj5A&_nc_oc=AdmRhE8jlPbiocpcRLZBNZ-cEMF8KdpbzFhPjUFDyp1ji3fgaXnjHkIEsB1Y6cTsuSA&ccb=10-5&oh=00_AfYnm41NjDGtxJGtB5lBbixVHkdn710x0wqHK_VGPRzJ0w&oe=68F24782&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": {
+      "lden": null,
+      "note": "No façade point at this coordinate."
+    },
+    "address": "Am Studio, 12489, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000004758,
+      "last_data_package": "2025-09-17 15:30:15.156200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9994444444444444,
+      "heavy": 75,
+      "car": 371,
+      "bike": 160,
+      "pedestrian": 19,
+      "night": 0,
+      "car_percentage": 59.36,
+      "bike_percentage": 25.6,
+      "pedestrian_percentage": 3.04,
+      "heavy_percentage": 12
+    }
+  },
+  {
+    "segment_id": 9000004869,
+    "coordinates": [
+      [
+        13.451802494,
+        52.480881703
+      ],
+      [
+        13.450808894,
+        52.480134403
+      ],
+      [
+        13.450798894,
+        52.480126903
+      ],
+      [
+        13.450725094,
+        52.480071103
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-8v7Kw6zhgtPvO41lF3mpCdCZDeic8RnaM74IcE51p057F2IByoEiCAcmOHjEpAcBoHkpox49d92iA5JkYpQZvCGH1kMHDha9OahDTqVifHsp8RdCR-Oe1qb0DHEeNNf4Bx3fHCtO2Hg3k1v8wyJA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=M0UctIrFPf730SKnTOVezg&_nc_oc=AdnUzeOuEQm692oDx4G96ZEXJ9J2YBLWRjQXstsFuTYaETlrmCnF8N9zE7ZSLyCZ43U&ccb=10-5&oh=00_AfZ0etoIjh1oyiMpwWKv9fih4vPR2LTJbGCzCKADCgIwgg&oe=68F251D8&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 67,
+    "address": "Weigandufer, 12059, Berlin",
+    "district": "Neukölln",
+    "originalProperties": {
+      "segment_id": 9000004869,
+      "last_data_package": "2025-09-17 15:33:30.409400+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6613888888888889,
+      "heavy": 9.14777826449367,
+      "car": 102.98169810271806,
+      "bike": 79.89697739806671,
+      "pedestrian": 19.528720818046203,
+      "night": "",
+      "car_percentage": 48.67841134377782,
+      "bike_percentage": 37.76649640238316,
+      "pedestrian_percentage": 9.231029615091964,
+      "heavy_percentage": 4.324062638747066
+    }
+  },
+  {
+    "segment_id": 9000004912,
+    "coordinates": [
+      [
+        13.332713394,
+        52.474440803
+      ],
+      [
+        13.332730494,
+        52.475421003
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_E88TpNBL5ckvVe9taE5vN2qF1Y3Zq_Kav5OPQoUsujpMOUXtc_2SX7m1KEd-yTe7Kxn3epl7vRNJFoHCQ1sHxg7OkSAXRpgiL9bXIAWryn7v3xN35WVnPWALvmzvqd_lQyHbH7GSsKR7kow5Vww?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=q_7N9Nxnm7AqaZd56KlA3Q&_nc_oc=AdlyLZvmLqUqAlr41VFAhZBbkiYGf8zTawHAzjD293RofYiIvQcfPaLWIT2XcGqJkL4&ccb=10-5&oh=00_AfboGD_7ea9ypUjhfStqA1iw-hFKjywh0KAxjL_NasgWzg&oe=68F25FC6&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 48,
+    "address": "Handjerystraße, 18, 12159, Berlin",
+    "district": "Tempelhof-Schöneberg",
+    "originalProperties": {
+      "segment_id": 9000004912,
+      "last_data_package": "2025-09-17 15:33:22.199500+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6922222222222223,
+      "heavy": 8.638195596556212,
+      "car": 20.032666342642678,
+      "bike": 43.79249753306024,
+      "pedestrian": 1.3761467889908257,
+      "night": "",
+      "car_percentage": 27.130011232422834,
+      "bike_percentage": 59.30767924980288,
+      "pedestrian_percentage": 1.8636998791973372,
+      "heavy_percentage": 11.69860963857694
+    }
+  },
+  {
+    "segment_id": 9000004915,
+    "coordinates": [
+      [
+        13.332701194,
+        52.473965903
+      ],
+      [
+        13.332713394,
+        52.474440803
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8SWNjNfGUGeUxuaDrFHSxQW_TViRG6jysQKEEsVR0gfO_3EuxTc6FTBsiMAybH8t4W-xN_NsLqSUW9n0RXs6F7JhDv8crLnP-Z5QHDZtDRHOXzHhXYyp_bGDF5k6_hvr1DTAg59hJLfcEoiWBpwvI?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=4gTVH6JWlToi-mwuxxQ7WQ&_nc_oc=AdlFUmZeOLis80VTkhxlSWKosMc4QGknlGAUFTiac0XncS5VvI3uawKrG89VWT5qNZI&ccb=10-5&oh=00_AfZGVTfxJ1Lf_JkSbVTOUBcLZP-6rnt-6VhPeeex7IWzNg&oe=68F23FF8&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 52,
+    "address": "Handjerystraße, 88, 12159, Berlin",
+    "district": "Tempelhof-Schöneberg",
+    "originalProperties": {
+      "segment_id": 9000004915,
+      "last_data_package": "2025-09-17 15:32:38.262200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7161111111111111,
+      "heavy": 5.524012569208246,
+      "car": 15.113950534961974,
+      "bike": 15.402479122389504,
+      "pedestrian": 0,
+      "night": "",
+      "car_percentage": 41.936085134448945,
+      "bike_percentage": 42.73665407756502,
+      "pedestrian_percentage": 0,
+      "heavy_percentage": 15.327260787986024
+    }
+  },
+  {
+    "segment_id": 9000004995,
+    "coordinates": [
+      [
+        13.409714394,
+        52.538571303
+      ],
+      [
+        13.409588294,
+        52.538451503
+      ],
+      [
+        13.408950994,
+        52.537856703
+      ],
+      [
+        13.408738894,
+        52.537653303
+      ],
+      [
+        13.408053094,
+        52.536994703
+      ],
+      [
+        13.406970294,
+        52.535939403
+      ],
+      [
+        13.406918794,
+        52.535886803
+      ],
+      [
+        13.406746894,
+        52.535711703
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-m5RwqF70wdY_ePTEOQXa2SocIBWNe8uMGOvXq5xhAgxqdNYB-VzSK9PkVAm927Al0LDjnR0mZxm9gdzlIOWSxYh1_WFf2oiRz5bWYyUSApdfy0OWMrOp5WuIg-IPiNlIG892Xj8sx9zvXZEo2mA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=3WUdkUUrbWzKq8NkerFv2w&_nc_oc=Adk57MCHYUqi92dFUeMWblRcnxkPHO7g9ue1gVxiTuJJy3PT1-AyBP3LwJnNyXrAyns&ccb=10-5&oh=00_AfZufOxOFEriNk7gMJUsbqKCdFwIR8KIK6DxgzMUbuuXqA&oe=68F24DE8&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 66,
+    "address": "Oderberger Straße, 8, 10435, Berlin",
+    "district": "Pankow",
+    "originalProperties": {
+      "segment_id": 9000004995,
+      "last_data_package": "2025-09-17 15:32:35.869500+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.5638888888888889,
+      "heavy": 38.884697713094454,
+      "car": 95.24973276290777,
+      "bike": 190.45461526858656,
+      "pedestrian": 14.303652446703634,
+      "night": "",
+      "car_percentage": 28.106162591069705,
+      "bike_percentage": 56.19909082876787,
+      "pedestrian_percentage": 4.2207024592278914,
+      "heavy_percentage": 11.47404412093455
+    }
+  },
+  {
+    "segment_id": 9000005010,
+    "coordinates": [
+      [
+        13.438138294,
+        52.467160703
+      ],
+      [
+        13.438170894,
+        52.467164603
+      ],
+      [
+        13.438268894,
+        52.467176103
+      ],
+      [
+        13.438575294,
+        52.467212003
+      ],
+      [
+        13.438616994,
+        52.467216903
+      ],
+      [
+        13.438810194,
+        52.467239503
+      ],
+      [
+        13.438828994,
+        52.467241703
+      ],
+      [
+        13.439041994,
+        52.467266703
+      ],
+      [
+        13.439787294,
+        52.467354103
+      ],
+      [
+        13.440007794,
+        52.467379903
+      ],
+      [
+        13.440184094,
+        52.467400603
+      ],
+      [
+        13.440409594,
+        52.467427103
+      ]
+    ],
+    "airQuality": 5,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8J1HCvtsa1x7zWDEURW9UeKojFAU6r8GRCejVNDpjEJO5Q-zoPRPABxGphiI2RmQG0ume99e5fdJPCgwGU60EfT9U5mdvSdf2IgeZdR7bHUXneIX3BUeDJdZt4Cw2YHDrxAYGW7UWoqDxuMFc8iA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=hhnWH9ElNp8mJl2uAswkNA&_nc_oc=AdlCBJdsOa9GdD-hrMqfT3Pmhc8lcrgvJyP6bKBuGAss6aIB2TH-zZeQ7BZwGpRRklE&ccb=10-5&oh=00_Afahb8dLVJAuPK7ZCi_-16WYRrNzud1pXmI1OUpnoedeFA&oe=68F25492&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 65,
+    "address": "Silbersteinstraße, 26, 12051, Berlin",
+    "district": "Neukölln",
+    "originalProperties": {
+      "segment_id": 9000005010,
+      "last_data_package": "2025-09-17 15:33:08.070500+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7672222222222222,
+      "heavy": 105.70783389888436,
+      "car": 637.5307798094216,
+      "bike": 149.90210677928863,
+      "pedestrian": 9.178038717867345,
+      "night": "",
+      "car_percentage": 70.65471855764144,
+      "bike_percentage": 16.612987954643117,
+      "pedestrian_percentage": 1.0171614658603663,
+      "heavy_percentage": 11.715132021855064
+    }
+  },
+  {
+    "segment_id": 9000005083,
+    "coordinates": [
+      [
+        13.341340194,
+        52.532403303
+      ],
+      [
+        13.341338894,
+        52.532699203
+      ],
+      [
+        13.341373194,
+        52.534169203
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_E7N2Yxi8_zaYcVOQmMxGy2OaSpPWRQlpQx12qnNE5ylcmxIx5t6Y7ocSiYfQqwrWYP5ysCZh2Ff3c8KTVljCGI0eqOkwKCShwwl-wLAZ7_uTKtXlCeN2oYU4MFZniAbYKfamTyQjwBP_SUrPSqA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=_wDAqrDjdEuQORoxEPS9Xg&_nc_oc=AdkWoB99qpdXlhXKD2VQiVGMCfpB9nssNpn12UQfMdnl6MHFBVsRKFFNx_PcrewK-6g&ccb=10-5&oh=00_AfZ8fGALeXc2dOrET0CHd1bgrZayPZYgTqRq-hXd1653Dw&oe=68F23E2A&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 58,
+    "address": "Wilhelmshavener Straße, 10551, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000005083,
+      "last_data_package": "2025-09-17 15:30:38.065600+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9991666666666668,
+      "heavy": 0,
+      "car": 0,
+      "bike": 0,
+      "pedestrian": 0,
+      "night": 0,
+      "car_percentage": null,
+      "bike_percentage": null,
+      "pedestrian_percentage": null,
+      "heavy_percentage": null
+    }
+  },
+  {
+    "segment_id": 9000005252,
+    "coordinates": [
+      [
+        13.524268394,
+        52.489030703
+      ],
+      [
+        13.523639894,
+        52.487018103
+      ],
+      [
+        13.523624294,
+        52.486966703
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9xUTeaqPavKR2JVcp1oEOgevcM4MMbfVOs08-P7RKEXpUBpemr44ry1rdxLPt5MOqXA7YPRBe7GSBIlJRuetjZZMmGUt6AKK2I9ls3MJpn3z8_xqQjNU1HQvpHbknGYY9eSKWS9sc9oQ7zP897Aw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=RM6b6Y7b4r7G4CFrauzyoA&_nc_oc=AdkIf74YNrOsBDJybj6jqf-S63_Qzle4iBHOOCB5meu64wV0GsgrDkjK-uyzOzfRS6E&ccb=10-5&oh=00_AfYayhNsO4rLgDqdX8GijN9l1TLUHnCLIMx-NnWmvaKDkg&oe=68F255F0&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 42,
+    "address": "Hönower Straße, 32a, 10318, Berlin",
+    "district": "Lichtenberg",
+    "originalProperties": {
+      "segment_id": 9000005252,
+      "last_data_package": "2025-09-17 15:32:36.882500+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7397222222222223,
+      "heavy": 1.3910355486862442,
+      "car": 68.36607249845383,
+      "bike": 56.3987470543081,
+      "pedestrian": 13.501487831184784,
+      "night": "",
+      "car_percentage": 48.95272318866315,
+      "bike_percentage": 40.38366037188133,
+      "pedestrian_percentage": 9.66758177384024,
+      "heavy_percentage": 0.9960346656152861
+    }
+  },
+  {
+    "segment_id": 9000005444,
+    "coordinates": [
+      [
+        13.434586794,
+        52.462488903
+      ],
+      [
+        13.434565294,
+        52.462533303
+      ],
+      [
+        13.434479594,
+        52.462694203
+      ],
+      [
+        13.434437194,
+        52.462761103
+      ],
+      [
+        13.434332294,
+        52.462833603
+      ]
+    ],
+    "airQuality": 5,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9p7pZLkLl4FOVsZ0MH5Vh80kAKeKU2L-PqIK-3hREOqB0rf-br2-G-jNZqDHHlbeQ4CLi4OkLEClZ4SwYFXrjRwsRWVxuTBPX7dn4R6prpaRvM60J8FBrpETfo3FA0NXVvzwS9YcP__F-SjPRT6A?stp=s1024x579&edm=AOnQwmMEAAAA&_nc_gid=oak5ZeGJuO1EfnmW5dCp1g&_nc_oc=Adnth2k3NUlmsHF5X0WZeFpr0R-OmgVeQYQSX3kX2zHkO24h2meFviy3213mYz1f7lk&ccb=10-5&oh=00_AfaBIfKSDohlGQTXFyruHsMCP4Ws3AS6GjeYG5RBIcxGUA&oe=68F23325&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 73,
+    "address": "Britzer Damm, 5, 12347, Berlin",
+    "district": "Neukölln",
+    "originalProperties": {
+      "segment_id": 9000005444,
+      "last_data_package": "2025-09-17 15:30:43.450200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9997222222222222,
+      "heavy": 85,
+      "car": 748,
+      "bike": 41,
+      "pedestrian": 73,
+      "night": 0,
+      "car_percentage": 78.98627243928195,
+      "bike_percentage": 4.329461457233368,
+      "pedestrian_percentage": 7.708553326293559,
+      "heavy_percentage": 8.97571277719113
+    }
+  },
+  {
+    "segment_id": 9000005484,
+    "coordinates": [
+      [
+        13.541488494,
+        52.435514303
+      ],
+      [
+        13.541528594,
+        52.435530103
+      ],
+      [
+        13.541586594,
+        52.435550803
+      ],
+      [
+        13.541738394,
+        52.435605003
+      ],
+      [
+        13.542140394,
+        52.435745403
+      ],
+      [
+        13.542270794,
+        52.435783403
+      ],
+      [
+        13.542895394,
+        52.436006103
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9YuN5iaO8ocj0EYj-ldlJIVsJ2TngtUbERMxZLrmOAhfnjFM0ir5CF_HLlMbmD2ShLu5WlktbE_UquarEUiIybLz3tGyTS_DJWhzJddqj6DUNYFJF5I-YOPPbVygn6jmPv5ZhL_4pHjJvGyiDWhg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=IzpS8bo7riorcT-h2-TZXg&_nc_oc=AdnNibGRb_jqGuaO4s6P1D_sNPdlpQRX7hdYYpwlTneh_eDLC_xHnKJhtR0O6z-hedg&ccb=10-5&oh=00_AfYLUAc3K6-Iz8WDSgtXZDJ6mWgUpTN9mDhHlXtkfJrYtQ&oe=68F24608&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 74,
+    "address": "Dörpfeldstraße, 12489, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000005484,
+      "last_data_package": "2025-09-17 15:33:29.870900+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7086111111111111,
+      "heavy": 109.07044417129629,
+      "car": 1035.2278205740615,
+      "bike": 235.72434405920546,
+      "pedestrian": 34.39539301528299,
+      "night": "",
+      "car_percentage": 73.19108065947242,
+      "bike_percentage": 16.665818998055258,
+      "pedestrian_percentage": 2.4317700263308666,
+      "heavy_percentage": 7.711330316141477
+    }
+  },
+  {
+    "segment_id": 9000005832,
+    "coordinates": [
+      [
+        13.429664394,
+        52.485389603
+      ],
+      [
+        13.429980794,
+        52.485221203
+      ],
+      [
+        13.430234894,
+        52.485086003
+      ],
+      [
+        13.430450894,
+        52.484971103
+      ],
+      [
+        13.430525194,
+        52.484931503
+      ],
+      [
+        13.430753794,
+        52.484809903
+      ],
+      [
+        13.430843194,
+        52.484762303
+      ],
+      [
+        13.430894594,
+        52.484734703
+      ],
+      [
+        13.431000094,
+        52.484678103
+      ],
+      [
+        13.431047094,
+        52.484633403
+      ],
+      [
+        13.431105894,
+        52.484602403
+      ],
+      [
+        13.431265094,
+        52.484516403
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9SNHxye-YRPERVgg3D-OV-Fo9x_KWct-UDhNX7jHnTiRwbotIHlexZdtJqL5__0FNDX4jrWeffgBwB9GyDI1PuTgS2-vxSaL48IxA6uTI7EXNDl65hO4XWJDM7mwFZ09h-NdW-WaM39A_zc7hlnw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=5iuHZfAk57gZsKgecF7GOg&_nc_oc=AdlpDyD-krSi-112wILiM3wve6bqI2HDrLfTponBDIdevspt5oo-VFIiAuDPhz2Jpmo&ccb=10-5&oh=00_AfYzVQmjJhXZ72RZOWRSPvZZ4Ok-6D7cThBWSp2pYGqDJw&oe=68F25FF9&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 57,
+    "address": "Donaustraße, 131, 12043, Berlin",
+    "district": "Neukölln",
+    "originalProperties": {
+      "segment_id": 9000005832,
+      "last_data_package": "2025-09-17 15:33:38.282400+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7202777777777778,
+      "heavy": 5.598925112117582,
+      "car": 67.9771201402479,
+      "bike": 150.9429008972768,
+      "pedestrian": 34.50613036674879,
+      "night": "",
+      "car_percentage": 26.243451427354884,
+      "bike_percentage": 58.27347024747434,
+      "pedestrian_percentage": 13.32154045886953,
+      "heavy_percentage": 2.161537866301251
+    }
+  },
+  {
+    "segment_id": 9000005887,
+    "coordinates": [
+      [
+        13.433338694,
+        52.464029003
+      ],
+      [
+        13.433837094,
+        52.464084003
+      ],
+      [
+        13.433914794,
+        52.464092603
+      ],
+      [
+        13.433932094,
+        52.464094503
+      ],
+      [
+        13.434385594,
+        52.464144003
+      ],
+      [
+        13.434818394,
+        52.464191303
+      ],
+      [
+        13.434870294,
+        52.464197003
+      ],
+      [
+        13.435047294,
+        52.464216303
+      ],
+      [
+        13.435519794,
+        52.464267903
+      ],
+      [
+        13.435784994,
+        52.464296803
+      ],
+      [
+        13.435852194,
+        52.464304203
+      ],
+      [
+        13.436350694,
+        52.464359103
+      ],
+      [
+        13.436418394,
+        52.464366503
+      ],
+      [
+        13.436601894,
+        52.464386703
+      ],
+      [
+        13.436754794,
+        52.464403503
+      ],
+      [
+        13.437047794,
+        52.464435803
+      ],
+      [
+        13.437091294,
+        52.464440603
+      ],
+      [
+        13.437197994,
+        52.464452303
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9zPkBRJz1duqRaoQ4nsM-RnR8P4HaWogGCExXKlazIxbRhG0YRV3xh6iTejXq2cEDrYHnZBLVlKr2MmoF4dQol1Ou9iGwjGESnFk2mqU94ElCOErr-mFdHvnDkj9K4DRLeU62mi8TNiOVCRvUS-A?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=0wLWQw4vt-mFIggBraDbNA&_nc_oc=AdlyggbmjgVqXHvlGxHOiFfGTKcfuF9ibliM_MXkJqjuXutupN0i3qtnv1x3jnMN6-0&ccb=10-5&oh=00_Afa6R79SUFgkP9etWzfhX9urFH2QaYe8AdhfFRQ8PkbBow&oe=68F24521&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 71,
+    "address": "Glasower Straße, 36, 12051, Berlin",
+    "district": "Neukölln",
+    "originalProperties": {
+      "segment_id": 9000005887,
+      "last_data_package": "2025-09-17 15:33:05.451600+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6255555555555555,
+      "heavy": 9.355928491424997,
+      "car": 96.62818720500157,
+      "bike": 35.674352710846435,
+      "pedestrian": 7.6889289055490355,
+      "night": "",
+      "car_percentage": 64.70028198925009,
+      "bike_percentage": 23.886825852159433,
+      "pedestrian_percentage": 5.148351457001864,
+      "heavy_percentage": 6.264540701588614
+    }
+  },
+  {
+    "segment_id": 9000005977,
+    "coordinates": [
+      [
+        13.438999394,
+        52.486153803
+      ],
+      [
+        13.438327794,
+        52.485643303
+      ],
+      [
+        13.437916794,
+        52.485330903
+      ],
+      [
+        13.437530694,
+        52.485037403
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9p2_R2BG4045dhHtqnMeHZgR7mwO8c6wZy47eVdE5JAhokNYf_DGGyJEsV2zeAK2xIrktF08o3NnSEBtun8gsf2rXAgai9rU9VMnZt_eFhiy3ficciL1cR0iA0TtrfjL7yAyUUhN6_C9pXDEC5GQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=MclV-GnZZcDyRxQ5OA-8SA&_nc_oc=Adlhljvq2PHSqEXD5zFNixV4oq7kruICIuCwQ9Vn7-Y9l8lqOHoNfWtCq5-OdnkoVvY&ccb=10-5&oh=00_AfadCliQDhwsc4qSaJzhVKpuKn6tbPxraKwy6-fkW98a8Q&oe=68F238F3&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 39,
+    "address": "Fuldastraße, 25, 12045, Berlin",
+    "district": "Neukölln",
+    "originalProperties": {
+      "segment_id": 9000005977,
+      "last_data_package": "2025-09-17 15:33:16.842300+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6288888888888888,
+      "heavy": 14.368306738707291,
+      "car": 108.25515590575455,
+      "bike": 15.883471821853318,
+      "pedestrian": 3.3333333333333335,
+      "night": "",
+      "car_percentage": 76.32187783138325,
+      "bike_percentage": 11.198140040379055,
+      "pedestrian_percentage": 2.350061364831683,
+      "heavy_percentage": 10.129920763406016
+    }
+  },
+  {
+    "segment_id": 9000006027,
+    "coordinates": [
+      [
+        13.336056494,
+        52.495982003
+      ],
+      [
+        13.337188494,
+        52.495935603
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8K9NS5Nr4VYGUmmjxp9LjaM8wJ_20yXHEc7SHWoq8XGcf6hkQXU5X5rxwtJPojYjFJaMqfIzIAyznFuwLxU7DYw3zxfb1oAJ6wQfHAlv0eFPK53tOELtMjn2aihTz5nPtIpJxzK8L4HSgWAbU-Dw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=SZ12UJowYvmagCCkEDzNag&_nc_oc=AdmNCy-8X75Ds0loLg_6_Bayk0Hd7YrpDqcanghmH2gnf6IvWBWMG4Hrx6y2yFXTkC0&ccb=10-5&oh=00_AfbYUiNIxCtlkEMzLiBqutKP_PLS6QwYFH-5yIwj0YYr1Q&oe=68F253B8&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 47,
+    "address": "Regensburger Straße, 27, 10777, Berlin",
+    "district": "Tempelhof-Schöneberg",
+    "originalProperties": {
+      "segment_id": 9000006027,
+      "last_data_package": "2025-09-17 15:32:49.687100+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7241666666666666,
+      "heavy": 9.681448664512402,
+      "car": 52.17776924397821,
+      "bike": 124.19850700135812,
+      "pedestrian": 5.521424936386769,
+      "night": "",
+      "car_percentage": 27.23561999615142,
+      "bike_percentage": 64.82882250027826,
+      "pedestrian_percentage": 2.882059420776401,
+      "heavy_percentage": 5.0534980827939195
+    }
+  },
+  {
+    "segment_id": 9000006300,
+    "coordinates": [
+      [
+        13.548418594,
+        52.438905603
+      ],
+      [
+        13.548630794,
+        52.438711403
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": null,
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 52,
+    "address": "Selchowstraße, 12489, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000006300,
+      "last_data_package": "2025-09-17 15:30:16.869100+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9752777777777778,
+      "heavy": 35.73089096246249,
+      "car": 70.15831679758605,
+      "bike": 63.06367765952213,
+      "pedestrian": 277.9468013578445,
+      "night": 0,
+      "car_percentage": 15.698895943180515,
+      "bike_percentage": 14.11137208760943,
+      "pedestrian_percentage": 62.194449801948494,
+      "heavy_percentage": 7.99528216726157
+    }
+  },
+  {
+    "segment_id": 9000006412,
+    "coordinates": [
+      [
+        13.380870794,
+        52.597448603
+      ],
+      [
+        13.380506994,
+        52.597099303
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9_aQjgSWdUHHG0uRVFb4oSuO8iac_iyIb56cXpj6xdAyY4WVum62yQ7N4XwzNBVz4psgGugeUuefxDWKwBn5rCsNgnF7Bl-R9MejRhq4PCNstVaEJKI0QcmZhKc0tsK6UINozu7dYTdW_iSHGXe98?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=1zhT1xJ-TLc5f0mlSmYZ4Q&_nc_oc=Adn_a0WuZfz_Mb0QtzBbHJZ6bGpzR2tANc9v44dY4-MKw-_2YaGG_YcEuTrO2c08TT4&ccb=10-5&oh=00_AfanvZCySKetp2u9lU5xF3T_yt_q--kAjvlkQsX7wZop3w&oe=68F2328E&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 47,
+    "address": "Nesselweg, 5, 13158, Berlin",
+    "district": "Pankow",
+    "originalProperties": {
+      "segment_id": 9000006412,
+      "last_data_package": "2025-09-17 15:33:27.442300+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6211111111111112,
+      "heavy": 4.955384774087064,
+      "car": 54.482246362089256,
+      "bike": 63.03409687856433,
+      "pedestrian": 0,
+      "night": "",
+      "car_percentage": 44.4855700537938,
+      "bike_percentage": 51.46828406877509,
+      "pedestrian_percentage": 0,
+      "heavy_percentage": 4.046145877431105
+    }
+  },
+  {
+    "segment_id": 9000006435,
+    "coordinates": [
+      [
+        13.424599994,
+        52.508832903
+      ],
+      [
+        13.423483894,
+        52.509143203
+      ],
+      [
+        13.423453494,
+        52.509151603
+      ],
+      [
+        13.423426894,
+        52.509160203
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9jNgK50aff7OqQlm6dXSyOYx-k3idA6iWiN2TW6CKDIFOkNfXLZu1sqvIJ7hvyHDBjGJOiBYx4qFdiajHBincLP8TN9itRI6rEqoxYaQVuNjwHTynIKr6JaQrZZYc6VcIcSOkRQe5q4Ted2oe3Src?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=cl1b5ab1TFf6d4gv7btzsg&_nc_oc=AdnPqvserEeXcSdLJ1r0AYYR8mwkXq9DLVjNbh-HjgkBGY_V68Vb9n42B7CVcZtYZrg&ccb=10-5&oh=00_Afb5GHZZDRzLyWeP5kk2PNOII2W77PON4-l1TZ6z7iulzA&oe=68F245D4&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 69,
+    "address": "Köpenicker Straße, 44, 10179, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000006435,
+      "last_data_package": "2025-09-17 15:33:26.189800+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6908333333333334,
+      "heavy": 154.55026458958457,
+      "car": 406.3003577506521,
+      "bike": 250.10902261208486,
+      "pedestrian": 56.732468784717284,
+      "night": "",
+      "car_percentage": 46.825406306940884,
+      "bike_percentage": 28.82462784349823,
+      "pedestrian_percentage": 6.538317899465261,
+      "heavy_percentage": 17.81164795009561
+    }
+  },
+  {
+    "segment_id": 9000006445,
+    "coordinates": [
+      [
+        13.406259894,
+        52.532285303
+      ],
+      [
+        13.406728094,
+        52.532088803
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-KQsn38OjT3YMi10yV-rU9HLyg0hz9zAX4oc7k2O-dAjKzFM7SeypWXRwhwus33ucU8s3Td14KsrefRPPaXvFJAIbefWICpWScLUbilnkvajKKq_R2hdWCI_G_ENSZDh4ERplQPOI6sFDxr9MB3A?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=AFM_uhzQLAPJpI8kfQlJyw&_nc_oc=Adkj_CiFAcv39_tVz0gOKcWSlpZn6KLrQve7r-yBxdXUrORAQF06IUPgbvNrVn-1pnQ&ccb=10-5&oh=00_AfbWn-Tm7kQLcjk8SdCDMZzRx9diKU1_s7-TSAOdaGntNQ&oe=68F23068&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz",
+      "Fahrradstrasse"
+    ],
+    "nearestNoiseLevel": 58,
+    "address": "Choriner Straße, 10119, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000006445,
+      "last_data_package": "2025-09-17 15:33:32.368700+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6080555555555555,
+      "heavy": 40.12807053681264,
+      "car": 146.37281589129236,
+      "bike": 128.21378367284544,
+      "pedestrian": 27.256217314930215,
+      "night": "",
+      "car_percentage": 42.80271253420592,
+      "bike_percentage": 37.492601970214196,
+      "pedestrian_percentage": 7.970332656353622,
+      "heavy_percentage": 11.734352839226265
+    }
+  },
+  {
+    "segment_id": 9000006539,
+    "coordinates": [
+      [
+        13.408172594,
+        52.530454203
+      ],
+      [
+        13.408873494,
+        52.531274003
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9762Ou4iaeg9cgcpVLHCAMcFnS3wykNFYP4lAXc6dD2UTP58faR4y6-ienjZiCqPPWLbNOb7DTHNTezER9p65tJ81tcu9_IKkhQMG_GhxWRkZenVXl7XUfahcl5KcpeiDIHfu67GfdbgCUDLPzxw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=eQFPtbaNMTl-i1Efqz2Ayg&_nc_oc=AdnYusL17h7Ie1UYuhntyOIYREo-rZl2cHyREJNSwJsR9biGxqGk4kJPOeOJ2T7pzJQ&ccb=10-5&oh=00_AfZewbrAXfIELdZKF-b30_YZ2a6oUs3eZn73XbGkn8-ANg&oe=68F25701&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 47,
+    "address": "Christinenstraße, 35, 10119, Berlin",
+    "district": "Pankow",
+    "originalProperties": {
+      "segment_id": 9000006539,
+      "last_data_package": "2025-09-17 15:30:37.723000+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9997222222222222,
+      "heavy": 4,
+      "car": 40,
+      "bike": 7,
+      "pedestrian": 0,
+      "night": 0,
+      "car_percentage": 78.43137254901961,
+      "bike_percentage": 13.725490196078432,
+      "pedestrian_percentage": 0,
+      "heavy_percentage": 7.8431372549019605
+    }
+  },
+  {
+    "segment_id": 9000006667,
+    "coordinates": [
+      [
+        13.414287094,
+        52.505809103
+      ],
+      [
+        13.414091094,
+        52.506025203
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_ktRmnhx93LmhlqeN3VovS2YawKWcOUennh5-S-hSXwp16hCUinpi0F0oOn1Ote0h-KajDAbItA0I3ZZtWgZeU7Zw5qkiWKrNIW237GcBKa0HzcumlwhBF8P6eu1Ye5PYBJIO69x-ke9q1L0EIpWw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=ov1v44QqN2lzpQCzGG286Q&_nc_oc=AdmmEfsz0Y1wklK7nF-bB7f0DWnF9qPhRRU2LO7Ndnt41VeylXzLE-jl5AI2aA1MZFY&ccb=10-5&oh=00_AfZfiBBBliLU-TfZIbd6kP0eH6zZLQ3BCysPejoUBJ1bhw&oe=68F2550C&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 49,
+    "address": "Dresdener Straße, 108, 10179, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000006667,
+      "last_data_package": "2025-09-17 15:30:37.463100+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9997222222222222,
+      "heavy": 4,
+      "car": 74,
+      "bike": 26,
+      "pedestrian": 5,
+      "night": 0,
+      "car_percentage": 67.88990825688074,
+      "bike_percentage": 23.853211009174313,
+      "pedestrian_percentage": 4.587155963302752,
+      "heavy_percentage": 3.669724770642202
+    }
+  },
+  {
+    "segment_id": 9000006720,
+    "coordinates": [
+      [
+        13.477400794,
+        52.500472803
+      ],
+      [
+        13.478826194,
+        52.499820603
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_v2lE-FSAlHqYnubXBMpU429j2iCN6Glr7IIYxC5E_uQ80LYz1tqVZi_QFvbynOgZ-FT2naWnGMxfyBQQUzmNqOz5s8hZNxFW0U7QclzOzqRB1gv7nfEdkmpW8eYKv0J9Bs2U8UOd4K03-29O-Rw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=eO0zkUiGayCQHrByv7sedA&_nc_oc=AdkH_PYPaiJlqFd-eoBshBKGN4lYccTynyXdP19ud0Gg8yzz_sbvJKcrCGmrC5TJy2U&ccb=10-5&oh=00_AfadJsRHO6W_MX9cDGjWBzqLQr1XuV2-FUtnmZX-Call4Q&oe=68F246F9&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 66,
+    "address": "Hauptstraße, 10317, Berlin",
+    "district": "Lichtenberg",
+    "originalProperties": {
+      "segment_id": 9000006720,
+      "last_data_package": "2025-09-17 15:32:57.502500+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.711111111111111,
+      "heavy": 260.5466141530716,
+      "car": 577.8052326902601,
+      "bike": 160.28070077413574,
+      "pedestrian": 5.60358308197689,
+      "night": "",
+      "car_percentage": 57.536789906953686,
+      "bike_percentage": 15.960459485011876,
+      "pedestrian_percentage": 0.5579945702684515,
+      "heavy_percentage": 25.94475603776598
+    }
+  },
+  {
+    "segment_id": 9000006732,
+    "coordinates": [
+      [
+        13.479312994,
+        52.502884803
+      ],
+      [
+        13.480550394,
+        52.503088303
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_s3lKA7pf4sl5uwm8OGti1HoVvn47JrDiMJQGtKMNZtWM60ek6t-f1X6ih93k7X-M8YhDK3mIquAAxBmQLfGcK8DbhowLFWa6jHG7O_ub1iWVwh7wh4HgGx0QzsdqBRLdLd44_RO6XskGx_IZHa0M?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=Yt9y6YYAL_cFnbDKhoJLmA&_nc_oc=Adk2tN7l3tJM_IlrsaHRF4mDiisVSyzwErPlAljBFqjun9vtNrGSqttxQg4VN2GBj7I&ccb=10-5&oh=00_AfZc-7kLiurzlN3uABjsT-S3e8dAZkoDnimuVCQ3MYYQIw&oe=68F22DD6&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 53,
+    "address": "Türrschmidtstraße, 17, 10317, Berlin",
+    "district": "Lichtenberg",
+    "originalProperties": {
+      "segment_id": 9000006732,
+      "last_data_package": "2025-09-17 15:32:30.878200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.5869444444444445,
+      "heavy": 8.577820591101561,
+      "car": 9.993692415286384,
+      "bike": 57.44276444930753,
+      "pedestrian": 3.5928143712574854,
+      "night": "",
+      "car_percentage": 12.553771511978246,
+      "bike_percentage": 72.15784816530486,
+      "pedestrian_percentage": 4.51318379908591,
+      "heavy_percentage": 10.775196523630983
+    }
+  },
+  {
+    "segment_id": 9000006738,
+    "coordinates": [
+      [
+        13.477592994,
+        52.501726803
+      ],
+      [
+        13.477692594,
+        52.501734303
+      ],
+      [
+        13.477737294,
+        52.501737703
+      ],
+      [
+        13.478367794,
+        52.501785503
+      ],
+      [
+        13.478926094,
+        52.501825403
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9tRZhopruJQy5KQy9em4ofR9PgxhpzJ6gDrTVXD-a5Rpz2ilRaiac5d3rrA4PEhxLnEmaPKc4Mhbl5JZ_l5awo4NGfzEqs-NEAisjBJdcvtTq-VFI20EYHqGZvAmKvhmGewYZSiJo0K28gwDDFAMo?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=mnp6-54lP69_04KLKSnA_Q&_nc_oc=AdkxWDE31yE1kdv1RtoRxNOsoJF9Z0IFNcU10SC_eaCsjbVwLTtsXStNsej6UWsNa90&ccb=10-5&oh=00_AfabBldCSHuRGXUsOzo5HgZJn8AAaZSp9CcHwgNDIf1uGA&oe=68F24E79&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 70,
+    "address": "Nöldnerstraße, 8, 10317, Berlin",
+    "district": "Lichtenberg",
+    "originalProperties": {
+      "segment_id": 9000006738,
+      "last_data_package": "2025-09-17 15:32:37.248700+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6077777777777778,
+      "heavy": 50.423994175592945,
+      "car": 111.24854364507058,
+      "bike": 69.44266873553269,
+      "pedestrian": 17.90639443295535,
+      "night": "",
+      "car_percentage": 44.67425444345972,
+      "bike_percentage": 27.88620282726313,
+      "pedestrian_percentage": 7.190699265376351,
+      "heavy_percentage": 20.248843463900798
+    }
+  },
+  {
+    "segment_id": 9000006798,
+    "coordinates": [
+      [
+        13.468102894,
+        52.515843903
+      ],
+      [
+        13.468016694,
+        52.515858903
+      ],
+      [
+        13.467047894,
+        52.516027303
+      ],
+      [
+        13.466471694,
+        52.516129103
+      ],
+      [
+        13.466356094,
+        52.516150903
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8tIO4ADHQXEB_xRCgYPbdv1KucK8dKGaC_l9VEDRR5ZySfT03V1NIxp8lBgbjfh1fp2BmNCrBWrmkGZmy6SGuGQG-94xMW0IrCXMWAr2rF_aGV3YldXXVFrI_8sJ5oZ2IC78aOSi6uuzlN2j7qRg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=-vIxAuIQ9U-oojK6PfKMIQ&_nc_oc=Adldu-K61Xj5HNL92b1FFWs6SgyY3FLQ1iKztnXFC3_me8uQsieRE03tcwwN9lrwXQw&ccb=10-5&oh=00_Afa5wueUVCSwIuffUV4bHDTXvgiY_is4pLPkl_SFnDBq8A&oe=68F25817&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz",
+      "Fahrradstrasse"
+    ],
+    "nearestNoiseLevel": 50,
+    "address": "Voigtstraße, 38, 10247, Berlin",
+    "district": "Friedrichshain-Kreuzberg",
+    "originalProperties": {
+      "segment_id": 9000006798,
+      "last_data_package": "2025-09-17 15:32:32.518600+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.5611111111111111,
+      "heavy": 3.402646502835539,
+      "car": 48.18515446679235,
+      "bike": 214.32487079538797,
+      "pedestrian": 1.7821782178217822,
+      "night": "",
+      "car_percentage": 18.00003043386213,
+      "bike_percentage": 80.06312815100056,
+      "pedestrian_percentage": 0.6657499081271233,
+      "heavy_percentage": 1.2710915070101976
+    }
+  },
+  {
+    "segment_id": 9000006829,
+    "coordinates": [
+      [
+        13.299442194,
+        52.513474703
+      ],
+      [
+        13.299724294,
+        52.512270803
+      ],
+      [
+        13.299948294,
+        52.511314603
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_4yOXQ0cS2ABVi_APwW3TFgn1zfu96mgcTfRqFZhZxwlRfDroUtTnazIkTbtYWY3CBxcm3EE4X5dZ5x5LyGCVmdUqaaBsqsOXN9lVihJ7B1oF-namxhollEcZ-ViPFSgg-UasQQnFLc8yTesBkyw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=rBk3eprNQHNIPz4P6xp4ew&_nc_oc=Adkt7Yl2JL3eTsSzp46QdgqZDp7Me8EUt710I3tbi-cenB0NQ8f7YgbscWmYGu1Lbcc&ccb=10-5&oh=00_AfbvjZuMD2FsrvwCCvic4E4N8myxLpsdiDEPAtUjUdFjjg&oe=68F24B45&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 51,
+    "address": "Fritschestraße, 21, 10585, Berlin",
+    "district": "Charlottenburg-Wilmersdorf",
+    "originalProperties": {
+      "segment_id": 9000006829,
+      "last_data_package": "2025-09-17 15:33:34.333400+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6719444444444445,
+      "heavy": 2.9328009163511406,
+      "car": 21.83071439879088,
+      "bike": 48.952296885196866,
+      "pedestrian": 27.007596131116244,
+      "night": "",
+      "car_percentage": 21.67392343093827,
+      "bike_percentage": 48.600715261845885,
+      "pedestrian_percentage": 26.81362414012154,
+      "heavy_percentage": 2.9117371670943046
+    }
+  },
+  {
+    "segment_id": 9000006878,
+    "coordinates": [
+      [
+        13.404834494,
+        52.535507603
+      ],
+      [
+        13.404647594,
+        52.535322903
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_5Fl2dtkiQJio1h-Ff1Nu20kHvtdPJE__Hb_uCzh11dQuMP6nXg3NUzMrrbs-yaQXOXYXRUd6C4ajjgfuPcsvc-0omBI4KmXpnOVqNEIIiRBPchL4Ll6hD7RTKhfGDsvLWcrLUkSeGc37kCSEfTQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=TewSoR8oFMiG7YGJjl0Gpw&_nc_oc=AdmQwVoWlCsxct1A3rOFx91y1g94MQzSM-8O9dgsIhAzketlVj3NSbxrMPIJCutk9do&ccb=10-5&oh=00_AfaYfhpjH_Hi_G4hbMN80wXuhASraO-qOXMdrdZ3ztlFrA&oe=68F25CA0&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 43,
+    "address": "Griebenowstraße, 10/11, 10435, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000006878,
+      "last_data_package": "2025-09-17 15:33:01.122200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.3875,
+      "heavy": 0,
+      "car": 0,
+      "bike": 6.34873617693523,
+      "pedestrian": 2.0833333333333335,
+      "night": "",
+      "car_percentage": 0,
+      "bike_percentage": 75.2927400468384,
+      "pedestrian_percentage": 24.70725995316159,
+      "heavy_percentage": 0
+    }
+  },
+  {
+    "segment_id": 9000007083,
+    "coordinates": [
+      [
+        13.456517394,
+        52.536965903
+      ],
+      [
+        13.456555894,
+        52.536943903
+      ],
+      [
+        13.456800194,
+        52.536690303
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-Zz1nFprBss7nZ69m8ZflOS5sLUU5dIqU1jlasG3TP_BcDKEMQ2VSfJXGtFfZmR_-xJ0d509GS0rtyZ9euLWKW66IeiXsSwGvmyEv6e_7yz4F6ud5KSmAmaTbYf6sFhUbdbLpT4PQzjsMVsODIXg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=np7gDGVdXMGvq1q9YSdIPw&_nc_oc=AdnLKXal5AoATaK2Vs-j4zxMLQfNF8hQyND53_TicKRAcN9se7fnvlsnwIEEbY3oBIU&ccb=10-5&oh=00_AfbgodCeytt1RV9EwJRZ4RFsUFZqyoVcYUWcnWga1zszuQ&oe=68F25345&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 43,
+    "address": "Stedingerweg, 30, 10407, Berlin",
+    "district": "Pankow",
+    "originalProperties": {
+      "segment_id": 9000007083,
+      "last_data_package": "2025-09-17 15:33:35.212200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7413888888888889,
+      "heavy": 12.019826749719797,
+      "car": 65.39941005698759,
+      "bike": 83.87986275333782,
+      "pedestrian": 10.692393121401214,
+      "night": "",
+      "car_percentage": 38.024793574015284,
+      "bike_percentage": 48.76977427522865,
+      "pedestrian_percentage": 6.216815119574026,
+      "heavy_percentage": 6.988617031182052
+    }
+  },
+  {
+    "segment_id": 9000007116,
+    "coordinates": [
+      [
+        13.480458994,
+        52.453201103
+      ],
+      [
+        13.481218094,
+        52.452631203
+      ],
+      [
+        13.481369794,
+        52.452538603
+      ],
+      [
+        13.481641094,
+        52.452395403
+      ],
+      [
+        13.482124394,
+        52.452226603
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_I0eOz3by9RhJamdszwL-Qst84jEBM6admCrMCKrd63EgdQtw2YFzW1bWffrywn8euRssxSvpF9ZIALkJ_GWSQzw3XipZn8ZZF0DjqexlWMzTs0Y5998XsZtxuS0catqNJS7KweQUdh33FJaxSCw?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=T5AJPPKhoa8FjIKOF6Gcdg&_nc_oc=Adnjs_9Dc-5_QSGF8No85Jsg87IoYseO_KLGDLab1dFd3YUz5evvJpPpYpfixpM1r_M&ccb=10-5&oh=00_AfYxDE42wjcRrq2sJOesy3yBVTW8FMID1GNE0WhA9JMLVQ&oe=68F25CE1&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 64,
+    "address": "Königsheideweg, 58, 12437, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000007116,
+      "last_data_package": "2025-09-17 15:32:31.118300+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.5905555555555556,
+      "heavy": 83.133337854829,
+      "car": 3.380785428585537,
+      "bike": 98.5412886002885,
+      "pedestrian": 10.210049210592395,
+      "night": "",
+      "car_percentage": 1.7313791233939348,
+      "bike_percentage": 50.46529378418953,
+      "pedestrian_percentage": 5.228804496900694,
+      "heavy_percentage": 42.57452259551584
+    }
+  },
+  {
+    "segment_id": 9000007365,
+    "coordinates": [
+      [
+        13.410930094,
+        52.505774403
+      ],
+      [
+        13.411165694,
+        52.505459503
+      ],
+      [
+        13.411464394,
+        52.505052303
+      ],
+      [
+        13.411502694,
+        52.505014603
+      ],
+      [
+        13.411566594,
+        52.504951703
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8_ac7KYQ-G_O_PD_lbchCWL8cHBsq4qOc3ZOMs9lWsFi6sLs_dhbwvAgFhbhjVrrIWS7FBmv3JIuWzaA4X1N77bvu3NOKbMSN36M_dZNcwntSO1GwfzncPvDab8uFLaXOLoo6KYDdnuVSJWQkdAw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=yAW2Vr4pwvaOZu4L8PY8tQ&_nc_oc=AdkcHCE0rwFTUu_bpML4X6ue741oauuJohDs4nRkECIzuFtT1_lW2YIta7q226ui99o&ccb=10-5&oh=00_AfYILIRwxGw0fCgtt0NfCANqzKJ07JJLeW_DGK9wO4F1pQ&oe=68F24D54&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 54,
+    "address": "Sebastianstraße, 16, 10179, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000007365,
+      "last_data_package": "2025-09-17 15:32:52.941200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7266666666666667,
+      "heavy": 38.100835936892636,
+      "car": 4.397394136807819,
+      "bike": 12.188502997329822,
+      "pedestrian": 2.8070797147531277,
+      "night": "",
+      "car_percentage": 7.648464980383367,
+      "bike_percentage": 21.199677681393386,
+      "pedestrian_percentage": 4.88240312955421,
+      "heavy_percentage": 66.26945420866903
+    }
+  },
+  {
+    "segment_id": 9000007661,
+    "coordinates": [
+      [
+        13.416832994,
+        52.464759203
+      ],
+      [
+        13.416994394,
+        52.464774303
+      ],
+      [
+        13.417222394,
+        52.464795803
+      ],
+      [
+        13.417425594,
+        52.464814903
+      ],
+      [
+        13.417706794,
+        52.464841303
+      ]
+    ],
+    "airQuality": 2,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9ZOOWRy5AHhTNxc6VRg6eVceBep43uX2x1XRVxQVOvILb7xSettbxReMhuAd-WsibdN_UzhEA-6Uu8KxJkn6TByl5n89xB0gTzja_h6vcV1nHXq5w5cLazysvzrVhl_-y-q-VPaij9Lss6piH1rQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=OLg7VDxMADOI_wpimgl9Cg&_nc_oc=Adn2DXBBAkF-HD0O_yn4_Ot2Lnx74DcAUEPpj0124hDwWL4iDaNThzZOtLVkus1SjVU&ccb=10-5&oh=00_Afa3pkfpfJem1hH9AwtJY7hsTuls63QExLJi3sFsFA6taQ&oe=68F25201&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 65,
+    "address": "Oberlandstraße, 102, 12099, Berlin",
+    "district": "Tempelhof-Schöneberg",
+    "originalProperties": {
+      "segment_id": 9000007661,
+      "last_data_package": "2025-09-17 15:32:57.474200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.5413888888888889,
+      "heavy": 104.94890505080535,
+      "car": 253.704115349191,
+      "bike": 180.4871315710221,
+      "pedestrian": 11.14118711904391,
+      "night": "",
+      "car_percentage": 46.104437371747444,
+      "bike_percentage": 32.799064542052825,
+      "pedestrian_percentage": 2.0246347327472205,
+      "heavy_percentage": 19.07186335345251
+    }
+  },
+  {
+    "segment_id": 9000007740,
+    "coordinates": [
+      [
+        13.542935594,
+        52.434335303
+      ],
+      [
+        13.543211494,
+        52.434128203
+      ],
+      [
+        13.543673494,
+        52.433814203
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-AFb_TaywNUXIJTgVM8YmWJsLgA6DoNQM8dwgQBSwzk0TONKNtlaWehF9i41hKWNlIR5sDYyIDk9TgjlO_UoG0htr4chNMH51mgCubPBZQJ5k0IGBLh6qoENw1bOtSbAcznuhJ3eR3kHEDeaIDsg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=ylAggsKZskfmTsts7ojJOw&_nc_oc=AdnOKXyqfbV6DkwdNi8G_gZJ4wHjcZVpDuma5cqE7yUSvtimUPL6RjJh0xKSEunP0wc&ccb=10-5&oh=00_AfZ6qCWLN3qhQ2zEr6mXq_hOtjvCGORHyy-9J-snO1L5vg&oe=68F24600&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 73,
+    "address": "Weerthstraße, 2, 12489, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000007740,
+      "last_data_package": "2025-09-17 15:30:11.642100+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9991666666666668,
+      "heavy": 86,
+      "car": 1279,
+      "bike": 158,
+      "pedestrian": 26,
+      "night": 0,
+      "car_percentage": 82.56939961265333,
+      "bike_percentage": 10.200129115558425,
+      "pedestrian_percentage": 1.6785022595222725,
+      "heavy_percentage": 5.551969012265978
+    }
+  },
+  {
+    "segment_id": 9000007742,
+    "coordinates": [
+      [
+        13.543893494,
+        52.433902803
+      ],
+      [
+        13.544700994,
+        52.434228803
+      ],
+      [
+        13.545089294,
+        52.434382903
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-kjCEZkRVTXgGGehKbfIwykifWgy8ocBPZ2FKIhwnjalrJMzjRxY3aTvqKbVFLU_UxJCYZRQCvarMpY0viyRc8wySkcJHcGkFqg4nQ7nX0P7OWBlE8e6jVeKQ_xDV09tPZT9Rgexoft580PKLkFQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=l0Jc84UH98_wrqxc-gyB6Q&_nc_oc=AdlRwmtk2VZwD7PYAbEkDiOfKLsfveZmviVg611MGlAv7gJCGXrJvzDLLVXMP8Jp8Lc&ccb=10-5&oh=00_AfbCb59CJbJmeic5T224ZDWRRMPKnS0q6vo67jtNwnLbjw&oe=68F24BFD&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 65,
+    "address": "Radickestraße, 76, 12489, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000007742,
+      "last_data_package": "2025-09-17 15:30:15.669600+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9991666666666668,
+      "heavy": 26,
+      "car": 109,
+      "bike": 74,
+      "pedestrian": 5,
+      "night": 0,
+      "car_percentage": 50.93457943925234,
+      "bike_percentage": 34.57943925233645,
+      "pedestrian_percentage": 2.336448598130841,
+      "heavy_percentage": 12.149532710280374
+    }
+  },
+  {
+    "segment_id": 9000007879,
+    "coordinates": [
+      [
+        13.387898594,
+        52.483615903
+      ],
+      [
+        13.387981494,
+        52.483695603
+      ],
+      [
+        13.388046294,
+        52.483775003
+      ],
+      [
+        13.388088994,
+        52.483852403
+      ],
+      [
+        13.388128594,
+        52.483952203
+      ],
+      [
+        13.388144494,
+        52.484023003
+      ],
+      [
+        13.388147894,
+        52.484117503
+      ],
+      [
+        13.388154294,
+        52.484228703
+      ],
+      [
+        13.388158994,
+        52.484277303
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9rqqlV6DHYRkoqTo53eySVjJziDz7B7_gk8IasgRBpT3TbboJLJxX9OOBlXOPHr3-nnnt-_0L_H6WzEYtTdJiFiFN2-XI-VlfJE76sr8M1qqJLEvb018yn3yR6c7up12f-3D95c5aDH6X4arGVVHc?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=jpeKQ6qKuW3hUrR3KQeFWw&_nc_oc=Admp-8MH9yGNWw8b5Wa9gTEPKx4-lywf2UeK5S7BaF2uAjvEqARJgJyutdNAesUdqv4&ccb=10-5&oh=00_AfYwiKbt5_OEff84Hcrfk6l-mOTBfCBDZirdAqrjsh2nxg&oe=68F244ED&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": {
+      "lden": null,
+      "note": "No façade point at this coordinate."
+    },
+    "address": "Platz der Luftbrücke, 12101, Berlin",
+    "district": "Tempelhof-Schöneberg",
+    "originalProperties": {
+      "segment_id": 9000007879,
+      "last_data_package": "2025-09-17 15:30:06.906300+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9994444444444444,
+      "heavy": 2,
+      "car": 321,
+      "bike": 35,
+      "pedestrian": 63,
+      "night": 0,
+      "car_percentage": 76.24703087885986,
+      "bike_percentage": 8.31353919239905,
+      "pedestrian_percentage": 14.964370546318289,
+      "heavy_percentage": 0.4750593824228029
+    }
+  },
+  {
+    "segment_id": 9000007918,
+    "coordinates": [
+      [
+        13.456800194,
+        52.536690303
+      ],
+      [
+        13.456862494,
+        52.536558703
+      ],
+      [
+        13.457028594,
+        52.535705303
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_7W24tJEqKDlyhKoUNm0oaybcvFRM9hU5E_9FV9EjnySAN7RvdMdLTeZLjIEb8O1S_WJo1LnC_fvUcZo2UT8cFIfQtEDTdcQaHVQChjU9vK4y0KfnQ0JKAYcjdxJ9AE84I6CWW3bCQogzxzVaGHA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=VZeHQfoo_nPVeV8FBm2AJg&_nc_oc=AdnyS-dyJn6jeQdfoKAY_qHiBDC-6juyLkBZA0C9KBaVupyav27ybIvRJmU7HujQisk&ccb=10-5&oh=00_Afa2YrBC651AuR7txvNm9F_BoNyx10v1j7jfWbpNCp62fg&oe=68F23CA8&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 43,
+    "address": "Stedingerweg, 32, 10407, Berlin",
+    "district": "Pankow",
+    "originalProperties": {
+      "segment_id": 9000007918,
+      "last_data_package": "2025-09-17 15:30:16.478200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9994444444444445,
+      "heavy": 9,
+      "car": 114,
+      "bike": 96,
+      "pedestrian": 3,
+      "night": 0,
+      "car_percentage": 51.35135135135135,
+      "bike_percentage": 43.24324324324324,
+      "pedestrian_percentage": 1.3513513513513513,
+      "heavy_percentage": 4.054054054054054
+    }
+  },
+  {
+    "segment_id": 9000007929,
+    "coordinates": [
+      [
+        13.380703594,
+        52.532456703
+      ],
+      [
+        13.381485094,
+        52.531832303
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-AtULHOVyfpHP4hyGPvKl_XewyS8Su1IhOLTd5wr4pVCOrA-nGmy2pM7_a3KbO-BndKb4cbQ5UFynAaCBGgkRu9TtPwO7TfLIKwUXRSfhwoqca66Vks2dTn4m4HnMNm34Osv7xHHULxzKRXmE8KA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=-IVdrMVHlRyC9wF4Ef2MWQ&_nc_oc=AdkT-Mc7cm4CWJ2suy8txodKhcLlnR6f6e1ci-RHBHNAZ9aKSWpfvj1dTmPHvh8t8QM&ccb=10-5&oh=00_AfZfjq0s-Wyb8L2Vj9E_ToszmDvoBrIQul5OSZhVskOThw&oe=68F232B8&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 68,
+    "address": "Chausseestraße, 32, 10115, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000007929,
+      "last_data_package": "2025-09-17 15:30:08.149500+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9991666666666668,
+      "heavy": 78,
+      "car": 590,
+      "bike": 459,
+      "pedestrian": 293,
+      "night": 0,
+      "car_percentage": 41.54929577464789,
+      "bike_percentage": 32.32394366197183,
+      "pedestrian_percentage": 20.633802816901408,
+      "heavy_percentage": 5.492957746478874
+    }
+  },
+  {
+    "segment_id": 9000008003,
+    "coordinates": [
+      [
+        13.478832094,
+        52.446109803
+      ],
+      [
+        13.480000794,
+        52.445614603
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-zQCUa8e4pHvpVpX8lNZc4AHn1DXA2JkA_cxUMXaIgP0eZilBKZiBwTyFsY1rGiVFqn8RiOsp9hNbqo78MGRGF-iuBjCzTVBil9XNK5UmA7po6xGRSKp5tRCpm5itmzkeydqVsBhnkfd2CAsg5LQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=RaLgqMD1Fotw-y1Bzl8T2w&_nc_oc=AdnwyPMGJdJY84YvsjQK8K5zY1stcwh9KzvXt5Be1qcVKB5XQj39XBqBErOCBnWm3MM&ccb=10-5&oh=00_AfacH2EKXK7FS4d8392o0fovI9Nxwnrl5HZw36G8SBVEnA&oe=68F24CD1&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 51,
+    "address": "Ligusterweg, 13, 12437, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000008003,
+      "last_data_package": "2025-09-17 15:33:38.002300+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6969444444444444,
+      "heavy": 52.806305152577345,
+      "car": 171.18842719713447,
+      "bike": 54.503236629229406,
+      "pedestrian": 4.395300311547523,
+      "night": "",
+      "car_percentage": 60.51343237203349,
+      "bike_percentage": 19.26636033650656,
+      "pedestrian_percentage": 1.5536956119780327,
+      "heavy_percentage": 18.666511679481932
+    }
+  },
+  {
+    "segment_id": 9000008121,
+    "coordinates": [
+      [
+        13.317585994,
+        52.463943903
+      ],
+      [
+        13.318654294,
+        52.463564803
+      ],
+      [
+        13.318705294,
+        52.463546703
+      ],
+      [
+        13.319460294,
+        52.463278803
+      ],
+      [
+        13.319516294,
+        52.463258903
+      ],
+      [
+        13.319667694,
+        52.463205203
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-UlGDidMB3yJIpUH_ILz0xaPeEIe7QUqwTGQ9Clq0vN7ZMthV7QyZM9k56p77vFAs69rAXI2CjWDBHztPurz4t2DfibmUM5MySGNQSgl4YBbtf8KOlUsagfCG8U6nzSl9f6jgq5qy86VGDifhTJQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=258AYTZY4i2LM6g4-A-WIw&_nc_oc=AdloWRq1d47qYxH9tUm1hIBTa8yospk4Nv_i3Wd9M0KCGAL4CxaFKDrgLs6qiTyvMz8&ccb=10-5&oh=00_AfbVmrEnVsJo7XtaaGJ0531GJgLyGdEm3igcFgcpEzpN2Q&oe=68F245E2&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 70,
+    "address": "Schildhornstraße, 20, 12163, Berlin",
+    "district": "Teltow",
+    "originalProperties": {
+      "segment_id": 9000008121,
+      "last_data_package": "2025-09-17 15:30:12.745300+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9994444444444444,
+      "heavy": 64,
+      "car": 799,
+      "bike": 54,
+      "pedestrian": 14,
+      "night": 0,
+      "car_percentage": 85.82169709989259,
+      "bike_percentage": 5.800214822771213,
+      "pedestrian_percentage": 1.5037593984962405,
+      "heavy_percentage": 6.874328678839957
+    }
+  },
+  {
+    "segment_id": 9000008361,
+    "coordinates": [
+      [
+        13.533325094,
+        52.478168703
+      ],
+      [
+        13.532824694,
+        52.478391703
+      ],
+      [
+        13.532603094,
+        52.478491503
+      ]
+    ],
+    "airQuality": 2,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_q1rDWceatx-GVrRGmepRelGZpAgGMM704Hf0iS9dS9a1YCwTHgel2iz-JoXaMasQOUAyLMjR2LfxWcV6lo9FaSrKwcvD4BIzMydGkdIX90KCmIqTqCBeuMUh1-PbjQssOjN0SiEJFpnSdvwry_g?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=CxeUbYKJQTT4erzMA8RKOg&_nc_oc=Adk9vSJFfxAj48UZgYdniPh6SBqCE9iiPwY2XfOkUaukoG95qDIq9TKbOiqeAjR9t9U&ccb=10-5&oh=00_AfYumBBymj_aUYxZHY-JcwwbVVQkluyOfz0cLSXReefG3g&oe=68F23CC5&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 68,
+    "address": "Stolzenfelsstraße, 21, 10318, Berlin",
+    "district": "Lichtenberg",
+    "originalProperties": {
+      "segment_id": 9000008361,
+      "last_data_package": "2025-09-17 15:32:37.143600+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7141666666666666,
+      "heavy": 15.090554951236065,
+      "car": 100.99461415439669,
+      "bike": 10.09323284298743,
+      "pedestrian": 2.8481718468881496,
+      "night": "",
+      "car_percentage": 78.27427419289693,
+      "bike_percentage": 7.822600062979269,
+      "pedestrian_percentage": 2.2074304254580617,
+      "heavy_percentage": 11.69569531866574
+    }
+  },
+  {
+    "segment_id": 9000008502,
+    "coordinates": [
+      [
+        13.277290794,
+        52.513804603
+      ],
+      [
+        13.277470894,
+        52.514175903
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8P7q8R-9IoabSdWoMFy19FBRiZL3J_WdRrN43WG-z787VVuT7BLCm2_HAo3jbhLcu0tCistzPBAk7aMqK9mrBqX3oJeGzhbLc1eIv8iSAblvfAPHbhbqk57LoeTnrJHyLi9laQSfZYcDbXXmOjnjU?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=qY2wutXCzNih_nZHKAUDSQ&_nc_oc=Adl9dpEtCstVlwWrjd2XMnN-4fwdR7vrn31U6RUv70tfXzBhMV5lo2eKxKmmxq5VAFA&ccb=10-5&oh=00_AfacCwnM-vHRYnUtrMEldw3AWF5Q3VkHXQr2z_5psrpbTQ&oe=68F22DC7&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 46,
+    "address": "Soorstraße, 77, 14050, Berlin",
+    "district": "Charlottenburg-Wilmersdorf",
+    "originalProperties": {
+      "segment_id": 9000008502,
+      "last_data_package": "2025-09-17 15:30:10.802400+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9747222222222223,
+      "heavy": 3.1097410604192355,
+      "car": 118.64611590628853,
+      "bike": 2,
+      "pedestrian": 7.329223181257706,
+      "night": 0,
+      "car_percentage": 90.5107703884865,
+      "bike_percentage": 1.5257266484808578,
+      "pedestrian_percentage": 5.591195560154266,
+      "heavy_percentage": 2.372307402878375
+    }
+  },
+  {
+    "segment_id": 9000008514,
+    "coordinates": [
+      [
+        13.382596694,
+        52.513030003
+      ],
+      [
+        13.382947394,
+        52.512362603
+      ],
+      [
+        13.383005094,
+        52.512252703
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_veL8N9KYzMS4u47CWlSElk8KePLhw1hu4BtVkrJZTEm0jL6gKeKh6e85ye-ytWqDvMOub4HXS7ks-8bK0_F8piy6vG0E7WnAtdYTswJ7-y0KcDNz4LT-1Ucv6xDyFkqOfjakEAEWFzOYdJypI4g?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=LwK0xUnlZopcMtly9bO_sA&_nc_oc=AdkC9rQUmv0jmnBH__oCaporp3nBPDQccHo36NgnNSSiiRub4T7ZgYaN73VUXze5MRE&ccb=10-5&oh=00_Afat2t_mIx4he8HcaPnMnJ7p9HJy5XXQ1tuptuI7JVT-PQ&oe=68F24268&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 67,
+    "address": "Wilhelmstraße, 52, 10117, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000008514,
+      "last_data_package": "2025-09-17 15:30:05.606500+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9994444444444445,
+      "heavy": 56,
+      "car": 389,
+      "bike": 306,
+      "pedestrian": 55,
+      "night": 0,
+      "car_percentage": 48.26302729528536,
+      "bike_percentage": 37.96526054590571,
+      "pedestrian_percentage": 6.823821339950372,
+      "heavy_percentage": 6.9478908188585615
+    }
+  },
+  {
+    "segment_id": 9000008542,
+    "coordinates": [
+      [
+        13.470728094,
+        52.514031703
+      ],
+      [
+        13.471671994,
+        52.513936903
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9YzHBu1H_KE_cbc0VEX20wCm-Z09vO77cumSvO_acd9eGgYghT2rwEP7DHIDVVsIbcOEPZLJVxEIAmz5FkHxinWW58xMqlNs0nW9sPkyCJuUHoxT6K1ztn_N0v4z3ITp7lsEDbKp4OJ4Qm8guTiw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=cah-Kzw6TVacdLCMK3LKpQ&_nc_oc=Adk2TY4wW5h3t2DIwwz5v4yBiDD03SCPZM2hIqNUlRc4lg5mXPuIDtMCeGb4winvYZ0&ccb=10-5&oh=00_AfYqci5iVS14RTg5zWDQQzPbjBixuMvAFMu7TWeBpXCrHg&oe=68F24678&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 70,
+    "address": "Weichselstraße, 36, 10247, Berlin",
+    "district": "Friedrichshain-Kreuzberg",
+    "originalProperties": {
+      "segment_id": 9000008542,
+      "last_data_package": "2025-09-17 15:30:17.165400+00:00",
+      "timezone": "Europe/Brussels",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9994444444444445,
+      "heavy": 160,
+      "car": 2142,
+      "bike": 39,
+      "pedestrian": 234,
+      "night": 0,
+      "car_percentage": 83.18446601941748,
+      "bike_percentage": 1.5145631067961165,
+      "pedestrian_percentage": 9.087378640776699,
+      "heavy_percentage": 6.213592233009709
+    }
+  },
+  {
+    "segment_id": 9000008543,
+    "coordinates": [
+      [
+        13.383403194,
+        52.509951203
+      ],
+      [
+        13.382864594,
+        52.509913403
+      ],
+      [
+        13.382709194,
+        52.509902503
+      ],
+      [
+        13.382001094,
+        52.509851003
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8xJ2jZ7_UGTXNrln9uU5jobsyqv65TppKlkrOXXNk4r7S9FadP9z8Typ-wsRu7ZZZk-if5Fttd33EoP4bzmUJoyEkLpdCirf8S3GpdYEB0i3q2Ops0uvlFWc4GydZuOzXaq1T2G2C-ucdAHiSe7A?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=PcDClcAhSFDJknRAXFOaFw&_nc_oc=AdlHES8soVFD3bItrBbkbBRnRJKjteoYR4t9RrnrTirjwgZXgRR0pERPXQcjtbKY4vI&ccb=10-5&oh=00_AfaRn3wOLX7mhx9wCzD3tvcGaQ8o1DcWIgKsApkyiOuiJg&oe=68F25DF7&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 74,
+    "address": "Leipziger Straße, 125, 10117, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000008543,
+      "last_data_package": "2025-09-17 15:30:12.790300+00:00",
+      "timezone": "Europe/Brussels",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9994444444444444,
+      "heavy": 140,
+      "car": 1440,
+      "bike": 168,
+      "pedestrian": 147,
+      "night": 0,
+      "car_percentage": 75.98944591029023,
+      "bike_percentage": 8.865435356200528,
+      "pedestrian_percentage": 7.757255936675461,
+      "heavy_percentage": 7.387862796833773
+    }
+  },
+  {
+    "segment_id": 9000008552,
+    "coordinates": [
+      [
+        13.435681794,
+        52.469108403
+      ],
+      [
+        13.435575594,
+        52.469094803
+      ],
+      [
+        13.434716494,
+        52.468984803
+      ],
+      [
+        13.432825194,
+        52.468742603
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8THl56NY5WbyQ2pqGzEDRZ9Pl-2YyUzeFs40p4wBNaUhmVdxG982AShf615ZFr8lSrEufbXGGWKwSI8CnTmFG0WKoGCVeskoTrgu0QoO9tBmLiIbdS9r5aHlepOxr5IPb4xEGZUTfmnsiMZ1izGw?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=akxwdyP5rnWLMDkBZNcb6w&_nc_oc=AdlFcTZVUTidHYkLXrIqWqWr6J5359lNbXH_GlEbjW66rOr-rkFVlDd7d_D0YoUT6Ng&ccb=10-5&oh=00_AfbVvnC7PvhOqPtRyHhamVuAwSdzFGBGXj1Ekkw6CxgkVg&oe=68F24574&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 48,
+    "address": "Emser Straße, 122, 12051, Berlin",
+    "district": "Neukölln",
+    "originalProperties": {
+      "segment_id": 9000008552,
+      "last_data_package": "2025-09-16 07:20:35.706800+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "NaT",
+      "period": "",
+      "uptime": "",
+      "heavy": "",
+      "car": "",
+      "bike": "",
+      "pedestrian": "",
+      "night": ""
+    }
+  },
+  {
+    "segment_id": 9000008568,
+    "coordinates": [
+      [
+        13.542362194,
+        52.620220903
+      ],
+      [
+        13.542438094,
+        52.620203703
+      ],
+      [
+        13.542493094,
+        52.620191303
+      ],
+      [
+        13.542524794,
+        52.620233103
+      ],
+      [
+        13.542556894,
+        52.620305903
+      ],
+      [
+        13.542567994,
+        52.620375303
+      ],
+      [
+        13.542658194,
+        52.620551603
+      ],
+      [
+        13.542793994,
+        52.620830503
+      ],
+      [
+        13.542885194,
+        52.621032303
+      ],
+      [
+        13.542994394,
+        52.621281603
+      ],
+      [
+        13.543057494,
+        52.621457003
+      ],
+      [
+        13.543110794,
+        52.621631303
+      ],
+      [
+        13.543149894,
+        52.621786403
+      ],
+      [
+        13.543191194,
+        52.621960003
+      ],
+      [
+        13.543217494,
+        52.622137503
+      ],
+      [
+        13.543243694,
+        52.622456803
+      ],
+      [
+        13.543290794,
+        52.622909903
+      ],
+      [
+        13.543321094,
+        52.623179403
+      ],
+      [
+        13.543348894,
+        52.623302303
+      ],
+      [
+        13.543357794,
+        52.623344103
+      ],
+      [
+        13.543421894,
+        52.623645403
+      ],
+      [
+        13.543465694,
+        52.623872803
+      ],
+      [
+        13.543516694,
+        52.624028803
+      ],
+      [
+        13.543559894,
+        52.624137103
+      ],
+      [
+        13.543630994,
+        52.624292803
+      ],
+      [
+        13.543724194,
+        52.624492503
+      ],
+      [
+        13.543777294,
+        52.624594103
+      ],
+      [
+        13.543833094,
+        52.624737903
+      ],
+      [
+        13.543944594,
+        52.625009603
+      ],
+      [
+        13.543975794,
+        52.625093503
+      ],
+      [
+        13.544022294,
+        52.625218603
+      ],
+      [
+        13.544044994,
+        52.625274503
+      ]
+    ],
+    "airQuality": null,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9yjJwElLv9s8rC5y0rV2s9uMDX918clYJdLH4RH7X7sfC_c9t5Bi9TGKEoPjo6ct4eOUPcDGB5VcGTFvmJXp_gn3iHO5tm5peJh0ynNCTgXicXa2QkphbYndkj-AkVqCPGOFPA99TRyBEPORJqfQ?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=8c_rmxA6C5lBa0uAnGBZJw&_nc_oc=AdnQPoz5ivKufBqn_6t1Bu-_ng2pKLThbiGE1ru0MaFsOMhpSSygGN9FS7NfnbjAB9o&ccb=10-5&oh=00_Afb7uw4dZuXBI92xRQmRkWd57mLi-qQaNT4GW22nLnaJwA&oe=68F23C45&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": {
+      "lden": null,
+      "note": "No façade point at this coordinate."
+    },
+    "address": "Bernauer Straße, 16341, Panketal",
+    "district": null,
+    "originalProperties": {
+      "segment_id": 9000008568,
+      "last_data_package": "2025-09-17 15:31:48.713800+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.4838888888888889,
+      "heavy": 33.19549154247411,
+      "car": 319.62156777879034,
+      "bike": 10.36608668657868,
+      "pedestrian": 0,
+      "night": "",
+      "car_percentage": 88.00561680576664,
+      "bike_percentage": 2.85423120552924,
+      "pedestrian_percentage": 0,
+      "heavy_percentage": 9.140151988704133
+    }
+  },
+  {
+    "segment_id": 9000008577,
+    "coordinates": [
+      [
+        13.432408094,
+        52.470140603
+      ],
+      [
+        13.432237194,
+        52.470716303
+      ],
+      [
+        13.432087594,
+        52.471220403
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-AsDZCprq1j33LDpZ6UNa45FfoE2RgX6t26F1dLnNQa6fD8gKylE2j05q2AwVkOzRKuOCih0MndzffFEsI5Y_Mv5rQhKRi8Be4QJSDUqNC6vdTWeP-k-HsUTlmWXEEF9BqAoVSBhF-Fbb9pZLLEeg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=qIORU_MAhJgIuNZrgew66Q&_nc_oc=AdmluZhkHPPM77HfXyAw8Xrh11WoLtG3unuVkviHlls81nvd8kjGZjGAn4gIl1_1AQc&ccb=10-5&oh=00_Afb-WeKpRV3_NiAxs7VQrFhYSPdl7v6hXHCIhU3Zaxj2yQ&oe=68F23E56&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 42,
+    "address": "Schierker Straße, 35, 12051, Berlin",
+    "district": "Neukölln",
+    "originalProperties": {
+      "segment_id": 9000008577,
+      "last_data_package": "2025-09-17 14:17:48.093400+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "NaT",
+      "period": "",
+      "uptime": "",
+      "heavy": "",
+      "car": "",
+      "bike": "",
+      "pedestrian": "",
+      "night": ""
+    }
+  },
+  {
+    "segment_id": 9000008669,
+    "coordinates": [
+      [
+        13.432632994,
+        52.469399903
+      ],
+      [
+        13.432514894,
+        52.469788703
+      ],
+      [
+        13.432503894,
+        52.469824903
+      ],
+      [
+        13.432408094,
+        52.470140603
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-dgh6JLB6auBGpNjwPpu-IXWXMTqTIN3JZha0D4mKTYoE_q4l23CyezLHlY1ewqb7IzfkkYfkm7nSjsi0oWHEcQ2fno9w5O9KtgL466BvKgHDMG_guj2qURFUK2Q71pST2dhYaHnF0nL-hTOqc8w?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=R7tQZw3lAcHkUchiqjNVrA&_nc_oc=Admupzl3qCOx9Ziy313P3r1ZWtLN4up75vQlbbt3GEvgk9PwZuL_H5sKVJ8q2N6u-3U&ccb=10-5&oh=00_AfZoatFFRidEWDzcOzQz6xId6wJ4a8Jw3JdI02OvepAgCw&oe=68F23AFE&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 46,
+    "address": "Nogatstraße, 21, 12051, Berlin",
+    "district": "Neukölln",
+    "originalProperties": {
+      "segment_id": 9000008669,
+      "last_data_package": "2025-09-17 15:32:44.102500+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7333333333333334,
+      "heavy": 84.56099244658365,
+      "car": 120.00645872047502,
+      "bike": 121.51583075778488,
+      "pedestrian": 9.542185051896858,
+      "night": "",
+      "car_percentage": 35.75606458040079,
+      "bike_percentage": 36.20578374233032,
+      "pedestrian_percentage": 2.8431051844340978,
+      "heavy_percentage": 25.1950464928348
+    }
+  },
+  {
+    "segment_id": 9000008734,
+    "coordinates": [
+      [
+        13.471892094,
+        52.515170803
+      ],
+      [
+        13.471082494,
+        52.514411603
+      ],
+      [
+        13.470838594,
+        52.514174403
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_lQ4TzuVJfvlbB5kM3J4mpdLmNLqOcuK9O6z4j94ZonOQ-0_QLlRI6pxo56quYtubisGrBzFA8Vu-CAtf8cZoqDOXfH1oqXdu7y3T6GE6kp-cqNci4ik2KEjArZaAJRx-G9TbsoBumsXSEH9xzQA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=-Rm29Gz3hP3Grr6MMg0m3g&_nc_oc=Adk8jizvWp2SvbjDKdcu-SBr4MLoib8WOj61rBCClLa2Ozi8D_2KrJ8m1tTuMcjn084&ccb=10-5&oh=00_AfZotnj1-n1Vayg2rizDjvYMsMJXfWhNhO6rkf0PuPzPZg&oe=68F2319C&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 49,
+    "address": "Waldeyerstraße, 8, 10247, Berlin",
+    "district": "Friedrichshain-Kreuzberg",
+    "originalProperties": {
+      "segment_id": 9000008734,
+      "last_data_package": "2025-09-17 15:30:14.392500+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9997222222222222,
+      "heavy": 3,
+      "car": 4,
+      "bike": 37,
+      "pedestrian": 26,
+      "night": 0,
+      "car_percentage": 5.714285714285714,
+      "bike_percentage": 52.85714285714286,
+      "pedestrian_percentage": 37.142857142857146,
+      "heavy_percentage": 4.285714285714286
+    }
+  },
+  {
+    "segment_id": 9000008772,
+    "coordinates": [
+      [
+        13.462460294,
+        52.498109803
+      ],
+      [
+        13.461024894,
+        52.498546603
+      ],
+      [
+        13.460462594,
+        52.498725803
+      ],
+      [
+        13.459954194,
+        52.498887003
+      ],
+      [
+        13.459890694,
+        52.498907103
+      ],
+      [
+        13.459712094,
+        52.498963803
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_pxtRTRBr8gOV6RIjNvUeShBpNT4BByIr9vu_y7KFEe2HGCb4Y669gEXwt4X3cUnlC_lFfFRhml4Wt-ah4n6Fc2O_QZomuZk6jD5C1A_aLjGX1jOuvLCNQEs-pXteUxW655pwWPdv-6pxN2XtoCjA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=aXBf1IQbMa5LTergfCnXLA&_nc_oc=AdnmyFXtfJpLZYUSYuKcZ65fBAPHUDhUJXYsZApSZ1PO4wzCzzdh1Sbtccwxivm_1ec&ccb=10-5&oh=00_AfauUGJhpR4XVSYVgM_MjXM19ZBmVbm6SM2Ds32JoXvimw&oe=68F24BB9&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 71,
+    "address": "Stralauer Allee, 17f, 10245, Berlin",
+    "district": "Friedrichshain-Kreuzberg",
+    "originalProperties": {
+      "segment_id": 9000008772,
+      "last_data_package": "2025-09-12 16:06:43.606900+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "NaT",
+      "period": "",
+      "uptime": "",
+      "heavy": "",
+      "car": "",
+      "bike": "",
+      "pedestrian": "",
+      "night": ""
+    }
+  },
+  {
+    "segment_id": 9000008784,
+    "coordinates": [
+      [
+        13.382764494,
+        52.530564003
+      ],
+      [
+        13.382280094,
+        52.530425403
+      ],
+      [
+        13.382039194,
+        52.530356303
+      ],
+      [
+        13.381736194,
+        52.530267903
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8P5Qci9nvDz5qrwXQ9r6cdGUd_3O6XFKwlSX8R03iqkqOriLVq41VRGheurbxF-csVIpoAn1z4p_ap8aAuehZxCkqTdU3ElrhyeTtovxagTnmFUnVRx1tAl20EeccRy6dauKloC48j-cLcG7aDfQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=DRh4fhaieXH7o3ahk_8PJg&_nc_oc=AdkUtd8-UbOuC_pcn2ZuDpyhTK_6eF41USL2b_qlJT3upfekXRvc7R8MEpYAN6QnED8&ccb=10-5&oh=00_AfZ5NbBx5pNhQW1DvuHE1NqZh63un6ll1pvAQbNoKY9Tcg&oe=68F24F6D&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 72,
+    "address": "Invalidenstraße, 36, 10115, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000008784,
+      "last_data_package": "2025-09-17 15:30:19.650300+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9994444444444444,
+      "heavy": 101,
+      "car": 343,
+      "bike": 310,
+      "pedestrian": 198,
+      "night": 0,
+      "car_percentage": 36.029411764705884,
+      "bike_percentage": 32.563025210084035,
+      "pedestrian_percentage": 20.798319327731093,
+      "heavy_percentage": 10.609243697478991
+    }
+  },
+  {
+    "segment_id": 9000008785,
+    "coordinates": [
+      [
+        13.377195494,
+        52.528939303
+      ],
+      [
+        13.376289994,
+        52.528674003
+      ],
+      [
+        13.376226594,
+        52.528654103
+      ],
+      [
+        13.376168694,
+        52.528635903
+      ],
+      [
+        13.375960394,
+        52.528472403
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9ah2IsEV0J-2jQMMpE45vlTanqBMtsroiZl_xN9n57epXo9PGuHq_mXK3cjPFfgoUsFuZr7pRjcg6N_Xhev6DtpFUdv8GNB-OMahia3r0CeMLdh1uOdNXpYDcdRqZ0RBKcnswhkubzcOD0I6M5obE?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=mUtdOdjtXMh8-Mlc8cfVBA&_nc_oc=AdneZrKCpnFMr8guVu71gdXxJyXJqK5-tICO3rRwhfzthikVSrlSgAPnTuT7mHGadAc&ccb=10-5&oh=00_AfaMIHiw5Vik6uZ5qwKDh5JtbK_bdtVnK-Z8NAAHp1t2MA&oe=68F25E57&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 51,
+    "address": "Invalidenstraße, 10115, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000008785,
+      "last_data_package": "2025-09-17 15:30:12.198400+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9997222222222222,
+      "heavy": 189,
+      "car": 770,
+      "bike": 317,
+      "pedestrian": 212,
+      "night": 0,
+      "car_percentage": 51.747311827956985,
+      "bike_percentage": 21.303763440860216,
+      "pedestrian_percentage": 14.24731182795699,
+      "heavy_percentage": 12.701612903225806
+    }
+  },
+  {
+    "segment_id": 9000008823,
+    "coordinates": [
+      [
+        13.431785094,
+        52.472239803
+      ],
+      [
+        13.430564594,
+        52.472087403
+      ],
+      [
+        13.430352794,
+        52.472061003
+      ],
+      [
+        13.429973894,
+        52.472013703
+      ],
+      [
+        13.429435494,
+        52.471946603
+      ],
+      [
+        13.429154694,
+        52.471911603
+      ],
+      [
+        13.429084594,
+        52.471902803
+      ],
+      [
+        13.428915594,
+        52.471881703
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_HvRXncYf6R82Sx2d7wxAPf5UoNfVaSpl2XBpUr612qVVWKRiKB-nS_Zk3QC0WCtqpDVJTMRnbKcD2gdBUR3gEuF9LH1D-XweD0md09NOR-0Z2Agk5jmJitxoS8mvCQQ00H2p2kgaaM545mi_EiQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=Z_v4_IDnQoT3VVDzvYe5Uw&_nc_oc=AdmQwQztTMWeTcP5Ms3iwqK3gG6fJtuCkf5NxevETmAFBTgZwPQPUe543Um122Li870&ccb=10-5&oh=00_AfZkyQ68JRo8pgnV8YvmIZTiFqlnhm7lQLy23dRnNuoIug&oe=68F22E9B&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 46,
+    "address": "Altenbraker Straße, 1, 12053, Berlin",
+    "district": "Neukölln",
+    "originalProperties": {
+      "segment_id": 9000008823,
+      "last_data_package": "2025-09-17 15:33:26.032500+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6433333333333333,
+      "heavy": 18.660619269300337,
+      "car": 153.72083689832328,
+      "bike": 158.83432224907946,
+      "pedestrian": 18.326398642560424,
+      "night": "",
+      "car_percentage": 43.97776491283354,
+      "bike_percentage": 45.44067430871145,
+      "pedestrian_percentage": 5.2429720489648535,
+      "heavy_percentage": 5.338588729490147
+    }
+  },
+  {
+    "segment_id": 9000008837,
+    "coordinates": [
+      [
+        13.445132694,
+        52.493496403
+      ],
+      [
+        13.444478794,
+        52.493007003
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8DxWKKWs8MSGRCJGhldAtfyuHTpeoAz0sL3SHUUZX7a7Ag27Es4hniV_jTq6oKmmimANPjtvckLZb6xLQANcj4qbAZsQaiRQIkk74YQ5QAPQSG2AwiX5vWfZ6_txXCGvwHERu9SCJtPz4NlhQRKA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=_aA6SJ2yK5gQ6ZMta663yQ&_nc_oc=AdlG7f3IEi32-EYMmYetS9E89xAFV_fT2XdoqrxUIsv59PktDK9fDw60FFVtmqN98ds&ccb=10-5&oh=00_AfbZxNiUsDvKqAs-DdktnH0RzGlkKR471r3xNx8l63s3Sg&oe=68F24649&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 45,
+    "address": "Lohmühlenstraße, 62, 12435, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000008837,
+      "last_data_package": "2025-09-17 15:32:58.499300+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.655,
+      "heavy": 25.890198251072114,
+      "car": 63.17825055017008,
+      "bike": 171.92690635419692,
+      "pedestrian": 22.631965494077182,
+      "night": "",
+      "car_percentage": 22.275093388566983,
+      "bike_percentage": 60.61718806230599,
+      "pedestrian_percentage": 7.979473007836201,
+      "heavy_percentage": 9.12824554129083
+    }
+  },
+  {
+    "segment_id": 9000008947,
+    "coordinates": [
+      [
+        13.391243594,
+        52.539632203
+      ],
+      [
+        13.391152994,
+        52.539730303
+      ],
+      [
+        13.390673494,
+        52.540247303
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_MuwY6CBIL1KX3v4DccvVnOhxvD_VmRYF7LR7KI6WySHtzjs-d1-2zwbNfTql0aqFwzybwgayaZ1O8_OplnB0sEgzY540kT9zdvEsl1d8smqJEiVWbK7I5GFdzBeyF3Uk2nb3qbu4PEPigJNw5QYo?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=tzkrDJt6_HRa6pvnPVyK3w&_nc_oc=Adlgpv8UD4Gkpsisa2XUL0RMjLUkGwBb-J5d1vEbP42q-X06UTzCP13UkGSlK1aUfjY&ccb=10-5&oh=00_AfYi9xtNrpZRv4TH62Jmicauc6QQWMWG6LLlfoeCfGpOoA&oe=68F2595E&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 45,
+    "address": "Wattstraße, 5, 13355, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000008947,
+      "last_data_package": "2025-09-17 15:28:32.489500+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.385,
+      "heavy": 8.344194030325186,
+      "car": 78.0074817238205,
+      "bike": 69.48082798403219,
+      "pedestrian": 23.454590006671147,
+      "night": "",
+      "car_percentage": 43.50981439569556,
+      "bike_percentage": 38.75394850390808,
+      "pedestrian_percentage": 13.082140781449866,
+      "heavy_percentage": 4.654096318946504
+    }
+  },
+  {
+    "segment_id": 9000008954,
+    "coordinates": [
+      [
+        13.331543194,
+        52.522281703
+      ],
+      [
+        13.331905194,
+        52.523918203
+      ],
+      [
+        13.331914394,
+        52.523959603
+      ],
+      [
+        13.331903494,
+        52.524138103
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9REknjnMeLDS1dN1TJEOewGVLXmpSbspWyiM0M_YtVWtMQrwJeVrDJ_zdY70gNCX9pKKn2DAJIMRPCYHpp3Il3K2u0gD48lf1mWTUO-6Rso50KE7PtGUu9O8AbpWoyv51MkByj38_QVUWEDUr9Qw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=qC-ZB3_ga7uJoptShQ6GHw&_nc_oc=Adk4kBwG6CIZCIWDsPhmVo9_DfhdIwlvdCCOwSPv_CIs_lXuRW_BdAO6gaauYsCKlfk&ccb=10-5&oh=00_AfaRLvSoNoB_LcNCk7J3PSbX1EJcRWuu-6dxH-KbjOmh_Q&oe=68F24BFB&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 65,
+    "address": "Levetzowstraße, 24, 10555, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000008954,
+      "last_data_package": "2025-09-17 15:33:13.059700+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7266666666666667,
+      "heavy": 5.814161268706723,
+      "car": 25.784070101405625,
+      "bike": 28.907666553799025,
+      "pedestrian": 9.679957515367667,
+      "night": "",
+      "car_percentage": 36.73684667662502,
+      "bike_percentage": 41.18731099431901,
+      "pedestrian_percentage": 13.79189219078798,
+      "heavy_percentage": 8.283950138267985
+    }
+  },
+  {
+    "segment_id": 9000008993,
+    "coordinates": [
+      [
+        13.450523294,
+        52.489227103
+      ],
+      [
+        13.450404694,
+        52.489300503
+      ],
+      [
+        13.450359094,
+        52.489328703
+      ],
+      [
+        13.450060094,
+        52.489517203
+      ],
+      [
+        13.449863694,
+        52.489641003
+      ],
+      [
+        13.449225894,
+        52.490043203
+      ],
+      [
+        13.448726394,
+        52.490358203
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9hDWeH7lGRKuH6JDv4bT1tVKUbAbWfyHy7KCOX8m8OywtImLtacFQZD6Skv1BjWapXY08t0JYCQ3PnMyC0uVWylfX_LcvG71ynbQO-Z-ScCFGqOSudUJuLBmlxvEWQf3sRPZU5iwxcn6bZUpaf_w?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=uM343hOcskHzwiIp1ZVrjA&_nc_oc=Adlihv1QB7-iWrUNYK3FWLR0ENT17c_pjoKDgR855F5Rtf8yS9Q2W98jCS0xyug8IPQ&ccb=10-5&oh=00_AfaRGb8sp0XjcPa5LdbAw-4Z95kG0Yu9Oh6WeFAdaZNUdQ&oe=68F24F84&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 67,
+    "address": "Karl-Kunger-Straße, 46, 12435, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000008993,
+      "last_data_package": "2025-09-17 15:30:17.921300+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9991666666666668,
+      "heavy": 9,
+      "car": 78,
+      "bike": 131,
+      "pedestrian": 97,
+      "night": 0,
+      "car_percentage": 24.761904761904763,
+      "bike_percentage": 41.58730158730159,
+      "pedestrian_percentage": 30.793650793650794,
+      "heavy_percentage": 2.857142857142857
+    }
+  },
+  {
+    "segment_id": 9000008999,
+    "coordinates": [
+      [
+        13.567703794,
+        52.454331503
+      ],
+      [
+        13.568304594,
+        52.453788803
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-8XkwyZXn_FdIfM7UASqpXH1Rvx6lyOkycgNLhoyd4QgaofwiAK0m3R1ttVnklYU5tp0S4dwhjm_Ds92amgVke37teaZft5_VkJhJ_UUjvFY1E8_iu6Zj9CZnrHSYSBJ83RvceVv2zvd_cazSS1A?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=PDo9Lb64g-20VMSysK1fwg&_nc_oc=AdkgCtrd2j8nauTNthsSunvs7FNq_qsb-P3V6DJkJC-YyPclXaSkMGiYo_4JU4UTi3c&ccb=10-5&oh=00_AfY5Qult-HfX9ZAHf8xeAhTioZafNDNxwO_jg7Ge1QzuBQ&oe=68F25801&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 66,
+    "address": "Lindenstraße, 26, 12555, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000008999,
+      "last_data_package": "2025-09-17 15:30:09.620300+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9677777777777778,
+      "heavy": 379.2832271594192,
+      "car": 1339.6869103673598,
+      "bike": 135.27842813618147,
+      "pedestrian": 67.69157372916325,
+      "night": 0,
+      "car_percentage": 69.70492383759046,
+      "bike_percentage": 7.038638996267994,
+      "pedestrian_percentage": 3.522043810926022,
+      "heavy_percentage": 19.73439335521552
+    }
+  },
+  {
+    "segment_id": 9000009010,
+    "coordinates": [
+      [
+        13.379458294,
+        52.529414303
+      ],
+      [
+        13.379363494,
+        52.529358003
+      ],
+      [
+        13.379349394,
+        52.529360903
+      ],
+      [
+        13.379328594,
+        52.529360503
+      ],
+      [
+        13.379075094,
+        52.529285003
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-bSsXBXTxBeAUGXlb48Aspk0cwRrpsM9jpqqf-B_v4fLDIEgqwpymz4jukIVFN-jXk9YYBitd6cP__4qTXHJ8R-VTaM6pOexiHE-bdkrkVqAbg2p44ezQEKa9F8aHBsgtBzhF2EcLgp0v4v3OKI88?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=nzVRnYIFN1taFbbRL_Uw6Q&_nc_oc=AdmSskztvTNXhhUpyVO7Z9CbrAhI_4BdMl_HeCjKjr2Mb85jFZ2S_4afMMQbUHOfk9Y&ccb=10-5&oh=00_AfYnVuNb6TA13DtprNTTmxmfntU1df1T9TRVbKLcM6ilIg&oe=68F26037&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 70,
+    "address": "Hessische Straße, 6, 10115, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000009010,
+      "last_data_package": "2025-09-17 15:30:18.928800+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9991666666666668,
+      "heavy": 301,
+      "car": 1238,
+      "bike": 529,
+      "pedestrian": 312,
+      "night": 0,
+      "car_percentage": 52.01680672268908,
+      "bike_percentage": 22.22689075630252,
+      "pedestrian_percentage": 13.109243697478993,
+      "heavy_percentage": 12.647058823529411
+    }
+  },
+  {
+    "segment_id": 9000009031,
+    "coordinates": [
+      [
+        13.367312494,
+        52.488273003
+      ],
+      [
+        13.368083094,
+        52.488273803
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-HcryC8rihgbI_MYEyDcu3LKoK1toBDapdetU6_kbjr5k3Oj0RVNKp0Ln1fA1G3aGXit1sY_RGFh4feAMSv_7E0rN55gpoYOBpsl3O5V4Us8ALohaq2s8pp7OJyLVF025HFOUN9GewMTF2iAAPVA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=pbvZPf0ayyGw22MQQgXYfA&_nc_oc=Adn4_tSrA00RAZ17CpQPhC2IvNaJ1IWDJ1hiU3aHwLBZ1I95_PeKT_IxXFAKFmI_tvk&ccb=10-5&oh=00_AfY_PFFonqY_kjh8Dqeaa35D2JzRb26wfVR9hfTvjWjUbg&oe=68F230E8&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 63,
+    "address": "Monumentenstraße, 11, 10829, Berlin",
+    "district": "Tempelhof-Schöneberg",
+    "originalProperties": {
+      "segment_id": 9000009031,
+      "last_data_package": "2025-09-17 15:30:44.013500+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9997222222222222,
+      "heavy": 16,
+      "car": 23,
+      "bike": 304,
+      "pedestrian": 18,
+      "night": 0,
+      "car_percentage": 6.3711911357340725,
+      "bike_percentage": 84.21052631578947,
+      "pedestrian_percentage": 4.986149584487535,
+      "heavy_percentage": 4.43213296398892
+    }
+  },
+  {
+    "segment_id": 9000009034,
+    "coordinates": [
+      [
+        13.381369294,
+        52.489766703
+      ],
+      [
+        13.382014994,
+        52.489816203
+      ],
+      [
+        13.382084294,
+        52.489821503
+      ],
+      [
+        13.382231494,
+        52.489832803
+      ]
+    ],
+    "airQuality": 3,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_pW69oEoA5FTYqtaImLpWOLLhTslYwYefWUFjoDI9nb01f3EjjeK-TaSQJpf-xivKOTfT_cmTEkCOizvwzJuWKy3-2KjXyrrXf60P-Rdt0VhzyB0KUrbOjHtt2czA0TdA3Pq3Mu-BZcSnWNW1sgQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=YHyzxrf4RZeCjojCyzBXZg&_nc_oc=Admmrizh5LrMIyN3xSscUfo6wXZzZQnt2k0tXwr_vKhOCobRJPHP2BjRAKhUgRadcMc&ccb=10-5&oh=00_AfbDTMyOrOwlrjBAJQGznJlt5R4FwbnyaB7xSPhKRE1aMA&oe=68F238AA&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 60,
+    "address": "Kreuzbergstraße, 10965, Berlin",
+    "district": "Friedrichshain-Kreuzberg",
+    "originalProperties": {
+      "segment_id": 9000009034,
+      "last_data_package": "2025-09-17 15:30:12.412200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9280555555555555,
+      "heavy": 38.709838814411924,
+      "car": 320.3122663470195,
+      "bike": 509.59791257288276,
+      "pedestrian": 488.8127181820802,
+      "night": 0,
+      "car_percentage": 23.5969162870364,
+      "bike_percentage": 37.54130124384074,
+      "pedestrian_percentage": 36.01008766390813,
+      "heavy_percentage": 2.851694805214724
+    }
+  },
+  {
+    "segment_id": 9000009042,
+    "coordinates": [
+      [
+        13.419981694,
+        52.502249203
+      ],
+      [
+        13.420578594,
+        52.503106403
+      ],
+      [
+        13.420605694,
+        52.503145303
+      ],
+      [
+        13.420671694,
+        52.503240003
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8NgwhX-WeXW7VS5GGrFOAV8Eq9pam5aThtCLyq2b2dIHMRqGhrOa7OVOKsHcGJQ7zOzdzriTOqNF6PyeiJxHahx-lgp1LQvQhssMnVl0CcKTXe-yaV_eKvbQX4KuQvV2vMNzJBPy_fyikwo4d7Sg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=Yv9_fnRGPZqFG1gTdPEZ-g&_nc_oc=AdlwWiY0h0VnRLIyRi_1vPbRTfytMVAqIVeB1t9z9cOaM4JSoIAmkqHrZSOD3Ie7Tu0&ccb=10-5&oh=00_AfYhOPWWp06GryCZE4kJgJscEsr2Fiac-jQk3Gxko0tl2Q&oe=68F235E4&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 60,
+    "address": "Naunynstraße, 59, 10999, Berlin",
+    "district": "Friedrichshain-Kreuzberg",
+    "originalProperties": {
+      "segment_id": 9000009042,
+      "last_data_package": "2025-09-17 15:33:12.123200+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.7122222222222222,
+      "heavy": 102.64344747683464,
+      "car": 410.2913450827475,
+      "bike": 321.9869847920397,
+      "pedestrian": 18.418977523770707,
+      "night": "",
+      "car_percentage": 48.0805988391659,
+      "bike_percentage": 37.73252161606383,
+      "pedestrian_percentage": 2.158455156224233,
+      "heavy_percentage": 12.028424388546044
+    }
+  },
+  {
+    "segment_id": 9000009065,
+    "coordinates": [
+      [
+        13.407504794,
+        52.529641703
+      ],
+      [
+        13.408172594,
+        52.530454203
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An97J85ZovbivKZ7L2wN7UGdkV2gAEJbc1fIU3Xn3-HNDForzpigk2lfx6lzwDd84GcEBTUX0s8b9_Qbe1o00x1reUEYsKi-mRQr2SZac-eaXkxkugtBl9xly8KKQAxDPM7l3XYWlhClBViSd-d-lw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=LcAxVFqsZrOYl0wXXemPqA&_nc_oc=Adku1MxP-Gt44NojWwV_FIdkaBx3Gzz_P3vD6CmpavRiKg6ARzYN1MzbYO7vg4JJylg&ccb=10-5&oh=00_AfZ1SeF-_ihAVE1Ry1e3T9wTXCEcid_Dpce1R8mCfbKy-Q&oe=68F23CDF&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 56,
+    "address": "Christinenstraße, 2, 10119, Berlin",
+    "district": "Pankow",
+    "originalProperties": {
+      "segment_id": 9000009065,
+      "last_data_package": "2025-09-17 15:30:14.921800+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9991666666666668,
+      "heavy": 3,
+      "car": 1,
+      "bike": 1,
+      "pedestrian": 1,
+      "night": 0,
+      "car_percentage": 16.666666666666664,
+      "bike_percentage": 16.666666666666664,
+      "pedestrian_percentage": 16.666666666666664,
+      "heavy_percentage": 50
+    }
+  },
+  {
+    "segment_id": 9000009135,
+    "coordinates": [
+      [
+        13.365679694,
+        52.503081803
+      ],
+      [
+        13.365484194,
+        52.503118403
+      ],
+      [
+        13.365423794,
+        52.503129703
+      ],
+      [
+        13.365086494,
+        52.503192803
+      ],
+      [
+        13.364266394,
+        52.503346203
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9ZSn56SHXxzuyGVes-W4MDslv759ZedEHhQavGA78uQgpJ0gmq4LIX535_harn_S733CpDxs1cFLjcknyosi4HpPALh0O83IpDbI1f1B68Hp7Lxxhs20wDB9mjvwgMscUuhm-lBpVLKtFwodT9QHo?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=Ffercp4ddNyQ07KYTg0z7Q&_nc_oc=Adm-w85OOiWWm05rzpYNaW_dCtPQ2KXwbfBYL8XG_yHxYEfTJQvxcqB9V_8yE1Ilnhk&ccb=10-5&oh=00_AfZu7WYne1sVumNk-aXYgG1CEOOI7jSOMCHQjX5jscsKjQ&oe=68F247FE&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 74,
+    "address": "Lützowstraße, 10785, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000009135,
+      "last_data_package": "2025-09-17 15:30:12.199500+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9994444444444444,
+      "heavy": 37,
+      "car": 250,
+      "bike": 115,
+      "pedestrian": 31,
+      "night": 0,
+      "car_percentage": 57.736720554272516,
+      "bike_percentage": 26.558891454965355,
+      "pedestrian_percentage": 7.159353348729793,
+      "heavy_percentage": 8.545034642032332
+    }
+  },
+  {
+    "segment_id": 9000009187,
+    "coordinates": [
+      [
+        13.512113994,
+        52.464356903
+      ],
+      [
+        13.511836294,
+        52.464311603
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-mbmgHUXkKfZJNfJnqRPLCxxgXHMq7A2CqDcvckk-4_dAi5s7GYNjWI-FB2l6ooStecj0pouWGsek2rTvXYnqsqbZH_0mM4XcN4Njt73EBSmDFI4P2h0DYvNkpPs0CZk2MDR2OgV4hmB5BHncWNyA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=JhKCmO0PyRMljiqlRNV4Ng&_nc_oc=Adk1-tyDS-VjAKMU55l5k_iXM9J3XdItdrWfGSb-iZrxX3Zi6eDnA7wGupCUkCJM_YI&ccb=10-5&oh=00_AfZx1pHPf4qSVvymtskzWXbZ0pRMoKqZrOcLbefQazLP1w&oe=68F24F27&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Ergänzungsnetz"
+    ],
+    "nearestNoiseLevel": 65,
+    "address": "Siemensstraße, 22, 12459, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000009187,
+      "last_data_package": "2025-09-17 15:30:19.544700+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9219444444444445,
+      "heavy": 227.17529662906995,
+      "car": 702.590333898803,
+      "bike": 17.25169764176592,
+      "pedestrian": 112.26904683822018,
+      "night": 0,
+      "car_percentage": 66.32676021095715,
+      "bike_percentage": 1.6286150798114365,
+      "pedestrian_percentage": 10.598554790000696,
+      "heavy_percentage": 21.446069919230716
+    }
+  },
+  {
+    "segment_id": 9000009232,
+    "coordinates": [
+      [
+        13.460274394,
+        52.515086103
+      ],
+      [
+        13.461272094,
+        52.514983503
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An96L72StEZPGy0dshTEezxpHZYq-HvUe9sHs4-XcUVQKsV3wcWf_MiagPK4uuHJqjOvO6jJB5h2dxwDyhglqOlB0X4HSNynvbeGyTztFGF1COowCs3Rwv9-3kXsNFIKfOjQ_4gDWV-iAmD813LIiw?stp=s1024x766&edm=AOnQwmMEAAAA&_nc_gid=lTehqTwuahAud0qSA9bxCA&_nc_oc=AdlbvEoep-Bvvbd1b0m2x5hYFCS9yBKZ3BFl2qJuBSlWIZTTsqRFRXgFKvZUswN3JHE&ccb=10-5&oh=00_AfaT2s4Iu6nAlRbB7wXhw8MPJZLP78-YG8Cbau7UhwsKbw&oe=68F25FE5&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 73,
+    "address": "Frankfurter Allee, 28, 10247, Berlin",
+    "district": "Friedrichshain-Kreuzberg",
+    "originalProperties": {
+      "segment_id": 9000009232,
+      "last_data_package": "2025-09-17 15:32:08.480000+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.6072222222222222,
+      "heavy": 191.83355067960824,
+      "car": 619.5447361918913,
+      "bike": 176.42205931163284,
+      "pedestrian": 1.7751479289940828,
+      "night": "",
+      "car_percentage": 62.60712193037514,
+      "bike_percentage": 17.828054591218777,
+      "pedestrian_percentage": 0.1793847907063213,
+      "heavy_percentage": 19.385438687699764
+    }
+  },
+  {
+    "segment_id": 9000009301,
+    "coordinates": [
+      [
+        13.405839794,
+        52.511226003
+      ],
+      [
+        13.405837594,
+        52.511200603
+      ],
+      [
+        13.405843494,
+        52.510843503
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9sJxuH8KtgZzjPMjsUPn_V1n_afN3Dh7OzKomoVLIHk6SgE87WC-ui9OO8bjf1YCHz-uVa03GPh65lXIi_UgHyAZxoQT1RTOTj2fXgvIPvvk9BBT1_GOz7JXvogovMEZDnJYuJzFERF9tjgnmxnBo?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=Nrz4T1SJdEFz8q771ieXBw&_nc_oc=AdlzdFiQUe2g-SYAdfMPKlzS-wQ17pOtOjFWG6It_2zBzlb1OiLicKCzoRJovuhBVfY&ccb=10-5&oh=00_AfZK3ghxCNE2la05w0DhS3QnQGMEpazxa1yMm_JD1HBnjw&oe=68F23D2A&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 57,
+    "address": "Wallstraße, 14, 10179, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000009301,
+      "last_data_package": "2025-09-17 15:30:20.592700+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9997222222222222,
+      "heavy": 28,
+      "car": 182,
+      "bike": 116,
+      "pedestrian": 171,
+      "night": 0,
+      "car_percentage": 36.61971830985916,
+      "bike_percentage": 23.340040241448694,
+      "pedestrian_percentage": 34.40643863179074,
+      "heavy_percentage": 5.633802816901409
+    }
+  },
+  {
+    "segment_id": 9000009350,
+    "coordinates": [
+      [
+        13.482727294,
+        52.480899103
+      ],
+      [
+        13.483166894,
+        52.480411203
+      ],
+      [
+        13.483466994,
+        52.480079703
+      ]
+    ],
+    "airQuality": 2,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_viDrMZ5xwXWx3RTy2RmVj1uZNlc3TtVDuB2Q9VSHxfUXeanHBnxOeLlMTmZqWb35zZJLpT_ihx1NKC0CfoS_Jv3C2OLLCYvzzH6rIgcf967m6NtOPC5dVItpydS4hcqQvugaJhQSc6sLj_x6XhA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=p9t1m5m-cpy0pj3yolfUNw&_nc_oc=AdnFzxqWmPIpLX78bcbYRDxhUh_SHWoJjj8JRGVBcd3AZyO15e776pkN5uPVmnP_Bjg&ccb=10-5&oh=00_AfZ4WcPUnczcQbFKRPMDVcSh83zNxBGJo8-aBgzFx-GfXg&oe=68F232C6&_nc_sid=201bca",
+    "bikeLaneTypes": [],
+    "nearestNoiseLevel": 63,
+    "address": "Neue Krugallee, 42, 12435, Berlin",
+    "district": "Treptow-Köpenick",
+    "originalProperties": {
+      "segment_id": 9000009350,
+      "last_data_package": "2025-09-17 15:30:19.027800+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9994444444444444,
+      "heavy": 22,
+      "car": 246,
+      "bike": 105,
+      "pedestrian": 49,
+      "night": 0,
+      "car_percentage": 58.29383886255924,
+      "bike_percentage": 24.881516587677723,
+      "pedestrian_percentage": 11.61137440758294,
+      "heavy_percentage": 5.213270142180095
+    }
+  },
+  {
+    "segment_id": 9000009404,
+    "coordinates": [
+      [
+        13.404583694,
+        52.508929103
+      ],
+      [
+        13.405303494,
+        52.508326903
+      ]
+    ],
+    "airQuality": 4,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An81MY-hRyCOoJWKIBoAZwsZJziQk5IEDQYFXf5l3sRs2-EcxabaocMPE07Y8rnVLOZr7dDDZCJQK4H6cViGMkNUd1RTd7kfbQizcWPEcS1Us1ciAb4lwKADJk0WhikZkgb1trXjkETYgn94e6TbEQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=GqJJH38Lc2l4rsXY3gN00g&_nc_oc=AdmuNGrXOFbGUDj4VJmjhUwYQBUmMtPErIHBr9n9rdQsTT4m-jDOrBqXgxWiTsrOJSg&ccb=10-5&oh=00_AfaZnBuyoTeJIAkvdUEC66MjrKZDXYJcayePjq_zwpz3IQ&oe=68F232B5&_nc_sid=201bca",
+    "bikeLaneTypes": [
+      "Radvorrangnetz"
+    ],
+    "nearestNoiseLevel": 56,
+    "address": "Seydelstraße, 16, 10117, Berlin",
+    "district": "Mitte",
+    "originalProperties": {
+      "segment_id": 9000009404,
+      "last_data_package": "2025-09-17 15:30:20.715900+00:00",
+      "timezone": "Europe/Berlin",
+      "date": "2025-09-17 14:00:00+00:00",
+      "period": "hourly",
+      "uptime": 0.9997222222222222,
+      "heavy": 20,
+      "car": 115,
+      "bike": 36,
+      "pedestrian": 76,
+      "night": 0,
+      "car_percentage": 46.558704453441294,
+      "bike_percentage": 14.5748987854251,
+      "pedestrian_percentage": 30.76923076923077,
+      "heavy_percentage": 8.097165991902834
+    }
+  }
+]

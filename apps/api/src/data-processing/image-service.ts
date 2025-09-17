@@ -12,12 +12,6 @@ interface MapillaryImage {
 
 interface MapillaryResponse {
 	data: MapillaryImage[];
-	paging?: {
-		cursors: {
-			after: string;
-		};
-		next: string;
-	};
 }
 
 /**
@@ -26,7 +20,7 @@ interface MapillaryResponse {
  * @param limit Maximum number of images to fetch (max 2000)
  * @returns Promise<string | null> URL of the newest image or null if none found
  */
-export async function getNewestImageForCoordinates(
+export async function getImage(
 	coordinates: Coordinates[],
 	limit: number = 10,
 ): Promise<string | null> {
@@ -35,7 +29,7 @@ export async function getNewestImageForCoordinates(
 	}
 
 	const bbox = createBoundingBoxString(coordinates);
-	return getNewestImageInBoundingBox(bbox, limit);
+	return getImageInBoundingBox(bbox, limit);
 }
 
 /**
@@ -44,7 +38,7 @@ export async function getNewestImageForCoordinates(
  * @param limit Maximum number of images to fetch (max 2000)
  * @returns Promise<string | null> URL of the newest image or null if none found
  */
-export async function getNewestImageInBoundingBox(
+export async function getImageInBoundingBox(
 	bbox: string,
 	limit: number = 10,
 ): Promise<string | null> {

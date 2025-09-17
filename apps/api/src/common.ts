@@ -1,7 +1,5 @@
-export type Coordinates = {
-	lon: number;
-	lat: number;
-};
+// New coordinate format: [longitude, latitude]
+export type Coordinates = [longitude: number, latitude: number];
 
 export type LineString = {
 	type: "LineString";
@@ -21,4 +19,46 @@ export type IntersectionFeature = {
 
 export type IntersectionResult = {
 	intersectingFeatures: IntersectionFeature[];
+};
+
+// Types for modal split calculations
+export type ModalSplitData = {
+	car: number;
+	bike: number;
+	pedestrian: number;
+	heavy: number;
+};
+
+export type ModalSplitPercentages = {
+	car: number;
+	bike: number;
+	pedestrian: number;
+	heavy: number;
+};
+
+// Types for Telraam/traffic data feature
+export type TrafficFeature = {
+	type: "Feature";
+	geometry: {
+		type: string;
+		coordinates: number[][] | number[][][];
+	};
+	properties: {
+		segment_id: number;
+		last_data_package: string;
+		timezone: string;
+		date: string;
+		period: string;
+		uptime: number;
+		heavy: number;
+		car: number;
+		bike: number;
+		pedestrian: number;
+		night: string;
+		car_percentage: number;
+		bike_percentage: number;
+		pedestrian_percentage: number;
+		heavy_percentage: number;
+		[key: string]: unknown;
+	};
 };

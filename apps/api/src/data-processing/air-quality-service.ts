@@ -5,20 +5,21 @@ import * as turf from "@turf/turf";
 import type { Coordinates } from "../common";
 
 // Load the GeoJSON file
-const geojsonFilePath = path.join(__dirname, "./data/airquality_index.geojson");
+const geojsonFilePath = path.join(
+	__dirname,
+	"../../data/airquality_index.geojson",
+);
 const geojsonData = fs.readFileSync(geojsonFilePath, "utf8");
 const geojson: FeatureCollection<MultiPolygon, { Worst_Index: number }> =
 	JSON.parse(geojsonData);
 
 // Function to find the Worst_Index for a given coordinate array (uses first coordinate)
-export function findWorstIndexForCoordinates(
-	coordinates: Coordinates[],
-): number | null {
+export function getAirQuality(coordinates: Coordinates[]): number | null {
 	if (coordinates.length === 0) {
 		return null;
 	}
 
-	const { lon, lat } = coordinates[0];
+	const [lon, lat] = coordinates[0]; // coordinates[0] is [longitude, latitude]
 	const point = turf.point([lon, lat]);
 
 	for (const feature of geojson.features) {
@@ -36,5 +37,5 @@ export function findWorstIndexForCoordinate(
 	lng: number,
 	lat: number,
 ): number | null {
-	return findWorstIndexForCoordinates([{ lon: lng, lat }]);
+	return getAirQuality([[lng, lat]]); // Convert to new format
 }

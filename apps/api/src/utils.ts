@@ -1,4 +1,9 @@
-import type { Coordinates, LineString } from "./common";
+import type {
+	Coordinates,
+	LineString,
+	ModalSplitData,
+	ModalSplitPercentages,
+} from "./common";
 
 const COORDINATE_PRECISION = 0.00001;
 const MAX_FEATURES_PER_QUERY = 5;
@@ -6,9 +11,9 @@ const MAX_FEATURES_PER_QUERY = 5;
 /**
  * Create a bounding box filter for WFS queries
  */
-export function createBoundingBox(coordinates: Coordinates[]): string {
-	const lons = coordinates.map((c) => c.lon);
-	const lats = coordinates.map((c) => c.lat);
+export function createBoundingBoxWFS(coordinates: Coordinates[]): string {
+	const lons = coordinates.map((c) => c[0]); // longitude is first element
+	const lats = coordinates.map((c) => c[1]); // latitude is second element
 	const minLon = Math.min(...lons) - COORDINATE_PRECISION;
 	const maxLon = Math.max(...lons) + COORDINATE_PRECISION;
 	const minLat = Math.min(...lats) - COORDINATE_PRECISION;
@@ -45,7 +50,7 @@ export function createLineStringFromCoordinates(
 ): LineString {
 	return {
 		type: "LineString",
-		coordinates: coordinates.map((coord) => [coord.lon, coord.lat]),
+		coordinates: coordinates, // coordinates are already in [lon, lat] format
 	};
 }
 
@@ -59,11 +64,11 @@ export function calculateDistanceMeters(
 	pointA: Coordinates,
 	pointB: Coordinates,
 ): number {
-	const mx = 111320 * Math.cos((pointA.lat * Math.PI) / 180); // meters per degree longitude
+	const mx = 111320 * Math.cos((pointA[1] * Math.PI) / 180); // meters per degree longitude, pointA[1] is latitude
 	const my = 110540; // meters per degree latitude
 	return Math.hypot(
-		(pointB.lon - pointA.lon) * mx,
-		(pointB.lat - pointA.lat) * my,
+		(pointB[0] - pointA[0]) * mx, // longitude difference, pointA[0] and pointB[0] are longitudes
+		(pointB[1] - pointA[1]) * my, // latitude difference, pointA[1] and pointB[1] are latitudes
 	);
 }
 
@@ -71,12 +76,30 @@ export function calculateDistanceMeters(
  * Create a bounding box string in format "minLon,minLat,maxLon,maxLat" from coordinates array
  */
 export function createBoundingBoxString(coordinates: Coordinates[]): string {
-	const lons = coordinates.map((c) => c.lon);
-	const lats = coordinates.map((c) => c.lat);
+	const lons = coordinates.map((c) => c[0]); // longitude is first element
+	const lats = coordinates.map((c) => c[1]); // latitude is second element
 	const minLon = Math.min(...lons) - COORDINATE_PRECISION;
 	const maxLon = Math.max(...lons) + COORDINATE_PRECISION;
 	const minLat = Math.min(...lats) - COORDINATE_PRECISION;
 	const maxLat = Math.max(...lats) + COORDINATE_PRECISION;
 
 	return `${minLon},${minLat},${maxLon},${maxLat}`;
+}
+
+/**
+ * Calculate the percentage distribution of modal split data.
+ * @param data - modal split data with absolute counts
+ * @returns percentage distribution of modal split data
+ */
+
+export function calculatePercentages(
+	data: ModalSplitData,
+): ModalSplitPercentages {
+	const total = data.car + data.bike + data.pedestrian + data.heavy;
+	return {
+		car: (data.car / total) * 100,
+		bike: (data.bike / total) * 100,
+		pedestrian: (data.pedestrian / total) * 100,
+		heavy: (data.heavy / total) * 100,
+	};
 }
