@@ -6,9 +6,9 @@ import { createServer } from "http";
 import { Server } from "socket.io";
 import { runPythonScript } from "./runPythonScripts";
 import { handleNoiseRequest } from "./data-preparation/noise-service";
-import { findWorstIndexForCoordinate } from "./data-preparation/air-quality-service";
+import { findWorstIndexForCoordinates } from "./data-preparation/air-quality-service";
 import { checkBikeLaneOverlap } from "./data-preparation/bike-lane-service";
-import { getNewestImageInBoundingBox } from "./data-preparation/image-service";
+import { getNewestImageForCoordinates } from "./data-preparation/image-service";
 
 const app = express();
 app.use(express.json()); // for JSON POST bodies
@@ -26,30 +26,45 @@ const io = new Server(httpServer, {
 	},
 });
 
+// Test coordinates for different locations
+const testCoordinates = [
+	{ lon: 13.387929865667388, lat: 52.483641481858655 },
+	{ lon: 13.388140899999883, lat: 52.48398972106418 },
+	{ lon: 13.388161322677405, lat: 52.48430271942601 },
+];
+// Platz d. Luftbrücke
+
+const kreuzbergCoordinates = [
+	{ lon: 13.381331328675396, lat: 52.489793757305165 },
+	{ lon: 13.382287106334381, lat: 52.48989928205013 },
+];
+// Kreuzbergstr.
+
+const _kastanienalleeCoordinates = [
+	{ lon: 13.40680172677554, lat: 52.53577669525484 },
+	{ lon: 13.409654935660228, lat: 52.53854107631082 },
+];
+// Kastanienallee
+
 // Test the air quality function and log the result
 try {
-	const worstIndex = findWorstIndexForCoordinate(
-		13.441177599882215,
-		52.528336599682355,
-	);
+	const worstIndex = findWorstIndexForCoordinates([
+		{ lon: 13.441177599882215, lat: 52.528336599682355 },
+	]);
 	// eslint-disable-next-line no-console
-	console.log(
-		`Air quality worst index for coordinates (13.384831794, 52.484664728): ${worstIndex}`,
-	);
+	console.log(`Air quality worst index for coordinates: ${worstIndex}`);
 } catch (error) {
-	console.error("Error calling findWorstIndexForCoordinate:", error);
+	console.error("Error calling findWorstIndexForCoordinates:", error);
 }
 
+// Test the image search function
 async function testImageSearch() {
 	try {
-		const BBOX =
-			"13.387659213019873,52.48371622960855,13.388254502647385,52.48425012472177";
-
-		const berlinResult = await getNewestImageInBoundingBox(BBOX);
+		const berlinResult = await getNewestImageForCoordinates(testCoordinates);
 		// eslint-disable-next-line no-console
 		console.log("Berlin image:", berlinResult);
 	} catch (error) {
-		console.error("Error calling getNewestImageInBoundingBox:", error);
+		console.error("Error calling getNewestImageForCoordinates:", error);
 	}
 }
 
@@ -58,25 +73,8 @@ testImageSearch();
 // Test the bike lane overlap function
 async function testBikeLaneOverlap() {
 	try {
-		const coordinates = [
-			{ lon: 13.381331328675396, lat: 52.489793757305165 },
-			{ lon: 13.382287106334381, lat: 52.48989928205013 },
-		];
-
-		// 	{ lon: 13.387929865667388, lat: 52.483641481858655 },
-		// 	{ lon: 13.388140899999883, lat: 52.48398972106418 },
-		// 	{ lon: 13.388161322677405, lat: 52.48430271942601 }
-		// Platz d. Luftbrücke
-
-		// { lon: 13.381331328675396, lat: 52.489793757305165 },
-		// { lon: 13.382287106334381, lat: 52.48989928205013 },
-		// Kreuzbergstr.
-
-		//  { lon: 13.40680172677554, lat: 52.53577669525484 },
-		// 	{ lon: 13.409654935660228, lat: 52.53854107631082 },
-		// Kastanienallee
-
-		const { overlappingLaneTypes } = await checkBikeLaneOverlap(coordinates);
+		const { overlappingLaneTypes } =
+			await checkBikeLaneOverlap(kreuzbergCoordinates);
 
 		// eslint-disable-next-line no-console
 		console.log(`Bike lane overlap result:`, overlappingLaneTypes);

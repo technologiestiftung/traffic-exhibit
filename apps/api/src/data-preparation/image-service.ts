@@ -1,8 +1,10 @@
+import type { Coordinates } from "../common";
+import { createBoundingBoxString } from "../utils";
+
 const ACCESS_TOKEN = process.env.MAPILLARY_ACCESS_TOKEN;
 
 interface MapillaryImage {
 	id: string;
-	captured_at: number;
 	is_pano: boolean;
 	thumb_256_url?: string;
 	thumb_1024_url?: string;
@@ -16,6 +18,24 @@ interface MapillaryResponse {
 		};
 		next: string;
 	};
+}
+
+/**
+ * Searches for the newest non-panoramic image within a bounding box created from coordinates
+ * @param coordinates Array of coordinates to create bounding box from
+ * @param limit Maximum number of images to fetch (max 2000)
+ * @returns Promise<string | null> URL of the newest image or null if none found
+ */
+export async function getNewestImageForCoordinates(
+	coordinates: Coordinates[],
+	limit: number = 10,
+): Promise<string | null> {
+	if (coordinates.length === 0) {
+		return null;
+	}
+
+	const bbox = createBoundingBoxString(coordinates);
+	return getNewestImageInBoundingBox(bbox, limit);
 }
 
 /**

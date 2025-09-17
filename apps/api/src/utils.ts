@@ -66,3 +66,17 @@ export function calculateDistanceMeters(
 		(pointB.lat - pointA.lat) * my,
 	);
 }
+
+/**
+ * Create a bounding box string in format "minLon,minLat,maxLon,maxLat" from coordinates array
+ */
+export function createBoundingBoxString(coordinates: Coordinates[]): string {
+	const lons = coordinates.map((c) => c.lon);
+	const lats = coordinates.map((c) => c.lat);
+	const minLon = Math.min(...lons) - COORDINATE_PRECISION;
+	const maxLon = Math.max(...lons) + COORDINATE_PRECISION;
+	const minLat = Math.min(...lats) - COORDINATE_PRECISION;
+	const maxLat = Math.max(...lats) + COORDINATE_PRECISION;
+
+	return `${minLon},${minLat},${maxLon},${maxLat}`;
+}

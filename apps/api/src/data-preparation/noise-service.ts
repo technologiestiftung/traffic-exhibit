@@ -10,6 +10,35 @@ const NOISE_LAYER_NAME = "ua_stratlaerm_2022:aa_fp_gesamt2022"; // façade LDEN 
 const NOISE_LEVEL_FIELD = "ges_den";
 
 /**
+ * Query LDEN façade point for coordinates array (uses first coordinate).
+ *
+ * @param coordinates Array of coordinates (uses first coordinate for query)
+ *
+ * @returns The LDEN value with metadata:
+ *   - lden: noise level (rounded to 0.1 dB(A))
+ *   - unit: always "dB(A)"
+ *   - distance_m: distance from query point to matched feature
+ *   - feature_id: ID of the WFS feature
+ *   - note: optional message if nothing found
+ */
+export async function fetchNearestNoiseLevelForCoordinates(
+	coordinates: Coordinates[],
+) {
+	if (coordinates.length === 0) {
+		return {
+			lden: null,
+			unit: "dB(A)",
+			distance_m: null,
+			feature_id: null,
+			note: "No coordinates provided",
+		};
+	}
+
+	const { lat, lon } = coordinates[0];
+	return fetchNearestNoiseLevel(lat, lon);
+}
+
+/**
  * Query LDEN façade point at the specific coordinate using WFS GetFeature.
  *
  * @param lat   Latitude of query point (WGS84).
