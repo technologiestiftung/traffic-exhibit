@@ -1,3 +1,6 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
@@ -5,6 +8,7 @@ import { runPythonScript } from "./runPythonScripts";
 import { handleNoiseRequest } from "./data-preparation/noise-service";
 import { findWorstIndexForCoordinate } from "./data-preparation/air-quality-service";
 import { checkBikeLaneOverlap } from "./data-preparation/bike-lane-service";
+import { getNewestImageInBoundingBox } from "./data-preparation/image-service";
 
 const app = express();
 app.use(express.json()); // for JSON POST bodies
@@ -35,6 +39,21 @@ try {
 } catch (error) {
 	console.error("Error calling findWorstIndexForCoordinate:", error);
 }
+
+async function testImageSearch() {
+	try {
+		const berlinBbox = "113.3813,52.4897,13.3823,52.4899"; // Kreuzbergstr.
+
+		const BBOX = "13.38,52.483,13.388,52.49";
+		const berlinResult = await getNewestImageInBoundingBox(BBOX);
+		// eslint-disable-next-line no-console
+		console.log("Berlin image:", berlinResult);
+	} catch (error) {
+		console.error("Error calling getNewestImageInBoundingBox:", error);
+	}
+}
+
+testImageSearch();
 
 // Test the bike lane overlap function
 async function testBikeLaneOverlap() {
