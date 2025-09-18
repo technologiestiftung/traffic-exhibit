@@ -1,18 +1,32 @@
+import dotenv from "dotenv";
+dotenv.config();
+
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import { runPythonScript } from "./runPythonScripts";
-import { handleNoiseRequest } from "./data-preparation/noise-service";
-import { findWorstIndexForCoordinate } from "./data-preparation/air-quality-service";
-import { checkBikeLaneOverlap } from "./data-preparation/bike-lane-service";
+import { findClosestMatch } from "./data-processing/find-modal-split-match";
+import telraamDataRaw from "./../data/telraam-data-snippet.json";
+import enrichedTelraamDataRaw from "./../data/enriched-telraam-data.json";
+import type { TrafficFeature } from "./common";
+
+const telraamData = telraamDataRaw as { features: TrafficFeature[] };
+const enrichedTelraamData = enrichedTelraamDataRaw as any[];
+
+const closestMatch = findClosestMatch(
+	{ car: 50, bike: 30, pedestrian: 15, heavy: 5 },
+	telraamData.features,
+);
+
+// match the closest result with enriched-telraam-data
+const enrichedMatch =
+	enrichedTelraamData.find(
+		(feature: any) =>
+			feature.originalProperties.segment_id ===
+			closestMatch?.properties.segment_id,
+	) || null;
 
 const app = express();
-app.use(express.json()); // for JSON POST bodies
-
-// --- routes ---
-app.get("/api/health", (_req, res) => res.json({ ok: true }));
-
-app.get("/api/noise", handleNoiseRequest);
 
 // --- socket/http (kept in this file, as requested) ---
 const httpServer = createServer(app);
@@ -21,53 +35,6 @@ const io = new Server(httpServer, {
 		origin: "*",
 	},
 });
-
-// Test the air quality function and log the result
-try {
-	const worstIndex = findWorstIndexForCoordinate(
-		13.441177599882215,
-		52.528336599682355,
-	);
-	// eslint-disable-next-line no-console
-	console.log(
-		`Air quality worst index for coordinates (13.384831794, 52.484664728): ${worstIndex}`,
-	);
-} catch (error) {
-	console.error("Error calling findWorstIndexForCoordinate:", error);
-}
-
-// Test the bike lane overlap function
-async function testBikeLaneOverlap() {
-	try {
-		const coordinates = [
-			{ lon: 13.381331328675396, lat: 52.489793757305165 },
-			{ lon: 13.382287106334381, lat: 52.48989928205013 },
-		];
-
-		// 	{ lon: 13.387929865667388, lat: 52.483641481858655 },
-		// 	{ lon: 13.388140899999883, lat: 52.48398972106418 },
-		// 	{ lon: 13.388161322677405, lat: 52.48430271942601 }
-		// Platz d. Luftbrücke
-
-		// { lon: 13.381331328675396, lat: 52.489793757305165 },
-		// { lon: 13.382287106334381, lat: 52.48989928205013 },
-		// Kreuzbergstr.
-
-		//  { lon: 13.40680172677554, lat: 52.53577669525484 },
-		// 	{ lon: 13.409654935660228, lat: 52.53854107631082 },
-		// Kastanienallee
-
-		const { overlappingLaneTypes } = await checkBikeLaneOverlap(coordinates);
-
-		// eslint-disable-next-line no-console
-		console.log(`Bike lane overlap result:`, overlappingLaneTypes);
-	} catch (error) {
-		console.error("Error calling checkBikeLaneOverlap:", error);
-	}
-}
-
-// Call the test function
-testBikeLaneOverlap();
 
 io.on("connection", (socket) => {
 	// eslint-disable-next-line no-console
@@ -96,6 +63,8 @@ io.on("connection", (socket) => {
 	 * 6. send match to frontend
 	 * 7. (optional: turn on audio mix for the match)
 	 */
+
+	socket.emit("telraam-match", enrichedMatch);
 
 	/*
 	 * TO DO: Handle "go-back-to-start" event from frontend

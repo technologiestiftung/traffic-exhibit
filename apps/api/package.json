@@ -7,7 +7,8 @@
 		"dev": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/server.ts",
 		"start": "node dist/server.js",
 		"prettier": "prettier --write src",
-		"prettier:ci": "prettier --check src"
+		"prettier:ci": "prettier --check src",
+		"process-data": "ts-node scripts/run-data-processing.ts"
 	},
 	"keywords": [],
 	"author": "",

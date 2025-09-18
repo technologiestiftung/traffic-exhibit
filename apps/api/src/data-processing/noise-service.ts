@@ -10,6 +10,27 @@ const NOISE_LAYER_NAME = "ua_stratlaerm_2022:aa_fp_gesamt2022"; // façade LDEN 
 const NOISE_LEVEL_FIELD = "ges_den";
 
 /**
+ * Query LDEN façade point for coordinates array (uses first coordinate).
+ *
+ * @param coordinates Array of coordinates (uses first coordinate for query)
+ *
+ * @returns The LDEN value with metadata:
+ *   - lden: noise level (rounded to 0.1 dB(A))
+ *   - unit: always "dB(A)"
+ *   - distance_m: distance from query point to matched feature
+ *   - feature_id: ID of the WFS feature
+ *   - note: optional message if nothing found
+ */
+export async function getNearestNoiseLevel(coordinates: Coordinates[]) {
+	if (coordinates.length === 0) {
+		return null;
+	}
+
+	const [lon, lat] = coordinates[0]; // coordinates[0] is [longitude, latitude]
+	return fetchNearestNoiseLevel(lat, lon);
+}
+
+/**
  * Query LDEN façade point at the specific coordinate using WFS GetFeature.
  *
  * @param lat   Latitude of query point (WGS84).
@@ -23,7 +44,7 @@ const NOISE_LEVEL_FIELD = "ges_den";
  *   - note: optional message if nothing found
  */
 export async function fetchNearestNoiseLevel(lat: number, lon: number) {
-	const targetPoint: Coordinates = { lat, lon };
+	const targetPoint: Coordinates = [lon, lat]; // Store as [longitude, latitude]
 
 	// Query using WFS GetFeature with spatial filter
 	const url = new URL(WFS_ENDPOINT);
@@ -44,13 +65,7 @@ export async function fetchNearestNoiseLevel(lat: number, lon: number) {
 
 	const response = await fetch(url.toString());
 	if (!response.ok) {
-		return {
-			lden: null,
-			unit: "dB(A)",
-			distance_m: null,
-			feature_id: null,
-			note: "Request failed",
-		};
+		return null;
 	}
 
 	const data = await response.json();
@@ -58,9 +73,6 @@ export async function fetchNearestNoiseLevel(lat: number, lon: number) {
 	if (!features.length) {
 		return {
 			lden: null,
-			unit: "dB(A)",
-			distance_m: null,
-			feature_id: null,
 			note: "No façade point at this coordinate.",
 		};
 	}
@@ -74,10 +86,10 @@ export async function fetchNearestNoiseLevel(lat: number, lon: number) {
 			number,
 			number,
 		];
-		const distance = calculateDistanceMeters(targetPoint, {
-			lon: featureLon,
-			lat: featureLat,
-		});
+		const distance = calculateDistanceMeters(targetPoint, [
+			featureLon,
+			featureLat,
+		]);
 		if (distance < closestDistance) {
 			closestDistance = distance;
 			closestFeature = feature;
@@ -87,37 +99,5 @@ export async function fetchNearestNoiseLevel(lat: number, lon: number) {
 	// Extract LDEN noise value and round to 0.1 dB(A)
 	const noiseValue = closestFeature.properties?.[NOISE_LEVEL_FIELD];
 
-	return {
-		lden: typeof noiseValue === "number" ? Math.round(noiseValue) : noiseValue,
-		unit: "dB(A)",
-		distance_m: Math.round(closestDistance),
-		feature_id: closestFeature.id as string | undefined,
-	};
-}
-
-/**
- * Handle a single LDEN request coming from `GET /api/noise`.
- *
- * @param req Express request object containing lat/lon query parameters
- * @param res Express response object for sending HTTP response
- * @returns JSON object with noise data for the coordinate, or error response
- */
-export async function handleNoiseRequest(
-	req: express.Request,
-	res: express.Response,
-) {
-	const lat = Number(req.query.lat);
-	const lon = Number(req.query.lon);
-
-	if (!isFinite(lat) || !isFinite(lon)) {
-		return res.status(400).json({ error: "Provide ?lat=&lon=" });
-	}
-
-	try {
-		const result = await fetchNearestNoiseLevel(lat, lon);
-		return res.json(result);
-	} catch (error) {
-		const message = error instanceof Error ? error.message : "Upstream error";
-		return res.status(502).json({ error: message });
-	}
+	return typeof noiseValue === "number" ? Math.round(noiseValue) : noiseValue;
 }
