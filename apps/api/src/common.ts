@@ -62,3 +62,16 @@ export type TrafficFeature = {
 		[key: string]: unknown;
 	};
 };
+
+// Type for enriched telraam match data
+export type TelraamMatch = {
+	segment_id: number;
+	coordinates: number[][];
+	airQuality: number;
+	imageURL: string;
+	bikeLaneTypes: string[];
+	nearestNoiseLevel: number;
+	address: string;
+	district: string;
+	originalProperties: TrafficFeature["properties"];
+};

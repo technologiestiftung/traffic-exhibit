@@ -13,24 +13,20 @@ import type { TrafficFeature } from "./common";
 const telraamData = telraamDataRaw as { features: TrafficFeature[] };
 const enrichedTelraamData = enrichedTelraamDataRaw as any[];
 
-const app = express();
-app.use(express.json()); // for JSON POST bodies
-
-// --- routes ---
-app.get("/api/health", (_req, res) => res.json({ ok: true }));
-
 const closestMatch = findClosestMatch(
 	{ car: 50, bike: 30, pedestrian: 15, heavy: 5 },
 	telraamData.features,
 );
 
-// match the closestresult with enriched-telraam-data.json with the segment_id and return the enrichedMatch
+// match the closest result with enriched-telraam-data
 const enrichedMatch =
 	enrichedTelraamData.find(
 		(feature: any) =>
 			feature.originalProperties.segment_id ===
 			closestMatch?.properties.segment_id,
 	) || null;
+
+const app = express();
 
 // --- socket/http (kept in this file, as requested) ---
 const httpServer = createServer(app);
