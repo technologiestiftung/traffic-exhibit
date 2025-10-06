@@ -3,6 +3,7 @@ import { BerlinMap } from "../map/berlin-map";
 import { NoiseChart } from "../charts/noise-chart";
 import { Pill } from "../pill/pill";
 import { AirQualityChart } from "../charts/air-quality-chart";
+import { parse, format } from "date-fns";
 
 export const Match = () => {
 	const { goBackToStart, telraamMatch } = useWebSocket();
@@ -28,6 +29,15 @@ export const Match = () => {
 			percentage: telraamMatch?.originalProperties.heavy_percentage,
 		},
 	];
+
+	const formatDdMmmYyyy = (value?: string) => {
+		if (!value) return "";
+		// matches: 2025-09-17 14:00:00+00:00
+		const d = parse(value, "yyyy-MM-dd HH:mm:ssXXX", new Date());
+		if (Number.isNaN(d.getTime())) return value;
+		return format(d, "dd MMM yyyy"); // ← use yyyy, not YYYY
+	};
+
 	return (
 		<div>
 			<div className="flex flex-col justify-center p-4 max-w-[1280px] h-full space-y-7">
@@ -77,11 +87,16 @@ export const Match = () => {
 									className="w-full h-full object-cover"
 								/>
 								{/* TRAFFIC COUNT */}
-								<div className="absolute flex flex-col gap-3 top-0 right-0 p-3">
-									<div className="text-red-500 font-semibold bg-white bg-opacity-50 rounded-sm px-2">
+								<div className="absolute flex flex-col gap-2 top-0 right-0 p-3">
+									<div className="flex flex-col items-center text-center text-red-500 bg-white bg-opacity-50 rounded-sm px-2">
 										{/* pulsing dot */}
-										<div className="w-3 h-3 bg-red-500 rounded-full animate-pulse inline-block mr-2" />
-										Livedaten
+										<div>
+											<div className="w-3 h-3 bg-red-500  rounded-full animate-pulse inline-block mr-2" />
+											<span className="font-semibold">Livedaten</span>
+										</div>
+										<span className="text-sm">
+											{formatDdMmmYyyy(telraamMatch?.originalProperties?.date)}
+										</span>
 									</div>
 
 									{trafficModal.map((item) => (
