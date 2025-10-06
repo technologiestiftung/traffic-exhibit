@@ -7,6 +7,7 @@ import { parse, format } from "date-fns";
 
 export const Match = () => {
 	const { goBackToStart, telraamMatch } = useWebSocket();
+
 	const trafficModal = [
 		{
 			name: "Fußgänger",
@@ -31,11 +32,15 @@ export const Match = () => {
 	];
 
 	const formatDdMmmYyyy = (value?: string) => {
-		if (!value) return "";
+		if (!value) {
+			return "";
+		}
 		// matches: 2025-09-17 14:00:00+00:00
 		const d = parse(value, "yyyy-MM-dd HH:mm:ssXXX", new Date());
-		if (Number.isNaN(d.getTime())) return value;
-		return format(d, "dd MMM yyyy"); // ← use yyyy, not YYYY
+		if (Number.isNaN(d.getTime())) {
+			return value;
+		}
+		return format(d, "dd MMM yyyy");
 	};
 
 	return (
