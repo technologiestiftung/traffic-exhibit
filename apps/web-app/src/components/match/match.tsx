@@ -105,11 +105,11 @@ export const Match = () => {
 									</div>
 
 									{trafficModal.map((item) => (
-										<div className="flex flex-col text-black bg-white bg-opacity-50 rounded-sm px-2 py-1 items-center">
-											<div
-												key={item.name}
-												className="flex flex-col text-center"
-											>
+										<div
+											key={item.name}
+											className="flex flex-col text-black bg-white bg-opacity-50 rounded-sm px-2 py-1 items-center"
+										>
+											<div className="flex flex-col text-center">
 												<p>{item.name}</p>
 												{item.count !== undefined &&
 													item.percentage !== undefined && (
