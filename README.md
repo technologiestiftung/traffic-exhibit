@@ -8,8 +8,8 @@
 
 # Traffic Exhibit
 
-
 ## **Project Structure**
+
 ```
 traffic-exhibit/
 ├── apps/
@@ -22,6 +22,7 @@ traffic-exhibit/
 ## Installation
 
 Run the following command in the **root directory** to install dependencies for all workspaces:
+
 ```bash
 npm install
 ```
@@ -29,37 +30,86 @@ npm install
 ## Usage or Deployment
 
 ### **1. Run the Project Locally**
+
 In the **root directory**, start both the frontend and backend:
+
 ```bash
 npm run dev
 ```
+
 - The frontend will be available at: [http://localhost:5174](http://localhost:5174)
 - The backend WebSocket server will run on: [http://localhost:3001](http://localhost:3001)
 
 ### **2. Access the Application**
+
 Open your browser and navigate to:
+
 ```
-http://localhost:5174
+http://localhost:5173
 ```
 
 ## Development
 
 ### **1. Frontend Development**
+
 - The frontend is built with **React**, **Vite**, and **TypeScript**.
 - WebSocket communication is handled via `socket.io-client`.
 - Edit files in `apps/web-app/src/` and save to see changes reflected in the browser.
 
 ### **2. Backend Development**
+
 - The backend uses **Node.js**, **Express**, and **WebSocket** (`socket.io`).
 - Python scripts are called using Node.js' `child_process`.
 - Edit files in `apps/api/src/` and restart the backend to see changes.
 
 ### **3. Python Integration**
+
 - Python scripts for camera and motor control are located in `apps/api/scripts/`.
 - Ensure scripts are executable:
   ```bash
   chmod +x apps/api/scripts/*.py
   ```
+
+## Data Processing
+
+The project includes automated data processing capabilities to enrich traffic data with additional environmental and infrastructure information.
+
+### **Running Data Processing**
+
+To process and enrich Telraam traffic data, run:
+
+```bash
+npm run process-data
+```
+
+This command executes the data processing pipeline which:
+
+1. **Fetches fresh Telraam data** - Retrieves real-time traffic counting data from Telraam sensors
+2. **Enriches with environmental data**:
+   - **Air Quality**: Adds air quality measurements for each traffic segment
+   - **Street Images**: Fetches relevant street view images for visualization
+   - **Bike Lane Information**: Identifies overlapping bike lane types and infrastructure
+   - **Noise Levels**: Retrieves nearest noise level measurements
+   - **Address & District**: Performs reverse geocoding to get location details
+
+### **Output**
+
+The processed data is saved as `enriched-telraam-data.json` in the `apps/api/data/` directory, containing:
+
+- Original traffic count data (cars, bikes, pedestrians, heavy vehicles)
+- Geographic coordinates and segment information
+- Environmental context (air quality, noise levels)
+- Infrastructure details (bike lanes, addresses, districts)
+- Associated street imagery URLs
+
+### **Data Matching & Real-time Processing**
+
+The system also includes intelligent traffic pattern matching functionality:
+
+1. **Modal Split Detection**: Real-time detection of traffic composition (percentages of cars, bikes, pedestrians, heavy vehicles)
+2. **Pattern Matching**: Uses Euclidean distance calculation to find the closest match between current detections and historical Telraam data
+3. **Data Enrichment**: Matches the closest traffic pattern with the corresponding enriched dataset
+4. **Frontend Integration**: Sends the matched enriched data to the frontend via WebSocket for real-time visualization
 
 ## Tests
 
