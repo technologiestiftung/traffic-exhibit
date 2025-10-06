@@ -6,19 +6,23 @@ import { BerlinDistrictPaths } from "./berlin-district-paths";
 type BerlinMapProps = {
 	lat: number;
 	lon: number;
+	width?: number;
+	height?: number;
 };
 
-export const BerlinMap: React.FC<BerlinMapProps> = (
-	location: BerlinMapProps,
-) => {
-	const width = 600;
-	const height = 600;
+export const BerlinMap: React.FC<BerlinMapProps> = ({
+	lat,
+	lon,
+	width = 200,
+	height = 200,
+}) => {
+	const location = { lat, lon };
 	const berlinDistrictsGeoJson = useBerlinDistrictsGeojson();
 
-	const svgMargin = { top: 0, right: 0, bottom: 5, left: 0 };
+	const svgMargin = { top: 0, right: 0, bottom: 0, left: 0 };
 	const innerHeight = height - svgMargin.top - svgMargin.bottom;
 
-	const scale = width < height ? width / 0.016 : height / 0.016;
+	const scale = width < height ? width / 0.014 : height / 0.014;
 
 	const projection = useCallback(
 		d3
@@ -33,6 +37,7 @@ export const BerlinMap: React.FC<BerlinMapProps> = (
 			<BerlinDistrictPaths
 				projection={projection}
 				berlinDistrictsGeoJson={berlinDistrictsGeoJson}
+				pathColor="black"
 			/>
 
 			{location && projection
@@ -47,10 +52,10 @@ export const BerlinMap: React.FC<BerlinMapProps> = (
 								<circle
 									cx={x}
 									cy={y}
-									r={7}
-									fill={d3.color("#ff5722")?.toString() ?? "#ff5722"}
+									r={2}
+									fill={d3.color("#ff5722")?.toString() ?? "#ff5722"} //red
 									stroke="#ffffff"
-									strokeWidth={2}
+									strokeWidth={0}
 									role="img"
 									aria-label={`location ${location.lat}, ${location.lon}`}
 								/>

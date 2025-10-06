@@ -5,11 +5,13 @@ import type { FeatureCollection } from "geojson";
 interface BerlinDistrictPaths {
 	berlinDistrictsGeoJson: FeatureCollection | null;
 	projection: d3.GeoProjection;
+	pathColor?: string;
 }
 
 export const BerlinDistrictPaths: React.FC<BerlinDistrictPaths> = ({
 	berlinDistrictsGeoJson,
 	projection,
+	pathColor = "black",
 }) => {
 	const berlinDistrictsPaths = useMemo(() => {
 		if (!berlinDistrictsGeoJson) {
@@ -31,7 +33,7 @@ export const BerlinDistrictPaths: React.FC<BerlinDistrictPaths> = ({
 					d={path ?? ""}
 					fill="none"
 					role="presentation"
-					stroke="#063970"
+					stroke={pathColor}
 					strokeWidth={1}
 				/>
 			))}
