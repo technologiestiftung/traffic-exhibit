@@ -13,6 +13,7 @@ export const de = {
 	"match.createNewMixButton.label": "Neuen Mix erstellen",
 
 	/* TRAFFIC STATS */
+	"trafficStats.liveData": "Livedaten",
 	"trafficStats.pedestrians": "Fußgänger",
 	"trafficStats.bikes": "Fahrräder",
 	"trafficStats.cars": "Autos",

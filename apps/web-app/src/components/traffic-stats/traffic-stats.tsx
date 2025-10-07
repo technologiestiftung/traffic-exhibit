@@ -37,7 +37,7 @@ export const TrafficStats: React.FC<TrafficStatsProps> = ({ telraamMatch }) => {
 				{/* pulsing dot */}
 				<div>
 					<div className="w-3 h-3 bg-red-500 rounded-full animate-pulse inline-block mr-2" />
-					<span className="font-semibold">Livedaten</span>
+					<span className="font-semibold">{i18n("trafficStats.liveData")}</span>
 				</div>
 				<span className="text-sm">
 					{" "}
