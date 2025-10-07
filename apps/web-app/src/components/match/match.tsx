@@ -3,48 +3,13 @@ import { BerlinMap } from "../map/berlin-map";
 import { NoiseChart } from "../charts/noise-chart";
 import { Pill } from "../pill/pill";
 import { AirQualityChart } from "../charts/air-quality-chart";
-import { parse, format } from "date-fns";
+import { TrafficStats } from "../traffic-stats/traffic-stats";
 
 export const Match = () => {
 	const { goBackToStart, telraamMatch } = useWebSocket();
 
-	const trafficModal = [
-		{
-			name: "Fußgänger",
-			count: telraamMatch?.originalProperties.pedestrian,
-			percentage: telraamMatch?.originalProperties.pedestrian_percentage,
-		},
-		{
-			name: "Fahrräder",
-			count: telraamMatch?.originalProperties.bike,
-			percentage: telraamMatch?.originalProperties.bike_percentage,
-		},
-		{
-			name: "Autos",
-			count: telraamMatch?.originalProperties.car,
-			percentage: telraamMatch?.originalProperties.car_percentage,
-		},
-		{
-			name: "LKWs",
-			count: telraamMatch?.originalProperties.heavy,
-			percentage: telraamMatch?.originalProperties.heavy_percentage,
-		},
-	];
-
-	const formatDdMmmYyyy = (value?: string) => {
-		if (!value) {
-			return "";
-		}
-		// matches: 2025-09-17 14:00:00+00:00
-		const d = parse(value, "yyyy-MM-dd HH:mm:ssXXX", new Date());
-		if (Number.isNaN(d.getTime())) {
-			return value;
-		}
-		return format(d, "dd MMM yyyy");
-	};
-
 	return (
-		<div>
+		<>
 			<div className="flex flex-col justify-center p-4 max-w-[1280px] h-full space-y-7">
 				<div className="flex justify-between items-center w-full">
 					<h1 className="text-4xl font-bold">Dein Verkehrs-Mix passt zu ...</h1>
@@ -92,42 +57,11 @@ export const Match = () => {
 									className="w-full h-full object-cover"
 								/>
 								{/* TRAFFIC COUNT */}
-								<div className="absolute flex flex-col gap-2 top-0 right-0 p-3">
-									<div className="flex flex-col items-center text-center text-red-500 bg-white bg-opacity-50 rounded-sm px-2">
-										{/* pulsing dot */}
-										<div>
-											<div className="w-3 h-3 bg-red-500  rounded-full animate-pulse inline-block mr-2" />
-											<span className="font-semibold">Livedaten</span>
-										</div>
-										<span className="text-sm">
-											{formatDdMmmYyyy(telraamMatch?.originalProperties?.date)}
-										</span>
-									</div>
-
-									{trafficModal.map((item) => (
-										<div
-											key={item.name}
-											className="flex flex-col text-black bg-white bg-opacity-50 rounded-sm px-2 py-1 items-center"
-										>
-											<div className="flex flex-col text-center">
-												<p>{item.name}</p>
-												{item.count !== undefined &&
-													item.percentage !== undefined && (
-														<p className="flex gap-1">
-															<span className="font-semibold">
-																{item.count.toFixed(0)}
-															</span>
-															<span>
-																({item.percentage.toFixed(0)}
-																{"%"})
-															</span>
-														</p>
-													)}
-											</div>
-										</div>
-									))}
-								</div>
+								{telraamMatch.originalProperties && (
+									<TrafficStats telraamMatch={telraamMatch} />
+								)}
 							</div>
+
 							{/* NOISE LEVEL */}
 							<NoiseChart
 								title="Lärmbelästigung"
@@ -145,6 +79,6 @@ export const Match = () => {
 					)}
 				</div>
 			</div>
-		</div>
+		</>
 	);
 };
