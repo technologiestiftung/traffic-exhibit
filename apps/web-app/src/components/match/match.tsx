@@ -129,33 +129,18 @@ export const Match = () => {
 								</div>
 							</div>
 							{/* NOISE LEVEL */}
-							<div className="flex flex-col gap-2 p-3.5">
-								<h3 className="font-semibold">Lärmbelästigung</h3>
-								<div className="flex justify-between items-center">
-									<div className="w-full max-w-md">
-										<NoiseChart
-											value={telraamMatch.nearestNoiseLevel}
-											markerSize={8}
-										/>
-									</div>
-									<p className="font-bold">
-										{telraamMatch.nearestNoiseLevel} dB
-									</p>
-								</div>
-							</div>
+							<NoiseChart
+								title="Lärmbelästigung"
+								value={telraamMatch.nearestNoiseLevel}
+								markerSize={8}
+							/>
+
 							{/* AIR QUALITY */}
-							<div className="flex flex-col gap-2 p-3.5">
-								<h3 className="font-semibold">Luftqualitätsstufe</h3>
-								<div className="flex justify-between items-center">
-									<div className="w-full max-w-md">
-										<AirQualityChart
-											value={telraamMatch.airQuality}
-											markerSize={8}
-										/>
-									</div>
-									<p className="font-bold">{telraamMatch.airQuality} AQI</p>
-								</div>
-							</div>
+							<AirQualityChart
+								title="Bedarf für Luftverbesserung"
+								value={telraamMatch.airQuality}
+								markerSize={8}
+							/>
 						</>
 					)}
 				</div>
