@@ -1,5 +1,6 @@
 import { useWebSocket } from "../../hooks/useWebSocket";
 import { useScreenStore } from "../../stores/useScreenStore";
+import { i18n } from "../../i18n/i18n-utils";
 
 export const Start = () => {
 	const { occupiedBlocks } = useWebSocket();
@@ -7,8 +8,8 @@ export const Start = () => {
 
 	return (
 		<div>
-			<h1 className="text-3xl font-bold">Start Screen</h1>
-			<p className="text-2xl py-2">Belegte Blocks</p>
+			<h1 className="text-3xl font-bold">{i18n("start.title")}</h1>
+			<p className="text-2xl py-2">{i18n("start.occupiedBlocks.label")}</p>
 			<div className="flex gap-2 mb-4">
 				{Array.from({ length: 10 }, (_, i) => i + 1).map((num) => (
 					<div
@@ -25,7 +26,7 @@ export const Start = () => {
 				className="cursor-pointer rounded-sm p-2 hover:bg-green-200 bg-green-300"
 				onClick={() => setLoadingScreen()}
 			>
-				Start simulieren
+				{i18n("start.simulateButton.label")}
 			</button>
 		</div>
 	);

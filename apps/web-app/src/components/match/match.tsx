@@ -4,6 +4,7 @@ import { NoiseChart } from "../charts/noise-chart";
 import { Pill } from "../pill/pill";
 import { AirQualityChart } from "../charts/air-quality-chart";
 import { TrafficStats } from "../traffic-stats/traffic-stats";
+import { i18n } from "../../i18n/i18n-utils";
 
 export const Match = () => {
 	const { goBackToStart, telraamMatch } = useWebSocket();
@@ -12,12 +13,12 @@ export const Match = () => {
 		<>
 			<div className="flex flex-col justify-center p-4 max-w-[1280px] h-full space-y-7">
 				<div className="flex justify-between items-center w-full">
-					<h1 className="text-4xl font-bold">Dein Verkehrs-Mix passt zu ...</h1>
+					<h1 className="text-4xl font-bold">{i18n("match.title")}</h1>
 					<button
 						className="cursor-pointer rounded-sm p-2 hover:bg-gray-200 bg-gray-300"
 						onClick={goBackToStart}
 					>
-						Neuen Mix erstellen
+						{i18n("match.createNewMixButton.label")}
 					</button>
 				</div>
 				{/* COVER */}
@@ -64,14 +65,14 @@ export const Match = () => {
 
 							{/* NOISE LEVEL */}
 							<NoiseChart
-								title="Lärmbelästigung"
+								title={i18n("noiseChart.title")}
 								value={telraamMatch.nearestNoiseLevel}
 								markerSize={8}
 							/>
 
 							{/* AIR QUALITY */}
 							<AirQualityChart
-								title="Bedarf für Luftverbesserung"
+								title={i18n("airQualityChart.title")}
 								value={telraamMatch.airQuality}
 								markerSize={8}
 							/>

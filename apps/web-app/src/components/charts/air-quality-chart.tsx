@@ -1,4 +1,5 @@
 import * as React from "react";
+import { i18n } from "../../i18n/i18n-utils";
 
 type AirQualityStep = {
 	label: string;
@@ -7,23 +8,23 @@ type AirQualityStep = {
 
 const AIR_QUALITY_STEPS: AirQualityStep[] = [
 	{
-		label: "Sehr niedrig",
+		label: i18n("airQualityChart.step.veryLow"),
 		value: 1,
 	},
 	{
-		label: "Niedrig",
+		label: i18n("airQualityChart.step.low"),
 		value: 2,
 	},
 	{
-		label: "Mäßig",
+		label: i18n("airQualityChart.step.moderate"),
 		value: 3,
 	},
 	{
-		label: "Erhöht",
+		label: i18n("airQualityChart.step.elevated"),
 		value: 4,
 	},
 	{
-		label: "Hoch",
+		label: i18n("airQualityChart.step.high"),
 		value: 5,
 	},
 ];

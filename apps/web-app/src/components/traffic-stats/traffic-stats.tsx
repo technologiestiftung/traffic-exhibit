@@ -1,6 +1,7 @@
 import React from "react";
 import type { TelraamMatch } from "../../../../api/src/common";
 import { formatDdMmmYyyy } from "./traffic-stats-utils";
+import { i18n } from "../../i18n/i18n-utils";
 
 type TrafficStatsProps = {
 	telraamMatch: TelraamMatch;
@@ -9,22 +10,22 @@ type TrafficStatsProps = {
 export const TrafficStats: React.FC<TrafficStatsProps> = ({ telraamMatch }) => {
 	const trafficModal = [
 		{
-			name: "Fußgänger",
+			name: i18n("trafficStats.pedestrians"),
 			count: telraamMatch?.originalProperties.pedestrian,
 			percentage: telraamMatch?.originalProperties.pedestrian_percentage,
 		},
 		{
-			name: "Fahrräder",
+			name: i18n("trafficStats.bikes"),
 			count: telraamMatch?.originalProperties.bike,
 			percentage: telraamMatch?.originalProperties.bike_percentage,
 		},
 		{
-			name: "Autos",
+			name: i18n("trafficStats.cars"),
 			count: telraamMatch?.originalProperties.car,
 			percentage: telraamMatch?.originalProperties.car_percentage,
 		},
 		{
-			name: "LKWs",
+			name: i18n("trafficStats.trucks"),
 			count: telraamMatch?.originalProperties.heavy,
 			percentage: telraamMatch?.originalProperties.heavy_percentage,
 		},
