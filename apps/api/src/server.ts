@@ -4,11 +4,12 @@ dotenv.config();
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
-import { runPythonScript } from "./runPythonScripts";
+import { runPythonScript, startButtonMonitoring as startButtonScript } from "./runPythonScripts";
 import { findClosestMatch } from "./data-processing/find-modal-split-match";
 import telraamDataRaw from "./../data/telraam-data-snippet.json";
 import enrichedTelraamDataRaw from "./../data/enriched-telraam-data.json";
 import type { TrafficFeature } from "./common";
+import type { ChildProcess } from "child_process";
 
 const telraamData = telraamDataRaw as { features: TrafficFeature[] };
 const enrichedTelraamData = enrichedTelraamDataRaw as any[];
@@ -36,9 +37,40 @@ const io = new Server(httpServer, {
 	},
 });
 
+// Global state for button monitoring
+let isMoving = false;
+let buttonMonitoringProcess: ChildProcess | null = null;
+
+// Start button monitoring
+const startButtonMonitoring = () => {
+	buttonMonitoringProcess = startButtonScript(
+		"./scripts/start_stop_button.py",
+		(newIsMoving: boolean) => {
+			// Only emit if the state actually changed
+			if (isMoving !== newIsMoving) {
+				isMoving = newIsMoving;
+				// Broadcast state change to all connected clients
+				io.emit("movement-state-changed", { is_moving: isMoving });
+				console.log(`Movement state changed to: ${isMoving ? 'moving' : 'stopped'}`);
+			}
+		},
+		(error: Error) => {
+			console.error("Button monitoring error:", error);
+			// Restart monitoring after a delay
+			setTimeout(startButtonMonitoring, 5000);
+		}
+	);
+};
+
+// Start button monitoring when server starts
+startButtonMonitoring();
+
 io.on("connection", (socket) => {
 	// eslint-disable-next-line no-console
 	console.log("Frontend connected");
+
+	// Send current movement state to newly connected client
+	socket.emit("movement-state-changed", { is_moving: isMoving });
 
 	/* OPTIONAL
 	 * TO DO: get filled block positions from camera
@@ -87,4 +119,21 @@ io.on("connection", (socket) => {
 httpServer.listen(3001, () => {
 	// eslint-disable-next-line no-console
 	console.log("Backend running on http://localhost:3001");
+});
+
+// Cleanup on server shutdown
+process.on('SIGINT', () => {
+	console.log('\nShutting down server...');
+	if (buttonMonitoringProcess) {
+		buttonMonitoringProcess.kill();
+	}
+	process.exit(0);
+});
+
+process.on('SIGTERM', () => {
+	console.log('\nShutting down server...');
+	if (buttonMonitoringProcess) {
+		buttonMonitoringProcess.kill();
+	}
+	process.exit(0);
 });
