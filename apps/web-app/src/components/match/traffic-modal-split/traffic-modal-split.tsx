@@ -17,6 +17,7 @@ type TrafficModalSplitProps = {
 	labelColor?: string;
 	animationDurationMs?: number;
 	animationDelayMs?: number;
+	reorientDurationMs?: number;
 };
 
 export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
@@ -28,6 +29,7 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 	labelColor = "#fff",
 	animationDurationMs = 1200,
 	animationDelayMs = 2000,
+	reorientDurationMs = 1000,
 }) => {
 	const modalData = getTrafficModal(telraamMatch);
 
@@ -118,6 +120,7 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 		const movementStartX = (1 / 3) * size;
 		const movementEndX = overlayLayerWidth - size;
 		const travelDistanceX = Math.max(movementEndX - movementStartX, 0);
+		const endTranslateX = movementStartX + travelDistanceX;
 
 		// Reset transform to the starting position
 		movingElementRef.current.style.transform = `translateX(${movementStartX}px) rotate(0deg)`;
@@ -126,36 +129,92 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 			return undefined;
 		}
 
-		let animationStartTimestamp: number | null = null;
 		let rafId = 0;
+
+		// Phase 1: translate + “wheel” rotate; Phase 2: extra clockwise spin to align to 0°
+		type Phase = "translate" | "reorient";
+		let phase: Phase = "translate";
+
+		// Timestamps per phase
+		let translateStartTs: number | null = null;
+		let reorientStartTs: number | null = null;
+
+		// Values captured at the end of translate phase
+		let rotationAtEndDeg = 0; // absolute rotation when translation finishes
+		let extraClockwiseDeg = 0; // additional degrees to reach 0° mod 360 clockwise
 
 		const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
 
-		const step = (timestampMs: number) => {
-			if (animationStartTimestamp === null) {
-				animationStartTimestamp = timestampMs;
+		const step = (ts: number) => {
+			if (!movingElementRef.current) {
+				return;
 			}
 
-			const rawProgress = Math.min(
-				(timestampMs - animationStartTimestamp) / animationDurationMs,
+			if (phase === "translate") {
+				if (translateStartTs === null) {
+					translateStartTs = ts;
+				}
+
+				const rawProgress = Math.min(
+					(ts - translateStartTs) / animationDurationMs,
+					1,
+				);
+				const easedProgress = easeOutCubic(rawProgress);
+
+				const currentTranslateX =
+					movementStartX + travelDistanceX * easedProgress;
+
+				// rotation ≈ (linear distance / radius) in radians → convert to degrees
+				const rotationRadians =
+					(currentTranslateX - movementStartX) / pieOuterRadius;
+				const rotationDegrees = (rotationRadians * 180) / Math.PI;
+
+				movingElementRef.current.style.transform = `translateX(${currentTranslateX}px) rotate(${rotationDegrees}deg)`;
+
+				if (rawProgress < 1) {
+					rafId = requestAnimationFrame(step);
+					return;
+				}
+
+				// Translation finished: compute how much to spin clockwise to align to 0°
+				rotationAtEndDeg = rotationDegrees;
+				const normalized = ((rotationAtEndDeg % 360) + 360) % 360; // 0..359
+				extraClockwiseDeg = (360 - normalized) % 360; // 0..359 (clockwise)
+
+				// If already effectively aligned, stop here
+				if (extraClockwiseDeg < 0.5 || reorientDurationMs === 0) {
+					// snap to exact alignment
+					movingElementRef.current.style.transform = `translateX(${endTranslateX}px) rotate(${rotationAtEndDeg + extraClockwiseDeg}deg)`;
+					return;
+				}
+
+				// Start reorientation phase
+				phase = "reorient";
+				reorientStartTs = null;
+				rafId = requestAnimationFrame(step);
+				return;
+			}
+
+			// phase === "reorient"
+			if (reorientStartTs === null) {
+				reorientStartTs = ts;
+			}
+
+			const rawProgress2 = Math.min(
+				(ts - reorientStartTs) / reorientDurationMs,
 				1,
 			);
-			const easedProgress = easeOutCubic(rawProgress);
+			const eased2 = easeOutCubic(rawProgress2);
 
-			const currentTranslateX =
-				movementStartX + travelDistanceX * easedProgress;
+			const rotationDegrees = rotationAtEndDeg + extraClockwiseDeg * eased2;
 
-			// rotation ≈ (linear distance / radius) in radians → convert to degrees
-			const rotationRadians =
-				(currentTranslateX - movementStartX) / pieOuterRadius;
-			const rotationDegrees = (rotationRadians * 180) / Math.PI;
+			movingElementRef.current.style.transform = `translateX(${endTranslateX}px) rotate(${rotationDegrees}deg)`;
 
-			if (movingElementRef.current) {
-				movingElementRef.current.style.transform = `translateX(${currentTranslateX}px) rotate(${rotationDegrees}deg)`;
-			}
-
-			if (rawProgress < 1) {
+			if (rawProgress2 < 1) {
 				rafId = requestAnimationFrame(step);
+			} else {
+				// End exactly aligned to 0° modulo 360
+				movingElementRef.current.style.transform = `translateX(${endTranslateX}px) rotate(${rotationAtEndDeg + extraClockwiseDeg}deg)`;
 			}
 		};
 
@@ -172,6 +231,7 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 		size,
 		animationDelayMs,
 		animationDurationMs,
+		reorientDurationMs,
 		pieOuterRadius,
 	]);
 
