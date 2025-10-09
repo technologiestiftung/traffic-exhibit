@@ -37,7 +37,7 @@ In the **root directory**, start both the frontend and backend:
 npm run dev
 ```
 
-- The frontend will be available at: [http://localhost:5174](http://localhost:5174)
+- The frontend will be available at: [http://localhost:5173](http://localhost:5173)
 - The backend WebSocket server will run on: [http://localhost:3001](http://localhost:3001)
 
 ### **2. Access the Application**
@@ -151,6 +151,15 @@ After reboot, the application will automatically:
 Process Telraam data
 Start the development server
 Open in your default browser at: http://localhost:5173
+
+### Troubleshooting
+
+If the process was autostarted. you can kill the dev server by:
+
+```bash
+ kill -INT $(lsof -t -i :3001)
+ kill -INT $(lsof -t -i :5173)
+```
 
 ## Contributing
 
