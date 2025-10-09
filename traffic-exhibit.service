@@ -15,7 +15,7 @@ WorkingDirectory=/home/roboter/Desktop/traffic-exhibit
 Environment=PATH=/usr/local/bin:/usr/bin:/bin
 
 # Run your startup script via a login shell (-l) so profile/env are loaded
-ExecStart=/usr/bin/bash -lc '/home/roboter/Desktop/traffic-exhibit/start-traffic-exhibit.sh'
+ExecStart=/usr/bin/bash -lc '/home/roboter/Desktop/traffic-exhibit/setup_autostart.sh'
 
 # Keep it alive
 Restart=always
