@@ -45,11 +45,32 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 		}
 		let cumulativePercentage = 0;
 
-		return modalData.map((modal, index) => {
-			const segmentPercentage = modal.percentage;
+		// Start the pie at 12 o'clock and draw clockwise by using a negative TAU
+		const startOffset = -Math.PI / 2;
 
-			const startAngle = (cumulativePercentage / totalPercentage) * TAU;
+		// Rotate draw order so the largest percentage starts at 12 o'clock.
+		const indexed = modalData.map((m, i) => ({ ...m, origIndex: i }));
+		if (indexed.length === 0) {
+			return [];
+		}
+		let maxIndex = 0;
+		for (let i = 1; i < indexed.length; i++) {
+			if (indexed[i].percentage > indexed[maxIndex].percentage) {
+				maxIndex = i;
+			}
+		}
+		// Make the largest slice be drawn last so its end angle lands at 12 o'clock
+		const drawOrder = [
+			...indexed.slice(maxIndex + 1),
+			...indexed.slice(0, maxIndex + 1),
+		];
+
+		return drawOrder.map((modal) => {
+			const segmentPercentage = modal.percentage;
+			const startAngle =
+				startOffset - (cumulativePercentage / totalPercentage) * TAU;
 			const endAngle =
+				startOffset -
 				((cumulativePercentage + segmentPercentage) / totalPercentage) * TAU;
 			const midAngle = (startAngle + endAngle) / 2;
 			cumulativePercentage += segmentPercentage;
@@ -59,11 +80,12 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 			const endX = pieCenter + pieRadius * Math.cos(endAngle);
 			const endY = pieCenter + pieRadius * Math.sin(endAngle);
 			const largeArcFlag = segmentPercentage / totalPercentage > 0.5 ? 1 : 0;
+			const sweepFlag = 0;
 
 			const pathData = [
 				`M ${pieCenter} ${pieCenter}`,
 				`L ${startX} ${startY}`,
-				`A ${pieRadius} ${pieRadius} 0 ${largeArcFlag} 1 ${endX} ${endY}`,
+				`A ${pieRadius} ${pieRadius} 0 ${largeArcFlag} ${sweepFlag} ${endX} ${endY}`,
 				"Z",
 			].join(" ");
 
@@ -73,7 +95,7 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 
 			return {
 				pathData,
-				color: segmentColors[index % segmentColors.length],
+				color: segmentColors[modal.origIndex % segmentColors.length],
 				value: modal.percentage,
 				name: modal.name,
 				labelX,
