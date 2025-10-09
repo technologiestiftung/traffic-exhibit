@@ -51,7 +51,7 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
     )`;
 
 	return (
-		<section className={`w-full flex flex-col gap-2 p-3.5 ${className}`}>
+		<section className={`w-full flex flex-col gap-2 p-3 ${className}`}>
 			<h3 className="font-semibold">{title}</h3>
 			<div className="flex justify-between items-center">
 				<div className="w-full max-w-md">
