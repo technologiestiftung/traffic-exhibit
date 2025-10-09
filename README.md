@@ -127,7 +127,7 @@ To automatically start the Traffic Exhibit application when the Raspberry Pi boo
 
    ```bash
    cd /home/roboter/Desktop/traffic-exhibit/
-   sudo bash scripts/setup_autostart.sh
+   sudo bash setup_autostart.sh
    ```
 
 3. **Reboot to test** the autostart functionality:
