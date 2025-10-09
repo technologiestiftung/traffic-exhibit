@@ -9,7 +9,7 @@ const possiblePythonPaths = [
 	path.join(__dirname, "../venv/bin/python"),
 	path.join(__dirname, "../venv/Scripts/python.exe"), // Windows
 	"python3", // Fallback to system Python
-	"python"
+	"python",
 ];
 
 let PYTHON_PATH = "python3"; // Default fallback
@@ -23,7 +23,9 @@ for (const pythonPath of possiblePythonPaths) {
 }
 
 if (!fs.existsSync(PYTHON_PATH) && !PYTHON_PATH.startsWith("python")) {
-	console.warn(`Python interpreter not found at ${PYTHON_PATH}, falling back to system python3`);
+	console.warn(
+		`Python interpreter not found at ${PYTHON_PATH}, falling back to system python3`,
+	);
 	PYTHON_PATH = "python3";
 }
 
@@ -47,39 +49,39 @@ export const runPythonScript = (scriptPath: string, args: string[] = []) => {
 export const startButtonMonitoring = (
 	scriptPath: string,
 	onButtonStateChange: (isMoving: boolean) => void,
-	onError?: (error: Error) => void
+	onError?: (error: Error) => void,
 ): ChildProcess => {
 	const python = spawn(PYTHON_PATH, [scriptPath]);
-	
+
 	python.stdout.on("data", (data) => {
 		const output = data.toString();
-		const lines = output.split('\n');
-		
+		const lines = output.split("\n");
+
 		lines.forEach((line: string) => {
-			if (line.startsWith('BUTTON_STATE:')) {
+			if (line.startsWith("BUTTON_STATE:")) {
 				try {
-					const jsonData = line.replace('BUTTON_STATE:', '');
+					const jsonData = line.replace("BUTTON_STATE:", "");
 					const stateData = JSON.parse(jsonData);
 					onButtonStateChange(stateData.is_moving);
 				} catch (err) {
-					console.error('Failed to parse button state:', err);
+					console.error("Failed to parse button state:", err);
 				}
 			} else if (line.trim()) {
-				console.log('Button script:', line);
+				console.log("Button script:", line);
 			}
 		});
 	});
-	
+
 	python.stderr.on("data", (data) => {
 		console.error(`Button script error: ${data}`);
 	});
-	
+
 	python.on("close", (code) => {
 		console.log(`Button monitoring script exited with code ${code}`);
 		if (code !== 0 && onError) {
 			onError(new Error(`Button script failed with code ${code}`));
 		}
 	});
-	
+
 	return python;
 };

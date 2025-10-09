@@ -4,7 +4,10 @@ dotenv.config();
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
-import { runPythonScript, startButtonMonitoring as startButtonScript } from "./runPythonScripts";
+import {
+	runPythonScript,
+	startButtonMonitoring as startButtonScript,
+} from "./runPythonScripts";
 import { findClosestMatch } from "./data-processing/find-modal-split-match";
 import telraamDataRaw from "./../data/telraam-data-snippet.json";
 import enrichedTelraamDataRaw from "./../data/enriched-telraam-data.json";
@@ -33,32 +36,50 @@ const app = express();
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
 	cors: {
-		origin: "*",
+		origin: "http://localhost:5173",
 	},
 });
 
 // Global state for button monitoring
 let isMoving = false;
+let currentSocket: any = null;
 let buttonMonitoringProcess: ChildProcess | null = null;
 
-// Start button monitoring
+// Simple button monitoring - just detect state changes and emit
 const startButtonMonitoring = () => {
 	buttonMonitoringProcess = startButtonScript(
 		"./scripts/start_stop_button.py",
 		(newIsMoving: boolean) => {
+			console.log(
+				`Button callback received: newIsMoving=${newIsMoving}, currentIsMoving=${isMoving}`,
+			);
+
 			// Only emit if the state actually changed
 			if (isMoving !== newIsMoving) {
 				isMoving = newIsMoving;
-				// Broadcast state change to all connected clients
-				io.emit("movement-state-changed", { is_moving: isMoving });
-				console.log(`Movement state changed to: ${isMoving ? 'moving' : 'stopped'}`);
+
+				// Emit to frontend if socket is connected
+				if (currentSocket) {
+					currentSocket.emit("movement-state-changed", { is_moving: isMoving });
+					console.log(
+						`Movement state CHANGED and EMITTED: ${isMoving ? "moving" : "stopped"}`,
+					);
+				} else {
+					console.log(
+						`Movement state CHANGED but NO SOCKET: ${isMoving ? "moving" : "stopped"}`,
+					);
+				}
+			} else {
+				console.log(
+					`Movement state UNCHANGED: ${isMoving ? "moving" : "stopped"}`,
+				);
 			}
 		},
 		(error: Error) => {
 			console.error("Button monitoring error:", error);
 			// Restart monitoring after a delay
 			setTimeout(startButtonMonitoring, 5000);
-		}
+		},
 	);
 };
 
@@ -69,21 +90,25 @@ io.on("connection", (socket) => {
 	// eslint-disable-next-line no-console
 	console.log("Frontend connected");
 
-	// Send current movement state to newly connected client
-	socket.emit("movement-state-changed", { is_moving: isMoving });
+	// Store the current socket
+	currentSocket = socket;
+
+	// Clear socket reference when it disconnects
+	socket.on("disconnect", () => {
+		currentSocket = null;
+		console.log("Frontend disconnected");
+	});
 
 	/* OPTIONAL
 	 * TO DO: get filled block positions from camera
 	 * 1. run new python script to get filled block positions
 	 * 2. send filled block positions to frontend
 	 */
-	setInterval(() => {
-		const count = Math.floor(Math.random() * 10) + 1;
-		const numbers = Array.from({ length: 10 }, (_, i) => i + 1)
-			.sort(() => Math.random() - 0.5)
-			.slice(0, count);
-		socket.emit("camera-data", numbers);
-	}, 4000);
+	const count = Math.floor(Math.random() * 10) + 1;
+	const numbers = Array.from({ length: 10 }, (_, i) => i + 1)
+		.sort(() => Math.random() - 0.5)
+		.slice(0, count);
+	socket.emit("camera-data", numbers);
 
 	/*
 	 * TO DO: Handle press start button
@@ -122,16 +147,16 @@ httpServer.listen(3001, () => {
 });
 
 // Cleanup on server shutdown
-process.on('SIGINT', () => {
-	console.log('\nShutting down server...');
+process.on("SIGINT", () => {
+	console.log("\nShutting down server...");
 	if (buttonMonitoringProcess) {
 		buttonMonitoringProcess.kill();
 	}
 	process.exit(0);
 });
 
-process.on('SIGTERM', () => {
-	console.log('\nShutting down server...');
+process.on("SIGTERM", () => {
+	console.log("\nShutting down server...");
 	if (buttonMonitoringProcess) {
 		buttonMonitoringProcess.kill();
 	}

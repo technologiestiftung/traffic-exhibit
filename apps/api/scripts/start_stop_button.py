@@ -16,17 +16,21 @@ def main():
     if platform.system() != "Linux" or not any("raspberry" in info.lower() for info in [platform.machine(), platform.processor()]):
         print("Debug: Using mock button for development", flush=True)
         button = Button(17, pull_up=True)
-        # Simulate a button press every 10 seconds for testing
+        
         import threading
         
-        def simulate_button_press():
-            time.sleep(10)  # Wait 5 seconds before first press
+        def simulate_single_button_press():
+            print("Debug: Waiting 5 seconds before simulating button press...", flush=True)
+            time.sleep(5)  # Wait 5 seconds before press
+            
+            print("Debug: Simulating button press", flush=True)
             button.pin.drive_low()  # Simulate press
             time.sleep(0.1)
             button.pin.drive_high()  # Simulate release
+            print("Debug: Button simulation complete", flush=True)
         
         # Start simulation in background
-        simulation_thread = threading.Thread(target=simulate_button_press, daemon=True)
+        simulation_thread = threading.Thread(target=simulate_single_button_press, daemon=True)
         simulation_thread.start()
     else:
         button = Button(17, pull_up=True)

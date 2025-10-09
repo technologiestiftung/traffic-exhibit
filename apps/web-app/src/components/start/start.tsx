@@ -9,7 +9,7 @@ export const Start = () => {
 	return (
 		<div>
 			<h1 className="text-3xl font-bold">{i18n("start.title")}</h1>
-			
+
 			<p className="text-2xl py-2">{i18n("start.occupiedBlocks.label")}</p>
 			<div className="flex gap-2 mb-4">
 				{Array.from({ length: 10 }, (_, i) => i + 1).map((num) => (

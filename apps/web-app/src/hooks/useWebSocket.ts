@@ -16,11 +16,11 @@ export const useWebSocket = () => {
 	useEffect(() => {
 		const newSocket = io(wsUrl);
 		setSocket(newSocket);
-		
+
 		newSocket.on("camera-data", (data: number[]) => {
 			setOccupiedBlocks(data);
 		});
-		
+
 		newSocket.on("telraam-match", (data: TelraamMatch) => {
 			setTelraamMatch(data);
 		});
@@ -28,7 +28,13 @@ export const useWebSocket = () => {
 		newSocket.on("movement-state-changed", (data: { is_moving: boolean }) => {
 			setIsMoving(data.is_moving);
 			if (data.is_moving) setLoadingScreen();
+			console.log(
+				"Received movement-state-changed:",
+				data.is_moving ? "moving" : "stopped",
+			);
 		});
+
+		console.log("useEffect triggered - setting up WebSocket");
 
 		return () => {
 			newSocket.disconnect();
