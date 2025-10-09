@@ -1,41 +1,30 @@
-# ============================================================
-# Traffic Exhibit Autostart Service
-# ------------------------------------------------------------
-# This service automatically runs the Traffic Exhibit project
-# on boot. It processes Telraam data and starts the app server.
-#
-# Enable the service:
-#   sudo systemctl daemon-reload
-#   sudo systemctl enable --now traffic-exhibit.service
-#
-# Manage the service:
-#   sudo systemctl start traffic-exhibit
-#   sudo systemctl stop traffic-exhibit
-#   sudo systemctl restart traffic-exhibit
-#   sudo systemctl status traffic-exhibit
-#
-# View logs:
-#   sudo journalctl -u traffic-exhibit -f
-#
-# Project path: /home/roboter/Desktop/traffic-exhibit
-# Script path:  /home/roboter/Desktop/traffic-exhibit/start-traffic-exhibit.sh
-# ============================================================
-
 [Unit]
 Description=Traffic Exhibit (process data, then run app)
 After=network-online.target
 Wants=network-online.target
 
 [Service]
-User=pi
-Group=pi
+# Run as the actual user that owns the project
+User=roboter
+Group=roboter
+
+# Point to your real project root
 WorkingDirectory=/home/roboter/Desktop/traffic-exhibit
+
+# Ensure systemd can find node/npm when not using an interactive shell
 Environment=PATH=/usr/local/bin:/usr/bin:/bin
+
+# Run your startup script via a login shell (-l) so profile/env are loaded
 ExecStart=/usr/bin/bash -lc '/home/roboter/Desktop/traffic-exhibit/start-traffic-exhibit.sh'
+
+# Keep it alive
 Restart=always
 RestartSec=3
+
+# Logs go to journald
 StandardOutput=journal
 StandardError=journal
 
 [Install]
 WantedBy=multi-user.target
+
