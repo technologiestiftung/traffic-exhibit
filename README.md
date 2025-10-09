@@ -115,6 +115,43 @@ The system also includes intelligent traffic pattern matching functionality:
 
 tbd...
 
+## Autostart Setup
+
+To automatically start the Traffic Exhibit application when the Raspberry Pi boots up, use the provided setup script.
+
+### Installation
+
+1. **Transfer the project files** to your Raspberry Pi at `/home/pi/traffic-exhibit/`
+
+2. **Run the setup script** on your Raspberry Pi:
+
+   ```bash
+   cd /home/pi/traffic-exhibit/
+   sudo bash scripts/setup_autostart.sh
+   ```
+
+3. **Reboot to test** the autostart functionality:
+
+   ```bash
+    sudo reboot
+   ```
+
+### Management Commands
+
+Once setup is complete, you can manage the service manually using:
+
+- **Start**: `sudo systemctl start traffic-exhibit`
+- **Stop**: `sudo systemctl stop traffic-exhibit`
+- **Restart**: `sudo systemctl restart traffic-exhibit`
+- **Status**: `sudo systemctl status traffic-exhibit`
+- **View logs**: `sudo journalctl -u traffic-exhibit -f`
+- **Disable autostart**: `sudo systemctl disable traffic-exhibit`
+
+After reboot, the application will automatically:
+Process Telraam data
+Start the development server
+Open in your default browser at: http://localhost:5173
+
 ## Contributing
 
 Before you create a pull request, write an issue so we can discuss your changes.
