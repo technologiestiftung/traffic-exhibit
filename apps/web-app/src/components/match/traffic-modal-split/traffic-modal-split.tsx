@@ -1,10 +1,4 @@
-import React, {
-	useEffect,
-	useLayoutEffect,
-	useMemo,
-	useRef,
-	useState,
-} from "react";
+import React, { useMemo } from "react";
 import type { TelraamMatch } from "../../../../../api/src/common";
 import { getTrafficModal } from "../utils";
 
@@ -18,6 +12,8 @@ type TrafficModalSplitProps = {
 	animationDurationMs?: number;
 	animationDelayMs?: number;
 	reorientDurationMs?: number;
+	turnsWhileMoving?: number;
+	startOffsetPx?: number;
 };
 
 export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
@@ -28,8 +24,10 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 	segmentColors = ["#4CAF50", "#2196F3", "#FFC107", "#FF5722"],
 	labelColor = "#fff",
 	animationDurationMs = 1200,
-	animationDelayMs = 2000,
+	animationDelayMs = 2000, // match CSS default
 	reorientDurationMs = 1000,
+	turnsWhileMoving = 3,
+	startOffsetPx = 0, // left offset for animation
 }) => {
 	const modalData = getTrafficModal(telraamMatch);
 
@@ -84,165 +82,25 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 		});
 	}, [modalData, segmentColors, pieCenter, pieRadius, totalPercentage, TAU]);
 
-	// Measure the available width of the overlay layer (between left-16 and right-0)
-	const overlayLayerRef = useRef<HTMLDivElement | null>(null);
-	const [overlayLayerWidth, setOverlayLayerWidth] = useState<number | null>(
-		null,
-	);
-
-	// Track width changes
-	useLayoutEffect(() => {
-		if (!overlayLayerRef.current) {
-			return undefined;
-		}
-		const resizeObserver = new ResizeObserver(([entry]) => {
-			setOverlayLayerWidth(entry.contentRect.width);
-		});
-		resizeObserver.observe(overlayLayerRef.current);
-		return () => {
-			resizeObserver.disconnect();
-		};
-	}, []);
-
-	const movingElementRef = useRef<HTMLDivElement | null>(null);
-
-	// Animate by mutating the element style (no React re-renders per frame)
-	useEffect(() => {
-		if (overlayLayerWidth === null || !movingElementRef.current) {
-			return undefined;
-		}
-
-		const prefersReducedMotion =
-			typeof window !== "undefined" &&
-			window.matchMedia &&
-			window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-		const movementStartX = (1 / 3) * size;
-		const movementEndX = overlayLayerWidth - size;
-		const travelDistanceX = Math.max(movementEndX - movementStartX, 0);
-		const endTranslateX = movementStartX + travelDistanceX;
-
-		// Reset transform to the starting position
-		movingElementRef.current.style.transform = `translateX(${movementStartX}px) rotate(0deg)`;
-
-		if (prefersReducedMotion || travelDistanceX === 0) {
-			return undefined;
-		}
-
-		let rafId = 0;
-
-		// Phase 1: translate + “wheel” rotate; Phase 2: extra clockwise spin to align to 0°
-		type Phase = "translate" | "reorient";
-		let phase: Phase = "translate";
-
-		// Timestamps per phase
-		let translateStartTs: number | null = null;
-		let reorientStartTs: number | null = null;
-
-		// Values captured at the end of translate phase
-		let rotationAtEndDeg = 0; // absolute rotation when translation finishes
-		let extraClockwiseDeg = 0; // additional degrees to reach 0° mod 360 clockwise
-
-		const easeOutCubic = (t: number) => 1 - Math.pow(1 - t, 3);
-
-		const step = (ts: number) => {
-			if (!movingElementRef.current) {
-				return;
-			}
-
-			if (phase === "translate") {
-				if (translateStartTs === null) {
-					translateStartTs = ts;
-				}
-
-				const rawProgress = Math.min(
-					(ts - translateStartTs) / animationDurationMs,
-					1,
-				);
-				const easedProgress = easeOutCubic(rawProgress);
-
-				const currentTranslateX =
-					movementStartX + travelDistanceX * easedProgress;
-
-				// rotation ≈ (linear distance / radius) in radians → convert to degrees
-				const rotationRadians =
-					(currentTranslateX - movementStartX) / pieOuterRadius;
-				const rotationDegrees = (rotationRadians * 180) / Math.PI;
-
-				movingElementRef.current.style.transform = `translateX(${currentTranslateX}px) rotate(${rotationDegrees}deg)`;
-
-				if (rawProgress < 1) {
-					rafId = requestAnimationFrame(step);
-					return;
-				}
-
-				// Translation finished: compute how much to spin clockwise to align to 0°
-				rotationAtEndDeg = rotationDegrees;
-				const normalized = ((rotationAtEndDeg % 360) + 360) % 360; // 0..359
-				extraClockwiseDeg = (360 - normalized) % 360; // 0..359 (clockwise)
-
-				// If already effectively aligned, stop here
-				if (extraClockwiseDeg < 0.5 || reorientDurationMs === 0) {
-					// snap to exact alignment
-					movingElementRef.current.style.transform = `translateX(${endTranslateX}px) rotate(${rotationAtEndDeg + extraClockwiseDeg}deg)`;
-					return;
-				}
-
-				// Start reorientation phase
-				phase = "reorient";
-				reorientStartTs = null;
-				rafId = requestAnimationFrame(step);
-				return;
-			}
-
-			// phase === "reorient"
-			if (reorientStartTs === null) {
-				reorientStartTs = ts;
-			}
-
-			const rawProgress2 = Math.min(
-				(ts - reorientStartTs) / reorientDurationMs,
-				1,
-			);
-			const eased2 = easeOutCubic(rawProgress2);
-
-			const rotationDegrees = rotationAtEndDeg + extraClockwiseDeg * eased2;
-
-			movingElementRef.current.style.transform = `translateX(${endTranslateX}px) rotate(${rotationDegrees}deg)`;
-
-			if (rawProgress2 < 1) {
-				rafId = requestAnimationFrame(step);
-			} else {
-				// End exactly aligned to 0° modulo 360
-				movingElementRef.current.style.transform = `translateX(${endTranslateX}px) rotate(${rotationAtEndDeg + extraClockwiseDeg}deg)`;
-			}
-		};
-
-		const timeoutId = window.setTimeout(() => {
-			rafId = requestAnimationFrame(step);
-		}, animationDelayMs);
-
-		return () => {
-			window.clearTimeout(timeoutId);
-			cancelAnimationFrame(rafId);
-		};
-	}, [
-		overlayLayerWidth,
-		size,
-		animationDelayMs,
-		animationDurationMs,
-		reorientDurationMs,
-		pieOuterRadius,
-	]);
+	// Inline CSS variables to control the animation from props
+	const animVars = {
+		["--disc-size"]: `${size}px`,
+		["--start-left"]: `${startOffsetPx}px`,
+		["--move-duration"]: `${animationDurationMs}ms`,
+		["--move-delay"]: `${animationDelayMs}ms`,
+		["--reorient-duration"]: `${reorientDurationMs}ms`,
+		["--spin-turns"]: `${turnsWhileMoving}turn`,
+		["--spin-turns-final"]: `${Math.round(turnsWhileMoving)}turn`,
+		position: "relative",
+		left: `${startOffsetPx}px`,
+	} as React.CSSProperties;
 
 	return (
-		<div
-			ref={overlayLayerRef}
-			className="absolute inset-y-0 left-16 right-0 -z-10 pointer-events-none"
-		>
+		<div className="absolute inset-y-0 left-16 right-0 -z-10 pointer-events-none">
 			<div
-				ref={movingElementRef}
-				className="inline-block will-change-transform"
+				className="inline-block animate-modal-disc"
+				style={animVars}
+				aria-hidden={false}
 			>
 				<svg
 					width={size}

@@ -24,7 +24,7 @@ export const Match = () => {
 				</div>
 				{/* COVER */}
 				<div className="relative flex items-center w-full h-full">
-					<div className="bg-gray-200 rounded-sm  max-w-xl w-[600px] h-[600px] z-10">
+					<div className="bg-gray-200 rounded-sm  max-w-xl w-[600px] h-[600px] z-10 shadow">
 						{telraamMatch && (
 							<>
 								{/* HEADER */}
