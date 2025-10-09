@@ -17,8 +17,8 @@
 # View logs:
 #   sudo journalctl -u traffic-exhibit -f
 #
-# Project path: /home/pi/traffic-exhibit
-# Script path:  /home/pi/traffic-exhibit/scripts/start-traffic-exhibit.sh
+# Project path: /home/roboter/Desktop/traffic-exhibit
+# Script path:  /home/roboter/Desktop/traffic-exhibit/start-traffic-exhibit.sh
 # ============================================================
 
 [Unit]
@@ -29,9 +29,9 @@ Wants=network-online.target
 [Service]
 User=pi
 Group=pi
-WorkingDirectory=/home/pi/traffic-exhibit
+WorkingDirectory=/home/roboter/Desktop/traffic-exhibit
 Environment=PATH=/usr/local/bin:/usr/bin:/bin
-ExecStart=/usr/bin/bash -lc '/home/pi/traffic-exhibit/scripts/start-traffic-exhibit.sh'
+ExecStart=/usr/bin/bash -lc '/home/roboter/Desktop/traffic-exhibit/start-traffic-exhibit.sh'
 Restart=always
 RestartSec=3
 StandardOutput=journal

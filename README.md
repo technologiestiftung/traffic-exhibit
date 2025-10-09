@@ -121,12 +121,12 @@ To automatically start the Traffic Exhibit application when the Raspberry Pi boo
 
 ### Installation
 
-1. **Transfer the project files** to your Raspberry Pi at `/home/pi/traffic-exhibit/`
+1. **Transfer the project files** to your Raspberry Pi at `/home/roboter/Desktop/traffic-exhibit/`
 
 2. **Run the setup script** on your Raspberry Pi:
 
    ```bash
-   cd /home/pi/traffic-exhibit/
+   cd /home/roboter/Desktop/traffic-exhibit/
    sudo bash scripts/setup_autostart.sh
    ```
 

@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-PROJECT_DIR="/home/pi/traffic-exhibit"
+PROJECT_DIR="/home/roboter/Desktop/traffic-exhibit"
 
 # Optional: speed up noninteractive npm
 export NPM_CONFIG_AUDIT=false
