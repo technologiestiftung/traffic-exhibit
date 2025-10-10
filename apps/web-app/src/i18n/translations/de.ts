@@ -1,7 +1,11 @@
 export const de = {
 	/* START */
-	"start.title": "Willkommen zum Verkehrs-Mix",
-	"start.occupiedBlocks.label": "Belegte Blocks",
+	"start.title": "Berliner Platte",
+	"start.description": "Deine Stadt, Dein (Verkehrs-)Mix",
+	"start.subHeading":
+		"Welche Verkehrsteilnehmer:innen fahren auf Berlins Straßen?",
+	"start.infoText":
+		"Stelle einen prozentualen Mix zusammen und entdecke Berlins Straßen",
 	"start.simulateButton.label": "Start simulieren",
 
 	/* LOADING */
