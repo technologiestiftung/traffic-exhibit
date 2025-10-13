@@ -1,12 +1,8 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useWebSocket } from "../../hooks/useWebSocket";
-import { BerlinMap } from "../map/berlin-map";
-import { NoiseChart } from "../charts/noise-chart";
-import { Pill } from "../pill/pill";
-import { AirQualityChart } from "../charts/air-quality-chart";
-import { TrafficStats } from "./traffic-stats/traffic-stats";
 import { i18n } from "../../i18n/i18n-utils";
 import { TrafficModalSplit } from "./traffic-modal-split/traffic-modal-split";
+import { MatchCard } from "./match-card";
 import type { TelraamMatch } from "../../../../api/src/common";
 import { scaleForStackPosition } from "./utils";
 
@@ -20,9 +16,29 @@ const STACK_CARD_BG: string[] = [
 	"bg-gray-100", // First Card
 ];
 
+// Keep these in sync with animation defaults in index.css and TrafficModalSplit
+const DISC_MOVE_DURATION_MS = 1200; // var(--move-duration)
+const DISC_FORWARD_DELAY_MS = 1000; // var(--move-delay) for forwards
+const DISC_BACKWARD_DELAY_MS = 0; // interactive backward should start immediately
+const TOTAL_BACKWARD_TIME = DISC_MOVE_DURATION_MS + DISC_BACKWARD_DELAY_MS;
+
 export const Match: React.FC = () => {
 	const { goBackToStart, telraamMatches = [] } = useWebSocket();
 	const [stack, setStack] = useState<TelraamMatch[]>([]);
+	// Animation direction for the modal disc
+	const [isAnimationBackwards, setIsAnimationBackwards] = useState(false);
+	// Pending reorder target after backwards animation completes
+	const pendingReorder = useRef<TelraamMatch[] | null>(null);
+	const activeTimer = useRef<number | null>(null);
+
+	// Clear timers on unmount
+	useEffect(() => {
+		return () => {
+			if (activeTimer.current) {
+				clearTimeout(activeTimer.current);
+			}
+		};
+	}, []);
 
 	const displayStack = stack.length ? stack : telraamMatches;
 	const currentMatch = displayStack[displayStack.length - 1] ?? null;
@@ -32,15 +48,15 @@ export const Match: React.FC = () => {
 			? match.segment_id === currentMatch.segment_id
 			: match === currentMatch;
 
-	// Reorder so clicked → front, and previous front → very back; keep others' relative order.
+	// Reorder so clicked → front, previous front → very back; animate backwards first.
 	const handleSelect = (clickedIndex: number) => {
 		if (!displayStack.length) {
 			return;
 		}
-
 		const last = displayStack.length - 1;
+
+		// Already front: just lock in stack if not yet stabilized
 		if (clickedIndex === last) {
-			// already front; lock in a local stack for stable future reorders
 			if (!stack.length) {
 				setStack(displayStack.slice());
 			}
@@ -52,9 +68,29 @@ export const Match: React.FC = () => {
 		const others = displayStack.filter(
 			(_, idx) => idx !== clickedIndex && idx !== last,
 		);
-
 		const newStack = [prevFront, ...others, clicked];
-		setStack(newStack);
+
+		// If already in backwards phase, update pending reorder and let current timer finish
+		if (isAnimationBackwards) {
+			pendingReorder.current = newStack;
+			return;
+		}
+
+		pendingReorder.current = newStack;
+		setIsAnimationBackwards(true);
+
+		// Clear any existing timer to avoid multiple reorders
+		if (activeTimer.current) {
+			clearTimeout(activeTimer.current);
+		}
+		activeTimer.current = window.setTimeout(() => {
+			if (pendingReorder.current) {
+				setStack(pendingReorder.current);
+				pendingReorder.current = null;
+			}
+			setIsAnimationBackwards(false); // triggers forward animation for the new front
+			activeTimer.current = null;
+		}, TOTAL_BACKWARD_TIME);
 	};
 
 	return (
@@ -85,78 +121,21 @@ export const Match: React.FC = () => {
 							const scale = selectedCard
 								? 1
 								: scaleForStackPosition(index, stackLength, MIN_SCALE);
-							const zIndex = index + 1; // later index (front) is on top
+							const zIndex = index + 1;
 							return (
-								<button
+								<MatchCard
 									key={match.segment_id ?? index}
-									type="button"
-									onClick={() => handleSelect(index)}
-									aria-pressed={selectedCard}
-									className={`absolute rounded-sm cursor-pointer ${STACK_CARD_BG[index % STACK_CARD_BG.length]} ${selectedCard ? "shadow-2xl" : "shadow-xl hover:-translate-y-0.5"}`}
-									style={{
-										top: index * OFFSET_Y,
-										width: CARD_W,
-										height: CARD_H,
-										zIndex,
-										transform: `scale(${scale})`,
-										transformOrigin: "top",
-									}}
-								>
-									{/* HEADER */}
-									<div className="flex justify-between items-center p-3 w-full">
-										<div>
-											<div className="flex gap-4 items-center max-w-md">
-												<h2 className="text-2xl font-bold max-w-sm truncate">
-													{match.address?.split(",")[0] ?? ""}
-												</h2>
-												{match.bikeLaneTypes?.map((type) => (
-													<Pill
-														key={type}
-														value={type}
-														backgroundColor="bg-gray-500"
-														textColor="text-gray-100"
-													/>
-												))}
-											</div>
-											<p className="text-xl py-2">{match.district ?? ""}</p>
-										</div>
-
-										{Array.isArray(match.coordinates) &&
-											Array.isArray(match.coordinates[0]) && (
-												<BerlinMap
-													lat={match.coordinates[0][1]}
-													lon={match.coordinates[0][0]}
-													width={100}
-													height={100}
-												/>
-											)}
-									</div>
-
-									{/* IMAGE */}
-									<div className="w-full h-80 relative">
-										{match.imageURL && (
-											<img
-												src={match.imageURL}
-												alt={match.address ?? "Street view"}
-												className="w-full h-full object-cover"
-											/>
-										)}
-										{match.originalProperties && (
-											<TrafficStats telraamMatch={match} />
-										)}
-									</div>
-
-									<NoiseChart
-										title={i18n("noiseChart.title")}
-										value={match.nearestNoiseLevel}
-										markerSize={8}
-									/>
-									<AirQualityChart
-										title={i18n("airQualityChart.title")}
-										value={match.airQuality}
-										markerSize={8}
-									/>
-								</button>
+									match={match}
+									index={index}
+									topOffset={index * OFFSET_Y}
+									width={CARD_W}
+									height={CARD_H}
+									zIndex={zIndex}
+									scale={scale}
+									backgroundClass={STACK_CARD_BG[index % STACK_CARD_BG.length]}
+									selected={selectedCard}
+									onSelect={handleSelect}
+								/>
 							);
 						})}
 					</div>
@@ -164,9 +143,17 @@ export const Match: React.FC = () => {
 					{/* Front card by default; updates with selection/reorder */}
 					{currentMatch && (
 						<TrafficModalSplit
+							key={`${currentMatch.segment_id ?? "front"}-${isAnimationBackwards ? "b" : "f"}`}
 							telraamMatch={currentMatch}
 							size={600}
 							isLegendVisible={false}
+							isAnimationBackwards={isAnimationBackwards}
+							animationDurationMs={DISC_MOVE_DURATION_MS}
+							animationDelayMs={
+								isAnimationBackwards
+									? DISC_BACKWARD_DELAY_MS
+									: DISC_FORWARD_DELAY_MS
+							}
 						/>
 					)}
 				</div>

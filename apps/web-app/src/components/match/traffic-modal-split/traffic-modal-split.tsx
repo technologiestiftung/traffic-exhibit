@@ -11,9 +11,9 @@ type TrafficModalSplitProps = {
 	labelColor?: string;
 	animationDurationMs?: number;
 	animationDelayMs?: number;
-	reorientDurationMs?: number;
 	turnsWhileMoving?: number;
 	startOffsetPx?: number;
+	isAnimationBackwards?: boolean;
 };
 
 export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
@@ -24,10 +24,10 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 	segmentColors = ["#4CAF50", "#2196F3", "#FFC107", "#FF5722"],
 	labelColor = "#fff",
 	animationDurationMs = 1200,
-	animationDelayMs = 2000, // match CSS default
-	reorientDurationMs = 1000,
+	animationDelayMs = 1000, // match CSS default
 	turnsWhileMoving = 3,
 	startOffsetPx = 0, // left offset for animation
+	isAnimationBackwards = false,
 }) => {
 	const modalData = getTrafficModal(telraamMatch);
 
@@ -110,7 +110,6 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 		["--start-left"]: `${startOffsetPx}px`,
 		["--move-duration"]: `${animationDurationMs}ms`,
 		["--move-delay"]: `${animationDelayMs}ms`,
-		["--reorient-duration"]: `${reorientDurationMs}ms`,
 		["--spin-turns"]: `${turnsWhileMoving}turn`,
 		["--spin-turns-final"]: `${Math.round(turnsWhileMoving)}turn`,
 		position: "relative",
@@ -127,6 +126,10 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 			bottom: `-${drop}px`,
 			width: `${width}px`,
 			height: `${height * 0.45}px`,
+			"--disc-size": `${size}px`,
+			"--start-left": `${startOffsetPx}px`,
+			"--move-duration": `${animationDurationMs}ms`,
+			"--move-delay": `${animationDelayMs}ms`,
 			// soft elliptical shadow using a radial gradient (no filter needed)
 			background:
 				"radial-gradient(ellipse at center, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.1) 45%, rgba(0,0,0,0) 70%)",
@@ -145,11 +148,11 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 					<div
 						aria-hidden
 						style={shadowStyles}
-						className="absolute z-0 left-0 bottom-0 top-full rounded-[50%] animate-disc-shadow"
+						className={`absolute z-0 left-0 bottom-0 top-full rounded-[50%] opacity-0 ${isAnimationBackwards ? "animate-disc-shadow-backwards" : "animate-disc-shadow-forwards"}`}
 					/>
 					{/* MODAL DISC */}
 					<div
-						className="inline-block animate-modal-disc"
+						className={`inline-block ${isAnimationBackwards ? "animate-modal-disc-backwards" : "animate-modal-disc-forwards"}`}
 						style={animVars}
 						aria-hidden={false}
 					>

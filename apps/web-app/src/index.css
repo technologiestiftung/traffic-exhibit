@@ -6,7 +6,7 @@
    * - left: uses the overlay's width (100%) as reference
    * - transform: only handles rotation; translation is done via left
    */
-	@keyframes modal-disc-move {
+	@keyframes modal-disc-move-forwards {
 		from {
 			left: var(--start-left, 0px);
 			transform: rotate(0turn);
@@ -18,31 +18,63 @@
 		}
 	}
 
-	@keyframes translate-disc-shadow {
+	@keyframes modal-disc-move-backwards {
+		from {
+			left: calc(100% - var(--disc-size, 300px));
+			transform: rotate(var(--spin-turns, 3));
+		}
+		to {
+			left: var(--start-left, 0px);
+			transform: rotate(0turn);
+		}
+	}
+
+	@keyframes translate-disc-shadow-forwards {
 		from {
 			left: var(--start-left, 0px);
+			opacity: 0;
 		}
 		to {
 			left: calc(100% - var(--disc-size, 600px));
+			opacity: 1;
+		}
+	}
+
+	@keyframes translate-disc-shadow-backwards {
+		from {
+			left: calc(100% - var(--disc-size, 600px));
+			opacity: 1;
+		}
+		to {
+			left: var(--start-left, 0px);
+			opacity: 0;
 		}
 	}
 
 	/*
    * Combined animation helper
    */
-	.animate-modal-disc {
-		animation:
-			modal-disc-move var(--move-duration, 1200ms)
-				cubic-bezier(0.22, 1, 0.36, 1) var(--move-delay, 2000ms) forwards,
-			modal-disc-reorient var(--reorient-duration, 1000ms)
-				cubic-bezier(0.22, 1, 0.36, 1)
-				calc(var(--move-delay, 2000ms) + var(--move-duration, 1200ms)) forwards;
+	.animate-modal-disc-forwards {
+		animation: modal-disc-move-forwards var(--move-duration, 1200ms)
+			cubic-bezier(0.22, 1, 0.36, 1) var(--move-delay, 1000ms) forwards;
 		will-change: left, transform;
 	}
 
-	.animate-disc-shadow {
-		animation: translate-disc-shadow var(--move-duration, 1200ms)
-			cubic-bezier(0.22, 1, 0.36, 1) var(--move-delay, 2000ms) forwards;
-		will-change: left;
+	.animate-modal-disc-backwards {
+		animation: modal-disc-move-backwards var(--move-duration, 1200ms)
+			cubic-bezier(0.22, 1, 0.36, 1) var(--move-delay, 1000ms) forwards;
+		will-change: left, transform;
+	}
+
+	.animate-disc-shadow-forwards {
+		animation: translate-disc-shadow-forwards var(--move-duration, 1200ms)
+			cubic-bezier(0.22, 1, 0.36, 1) var(--move-delay, 1000ms) forwards;
+		will-change: left, opacity;
+	}
+
+	.animate-disc-shadow-backwards {
+		animation: translate-disc-shadow-backwards var(--move-duration, 1200ms)
+			cubic-bezier(0.22, 1, 0.36, 1) var(--move-delay, 1000ms) forwards;
+		will-change: left, opacity;
 	}
 }
