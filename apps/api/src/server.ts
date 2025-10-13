@@ -5,26 +5,27 @@ import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import { runPythonScript } from "./runPythonScripts";
-import { findClosestMatch } from "./data-processing/find-modal-split-match";
+import { findClosestMatches } from "./data-processing/find-modal-split-match";
 import telraamDataRaw from "./../data/telraam-data-snippet.json";
 import enrichedTelraamDataRaw from "./../data/enriched-telraam-data.json";
-import type { TrafficFeature } from "./common";
+import type { TrafficFeature, TelraamMatch } from "./common";
 
 const telraamData = telraamDataRaw as { features: TrafficFeature[] };
-const enrichedTelraamData = enrichedTelraamDataRaw as any[];
+const enrichedTelraamData = enrichedTelraamDataRaw as TelraamMatch[];
 
-const closestMatch = findClosestMatch(
-	{ car: 50, bike: 30, pedestrian: 15, heavy: 5 },
+const closestMatch = findClosestMatches(
+	{ car: 10, bike: 200, pedestrian: 35, heavy: 5 },
 	telraamData.features,
 );
 
-// match the closest result with enriched-telraam-data
-const enrichedMatch =
-	enrichedTelraamData.find(
-		(feature: any) =>
-			feature.originalProperties.segment_id ===
-			closestMatch?.properties.segment_id,
-	) || null;
+// for each match the closest result with enriched-telraam-data
+const enrichedMatches =
+	closestMatch?.map((match) =>
+		enrichedTelraamData.find(
+			(feature) =>
+				feature.originalProperties.segment_id === match.properties.segment_id,
+		),
+	) || [];
 
 const app = express();
 
@@ -64,7 +65,7 @@ io.on("connection", (socket) => {
 	 * 7. (optional: turn on audio mix for the match)
 	 */
 
-	socket.emit("telraam-match", enrichedMatch);
+	socket.emit("telraam-matches", enrichedMatches);
 
 	/*
 	 * TO DO: Handle "go-back-to-start" event from frontend
