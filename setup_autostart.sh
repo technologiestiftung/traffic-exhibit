@@ -24,8 +24,8 @@ npm run process-data
 wait_and_open &
 
 # 3) Start button monitor (background)
-cd "$PROJECT_DIR/apps/api"
 npm run start-button-monitor &
 
+cd "$PROJECT_DIR"
 # 4) Start server (foreground)
 npm run dev
