@@ -4,27 +4,27 @@ dotenv.config();
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
-import { runPythonScript } from "./runPythonScripts";
-import { findClosestMatch } from "./data-processing/find-modal-split-match";
+import { findClosestMatches } from "./data-processing/find-modal-split-match";
 import telraamDataRaw from "./../data/telraam-data-snippet.json";
 import enrichedTelraamDataRaw from "./../data/enriched-telraam-data.json";
-import type { TrafficFeature } from "./common";
+import type { TrafficFeature, TelraamMatch } from "./common";
 
 const telraamData = telraamDataRaw as { features: TrafficFeature[] };
-const enrichedTelraamData = enrichedTelraamDataRaw as any[];
+const enrichedTelraamData = enrichedTelraamDataRaw as TelraamMatch[];
 
-const closestMatch = findClosestMatch(
-	{ car: 50, bike: 30, pedestrian: 15, heavy: 5 },
+const closestMatch = findClosestMatches(
+	{ car: 10, bike: 200, pedestrian: 35, heavy: 5 },
 	telraamData.features,
 );
 
-// match the closest result with enriched-telraam-data
-const enrichedMatch =
-	enrichedTelraamData.find(
-		(feature: any) =>
-			feature.originalProperties.segment_id ===
-			closestMatch?.properties.segment_id,
-	) || null;
+// for each match the closest result with enriched-telraam-data
+const enrichedMatches =
+	closestMatch?.map((match) =>
+		enrichedTelraamData.find(
+			(feature) =>
+				feature.originalProperties.segment_id === match.properties.segment_id,
+		),
+	) || [];
 
 const app = express();
 
@@ -63,8 +63,18 @@ io.on("connection", (socket) => {
 	 * 6. send match to frontend
 	 * 7. (optional: turn on audio mix for the match)
 	 */
+	// console.log("Frontend connected");
 
-	socket.emit("telraam-match", enrichedMatch);
+	// Handle button press from Python script
+	socket.on("button_pressed", (data) => {
+		console.log("Button pressed event received from Python");
+		// Forward to all connected frontend clients
+		io.emit("start_stop_button_pressed", {
+			isStartStopPressed: data.isStartStopButtonPressed,
+		});
+	});
+
+	socket.emit("telraam-matches", enrichedMatches);
 
 	/*
 	 * TO DO: Handle "go-back-to-start" event from frontend
@@ -74,13 +84,7 @@ io.on("connection", (socket) => {
 	 * (4. optional: turn light off or to red)
 	 */
 	socket.on("go-back-to-start", async () => {
-		try {
-			await runPythonScript("./scripts/control_motor.py");
-			// eslint-disable-next-line no-console
-			console.log("Motor stopped via Python script");
-		} catch (err) {
-			console.error("Failed to stop motor:", err);
-		}
+		console.log("Motor stopped via Python script");
 	});
 });
 
