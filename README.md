@@ -63,13 +63,6 @@ cd apps/api
 npm run start-button-monitor
 ```
 
-**Additionally**, in a separate terminal, navigate to `apps/api` and start the button monitor:
-
-```bash
-cd apps/api
-npm run start-button-monitor
-```
-
 - The frontend will be available at: [http://localhost:5173](http://localhost:5173)
 - The backend WebSocket server will run on: [http://localhost:3001](http://localhost:3001)
 - The Python button monitor will be running in the background
