@@ -1,0 +1,22 @@
+[Unit]
+Description=Show traffic-exhibit logs on tty8
+After=multi-user.target
+Wants=traffic-exhibit.service
+
+[Service]
+Type=simple
+# Ensure the service is running first (optional but handy)
+ExecStartPre=/bin/systemctl restart traffic-exhibit.service
+# Open a shell attached to tty8 that follows the logs
+ExecStart=/usr/bin/openvt -c 8 -- /bin/bash -lc 'exec journalctl -fu traffic-exhibit.service -o cat'
+# Make sure this is considered active as long as journalctl runs
+StandardInput=tty
+StandardOutput=tty
+TTYPath=/dev/tty8
+TTYReset=yes
+TTYVHangup=yes
+Restart=always
+RestartSec=2
+
+[Install]
+WantedBy=multi-user.target
