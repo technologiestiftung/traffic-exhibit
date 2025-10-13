@@ -117,110 +117,127 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 		left: `${startOffsetPx}px`,
 	} as React.CSSProperties;
 
+	const shadowStyles = useMemo(() => {
+		const width = size; // 80% of disc width
+		const height = size * 0.18; // shallow ellipse
+		const blur = Math.max(8, size * 0.03);
+		const drop = Math.max(6, size * 0.06); // how far below the disc
+
+		return {
+			bottom: `-${drop}px`,
+			width: `${width}px`,
+			height: `${height * 0.45}px`,
+			// soft elliptical shadow using a radial gradient (no filter needed)
+			background:
+				"radial-gradient(ellipse at center, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.1) 45%, rgba(0,0,0,0) 70%)",
+			filter: `blur(${blur}px)`,
+		};
+	}, [size]);
+
 	return (
 		<div className="absolute left-16 right-0 bottom-0 -z-10 pointer-events-none">
-			<div
-				className="inline-block animate-modal-disc"
-				style={animVars}
-				aria-hidden={false}
-			>
-				<svg
-					width={size}
-					height={size}
-					viewBox={`0 0 ${size} ${size}`}
-					role="img"
-					aria-label="Traffic modal split pie chart"
-				>
-					{totalPercentage === 0 ? (
-						<text
-							x={pieCenter}
-							y={pieCenter}
-							textAnchor="middle"
-							alignmentBaseline="middle"
+			{totalPercentage && (
+				<>
+					{/* DISC SHADOW */}
+					<div
+						aria-hidden
+						style={shadowStyles}
+						className="absolute z-0 left-0 bottom-0 top-full rounded-[50%] animate-disc-shadow"
+					/>
+					{/* MODAL DISC */}
+					<div
+						className="inline-block animate-modal-disc"
+						style={animVars}
+						aria-hidden={false}
+					>
+						<svg
+							width={size}
+							height={size}
+							viewBox={`0 0 ${size} ${size}`}
+							role="img"
+							aria-label="Traffic modal split pie chart"
 						>
-							No data
-						</text>
-					) : (
-						pieSegments.map((segment) => (
-							<g key={segment.name}>
-								<path
-									d={segment.pathData}
-									fill={segment.color}
-									stroke="#fff"
-									strokeWidth={2}
-									strokeLinejoin="round"
-								/>
-								{/* PERCENTAGE LABEL */}
-								<text
-									x={segment.labelX}
-									y={segment.labelY - 10}
-									textAnchor="middle"
-									alignmentBaseline="middle"
-									fontSize={18}
-									fontWeight={600}
-									fill={labelColor}
-									style={{
-										pointerEvents: "none",
-										userSelect: "none",
-										textShadow: "0 1px 4px rgba(0,0,0,0.25)",
-									}}
+							{pieSegments.map((segment) => (
+								<g key={segment.name}>
+									<path
+										d={segment.pathData}
+										fill={segment.color}
+										stroke="#fff"
+										strokeWidth={2}
+										strokeLinejoin="round"
+									/>
+									{/* PERCENTAGE LABEL */}
+									<text
+										x={segment.labelX}
+										y={segment.labelY - 10}
+										textAnchor="middle"
+										alignmentBaseline="middle"
+										fontSize={18}
+										fontWeight={600}
+										fill={labelColor}
+										style={{
+											pointerEvents: "none",
+											userSelect: "none",
+											textShadow: "0 1px 4px rgba(0,0,0,0.25)",
+										}}
+									>
+										{segment.value}%
+									</text>
+									{/* NAME LABEL */}
+									<text
+										x={segment.labelX}
+										y={segment.labelY + 14}
+										textAnchor="middle"
+										alignmentBaseline="middle"
+										fontSize={13}
+										fontWeight={500}
+										fill={labelColor}
+										style={{
+											pointerEvents: "none",
+											userSelect: "none",
+											textShadow: "0 1px 4px rgba(0,0,0,0.25)",
+										}}
+									>
+										{segment.name}
+									</text>
+								</g>
+							))}
+							{/* INNER CIRCLES */}
+							{areInnerCirclesVisible && (
+								<>
+									<circle
+										cx={pieCenter}
+										cy={pieCenter}
+										r={pieRadius * 0.4}
+										fill="#000000"
+										opacity={1}
+									/>
+									<circle
+										cx={pieCenter}
+										cy={pieCenter}
+										r={pieRadius * 0.02}
+										fill="#fff"
+									/>
+								</>
+							)}
+						</svg>
+					</div>
+					{/* LEGEND */}
+					{isLegendVisible && (
+						<div className="mt-2 flex justify-between" style={{ width: size }}>
+							{modalData.map((modal, idx) => (
+								<div
+									key={`${modal.name}-${idx}`}
+									className="flex-1 text-center text-[12px] font-normal"
+									style={{ color: segmentColors[idx % segmentColors.length] }}
 								>
-									{segment.value}%
-								</text>
-								{/* NAME LABEL */}
-								<text
-									x={segment.labelX}
-									y={segment.labelY + 14}
-									textAnchor="middle"
-									alignmentBaseline="middle"
-									fontSize={13}
-									fontWeight={500}
-									fill={labelColor}
-									style={{
-										pointerEvents: "none",
-										userSelect: "none",
-										textShadow: "0 1px 4px rgba(0,0,0,0.25)",
-									}}
-								>
-									{segment.name}
-								</text>
-							</g>
-						))
-					)}
-					{/* INNER CIRCLES */}
-					{areInnerCirclesVisible && (
-						<>
-							<circle
-								cx={pieCenter}
-								cy={pieCenter}
-								r={pieRadius * 0.4}
-								fill="#000000"
-								opacity={1}
-							/>
-							<circle
-								cx={pieCenter}
-								cy={pieCenter}
-								r={pieRadius * 0.02}
-								fill="#fff"
-							/>
-						</>
-					)}
-				</svg>
-			</div>
-			{/* LEGEND */}
-			{isLegendVisible && (
-				<div className="mt-2 flex justify-between" style={{ width: size }}>
-					{modalData.map((modal, idx) => (
-						<div
-							key={`${modal.name}-${idx}`}
-							className="flex-1 text-center text-[12px] font-normal"
-							style={{ color: segmentColors[idx % segmentColors.length] }}
-						>
-							{modal.name}
-							<div className="font-medium">{modal.percentage}%</div>
+									{modal.name}
+									<div className="font-medium">{modal.percentage}%</div>
+								</div>
+							))}
 						</div>
-					))}
-				</div>
+					)}
+				</>
 			)}
 		</div>
 	);
