@@ -109,7 +109,7 @@ export const Match: React.FC = () => {
 												<h2 className="text-2xl font-bold max-w-sm truncate">
 													{match.address?.split(",")[0] ?? ""}
 												</h2>
-												{match.bikeLaneTypes?.map((type: string) => (
+												{match.bikeLaneTypes?.map((type) => (
 													<Pill
 														key={type}
 														value={type}
