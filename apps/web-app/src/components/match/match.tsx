@@ -24,7 +24,9 @@ export const Match: React.FC = () => {
 	const { goBackToStart, telraamMatches = [] } = useWebSocket();
 	const [stack, setStack] = useState<TelraamMatch[]>([]);
 
-	const displayStack = (stack.length ? stack : telraamMatches).filter(match => match !== null);
+	const displayStack = (stack.length ? stack : telraamMatches).filter(
+		(match) => match !== null,
+	);
 	const currentMatch = displayStack[displayStack.length - 1] ?? null;
 
 	const isSelected = (match: TelraamMatch) =>

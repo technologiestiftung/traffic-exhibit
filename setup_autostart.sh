@@ -23,7 +23,7 @@ npm run process-data
 # 2) Start background waiter to open browser
 wait_and_open &
 
-# 3) Change to project root and start server (background)
+# 3) Change to project root and start server
 cd "$PROJECT_DIR"
 npm run dev &
 
