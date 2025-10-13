@@ -21,10 +21,29 @@ traffic-exhibit/
 
 ## Installation
 
+### **1. Install Node.js Dependencies**
+
 Run the following command in the **root directory** to install dependencies for all workspaces:
 
 ```bash
 npm install
+```
+
+### **2. Set Up Python Virtual Environment**
+
+The project uses Python scripts for hardware interaction (button monitoring and motor control). Set up a virtual environment in the `apps/api` directory:
+
+```bash
+cd apps/api
+python3 -m venv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
+
+**Note**: Remember to activate the virtual environment whenever you work with Python scripts:
+
+```bash
+source apps/api/venv/bin/activate
 ```
 
 ## Usage or Deployment
@@ -37,8 +56,23 @@ In the **root directory**, start both the frontend and backend:
 npm run dev
 ```
 
+**Additionally**, in a separate terminal, navigate to `apps/api` and start the button monitor:
+
+```bash
+cd apps/api
+npm run start-button-monitor
+```
+
+**Additionally**, in a separate terminal, navigate to `apps/api` and start the button monitor:
+
+```bash
+cd apps/api
+npm run start-button-monitor
+```
+
 - The frontend will be available at: [http://localhost:5173](http://localhost:5173)
 - The backend WebSocket server will run on: [http://localhost:3001](http://localhost:3001)
+- The Python button monitor will be running in the background
 
 ### **2. Access the Application**
 
@@ -65,9 +99,18 @@ http://localhost:5173
 ### **3. Python Integration**
 
 - Python scripts for camera and motor control are located in `apps/api/scripts/`.
+- Make sure the virtual environment is activated before running Python scripts:
+  ```bash
+  cd apps/api
+  source venv/bin/activate
+  ```
 - Ensure scripts are executable:
   ```bash
   chmod +x apps/api/scripts/*.py
+  ```
+- Use the npm script to start the button monitor:
+  ```bash
+  npm run start-button-monitor
   ```
 
 ## Data Processing
@@ -124,6 +167,7 @@ To automatically start the Traffic Exhibit application when the Raspberry Pi boo
 1. **Transfer the project files** to your Raspberry Pi at `/home/roboter/Desktop/traffic-exhibit/`
 
 2. **Make scripts executable**:
+
    ```bash
    cd /home/roboter/Desktop/traffic-exhibit/
    chmod +x setup_autostart.sh
@@ -131,6 +175,7 @@ To automatically start the Traffic Exhibit application when the Raspberry Pi boo
    ```
 
 3. **Install the systemd service**:
+
    ```bash
    sudo cp traffic-exhibit.service /etc/systemd/system/
    sudo systemctl daemon-reload
@@ -196,12 +241,15 @@ mv ~/.config/autostart/traffic-exhibit-logs.desktop ~/.config/autostart/traffic-
 Different parts of the autostart setup have different update procedures:
 
 #### Automatically Updated (No Manual Steps Required):
+
 - **`setup_autostart.sh`** - Changes are picked up automatically since the service references the file directly from your project directory
 - **`open_logs_terminal.sh`** - Changes are picked up automatically since the desktop autostart references the file directly
 - **Application code** - Any changes to your app code in `apps/` are automatically available
 
 #### Manually Updated (Requires System Commands):
+
 - **`traffic-exhibit.service`** - Must be copied to systemd and daemon reloaded:
+
   ```bash
   sudo cp traffic-exhibit.service /etc/systemd/system/
   sudo systemctl daemon-reload
@@ -211,6 +259,7 @@ Different parts of the autostart setup have different update procedures:
 - **Desktop autostart configuration** - The file `~/.config/autostart/traffic-exhibit-logs.desktop` must be updated manually if you need to change the autostart behavior
 
 #### Summary:
+
 - ✅ **Scripts and app code**: Update automatically
 - ❌ **Service files and autostart config**: Require manual system updates
 

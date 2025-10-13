@@ -1,7 +1,9 @@
 export const en = {
 	/* START */
-	"start.title": "Welcome to the Traffic Mix",
-	"start.occupiedBlocks.label": "Occupied Blocks",
+	"start.title": "Berliner Platte",
+	"start.description": "Your city, your (traffic) mix",
+	"start.subHeading": "Who's on Berlin's streets?",
+	"start.infoText": "Create your own traffic mix and explore Berlin's roads.",
 	"start.simulateButton.label": "Simulate Start",
 
 	/* LOADING */

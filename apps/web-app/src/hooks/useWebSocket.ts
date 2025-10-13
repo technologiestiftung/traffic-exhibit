@@ -8,19 +8,29 @@ const wsUrl = import.meta.env.VITE_WS_URL;
 export const useWebSocket = () => {
 	const [socket, setSocket] = useState<Socket | null>(null);
 	const [occupiedBlocks, setOccupiedBlocks] = useState<number[]>([]);
-	const [telraamMatch, setTelraamMatch] = useState<TelraamMatch | null>(null);
+	const [telraamMatches, setTelraamMatches] = useState<TelraamMatch[]>([]);
 
-	const { setCurrentScreen } = useScreenStore();
+	const { setCurrentScreen, setStartStopButton } = useScreenStore();
 
 	useEffect(() => {
 		const newSocket = io(wsUrl);
 		setSocket(newSocket);
+
 		newSocket.on("camera-data", (data: number[]) => {
 			setOccupiedBlocks(data);
 		});
-		newSocket.on("telraam-match", (data: TelraamMatch) => {
-			setTelraamMatch(data);
+
+		newSocket.on("telraam-matches", (data: TelraamMatch[]) => {
+			setTelraamMatches(data);
 		});
+
+		// Handle button press from backend
+		newSocket.on("start_stop_button_pressed", () => {
+			setStartStopButton();
+			// eslint-disable-next-line no-console
+			console.log("pressed start/stop button");
+		});
+
 		return () => {
 			newSocket.disconnect();
 		};
@@ -31,5 +41,5 @@ export const useWebSocket = () => {
 		socket?.emit("go-back-to-start");
 	};
 
-	return { occupiedBlocks, goBackToStart, telraamMatch };
+	return { occupiedBlocks, goBackToStart, telraamMatches };
 };
