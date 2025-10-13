@@ -59,7 +59,7 @@ export const Match: React.FC = () => {
 
 	return (
 		<>
-			<div className="flex flex-col justify-center p-3 max-w-[1280px] h-full space-y-7">
+			<div className="flex flex-col justify-center p-3 w-full h-full space-y-7">
 				<div className="flex justify-between items-center w-full">
 					<h1 className="text-4xl font-bold">{i18n("match.title")}</h1>
 					<button
