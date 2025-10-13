@@ -10,17 +10,26 @@ export const useWebSocket = () => {
 	const [occupiedBlocks, setOccupiedBlocks] = useState<number[]>([]);
 	const [telraamMatches, setTelraamMatches] = useState<TelraamMatch[]>([]);
 
-	const { setCurrentScreen } = useScreenStore();
+	const { setCurrentScreen, setStartStopButton } = useScreenStore();
 
 	useEffect(() => {
 		const newSocket = io(wsUrl);
 		setSocket(newSocket);
+
 		newSocket.on("camera-data", (data: number[]) => {
 			setOccupiedBlocks(data);
 		});
+
 		newSocket.on("telraam-matches", (data: TelraamMatch[]) => {
 			setTelraamMatches(data);
 		});
+
+		// Handle button press from backend
+		newSocket.on("start_stop_button_pressed", () => {
+			setStartStopButton();
+			console.log("pressed start/stop button");
+		});
+
 		return () => {
 			newSocket.disconnect();
 		};

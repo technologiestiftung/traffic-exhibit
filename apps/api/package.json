@@ -8,7 +8,8 @@
 		"start": "node dist/server.js",
 		"prettier": "prettier --write src",
 		"prettier:ci": "prettier --check src",
-		"process-data": "ts-node scripts/run-data-processing.ts"
+		"process-data": "ts-node scripts/run-data-processing.ts",
+		"start-button-monitor": "./venv/bin/python3 scripts/button_monitor.py"
 	},
 	"keywords": [],
 	"author": "",

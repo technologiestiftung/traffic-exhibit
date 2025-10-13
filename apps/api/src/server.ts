@@ -64,6 +64,16 @@ io.on("connection", (socket) => {
 	 * 6. send match to frontend
 	 * 7. (optional: turn on audio mix for the match)
 	 */
+	// console.log("Frontend connected");
+
+	// Handle button press from Python script
+	socket.on("button_pressed", (data) => {
+		console.log("Button pressed event received from Python");
+		// Forward to all connected frontend clients
+		io.emit("start_stop_button_pressed", {
+			isStartStopPressed: data.isStartStopButtonPressed,
+		});
+	});
 
 	socket.emit("telraam-matches", enrichedMatches);
 
