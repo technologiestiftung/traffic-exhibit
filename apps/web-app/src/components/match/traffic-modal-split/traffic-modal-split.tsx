@@ -118,7 +118,7 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 	} as React.CSSProperties;
 
 	return (
-		<div className="absolute inset-y-0 left-16 right-0 -z-10 pointer-events-none">
+		<div className="absolute left-16 right-0 bottom-0 -z-10 pointer-events-none">
 			<div
 				className="inline-block animate-modal-disc"
 				style={animVars}

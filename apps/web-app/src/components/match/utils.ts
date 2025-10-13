@@ -46,3 +46,21 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 		},
 	];
 }
+
+/**
+ * Returns the scale for a card based on its position in the stack.
+ * Back-most card gets MIN_SCALE, front-most gets 1.
+ */
+export function scaleForStackPosition(
+	index: number, // 0 = back, stackSize - 1 = front
+	size: number,
+	minScale: number,
+) {
+	if (size <= 1) {
+		return 1;
+	}
+
+	const progressTowardFront = index / (size - 1); // 0 → 1
+	const maxScale = 1;
+	return minScale + progressTowardFront * (maxScale - minScale);
+}
