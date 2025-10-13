@@ -4,7 +4,6 @@ dotenv.config();
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
-import { runPythonScript } from "./runPythonScripts";
 import { findClosestMatches } from "./data-processing/find-modal-split-match";
 import telraamDataRaw from "./../data/telraam-data-snippet.json";
 import enrichedTelraamDataRaw from "./../data/enriched-telraam-data.json";
@@ -64,6 +63,16 @@ io.on("connection", (socket) => {
 	 * 6. send match to frontend
 	 * 7. (optional: turn on audio mix for the match)
 	 */
+	// console.log("Frontend connected");
+
+	// Handle button press from Python script
+	socket.on("button_pressed", (data) => {
+		console.log("Button pressed event received from Python");
+		// Forward to all connected frontend clients
+		io.emit("start_stop_button_pressed", {
+			isStartStopPressed: data.isStartStopButtonPressed,
+		});
+	});
 
 	socket.emit("telraam-matches", enrichedMatches);
 
@@ -75,13 +84,7 @@ io.on("connection", (socket) => {
 	 * (4. optional: turn light off or to red)
 	 */
 	socket.on("go-back-to-start", async () => {
-		try {
-			await runPythonScript("./scripts/control_motor.py");
-			// eslint-disable-next-line no-console
-			console.log("Motor stopped via Python script");
-		} catch (err) {
-			console.error("Failed to stop motor:", err);
-		}
+		console.log("Motor stopped via Python script");
 	});
 });
 
