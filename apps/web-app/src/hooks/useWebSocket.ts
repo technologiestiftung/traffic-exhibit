@@ -27,6 +27,7 @@ export const useWebSocket = () => {
 		// Handle button press from backend
 		newSocket.on("start_stop_button_pressed", () => {
 			setStartStopButton();
+			// eslint-disable-next-line no-console
 			console.log("pressed start/stop button");
 		});
 
