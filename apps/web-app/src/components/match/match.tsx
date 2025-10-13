@@ -56,7 +56,6 @@ export const Match: React.FC = () => {
 		const newStack = [prevFront, ...others, clicked];
 		setStack(newStack);
 	};
-	console.log("Rendering Match with matches:", telraamMatches);
 
 	return (
 		<>
