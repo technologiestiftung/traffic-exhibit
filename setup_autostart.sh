@@ -23,9 +23,9 @@ npm run process-data
 # 2) Start background waiter to open browser
 wait_and_open &
 
-# 3) Start button monitor (background)
+# 3) Start button monitor (background) - stays in api directory
 npm run start-button-monitor &
 
+# 4) Change to project root and start server (foreground)
 cd "$PROJECT_DIR"
-# 4) Start server (foreground)
 npm run dev
