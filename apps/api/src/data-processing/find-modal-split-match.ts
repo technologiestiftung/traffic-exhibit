@@ -4,10 +4,10 @@ function calculateDistance(
 	dist1: ModalSplitPercentages,
 	dist2: ModalSplitPercentages,
 ): number {
-	const carDiff = (dist1.car ?? 0) - (dist2.car ?? 0);
-	const bikeDiff = (dist1.bike ?? 0) - (dist2.bike ?? 0);
-	const pedDiff = (dist1.pedestrian ?? 0) - (dist2.pedestrian ?? 0);
-	const heavyDiff = (dist1.heavy ?? 0) - (dist2.heavy ?? 0);
+	const carDiff = dist1.car - dist2.car;
+	const bikeDiff = dist1.bike - dist2.bike;
+	const pedDiff = dist1.pedestrian - dist2.pedestrian;
+	const heavyDiff = dist1.heavy - (dist2.heavy ?? 0);
 
 	return Math.sqrt(
 		carDiff * carDiff +
@@ -27,20 +27,26 @@ export function findClosestMatches(
 	}
 
 	// compute distances for each feature relative to current detections
-	const featuresWithDistances = fetchedTrafficData.map((feature, idx) => {
-		const featureData: ModalSplitPercentages = {
-			car: feature?.properties?.car_percentage ?? 0,
-			bike: feature?.properties?.bike_percentage ?? 0,
-			pedestrian: feature?.properties?.pedestrian_percentage ?? 0,
-			heavy: feature?.properties?.heavy_percentage ?? 0,
-		};
+	const featuresWithDistances = fetchedTrafficData
+		.map((feature, idx) => {
+			if (!feature?.properties) {
+				return null;
+			}
 
-		const distance = calculateDistance(currentDetections, featureData);
+			const featureData: ModalSplitPercentages = {
+				car: feature.properties.car_percentage,
+				bike: feature.properties.bike_percentage,
+				pedestrian: feature.properties.pedestrian_percentage,
+				heavy: feature.properties.heavy_percentage,
+			};
 
-		return { feature, distance, idx }; // idx ensures stable tie-break
-	});
+			const distance = calculateDistance(currentDetections, featureData);
 
-	// sort ascending by distance (stable via idx tie-break)
+			return { feature, distance, idx }; // idx ensures stable tie-break
+		})
+		.filter((entry) => entry !== null); // remove any nulls
+
+	// sort by distance ascending (closest first)
 	featuresWithDistances.sort((featureA, featureB) =>
 		featureA.distance === featureB.distance
 			? featureA.idx - featureB.idx
