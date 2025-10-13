@@ -14,7 +14,7 @@ export const Start = () => {
 				<p className="text-2xl py-2">{i18n("start.description")}</p>
 			</div>
 			<div className="flex justify-between w-full">
-				<EqualSegmentsDisc size={700} occupiedBlocks={occupiedBlocks} />
+				<EqualSegmentsDisc size={650} occupiedBlocks={occupiedBlocks} />
 				<div className="flex flex-col items-center justify-center gap-6">
 					<h2 className="2xl font-bold text-center">
 						{i18n("start.subHeading")}
