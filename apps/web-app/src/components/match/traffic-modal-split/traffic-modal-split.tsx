@@ -135,7 +135,10 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 	}, [size]);
 
 	return (
-		<div className="absolute left-16 right-0 bottom-0 -z-10 pointer-events-none">
+		<div
+			className="absolute left-16 right-0 bottom-0 -z-10 pointer-events-none"
+			style={{ width: `calc(100% - ${size / 3}px)` }}
+		>
 			{totalPercentage && (
 				<>
 					{/* DISC SHADOW */}
