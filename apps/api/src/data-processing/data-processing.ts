@@ -222,7 +222,7 @@ export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
 			`- Reused (skipped) segments: ${reusedSegments} / ${enrichedResults.length}`,
 		);
 		console.log(
-			`- Newly fetched segments: ${newSegments} / ${enrichedResults.length}`,
+			`- Newly fetched telraam segments: ${newSegments} / ${enrichedResults.length}`,
 		);
 		console.log(
 			`- Features with images: ${featuresWithImages}/${enrichedResults.length}`,

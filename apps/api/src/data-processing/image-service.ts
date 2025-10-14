@@ -8,6 +8,7 @@ interface MapillaryImage {
 	is_pano: boolean;
 	thumb_256_url?: string;
 	thumb_1024_url?: string;
+	captured_at: number;
 }
 
 interface MapillaryResponse {
@@ -44,7 +45,7 @@ export async function getImageInBoundingBox(
 ): Promise<string | null> {
 	try {
 		// Request images with required fields
-		const url = `https://graph.mapillary.com/images?access_token=${ACCESS_TOKEN}&fields=id,is_pano,altitude,thumb_256_url,thumb_1024_url&bbox=${bbox}&limit=${limit}`;
+		const url = `https://graph.mapillary.com/images?access_token=${ACCESS_TOKEN}&fields=id,is_pano,altitude,thumb_256_url,thumb_1024_url,captured_at&&bbox=${bbox}&limit=${limit}`;
 
 		const response = await fetch(url);
 
@@ -57,6 +58,9 @@ export async function getImageInBoundingBox(
 		if (!data.data || data.data.length === 0) {
 			return null;
 		}
+
+		// sort images by captured_at descending (newest first)
+		data.data.sort((a, b) => b.captured_at - a.captured_at);
 
 		// Filter for non-panoramic images
 		const nonPanoImages = data.data.filter((image) => image.is_pano === false);
