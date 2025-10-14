@@ -1,0 +1,30 @@
+[Unit]
+Description=Traffic Exhibit (process data, then run app)
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+# Run as the actual user that owns the project
+User=roboter
+Group=roboter
+
+# Point to your real project root
+WorkingDirectory=/home/roboter/Desktop/traffic-exhibit
+
+# Ensure systemd can find node/npm when not using an interactive shell
+Environment=PATH=/usr/local/bin:/usr/bin:/bin
+
+# Run your startup script via a login shell (-l) so profile/env are loaded
+ExecStart=/usr/bin/bash -lc '/home/roboter/Desktop/traffic-exhibit/setup_autostart.sh'
+
+# Keep it alive
+Restart=always
+RestartSec=3
+
+# Logs go to journald
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
+

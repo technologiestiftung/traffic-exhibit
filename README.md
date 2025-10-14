@@ -151,6 +151,111 @@ The system also includes intelligent traffic pattern matching functionality:
 
 tbd...
 
+## Autostart Setup
+
+To automatically start the Traffic Exhibit application when the Raspberry Pi boots up, use the provided systemd services and autostart configuration.
+
+### Installation
+
+1. **Transfer the project files** to your Raspberry Pi at `/home/roboter/Desktop/traffic-exhibit/`
+
+2. **Make scripts executable**:
+
+   ```bash
+   cd /home/roboter/Desktop/traffic-exhibit/
+   chmod +x setup_autostart.sh
+   chmod +x open_logs_terminal.sh
+   ```
+
+3. **Install the systemd service**:
+
+   ```bash
+   sudo cp traffic-exhibit.service /etc/systemd/system/
+   sudo systemctl daemon-reload
+   sudo systemctl enable traffic-exhibit.service
+   ```
+
+4. **The desktop logs terminal is already configured** via the autostart entry at `~/.config/autostart/traffic-exhibit-logs.desktop`
+
+5. **Reboot to test** the autostart functionality:
+   ```bash
+   sudo reboot
+   ```
+
+### What Happens on Boot
+
+After reboot, the system will automatically:
+
+1. **Start the service**: The `traffic-exhibit.service` runs in the background, processing Telraam data and starting the development server
+2. **Open logs terminal**: A terminal window titled "Traffic Exhibit Logs" automatically opens on the desktop showing live service logs
+3. **Launch browser**: The application opens in your default browser at http://localhost:5173
+
+### Management Commands
+
+Once setup is complete, you can manage the service manually using:
+
+- **Start**: `sudo systemctl start traffic-exhibit.service`
+- **Stop**: `sudo systemctl stop traffic-exhibit.service`
+- **Restart**: `sudo systemctl restart traffic-exhibit.service`
+- **Status**: `sudo systemctl status traffic-exhibit.service`
+- **View logs**: `sudo journalctl -u traffic-exhibit.service -f`
+- **Enable autostart**: `sudo systemctl enable traffic-exhibit.service`
+- **Disable autostart**: `sudo systemctl disable traffic-exhibit.service`
+
+### Logs Terminal
+
+The logs terminal will automatically open when you log into the desktop. If you need to open it manually:
+
+```bash
+/home/roboter/Desktop/traffic-exhibit/open_logs_terminal.sh
+```
+
+### Troubleshooting
+
+If you need to manually stop the autostarted processes:
+
+```bash
+# Kill the development servers
+kill -INT $(lsof -t -i :3001)
+kill -INT $(lsof -t -i :5173)
+
+# Or stop the entire service
+sudo systemctl stop traffic-exhibit.service
+```
+
+To disable the logs terminal from opening automatically, remove or rename the autostart file:
+
+```bash
+mv ~/.config/autostart/traffic-exhibit-logs.desktop ~/.config/autostart/traffic-exhibit-logs.desktop.disabled
+```
+
+### Updating Autostart Components
+
+Different parts of the autostart setup have different update procedures:
+
+#### Automatically Updated (No Manual Steps Required):
+
+- **`setup_autostart.sh`** - Changes are picked up automatically since the service references the file directly from your project directory
+- **`open_logs_terminal.sh`** - Changes are picked up automatically since the desktop autostart references the file directly
+- **Application code** - Any changes to your app code in `apps/` are automatically available
+
+#### Manually Updated (Requires System Commands):
+
+- **`traffic-exhibit.service`** - Must be copied to systemd and daemon reloaded:
+
+  ```bash
+  sudo cp traffic-exhibit.service /etc/systemd/system/
+  sudo systemctl daemon-reload
+  sudo systemctl restart traffic-exhibit.service  # optional, to restart immediately
+  ```
+
+- **Desktop autostart configuration** - The file `~/.config/autostart/traffic-exhibit-logs.desktop` must be updated manually if you need to change the autostart behavior
+
+#### Summary:
+
+- ✅ **Scripts and app code**: Update automatically
+- ❌ **Service files and autostart config**: Require manual system updates
+
 ## Contributing
 
 Before you create a pull request, write an issue so we can discuss your changes.
