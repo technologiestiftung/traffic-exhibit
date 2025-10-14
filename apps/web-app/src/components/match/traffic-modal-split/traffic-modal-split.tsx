@@ -13,7 +13,7 @@ type TrafficModalSplitProps = {
 	animationDelayMs?: number;
 	turnsWhileMoving?: number;
 	startOffsetPx?: number;
-	isAnimationBackwards?: boolean;
+	hasModalChanged?: boolean;
 };
 
 export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
@@ -27,7 +27,7 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 	animationDelayMs = 1000, // match CSS default
 	turnsWhileMoving = 3,
 	startOffsetPx = 0, // left offset for animation
-	isAnimationBackwards = false,
+	hasModalChanged = false, // trigger reorientation animation on change
 }) => {
 	const modalData = getTrafficModal(telraamMatch);
 
@@ -148,11 +148,11 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 					<div
 						aria-hidden
 						style={shadowStyles}
-						className={`absolute z-0 left-0 bottom-0 top-full rounded-[50%] opacity-0 ${isAnimationBackwards ? "animate-disc-shadow-backwards" : "animate-disc-shadow-forwards"}`}
+						className="absolute z-0 left-0 bottom-0 top-full rounded-[50%] opacity-0 animate-disc-shadow"
 					/>
 					{/* MODAL DISC */}
 					<div
-						className={`inline-block ${isAnimationBackwards ? "animate-modal-disc-backwards" : "animate-modal-disc-forwards"}`}
+						className={`inline-block ${hasModalChanged ? "animate-modal-disc-rotate" : "animate-modal-disc"}`}
 						style={animVars}
 						aria-hidden={false}
 					>

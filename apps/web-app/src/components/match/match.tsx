@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState } from "react";
 import { useWebSocket } from "../../hooks/useWebSocket";
 import { i18n } from "../../i18n/i18n-utils";
 import { TrafficModalSplit } from "./traffic-modal-split/traffic-modal-split";
@@ -16,29 +16,10 @@ const STACK_CARD_BG: string[] = [
 	"bg-gray-100", // First Card
 ];
 
-// Keep these in sync with animation defaults in index.css and TrafficModalSplit
-const DISC_MOVE_DURATION_MS = 1200; // var(--move-duration)
-const DISC_FORWARD_DELAY_MS = 1000; // var(--move-delay) for forwards
-const DISC_BACKWARD_DELAY_MS = 0; // interactive backward should start immediately
-const TOTAL_BACKWARD_TIME = DISC_MOVE_DURATION_MS + DISC_BACKWARD_DELAY_MS;
-
 export const Match: React.FC = () => {
 	const { goBackToStart, telraamMatches = [] } = useWebSocket();
 	const [stack, setStack] = useState<TelraamMatch[]>([]);
-	// Animation direction for the modal disc
-	const [isAnimationBackwards, setIsAnimationBackwards] = useState(false);
-	// Pending reorder target after backwards animation completes
-	const pendingReorder = useRef<TelraamMatch[] | null>(null);
-	const activeTimer = useRef<number | null>(null);
-
-	// Clear timers on unmount
-	useEffect(() => {
-		return () => {
-			if (activeTimer.current) {
-				clearTimeout(activeTimer.current);
-			}
-		};
-	}, []);
+	const [hasModalChanged, setHasModalChanged] = useState(false);
 
 	const displayStack = stack.length ? stack : telraamMatches;
 	const currentMatch = displayStack[displayStack.length - 1] ?? null;
@@ -48,14 +29,14 @@ export const Match: React.FC = () => {
 			? match.segment_id === currentMatch.segment_id
 			: match === currentMatch;
 
-	// Reorder so clicked → front, previous front → very back; animate backwards first.
+	// Reorder so clicked → front, previous front → very back.
 	const handleSelect = (clickedIndex: number) => {
 		if (!displayStack.length) {
 			return;
 		}
 		const last = displayStack.length - 1;
 
-		// Already front: just lock in stack if not yet stabilized
+		// Already front: stabilize stack if still using live websocket array.
 		if (clickedIndex === last) {
 			if (!stack.length) {
 				setStack(displayStack.slice());
@@ -69,28 +50,9 @@ export const Match: React.FC = () => {
 			(_, idx) => idx !== clickedIndex && idx !== last,
 		);
 		const newStack = [prevFront, ...others, clicked];
+		setStack(newStack);
 
-		// If already in backwards phase, update pending reorder and let current timer finish
-		if (isAnimationBackwards) {
-			pendingReorder.current = newStack;
-			return;
-		}
-
-		pendingReorder.current = newStack;
-		setIsAnimationBackwards(true);
-
-		// Clear any existing timer to avoid multiple reorders
-		if (activeTimer.current) {
-			clearTimeout(activeTimer.current);
-		}
-		activeTimer.current = window.setTimeout(() => {
-			if (pendingReorder.current) {
-				setStack(pendingReorder.current);
-				pendingReorder.current = null;
-			}
-			setIsAnimationBackwards(false); // triggers forward animation for the new front
-			activeTimer.current = null;
-		}, TOTAL_BACKWARD_TIME);
+		setHasModalChanged(true);
 	};
 
 	return (
@@ -143,17 +105,11 @@ export const Match: React.FC = () => {
 					{/* Front card by default; updates with selection/reorder */}
 					{currentMatch && (
 						<TrafficModalSplit
-							key={`${currentMatch.segment_id ?? "front"}-${isAnimationBackwards ? "b" : "f"}`}
+							key={`${currentMatch.segment_id}`}
 							telraamMatch={currentMatch}
 							size={600}
 							isLegendVisible={false}
-							isAnimationBackwards={isAnimationBackwards}
-							animationDurationMs={DISC_MOVE_DURATION_MS}
-							animationDelayMs={
-								isAnimationBackwards
-									? DISC_BACKWARD_DELAY_MS
-									: DISC_FORWARD_DELAY_MS
-							}
+							hasModalChanged={hasModalChanged}
 						/>
 					)}
 				</div>

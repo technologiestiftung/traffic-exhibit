@@ -34,7 +34,6 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 }) => {
 	return (
 		<button
-			key={match.segment_id ?? index}
 			type="button"
 			onClick={() => onSelect(index)}
 			aria-pressed={selected}
