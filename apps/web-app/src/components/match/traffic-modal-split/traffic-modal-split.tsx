@@ -11,9 +11,10 @@ type TrafficModalSplitProps = {
 	labelColor?: string;
 	animationDurationMs?: number;
 	animationDelayMs?: number;
-	reorientDurationMs?: number;
 	turnsWhileMoving?: number;
+	turnsWhileRotating?: number;
 	startOffsetPx?: number;
+	hasModalChanged?: boolean;
 };
 
 export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
@@ -24,10 +25,11 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 	segmentColors = ["#4CAF50", "#2196F3", "#FFC107", "#FF5722"],
 	labelColor = "#fff",
 	animationDurationMs = 1200,
-	animationDelayMs = 2000, // match CSS default
-	reorientDurationMs = 1000,
+	animationDelayMs = 1000, // match CSS default
 	turnsWhileMoving = 3,
+	turnsWhileRotating = 2,
 	startOffsetPx = 0, // left offset for animation
+	hasModalChanged = false, // trigger reorientation animation on change
 }) => {
 	const modalData = getTrafficModal(telraamMatch);
 
@@ -110,9 +112,9 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 		["--start-left"]: `${startOffsetPx}px`,
 		["--move-duration"]: `${animationDurationMs}ms`,
 		["--move-delay"]: `${animationDelayMs}ms`,
-		["--reorient-duration"]: `${reorientDurationMs}ms`,
-		["--spin-turns"]: `${turnsWhileMoving}turn`,
-		["--spin-turns-final"]: `${Math.round(turnsWhileMoving)}turn`,
+		["--spin-turns"]: `${turnsWhileRotating}turn`,
+		["--spin-turns-while-moving"]: `${turnsWhileMoving}turn`,
+		["--spin-turns-final"]: `${Math.round(turnsWhileRotating)}turn`,
 		position: "relative",
 		left: `${startOffsetPx}px`,
 	} as React.CSSProperties;
@@ -127,6 +129,10 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 			bottom: `-${drop}px`,
 			width: `${width}px`,
 			height: `${height * 0.45}px`,
+			"--disc-size": `${size}px`,
+			"--start-left": `${startOffsetPx}px`,
+			"--move-duration": `${animationDurationMs}ms`,
+			"--move-delay": `${animationDelayMs}ms`,
 			// soft elliptical shadow using a radial gradient (no filter needed)
 			background:
 				"radial-gradient(ellipse at center, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.1) 45%, rgba(0,0,0,0) 70%)",
@@ -145,11 +151,11 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 					<div
 						aria-hidden
 						style={shadowStyles}
-						className="absolute z-0 left-0 bottom-0 top-full rounded-[50%] animate-disc-shadow"
+						className="absolute z-0 left-0 bottom-0 top-full rounded-[50%] opacity-0 animate-disc-shadow"
 					/>
 					{/* MODAL DISC */}
 					<div
-						className="inline-block animate-modal-disc"
+						className={`inline-block ${hasModalChanged ? "animate-modal-disc-rotate" : "animate-modal-disc"}`}
 						style={animVars}
 						aria-hidden={false}
 					>
@@ -227,11 +233,14 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 					</div>
 					{/* LEGEND */}
 					{isLegendVisible && (
-						<div className="mt-2 flex justify-between" style={{ width: size }}>
+						<div
+							className="absolute bottom-0 mt-2 flex justify-between"
+							style={{ width: size, left: `calc(100% - ${size}px)` }}
+						>
 							{modalData.map((modal, idx) => (
 								<div
 									key={`${modal.name}-${idx}`}
-									className="flex-1 text-center text-[12px] font-normal"
+									className="flex gap-1.5 flex-1 text-center text-[12px] font-normal"
 									style={{ color: segmentColors[idx % segmentColors.length] }}
 								>
 									{modal.name}

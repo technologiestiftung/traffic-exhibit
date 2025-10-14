@@ -1,5 +1,5 @@
 import "dotenv/config";
-import { writeFile } from "fs/promises";
+import { writeFile, readFile } from "fs/promises";
 import path from "path";
 import { fetchTelraamData } from "./telraam-service";
 import { getAirQuality } from "./air-quality-service";
@@ -7,28 +7,7 @@ import { getImage } from "./image-service";
 import { getBikeLaneOverlap } from "./bike-lane-service";
 import { getNearestNoiseLevel } from "./noise-service";
 import { getAddress } from "./address-service";
-import type { Coordinates } from "../common";
-
-interface TelraamFeature {
-	type: string;
-	geometry: {
-		type: string;
-		coordinates: number[][][];
-	};
-	properties: {
-		segment_id: number;
-		last_data_package: string;
-		timezone: string;
-		date: string;
-		period: string;
-		uptime: number;
-		heavy: number;
-		car: number;
-		bike: number;
-		pedestrian: number;
-		night: string | number;
-	};
-}
+import type { Coordinates, TrafficFeature } from "../common";
 
 interface EnrichedFeatureData {
 	segment_id: number;
@@ -39,20 +18,21 @@ interface EnrichedFeatureData {
 	nearestNoiseLevel: number | null;
 	address: string | null;
 	district: string | null;
-	originalProperties: TelraamFeature["properties"];
+	originalProperties: TrafficFeature["properties"];
 }
 
 /**
  * Extract coordinates from a MultiLineString geometry
  */
-function extractCoordinatesFromFeature(feature: TelraamFeature): Coordinates[] {
+function extractCoordinatesFromFeature(feature: TrafficFeature): Coordinates[] {
 	const coords: Coordinates[] = [];
 
 	if (feature.geometry.type === "MultiLineString") {
 		// For MultiLineString, take all coordinate pairs from all line strings
 		for (const lineString of feature.geometry.coordinates) {
 			for (const coordinate of lineString) {
-				coords.push([coordinate[0], coordinate[1]] as Coordinates);
+				const coord = coordinate as number[];
+				coords.push([coord[0], coord[1]] as Coordinates);
 			}
 		}
 	}
@@ -64,7 +44,8 @@ function extractCoordinatesFromFeature(feature: TelraamFeature): Coordinates[] {
  * Process a single Telraam feature to enrich it with additional data
  */
 async function processFeature(
-	feature: TelraamFeature,
+	feature: TrafficFeature,
+	previous?: EnrichedFeatureData,
 ): Promise<EnrichedFeatureData> {
 	const coordinates = extractCoordinatesFromFeature(feature);
 
@@ -73,30 +54,57 @@ async function processFeature(
 	);
 
 	try {
-		// Get air quality (only needs first coordinate)
-		const airQuality = getAirQuality(coordinates);
+		// Air quality: reuse previous value if present, otherwise get new
+		const airQuality: number | null =
+			previous && previous.airQuality !== null
+				? previous.airQuality
+				: getAirQuality(coordinates);
 
-		// Get image for the area
-		const imageURL = await getImage(coordinates);
+		// Image: reuse previous if available, otherwise fetch now
+		const imageURL: string | null =
+			previous && previous.imageURL !== null
+				? previous.imageURL
+				: await getImage(coordinates);
 
-		// Get bike lane overlap information
-		const bikeLaneOverlap = await getBikeLaneOverlap(coordinates);
+		// Bike lane types: reuse if previously present (non-empty)
+		let bikeLaneTypes: string[];
+		if (previous && previous.bikeLaneTypes && previous.bikeLaneTypes.length) {
+			bikeLaneTypes = previous.bikeLaneTypes;
+		} else {
+			const bikeLaneOverlap = await getBikeLaneOverlap(coordinates);
+			bikeLaneTypes = bikeLaneOverlap.overlappingLaneTypes;
+		}
 
-		// Get nearest noise level (only needs first coordinate)
-		const noiseResult = await getNearestNoiseLevel(coordinates);
+		// Noise level: reuse if previous value not null
+		const nearestNoiseLevel: number | null =
+			previous && previous.nearestNoiseLevel !== null
+				? previous.nearestNoiseLevel
+				: await getNearestNoiseLevel(coordinates);
 
-		// Get address and district from coordinates (reverse geocoding)
-		const addressData = await getAddress(coordinates);
+		// Address & district: reuse if present
+		let address: string | null = previous?.address ?? null;
+		let district: string | null = previous?.district ?? null;
+		// Fetch fresh address data if either field is missing
+		if (address === null || district === null) {
+			const addressData = await getAddress(coordinates);
+			// Only fill in missing parts
+			if (address === null) {
+				address = addressData.address;
+			}
+			if (district === null) {
+				district = addressData.district;
+			}
+		}
 
 		return {
 			segment_id: feature.properties.segment_id,
 			coordinates,
 			airQuality,
 			imageURL,
-			bikeLaneTypes: bikeLaneOverlap.overlappingLaneTypes,
-			nearestNoiseLevel: noiseResult,
-			address: addressData.address,
-			district: addressData.district,
+			bikeLaneTypes,
+			nearestNoiseLevel,
+			address,
+			district,
 			originalProperties: feature.properties,
 		};
 	} catch (error) {
@@ -145,15 +153,40 @@ export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
 
 		console.log(`Found ${telraamData.features.length} features to process`);
 
+		// Step 2.5: Try load existing enriched data for reuse (if exists)
+		const previousEnrichedPath = path.join(
+			__dirname,
+			"../../data/enriched-telraam-data.json",
+		);
+		let previousBySegment: Map<number, EnrichedFeatureData> = new Map();
+		try {
+			const rawPrev = await readFile(previousEnrichedPath, "utf-8");
+			const parsedPrev: EnrichedFeatureData[] = JSON.parse(rawPrev);
+			previousBySegment = new Map(parsedPrev.map((f) => [f.segment_id, f]));
+			console.log(
+				`Loaded ${previousBySegment.size} previously enriched segments for reuse`,
+			);
+		} catch {
+			console.log("No previous enriched data found (fresh run).");
+		}
+
 		// Step 3: Process each feature
 		const enrichedResults: EnrichedFeatureData[] = [];
+		let reusedSegments = 0;
+		let newSegments = 0;
 
 		for (const [index, feature] of telraamData.features.entries()) {
 			console.log(
 				`Processing feature ${index + 1}/${telraamData.features.length}`,
 			);
 
-			const enrichedFeature = await processFeature(feature);
+			const prev = previousBySegment.get(feature.properties.segment_id);
+			if (prev) {
+				reusedSegments += 1;
+			} else {
+				newSegments += 1;
+			}
+			const enrichedFeature = await processFeature(feature, prev);
 			enrichedResults.push(enrichedFeature);
 
 			// Add a small delay to avoid overwhelming external APIs
@@ -185,6 +218,12 @@ export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
 		).length;
 
 		console.log("\nSummary:");
+		console.log(
+			`- Reused (skipped) segments: ${reusedSegments} / ${enrichedResults.length}`,
+		);
+		console.log(
+			`- Newly fetched segments: ${newSegments} / ${enrichedResults.length}`,
+		);
 		console.log(
 			`- Features with images: ${featuresWithImages}/${enrichedResults.length}`,
 		);
