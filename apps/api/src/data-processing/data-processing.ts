@@ -84,10 +84,16 @@ async function processFeature(
 		// Address & district: reuse if present
 		let address: string | null = previous?.address ?? null;
 		let district: string | null = previous?.district ?? null;
-		if (address === null && district === null) {
+		// Fetch fresh address data if either field is missing
+		if (address === null || district === null) {
 			const addressData = await getAddress(coordinates);
-			address = addressData.address;
-			district = addressData.district;
+			// Only fill in missing parts
+			if (address === null) {
+				address = addressData.address;
+			}
+			if (district === null) {
+				district = addressData.district;
+			}
 		}
 
 		return {
