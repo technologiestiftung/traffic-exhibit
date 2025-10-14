@@ -12,6 +12,7 @@ type TrafficModalSplitProps = {
 	animationDurationMs?: number;
 	animationDelayMs?: number;
 	turnsWhileMoving?: number;
+	turnsWhileRotating?: number;
 	startOffsetPx?: number;
 	hasModalChanged?: boolean;
 };
@@ -26,6 +27,7 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 	animationDurationMs = 1200,
 	animationDelayMs = 1000, // match CSS default
 	turnsWhileMoving = 3,
+	turnsWhileRotating = 2,
 	startOffsetPx = 0, // left offset for animation
 	hasModalChanged = false, // trigger reorientation animation on change
 }) => {
@@ -110,8 +112,9 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 		["--start-left"]: `${startOffsetPx}px`,
 		["--move-duration"]: `${animationDurationMs}ms`,
 		["--move-delay"]: `${animationDelayMs}ms`,
-		["--spin-turns"]: `${turnsWhileMoving}turn`,
-		["--spin-turns-final"]: `${Math.round(turnsWhileMoving)}turn`,
+		["--spin-turns"]: `${turnsWhileRotating}turn`,
+		["--spin-turns-while-moving"]: `${turnsWhileMoving}turn`,
+		["--spin-turns-final"]: `${Math.round(turnsWhileRotating)}turn`,
 		position: "relative",
 		left: `${startOffsetPx}px`,
 	} as React.CSSProperties;
