@@ -233,11 +233,14 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 					</div>
 					{/* LEGEND */}
 					{isLegendVisible && (
-						<div className="mt-2 flex justify-between" style={{ width: size }}>
+						<div
+							className="absolute bottom-0 mt-2 flex justify-between"
+							style={{ width: size, left: `calc(100% - ${size}px)` }}
+						>
 							{modalData.map((modal, idx) => (
 								<div
 									key={`${modal.name}-${idx}`}
-									className="flex-1 text-center text-[12px] font-normal"
+									className="flex gap-1.5 flex-1 text-center text-[12px] font-normal"
 									style={{ color: segmentColors[idx % segmentColors.length] }}
 								>
 									{modal.name}
