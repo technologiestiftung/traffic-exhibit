@@ -4,7 +4,7 @@ const colors = {
   dim: "\u001b[2m",
   error: "\u001b[31m", // red
   warn: "\u001b[33m", // yellow
-  info: "\u001b[34m", // blue
+  info: "\u001b[36m", // cyan
   success: "\u001b[32m", // green
   debug: "\u001b[90m", // gray
   time: "\u001b[35m", // magenta
