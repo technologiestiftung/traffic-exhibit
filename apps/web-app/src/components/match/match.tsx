@@ -24,36 +24,34 @@ export const Match: React.FC = () => {
 	const displayStack = (stack.length ? stack : telraamMatches).filter(
 		(match) => match !== null,
 	);
-	const currentMatch = displayStack[displayStack.length - 1] ?? null;
+	const currentMatch = displayStack[0] ?? null;
 
 	const isSelected = (match: TelraamMatch) =>
 		currentMatch?.segment_id
 			? match.segment_id === currentMatch.segment_id
 			: match === currentMatch;
 
-	// Reorder so clicked → front, previous front → very back.
+	// Reorder so clicked index becomes NEW FRONT (index 0), previous front moves to very back.
 	const handleSelect = (clickedIndex: number) => {
 		if (!displayStack.length) {
 			return;
 		}
-		const last = displayStack.length - 1;
 
-		// Already front: stabilize stack if still using live websocket array.
-		if (clickedIndex === last) {
+		if (clickedIndex === 0) {
 			if (!stack.length) {
+				// Stabilize live list into a managed stack so repeated clicks don't reshuffle when feed updates
 				setStack(displayStack.slice());
 			}
 			return;
 		}
 
-		const prevFront = displayStack[last];
+		const prevFront = displayStack[0];
 		const clicked = displayStack[clickedIndex];
 		const others = displayStack.filter(
-			(_, idx) => idx !== clickedIndex && idx !== last,
+			(_, idx) => idx !== clickedIndex && idx !== 0,
 		);
-		const newStack = [prevFront, ...others, clicked];
+		const newStack = [clicked, ...others, prevFront];
 		setStack(newStack);
-
 		setHasModalChanged(true);
 	};
 
@@ -82,16 +80,18 @@ export const Match: React.FC = () => {
 						{displayStack.map((match, index) => {
 							const stackLength = displayStack.length;
 							const selectedCard = isSelected(match);
+							const reverseIndex = stackLength - 1 - index; // reverseIndex: 0 = back, max (stackLength -1) = front
+							// Scale by distance from back: reverseIndex 0 = smallest (back), reverseIndex max (stackLength - 1) = largest (front)
 							const scale = selectedCard
 								? 1
-								: scaleForStackPosition(index, stackLength, MIN_SCALE);
-							const zIndex = index + 1;
+								: scaleForStackPosition(reverseIndex, stackLength, MIN_SCALE);
+							const zIndex = stackLength - index; // index 0 => highest
 							return (
 								<MatchCard
 									key={match.segment_id ?? index}
 									match={match}
 									index={index}
-									topOffset={index * OFFSET_Y}
+									topOffset={reverseIndex * OFFSET_Y}
 									width={CARD_W}
 									height={CARD_H}
 									zIndex={zIndex}
