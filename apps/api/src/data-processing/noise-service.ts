@@ -71,10 +71,7 @@ export async function fetchNearestNoiseLevel(lat: number, lon: number) {
 	const data = await response.json();
 	const features = data.features ?? [];
 	if (!features.length) {
-		return {
-			lden: null,
-			note: "No façade point at this coordinate.",
-		};
+		return null;
 	}
 
 	// Find the closest feature among returned results

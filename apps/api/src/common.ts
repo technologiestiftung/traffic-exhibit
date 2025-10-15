@@ -70,7 +70,7 @@ export type TelraamMatch = {
 	airQuality: number;
 	imageURL: string;
 	bikeLaneTypes: string[];
-	nearestNoiseLevel: number;
+	nearestNoiseLevel: number | null;
 	address: string;
 	district: string;
 	originalProperties: TrafficFeature["properties"];
