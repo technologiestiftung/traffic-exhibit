@@ -252,7 +252,7 @@
       ]
     ],
     "airQuality": 3,
-    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8SET4dhkM4kYNA4l0j_fF-7q46OP1_X1SdJfRd1h5FEcgYaYvVaEUm7iQaRW83l7SksxLzwOq1mz64Aly4gleYExmCra2qI3vFAIJkfoSF6Ue_Q597y7D1NULLYq6oAftZbXY7ofix1IgJY0FItCM?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=9M19cJsJLNf-6ihw7R5UOA&_nc_oc=Adle8vIEA_i6Q2nkdVNYJ1--MSEuRPN8TlCQjFzesG6M_wLWaxNc7d4NR_o639xpnoYbENFBzEBu04jEoWRjcY9r&ccb=10-5&oh=00_AfeaGJp_EZ36wS-7bklvb9JWpuwgN0hfz-4iUV31-lzHIg&oe=6915F8FD&_nc_sid=201bca",
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_vn1u-ZZSqNDVHGPH_UJzfcHg0oItRakSFMuabxfpORDP9nS2mHF9yKEjALW5ur0LDN9bEQajwSnj28FrukUiUgEEDym9pIUc9O__jmY-aU4DbLxBccs0ESx0iUxFaT1mY_kA2a7xse45pE-ZIETU?stp=s2048x1536&_nc_gid=ay31_rqgKMdW9JCqo5kUQQ&_nc_oc=Adkl2XJhAxLUgGhXwjBvELOKXKLf5pXjPuL5g2_MalYTMtQIRiIsgYq0Z0Fmd4S0qyY&ccb=10-5&oh=00_Afc1LjuUWoHh0wnPNEKe82dKkItv4-W9HlJjHD_iJn7hQg&oe=69171216&_nc_sid=201bca",
     "bikeLaneTypes": [
       "Radvorrangnetz"
     ],
@@ -344,12 +344,12 @@
       ]
     ],
     "airQuality": 3,
-    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-Kevvwe9JdgnKuTOxvDyjlHQPE5azLmLJtsrkW4AnvaMcIUKFsrwITzerkTr1MgMjDnnG_IpmqG28fBKJ4yiaphAsvheBrRRDGw-tejm6XVeB6EEYTe4hUGJ6cMfb9oaMzXGHjTnHt0rK8g2zz8A?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=yQJTEUWzijKvhBK07qMKnw&_nc_oc=AdkRsRyS-yl48N3mkXMhX5SCvvmiumtBQ9bQ9cUfOX5HLw91xjrOJOOUWS13MTqFAYZrGOD8PHbqmpclxTFP-XfW&ccb=10-5&oh=00_AffAUyes3AWwd_jhfH-4m9IRKc3AJCztzMxuvcxBSOgxeQ&oe=6915C6CB&_nc_sid=201bca",
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_t-rJmdfpBXtt7hjmM3bnRWbBL4WwekEr-_KW0TmdTOoLuTUsNQonDFcr8gZhIDFABsSInrbjR4vn0MxgjefVU2fP-XuRlDZHnkkouyGpyTzyRh_p4oWGXrAAeweczPKkYVSSStqDyds2wbqR5Jg?stp=s2048x1536&_nc_gid=ZxPtDVC9N_vUTgzIx0zv1A&_nc_oc=AdnEG22DU-2Z54xNfdcGP2JCayA2wHJIJepH9p-_TfMnigZ9aI0l5Lb7sCaSvoEb0Ws&ccb=10-5&oh=00_AfdBCZr75TVuDYTa9EauFK_Q8LOmlnKVWc6R8YacVvdz4A&oe=69171639&_nc_sid=201bca",
     "bikeLaneTypes": [
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 61,
-    "address": "Simplonstraße, 10245, Berlin",
+    "address": "Gärtnerstraße, 10245, Berlin",
     "district": "Friedrichshain-Kreuzberg",
     "originalProperties": {
       "segment_id": 9000003077,
@@ -860,7 +860,7 @@
       ]
     ],
     "airQuality": 4,
-    "imageURL": null,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8d7hp25gp9hVrQVULCyWhA1F34k7iqu5Qelt7mtmhOPl85LQmkLrhe42jLKqsQUMiynr8uorZqL4HbT64jSiMkcyRQiiPqGkWyIOzwfOXc6QrY6AFms5x4wnRgsQTPpIwk7O8gJNiy3KDaBLMcyQ?stp=s2048x1536&_nc_gid=V9j0og9rgrMUYHNMDCn3cg&_nc_oc=Adli5cmJdwdg0dKbWvbu4DZoke4wk57hta5px6PDamd1XmsFCKhQpV5AX7anQrLTFn8&ccb=10-5&oh=00_AfeD1Nr-V7QjvVD4_5LhykLtxSstjP53Wt3tgmwhH7Gblw&oe=69170923&_nc_sid=201bca",
     "bikeLaneTypes": [
       "Radvorrangnetz"
     ],
@@ -994,7 +994,7 @@
       ]
     ],
     "airQuality": 4,
-    "imageURL": null,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9x-4SG7gtbp_6A827Fw1YFPULy-qG9hsvy6xvoDU70iS7Tz9CN0kt3xwjllG53ffyjpRA9X9QJ84KYixszxLLQcRGzJLQVG-KK9X_mEQ7sDxiKtSpZUwlIUu7dqDYZ4z9_2BBirgPLMrMWHJHpHQE?stp=s2048x1536&_nc_gid=0WLFriBoLkrG-ZU-EiIkkw&_nc_oc=AdlZC7kq5Aa3EZPewzwjrtXjSarJ-txo7wCufMrqzeNcdN9gdvITw9cJhNpT5qYQgIU&ccb=10-5&oh=00_AfdxZ3pt6_4wVUWwJEnZbK8qznqau_qKTBfvuj1Mf48C6A&oe=691704A5&_nc_sid=201bca",
     "bikeLaneTypes": [
       "Radvorrangnetz"
     ],
@@ -1082,7 +1082,7 @@
       ]
     ],
     "airQuality": 3,
-    "imageURL": null,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_aVBWeZ3sHRlBPTkNjvecI81kAAb6tXYXzMRg__c5Hqde2gJfCMzhLPZjH4H_1_koszR7VbaOdehHipMMINnj5o4SooBo8xzFTZFXAPLNmx9pdqeIKA2KgBcHrPDP01rxeLNxXSKOIgbUUj56FoiU?stp=s2048x1536&_nc_gid=J_0TldjfZqHqalH5PKJzFg&_nc_oc=AdmV8NK2HpIy0cRQk02ke0kyTr5Bqapu6Jk9jEhC_8kBhygcOecZzZ59JRCjQdBsX_E&ccb=10-5&oh=00_Aff6RUd_4h3zUM6rArkUaSWgDU58_vsVe03QrDAbL4qO0g&oe=6916EFD8&_nc_sid=201bca",
     "bikeLaneTypes": [
       "Ergänzungsnetz"
     ],
@@ -1233,7 +1233,7 @@
       ]
     ],
     "airQuality": 4,
-    "imageURL": null,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9JPzNNXm08cftviwwdAJybGKai2fIF4oedKsBsHrjamWBHcnqf_RUYqUONiN0Gb5VACr6JFbFysNk1hNbjPnaTXtZGVJP2r3M083jpcnNS_yQ2GrPXVeVVMuCcGv9B8UIGxpAOpZmBLTaUC7GcRA8?stp=s2048x1536&_nc_gid=6UcxwAl5Y_t6PWl85XMSkQ&_nc_oc=Adn0-GRbg50N88BMoe4mp2g0uNlBtXGKncy8ap_MXcPt4ScH0Ok3_lpylLrvS7SuZqo&ccb=10-5&oh=00_AfeZ0H9x9U2S8xS0_KQXHi8aVSYinOFol09rBX7xNy1Mag&oe=6916E065&_nc_sid=201bca",
     "bikeLaneTypes": [
       "Ergänzungsnetz"
     ],
@@ -1327,7 +1327,7 @@
       ]
     ],
     "airQuality": 3,
-    "imageURL": null,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8kzuKC1yezD0I1SOvGhanNsWd7AyXb5TYhIGNw_Hjo6YH8kGDcGR62yubBukgbIuwde9Y4uGsQZsze4Tt-rZoUu61eoPHFqagyCIJMb4RyrOkfC3bLNCxfz_mCAImMjpacgoKVyrQnqD1e8ezK6w?stp=s2048x1536&_nc_gid=ve3RbjZE-0OaShuJBkjmVw&_nc_oc=AdkC0ROXBaVQ-QP0khlqTR7B3Ci42W1j3_Aw4dqikLSQACg66M1k8xtYgPB1OOHB-RY&ccb=10-5&oh=00_Afep3wOqRmrbYqf4pdaOtgOxEZTRy9NCyZwCFg32UBiPfA&oe=6916E040&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 59,
     "address": "Grolmanstraße, 21, 10623, Berlin",
@@ -1703,7 +1703,7 @@
       ]
     ],
     "airQuality": 3,
-    "imageURL": null,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An97xrHfbloKKPRb_OMhDrMVEq9uLC1LrBI9rJ9QcCyPsWRYC2rfPNghbt3fAdWi-4fq5Rh8iUG9Q_96vyhPqeNqf87E9vYiv1YwUKXEhh2PTA2mt-yakYOqXmzSazj21FPd63utkP5Cb-mFa_hMTQ?stp=s2048x1536&_nc_gid=avz_Nz1TAKHKyS-E57foVQ&_nc_oc=AdkzkuRDqs9nek3Otdou_oAHBn2MFPb2nk2UwRMarxlujUTGGIyKYMpFef4fxTw-zF0&ccb=10-5&oh=00_AfdUvdZphjAFhOctIMk3iL2yjwr0cpr46EXiIz0NGGrgIw&oe=6916EF61&_nc_sid=201bca",
     "bikeLaneTypes": [
       "Ergänzungsnetz"
     ],
@@ -1741,7 +1741,7 @@
       ]
     ],
     "airQuality": 3,
-    "imageURL": null,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_G45s_W8G-M7VaSVpTwVqhp4L5tV3cLq1alV4f9WDxd3VQSlL-sqMmfcxAKXG8lDXpRvcyYdZDOcmNC9WOPuj_iHuhAKpOSvMhQBXqSeMPVxMQPd5wDHAU6ng54BQqI0MHQS_tsn4KFVZubNnxGw?stp=s2048x1536&_nc_gid=PatVJu0OF9iicNInriKxAw&_nc_oc=AdnxuJ9ChAbzji3GQfQIUU6XU7F_J6-3QU4FCwb95Wjmg55QZpS4hZveLQzg4VI_wSA&ccb=10-5&oh=00_Aff0QoD0286Dv2MlCZcYdsvtadZNklzhzJzWAk1K1T7cNQ&oe=6916FC0B&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 61,
     "address": "Kietzer Straße, 11, 12555, Berlin",
@@ -1777,7 +1777,7 @@
       ]
     ],
     "airQuality": 3,
-    "imageURL": null,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An98yOEFuG5y_22X2k_ajsxsu2DKfthqdVNuxIfXzO4R7mWI5W1xg_kVOTztSDB6H9cMBwilaxcjOUxk-U95RoxScEu6MFF0Fz7DYcyCqlCP3kzPtqo3keHyI-StnCd92Ys0kj83PneoYv0_6vCh294?stp=s2048x1536&_nc_gid=Dx1yei7KudBsxVHlDF0txA&_nc_oc=Adl43ej8k4_XeOOGChyl8qOFS6uh4R9IDkFFx_YDb4pVxAxoiO2kIS-j81lsJDfsRhc&ccb=10-5&oh=00_Aff5O23n4pZm1T4w80Z7zTKHJkUmvtVCPFibbhlkntKAGg&oe=6916F6E0&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 68,
     "address": "Stuckstraße, 12, 12435, Berlin",
@@ -2164,7 +2164,7 @@
       ]
     ],
     "airQuality": 4,
-    "imageURL": null,
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8jxYBjPz1Gq_JXKDvISGsqtTbot_tNOf1FBg-cbUEjcxYfxBZT9704zoTRQoK7beFwsMwOz_6_OH8En96luOO8oLIlt43ZDykPRfcIlEZUWlUO4z5lgA7uEr8a7zRl-9DgzOr7Snwu3Pr-klqfb_Q?stp=s2048x1536&_nc_gid=9RWFQWCH3fmYlNFWyvAb4A&_nc_oc=AdnFJccTuE9_tyQcJ3hqlUgU_cXyaFEoUIzOORGH16B3Toa5FDDC562yAAV6L3vpK0Y&ccb=10-5&oh=00_AfeXIUNYAIt4s7fUC_dkyCou91uMOkJ9e03Cytx8-y276g&oe=6916FE06&_nc_sid=201bca",
     "bikeLaneTypes": [
       "Ergänzungsnetz"
     ],
@@ -3779,7 +3779,7 @@
       ]
     ],
     "airQuality": 3,
-    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An81bqS-q8tNh-FMis9Fc_x0OGwshYXrQM7wuVz3eMno-6qITdwc5gTuVFYXrQQdNHli-Cvbwwel4gZbZdfwnsyV3PQ_X93OBms5wMPe9sWtI-eXxZIYG7Xum93qs4iRE071LLYy4nh8THpfJ3xm3w?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=1Dm8PqxolwoWINS6IOE5ig&_nc_oc=AdklOuGy3Ubkd4o-4ed85rxljogpZfYs-vFdLfkiotknVVJAsDkpfUIte3vaPMvF5RKZfO4v1wYTT_aMNon3ouXI&ccb=10-5&oh=00_AfeBx_a5tepLVmV4QBXWB7Ix9zPnBDCG_WAL4tcygF7S5Q&oe=6915F249&_nc_sid=201bca",
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9JN02QIl4wLWtpg0qvDI2pdrlJ1nyRcrMKA7UwueKV8PMBY5OjUAqxfpI_nyO3YfuTQOkViQrg8iEqQ6OJ7t9d0wv4vld0AHqFPX92EH9sBSNFdSXzym1jwvTEK8yG0d_RdHNPb_gsUrB4HuyaUU4?stp=s2048x1536&_nc_gid=d4lS0ITscdYP8rIwKIe-NQ&_nc_oc=AdnsUHGjN93f1jl8VsFrx4VmWHcsVs5xONv13Rmp1SOTBWZPbANFpfcUFnmTM1ATU5E&ccb=10-5&oh=00_AfcznqWVlHnkBErhoXo7DC3m4g7bJFWCxtQSIpv7RLliSA&oe=6916EBBE&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": {
       "lden": null,
