@@ -1,4 +1,5 @@
 import type { Coordinates } from "../common";
+import { logger } from "../logger";
 
 interface AddressData {
 	address: string | null;
@@ -42,7 +43,7 @@ export async function getAddress(
 		);
 
 		if (!response.ok) {
-			console.warn(
+			logger.warn(
 				`Nominatim API error: ${response.status} ${response.statusText}`,
 			);
 			return { address: null, district: null };
@@ -62,9 +63,15 @@ export async function getAddress(
 
 		// Create a formatted address string
 		const addressParts = [];
-		if (address.road) addressParts.push(address.road);
-		if (address.house_number) addressParts.push(address.house_number);
-		if (address.postcode) addressParts.push(address.postcode);
+		if (address.road) {
+			addressParts.push(address.road);
+		}
+		if (address.house_number) {
+			addressParts.push(address.house_number);
+		}
+		if (address.postcode) {
+			addressParts.push(address.postcode);
+		}
 		if (address.city || address.town || address.village) {
 			addressParts.push(address.city || address.town || address.village);
 		}
@@ -79,7 +86,7 @@ export async function getAddress(
 			district,
 		};
 	} catch (error) {
-		console.error("Error fetching address data:", error);
+		logger.error("Error fetching address data:", error);
 		return { address: null, district: null };
 	}
 }

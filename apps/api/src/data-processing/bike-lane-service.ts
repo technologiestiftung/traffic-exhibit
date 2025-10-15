@@ -1,4 +1,5 @@
 import * as turf from "@turf/turf";
+import { logger } from "../logger";
 import type {
 	Coordinates,
 	LineString,
@@ -67,7 +68,7 @@ function calculateFeatureOverlap(
 
 		return overlapLength;
 	} catch (error) {
-		console.error("Error in overlap calculation:", error);
+		logger.error("Error in overlap calculation:", error);
 		return 0;
 	}
 }
@@ -135,7 +136,7 @@ async function calculateIntersectionWithBikeLanes(
 				});
 			}
 		} catch (error) {
-			console.error(`Error processing feature ${index}:`, error);
+			logger.error(`Error processing feature ${index}:`, error);
 		}
 	}
 

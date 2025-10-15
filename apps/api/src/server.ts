@@ -1,11 +1,12 @@
 import dotenv from "dotenv";
 dotenv.config();
+import { logger } from "./logger";
 
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import { findClosestMatches } from "./data-processing/find-modal-split-match";
-import telraamDataRaw from "./../data/telraam-data-snippet.json";
+import telraamDataRaw from "./../data/telraam-data.json";
 import enrichedTelraamDataRaw from "./../data/enriched-telraam-data.json";
 import type { TrafficFeature, TelraamMatch } from "./common";
 
@@ -37,8 +38,7 @@ const io = new Server(httpServer, {
 });
 
 io.on("connection", (socket) => {
-	// eslint-disable-next-line no-console
-	console.log("Frontend connected");
+	logger.success("Frontend connected");
 
 	/* OPTIONAL
 	 * TO DO: get filled block positions from camera
@@ -67,7 +67,7 @@ io.on("connection", (socket) => {
 
 	// Handle button press from Python script
 	socket.on("button_pressed", (data) => {
-		console.log("Button pressed event received from Python");
+		logger.info("Button pressed event received from Python");
 		// Forward to all connected frontend clients
 		io.emit("start_stop_button_pressed", {
 			isStartStopPressed: data.isStartStopButtonPressed,
@@ -84,11 +84,10 @@ io.on("connection", (socket) => {
 	 * (4. optional: turn light off or to red)
 	 */
 	socket.on("go-back-to-start", async () => {
-		console.log("Motor stopped via Python script");
+		logger.info("Motor stopped via Python script");
 	});
 });
 
 httpServer.listen(3001, () => {
-	// eslint-disable-next-line no-console
-	console.log("Backend running on http://localhost:3001");
+	logger.success("Backend running on http://localhost:3001");
 });
