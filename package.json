@@ -10,6 +10,10 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run dev --workspace=api\" \"npm run dev --workspace=web-app\"",
+    "stop": "pkill -f 'vite|nodemon|ts-node.*server.ts|npm.*dev' || true",
+    "stop-service": "sudo systemctl stop traffic-exhibit.service && pkill -f 'hourly-data-processor' || true",
+    "process-data-hourly": "node scripts/hourly-data-processor.js",
+    "stop-hourly": "pkill -f 'hourly-data-processor' || true",
     "prettier": "concurrently \"npm run prettier --write --workspace=api\" \"npm run prettier --write --workspace=web-app\"",
     "prettier:ci": "concurrently \"npm run prettier:ci --workspace=api\" \"npm run prettier:ci --workspace=web-app\"",
     "build": "npm run build --workspace=web-app",

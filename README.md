@@ -138,6 +138,25 @@ The processed data is saved as `enriched-telraam-data.json` in the `apps/api/dat
 - Infrastructure details (bike lanes, addresses, districts)
 - Associated street imagery URLs
 
+### **Hourly Data Processing**
+
+For continuous data updates, you can run the hourly data processor:
+
+```bash
+npm run process-data-hourly
+```
+
+This command:
+- Automatically processes data every hour
+- Logs all activities with timestamps
+- Runs continuously until manually stopped
+
+To stop the hourly processing:
+
+```bash
+npm run stop-hourly
+```
+
 ### **Data Matching & Real-time Processing**
 
 The system also includes intelligent traffic pattern matching functionality:
@@ -187,20 +206,29 @@ To automatically start the Traffic Exhibit application when the Raspberry Pi boo
 After reboot, the system will automatically:
 
 1. **Start the service**: The `traffic-exhibit.service` runs in the background, processing Telraam data and starting the development server
-2. **Open logs terminal**: A terminal window titled "Traffic Exhibit Logs" automatically opens on the desktop showing live service logs
-3. **Launch browser**: The application opens in your default browser at http://localhost:5173
+2. **Start hourly data processing**: Automatically begins processing data every hour in the background
+3. **Open logs terminal**: A terminal window titled "Traffic Exhibit Logs" automatically opens on the desktop showing live service logs
+4. **Launch browser**: The application opens in your default browser at http://localhost:5173
 
 ### Management Commands
 
 Once setup is complete, you can manage the service manually using:
 
 - **Start**: `sudo systemctl start traffic-exhibit.service`
-- **Stop**: `sudo systemctl stop traffic-exhibit.service`
+- **Stop**: `sudo systemctl stop traffic-exhibit.service` (also stops hourly data processing)
 - **Restart**: `sudo systemctl restart traffic-exhibit.service`
 - **Status**: `sudo systemctl status traffic-exhibit.service`
 - **View logs**: `sudo journalctl -u traffic-exhibit.service -f`
 - **Enable autostart**: `sudo systemctl enable traffic-exhibit.service`
 - **Disable autostart**: `sudo systemctl disable traffic-exhibit.service`
+
+### Additional Commands
+
+You can also use these npm scripts for more granular control:
+
+- **Stop development servers**: `npm run stop`
+- **Stop hourly data processing only**: `npm run stop-hourly`
+- **Start hourly data processing**: `npm run process-data-hourly`
 
 ### Logs Terminal
 

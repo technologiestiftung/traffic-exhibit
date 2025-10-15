@@ -26,9 +26,15 @@ wait_and_open &
 # 3) Change to project root and start server
 cd "$PROJECT_DIR"
 npm run dev &
-
-# 4) Wait for dev server to start, then start button monitor (foreground - keeps service alive)
 echo "Waiting for dev server to start..."
 sleep 10
+
+# 4) Wait for dev server to start, then start hourly data processing in background
+npm run process-data-hourly &
+echo "Waiting for hourly data processing to start..."
+sleep 10
+
+# 5) Start button monitor (foreground - keeps service alive)
+echo "Starting button monitor..."
 cd "$PROJECT_DIR/apps/api"
 npm run start-button-monitor
