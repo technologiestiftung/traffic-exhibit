@@ -28,6 +28,7 @@
 			transform: rotate(var(--spin-turns-final, 2));
 		}
 	}
+
 	@keyframes translate-disc-shadow {
 		from {
 			left: var(--start-left, 0px);
