@@ -175,40 +175,44 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 										strokeWidth={2}
 										strokeLinejoin="round"
 									/>
-									{/* PERCENTAGE LABEL */}
-									<text
-										x={segment.labelX}
-										y={segment.labelY - 10}
-										textAnchor="middle"
-										alignmentBaseline="middle"
-										fontSize={18}
-										fontWeight={600}
-										fill={labelColor}
-										style={{
-											pointerEvents: "none",
-											userSelect: "none",
-											textShadow: "0 1px 4px rgba(0,0,0,0.25)",
-										}}
-									>
-										{segment.value}%
-									</text>
-									{/* NAME LABEL */}
-									<text
-										x={segment.labelX}
-										y={segment.labelY + 14}
-										textAnchor="middle"
-										alignmentBaseline="middle"
-										fontSize={13}
-										fontWeight={500}
-										fill={labelColor}
-										style={{
-											pointerEvents: "none",
-											userSelect: "none",
-											textShadow: "0 1px 4px rgba(0,0,0,0.25)",
-										}}
-									>
-										{segment.name}
-									</text>
+									{segment.value > 0 && (
+										<>
+											{/* PERCENTAGE LABEL */}
+											<text
+												x={segment.labelX}
+												y={segment.labelY - 10}
+												textAnchor="middle"
+												alignmentBaseline="middle"
+												fontSize={18}
+												fontWeight={600}
+												fill={labelColor}
+												style={{
+													pointerEvents: "none",
+													userSelect: "none",
+													textShadow: "0 1px 4px rgba(0,0,0,0.25)",
+												}}
+											>
+												{segment.value}%
+											</text>
+											{/* NAME LABEL */}
+											<text
+												x={segment.labelX}
+												y={segment.labelY + 14}
+												textAnchor="middle"
+												alignmentBaseline="middle"
+												fontSize={13}
+												fontWeight={500}
+												fill={labelColor}
+												style={{
+													pointerEvents: "none",
+													userSelect: "none",
+													textShadow: "0 1px 4px rgba(0,0,0,0.25)",
+												}}
+											>
+												{segment.name}
+											</text>
+										</>
+									)}
 								</g>
 							))}
 							{/* INNER CIRCLES */}
