@@ -80,7 +80,8 @@ export const Match: React.FC = () => {
 						{displayStack.map((match, index) => {
 							const stackLength = displayStack.length;
 							const selectedCard = isSelected(match);
-							const reverseIndex = stackLength - 1 - index; // 0 = front -> becomes size-1 for scaling (scale=1)
+							const reverseIndex = stackLength - 1 - index; // reverseIndex: 0 = back, max (stackLength -1) = front
+							// Scale by distance from back: reverseIndex 0 = smallest (back), reverseIndex max (stackLength - 1) = largest (front)
 							const scale = selectedCard
 								? 1
 								: scaleForStackPosition(reverseIndex, stackLength, MIN_SCALE);
