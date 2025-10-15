@@ -89,5 +89,5 @@ io.on("connection", (socket) => {
 });
 
 httpServer.listen(3001, () => {
-	logger.success("Backend running on http://localhost:3001");
+	logger.success("Backend running on -> http://localhost:3001");
 });

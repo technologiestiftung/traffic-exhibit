@@ -73,7 +73,7 @@ function baseLog(level: LogLevel, args: unknown[]) {
 		typeof a === "string" ? colorize(color, a) : a,
 	);
 	// eslint-disable-next-line no-console
-	console.log(`${coloredArgs}`);
+	console.log(...coloredArgs);
 }
 
 export const logger = {
