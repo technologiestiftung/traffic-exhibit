@@ -34,7 +34,7 @@ export async function getAddress(
 		return { address: null, district: null };
 	}
 
-	const [lon, lat] = coordinates[0];
+	const [lon, lat] = coordinates[1];
 
 	try {
 		const response = await fetch(

@@ -15,7 +15,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-cNPKTUI1Qqm2SeqfjdejoCbIR1Qf4q31vdkXdSKe5Id-YA8AwTbluictPHjpoGvvvTnywkQzJQIZ3DQ1u_6-xDOmYn7xlK7DtCnxWK0S22jyQe44YxfIO-JR3wmGEF0mejvM1Iwc0FIgL_M1ZSw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=I19JIG2VpIio9yz-tTbg5w&_nc_oc=AdkS30ObSa5aZgKhWHh2nGEexpend8_ie151MAium6MFaqRx7AhCxHyEPw-4myfHgrwgZgy0Rwuf2i8tOdjA6-VW&ccb=10-5&oh=00_Afd8o4NBQCD-UuxG416NkHqdCxoRmZSABfvWU2gg1FQbnw&oe=6915E8D3&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 69,
-    "address": "Dörpfeldstraße, 67, 12489, Berlin",
+    "address": "Dörpfeldstraße, 84A, 12489, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000001786,
@@ -59,7 +59,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-hFmBPWXZyQgDU1sIfX4RNTTEcOgEHaUT4UU4HXTUxtxG5OH1EH0bwhHoNHqLQRDYCnIDYo7ViZWxWmUzh_A5pTE1YeLxOBd5Hz_HWl_6UA0F0cPopFheHsvmcZDIJ_L-dEr10Bp6ogOonLx0yzA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=u-V3lF6d4-AKhQqwCxf1CA&_nc_oc=AdkZrw2guojqZNPnVMDM1F2z8x7TMFss3X1MsyFMp2NE6gLUu2jJFPYC9NtovnnwiBSo4hoHnyJgbpJnKUchKYMS&ccb=10-5&oh=00_AffhFkZuJumWfPNAe-oaEQymL5bsGfREH1V8HeqjRuxMmQ&oe=6915E655&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 66,
-    "address": "Dörpfeldstraße, 18, 12489, Berlin",
+    "address": "Dörpfeldstraße, 24, 12489, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000002074,
@@ -101,7 +101,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 46,
-    "address": "Abram-Joffe-Straße, 8, 12489, Berlin",
+    "address": "Abram-Joffe-Straße, 10, 12489, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000002109,
@@ -137,7 +137,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_cxjyp6znz_p0J7sCKJYBL01ui90pfxDpziV7cpzj2VQjMIZarIboyhI09tgtFpQKA_uISNL5cc9tN92HHlWKaQdjOGtorUGF02_Igof3Zy47-hEnFays9Lw4LNLaAEZJs8G5_7cBBIRe5C_5U-g?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=Q10yQ9_mwly2Sd-o_kTPDA&_nc_oc=AdmKlM4YmoEEhFCK7wyYh9hniGidPXWWMM_THqx5Zblg-yMeLaX4bDOOWlEgHwGL3VsaIYfbZ0jt9n58D_HVVLKI&ccb=10-5&oh=00_Affod4vlV319FXCmYdeoz_W5ixVeo__choj6xtuAVc13zA&oe=6915DE3F&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 63,
-    "address": "Alte Jakobstraße, 89, 10179, Berlin",
+    "address": "Alte Jakobstraße, 85-86, 10179, Berlin",
     "district": "Mitte",
     "originalProperties": {
       "segment_id": 9000002582,
@@ -203,7 +203,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 73,
-    "address": "Hertzbergstraße, 12059, Berlin",
+    "address": "Hertzbergstraße, 12055, Berlin",
     "district": "Neukölln",
     "originalProperties": {
       "segment_id": 9000002889,
@@ -257,7 +257,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 55,
-    "address": "Niederbarnimstraße, 22, 10247, Berlin",
+    "address": "Niederbarnimstraße, 23, 10247, Berlin",
     "district": "Friedrichshain-Kreuzberg",
     "originalProperties": {
       "segment_id": 9000003000,
@@ -299,7 +299,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 55,
-    "address": "Niederbarnimstraße, 22, 10247, Berlin",
+    "address": "Niederbarnimstraße, 14, 10247, Berlin",
     "district": "Friedrichshain-Kreuzberg",
     "originalProperties": {
       "segment_id": 9000003045,
@@ -349,7 +349,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 61,
-    "address": "Gärtnerstraße, 10245, Berlin",
+    "address": "Gärtnerstraße, 4, 10245, Berlin",
     "district": "Friedrichshain-Kreuzberg",
     "originalProperties": {
       "segment_id": 9000003077,
@@ -393,7 +393,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-DZ50U-Aqv51jsFZw-2RGSkUE4BNkubID5mKxjIehlvAnQjq668Cka7uqGagklvA2-dLGhV4yeExjClA9hujvGzVKr2035RVb9cdUc-by1zzSo7FPR270de0V4_xeKln67XCkdap-ZTWzLFwGshg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=4dv7DlelYrP0i6sAtbh9lw&_nc_oc=AdlxBSuKE-wyn3mnuoI_drRQ7EY3W7AHx_HTq2dpC9CJe6Z9-mZjZKoxHx4QIs5Dx54Rxjp8MH-6G7vMsM36Yuij&ccb=10-5&oh=00_AfdDYGnZb31RFDMjJIGeNIvbk-js_hxYwMggJkpvIfpOtg&oe=6915D6AA&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 56,
-    "address": "Rhenser Weg, 2, 10318, Berlin",
+    "address": "Waldowallee, 86, 10318, Berlin",
     "district": "Lichtenberg",
     "originalProperties": {
       "segment_id": 9000003172,
@@ -543,7 +543,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 68,
-    "address": "Treskowallee, 92, 10318, Berlin",
+    "address": "Treskowallee, 98, 10318, Berlin",
     "district": "Lichtenberg",
     "originalProperties": {
       "segment_id": 9000003479,
@@ -597,7 +597,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 59,
-    "address": "Grenzstraße, 21, 13355, Berlin",
+    "address": "Grenzstraße, 15, 13355, Berlin",
     "district": "Mitte",
     "originalProperties": {
       "segment_id": 9000003520,
@@ -641,7 +641,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-KI9_jGKlNUq-jrDZ1_kp340wA0BbwgPycuJd8gVdGQEM_5C3oaBXBsKlY1bHeVXzueqHnlNSTM4B0TiFU81BODjtD8osrUjcDbIiojzM0WpQX65GaE8jS-GpU8TuYi1a7XC73R5wJ3xstQutjIA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=XzCgCEzXzkCZYUA-XPAxtA&_nc_oc=AdngaFrcqhQvJVGNfYfcSaZkjUjFVzeKn5Fr1DH-ICrlEAPoVnwYJSELwTrTWQENPjUmln-oxycJLsmunTog1UzZ&ccb=10-5&oh=00_AfdPJa6bEUvw-3JhpVKfiVkHLzj07zEFKayF5vEC6uNedA&oe=6915FA61&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 61,
-    "address": "Württembergische Straße, 20, 10707, Berlin",
+    "address": "Württembergische Straße, 23;24, 10707, Berlin",
     "district": "Charlottenburg-Wilmersdorf",
     "originalProperties": {
       "segment_id": 9000003561,
@@ -713,7 +713,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-rtyBT16X1CMChtKpwOJybZSkwnNoHjzXswHOIzEl9MVQhy4Oc8DeAdVqQ78qVD7-8GV4beOnYt9B1wBdsvY3gPx4H2ZbOh-p-8gW0uaGf3mzOvWUi5u9Rpp_A6S6rnXSOb6_WUFsLofFkCcSefg?stp=s2048x1536&_nc_gid=SjcaSBVh_m4iLXPr23g8RA&_nc_oc=AdlONkJZJ4ZT5XjAaY3SjVPw6vIjR9P4EcR-Ab20oz3f-kvvbpAUcCTeqL-M0XMyu7E8_-4mySL3Iho97cNFMHPS&ccb=10-5&oh=00_Afedz6s3Om6HCC7rh-64XI-v_lIdgLDcMQNByAHU7NpILQ&oe=6915F4E9&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 53,
-    "address": "Rathausstraße, 7, 10367, Berlin",
+    "address": "Rathausstraße, 11A, 10367, Berlin",
     "district": "Lichtenberg",
     "originalProperties": {
       "segment_id": 9000003738,
@@ -771,7 +771,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 71,
-    "address": "Lückstraße, 73, 10317, Berlin",
+    "address": "Lückstraße, 72,73, 10317, Berlin",
     "district": "Lichtenberg",
     "originalProperties": {
       "segment_id": 9000003747,
@@ -815,7 +815,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_7rWhzPzRdBRTwzdWtQTlvu5VivPUV68h_wQyb-nXgBYpow03CAZpn5nPh6puwhK1m2uKv_xuR6tM_QpP37bsVT1CAz1w3wS28tniVTpgzv-6gJ17RQ3HZazpGwa4FD0oGc3um78dNcjSrImslLw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=tsnJl6TSghyqLTFUlvYePw&_nc_oc=Adm0PWzo9WltWOXFoZdXj72K5-5FE4hwlpgcwdMxD4XXmpZ1np_VGH9Ovtye9HQBju-oGJCNauAdfyHFMmt2gxIk&ccb=10-5&oh=00_AffkSwNFUrT3uhZvIbopfyGYwLLXDd5Y860KIuqBx1fWsw&oe=6915CB77&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 51,
-    "address": "Waldenserstraße, 7, 10551, Berlin",
+    "address": "Waldenserstraße, 31, 10551, Berlin",
     "district": "Mitte",
     "originalProperties": {
       "segment_id": 9000003760,
@@ -865,7 +865,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 63,
-    "address": "Koppenstraße, 45, 10243, Berlin",
+    "address": "Friedenstraße, 54, 10249, Berlin",
     "district": "Friedrichshain-Kreuzberg",
     "originalProperties": {
       "segment_id": 9000003769,
@@ -921,7 +921,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An821M3JOcfa4G6kYH-T39b9ImoosayAB-JCTs1zC9z_J0sSeOu9veHyVtwaLefNMCKej8H4iC4BtOBVH1Tlb3Ep2kk3lnrWLD1d4CFLdSLg6Y191jRGMwROQQMdpaAIdMcQfPzjmmSKv-ZYFi2dmg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=9WxKruJ-z44j5FmUFuvfqw&_nc_oc=AdnirZmtIBQNz9eQRQf5YA6os84hgfObEdES47b6jJnUcVn-Up5XSANcgg6MH3OFL2l0gdIcJ12etT1d_HqM9M-S&ccb=10-5&oh=00_Afe28cOuvIhJw94hd5474iBiaALm-h1A1f4KzNUzIy3bzw&oe=6915CB40&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 67,
-    "address": "Schivelbeiner Straße, 10439, Berlin",
+    "address": "Seelower Straße, 10439, Berlin",
     "district": "Pankow",
     "originalProperties": {
       "segment_id": 9000003786,
@@ -957,7 +957,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9ZjnhSppoaQ5t0qbOksyNlwXAhBtqRWBKO67PRquTTINI4w5GAWLguDFoma39Qa3pj8n6dSu9zhwXQX8T6CBc8MZNuu8pk-MdItJ3SK4PG3KSutUU01DhF2tnsTKbGQlqyRhE5p8PvV3kNQ2ircw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=mWTWa0PzaXqzYV0mMyXMtw&_nc_oc=AdkcxUS9hSeBj16OMqwSgXsi-PzGCwB4IzqN32bSCQ12CKRakC1_xlnuX__MaATwNTdz3dw7tv8QYs_rDrt7BPmN&ccb=10-5&oh=00_Affqse8FCASXAl9VrMD42Z4f03OFjkAtKwcHVN4KQGzAWg&oe=6915C422&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 69,
-    "address": "Dörpfeldstraße, 60, 12489, Berlin",
+    "address": "Dörpfeldstraße, 50, 12489, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000003790,
@@ -999,7 +999,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 66,
-    "address": "Crellestraße, 33, 10827, Berlin",
+    "address": "Langenscheidtstraße, 8, 10827, Berlin",
     "district": "Tempelhof-Schöneberg",
     "originalProperties": {
       "segment_id": 9000003997,
@@ -1041,7 +1041,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 64,
-    "address": "Garibaldistraße, 13158, Berlin",
+    "address": "Hauptstraße, 12, 13158, Berlin",
     "district": "Pankow",
     "originalProperties": {
       "segment_id": 9000004010,
@@ -1125,7 +1125,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 44,
-    "address": "Gertrudstraße, 18, 13467, Berlin",
+    "address": "Schildower Straße, 13467, Berlin",
     "district": "Reinickendorf",
     "originalProperties": {
       "segment_id": 9000004024,
@@ -1278,7 +1278,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-ReWx_EwrBF9jT67iGVVtFGu1vik6-WlDBoq64o8fdQ0Y1RUPT3lgtEGEkBUvkpna0kuzmPlxI51t1TqVub7Avj1qZHST9XKGVo2zcht7E4mZ8V4xyXQmolcTFlDDhxkijAvZqkSXfKR5NgSTImA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=5qMmEtqYVb11AGxqV5djNQ&_nc_oc=AdmmOj7adPxDlmpgYK3rupp29223HxV5VKs1KL1XdCwc7KmH5f_XjePfCDx5qv_kSZZbEYvF1_U5r5UV6DQTu57E&ccb=10-5&oh=00_AffIWxFK6CDBWa5gicy3IupzNm2MiOUnb5302o33zmB4eg&oe=6915DCA3&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 65,
-    "address": "Schönhauser Straße, 2, 13158, Berlin",
+    "address": "Schönhauser Straße, 4, 13158, Berlin",
     "district": "Pankow",
     "originalProperties": {
       "segment_id": 9000004039,
@@ -1380,7 +1380,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 47,
-    "address": "Weserstraße, 210, 12047, Berlin",
+    "address": "Friedelstraße, 8, 12047, Berlin",
     "district": "Neukölln",
     "originalProperties": {
       "segment_id": 9000004118,
@@ -1466,7 +1466,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 67,
-    "address": "Bautzener Straße, 19, 10829, Berlin",
+    "address": "Bautzener Straße, 14, 10829, Berlin",
     "district": "Tempelhof-Schöneberg",
     "originalProperties": {
       "segment_id": 9000004187,
@@ -1504,7 +1504,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 48,
-    "address": "Galenusstraße, 13187, Berlin",
+    "address": "Galenusstraße, 7, 13187, Berlin",
     "district": "Pankow",
     "originalProperties": {
       "segment_id": 9000004233,
@@ -1554,7 +1554,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 46,
-    "address": "Rheinsteinstraße, 94, 10318, Berlin",
+    "address": "Rheinsteinstraße, 76, 10318, Berlin",
     "district": "Lichtenberg",
     "originalProperties": {
       "segment_id": 9000004284,
@@ -1634,7 +1634,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8VAf4lfFK68LsFPqmhT_KN0xWla0cv0hBuqafpln-DpglBq126AGiVNgQyY0yJpJi_yB8E-sfq2QyEHi0X8KvG_u1-QFxKxJ3XDHZcn4MAGyggCtOEATIuD2ZIGvFS8wecHh7Qrb1s3ZFdAfOSE5w?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=AxXgp5LPuruY_Mmj_Uztag&_nc_oc=Adl3BZaq8ukN4jwfDm5yhX4hqN4rOzGoDWULO94_FiREh6VfyaBwRejaBKnI6rz3GDbUtwIkD709w9PPfdBqi6g5&ccb=10-5&oh=00_AfeHGhs6UjkV3BlmKoFxOqQwBM0KR5qMaGZaBAz3uDvzBA&oe=6915D6E8&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 54,
-    "address": "Spenerstraße, 25A, 10557, Berlin",
+    "address": "Spenerstraße, 29, 10557, Berlin",
     "district": "Mitte",
     "originalProperties": {
       "segment_id": 9000004471,
@@ -1708,7 +1708,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 73,
-    "address": "Fürstenwalder Damm, 484, 12587, Berlin",
+    "address": "Bölschestraße, 70, 12587, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000004519,
@@ -1744,7 +1744,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_G45s_W8G-M7VaSVpTwVqhp4L5tV3cLq1alV4f9WDxd3VQSlL-sqMmfcxAKXG8lDXpRvcyYdZDOcmNC9WOPuj_iHuhAKpOSvMhQBXqSeMPVxMQPd5wDHAU6ng54BQqI0MHQS_tsn4KFVZubNnxGw?stp=s2048x1536&_nc_gid=PatVJu0OF9iicNInriKxAw&_nc_oc=AdnxuJ9ChAbzji3GQfQIUU6XU7F_J6-3QU4FCwb95Wjmg55QZpS4hZveLQzg4VI_wSA&ccb=10-5&oh=00_Aff0QoD0286Dv2MlCZcYdsvtadZNklzhzJzWAk1K1T7cNQ&oe=6916FC0B&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 61,
-    "address": "Kietzer Straße, 11, 12555, Berlin",
+    "address": "Grünstraße, 13, 12555, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000004542,
@@ -1780,7 +1780,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An98yOEFuG5y_22X2k_ajsxsu2DKfthqdVNuxIfXzO4R7mWI5W1xg_kVOTztSDB6H9cMBwilaxcjOUxk-U95RoxScEu6MFF0Fz7DYcyCqlCP3kzPtqo3keHyI-StnCd92Ys0kj83PneoYv0_6vCh294?stp=s2048x1536&_nc_gid=Dx1yei7KudBsxVHlDF0txA&_nc_oc=Adl43ej8k4_XeOOGChyl8qOFS6uh4R9IDkFFx_YDb4pVxAxoiO2kIS-j81lsJDfsRhc&ccb=10-5&oh=00_Aff5O23n4pZm1T4w80Z7zTKHJkUmvtVCPFibbhlkntKAGg&oe=6916F6E0&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 68,
-    "address": "Stuckstraße, 12, 12435, Berlin",
+    "address": "Puderstraße, 4, 12435, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000004544,
@@ -1826,7 +1826,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 46,
-    "address": "Gartenstraße, 10115, Berlin",
+    "address": "Gartenstraße, 102, 10115, Berlin",
     "district": "Mitte",
     "originalProperties": {
       "segment_id": 9000004546,
@@ -1976,7 +1976,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 73,
-    "address": "Kiefholzstraße, 258, 12437, Berlin",
+    "address": "Baumschulenstraße, 21, 12437, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000004597,
@@ -2022,7 +2022,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 46,
-    "address": "Bendastraße, 11, 12051, Berlin",
+    "address": "Bendastraße, 14, 12051, Berlin",
     "district": "Neukölln",
     "originalProperties": {
       "segment_id": 9000004602,
@@ -2088,7 +2088,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 50,
-    "address": "Karl-Kunger-Straße, 20, 12435, Berlin",
+    "address": "Bouchéstraße, 20, 12435, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000004676,
@@ -2131,7 +2131,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 48,
-    "address": "Emser Straße, 122, 12051, Berlin",
+    "address": "Ilsestraße, 2, 12051, Berlin",
     "district": "Neukölln",
     "originalProperties": {
       "segment_id": 9000004685,
@@ -2169,7 +2169,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 64,
-    "address": "Schnellerstraße, 22, 12439, Berlin",
+    "address": "Schnellerstraße, 25, 12439, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000004706,
@@ -2205,7 +2205,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8ablRwLqJMi6cMo5fbkmNNmJMa0zGD_6WSzN3yEqv8ob9WPdWmMYR7u4TqbvYhfDw_qdqiBjou1Ro0YIj-8-rI7zJ7F0o0otoDK9UoQbfIHVTG_59kRupdd9eKVK8qRPEIZRCyQGPNOdVf7wiWwQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=RIu4Wx-XgOQOdiooHR4rCA&_nc_oc=Adk-qn-1aj-9q5EqEofFmt29esO-9AufGjdzu2jDRL8BTzENGcSLsha2mWWai2-BXsZ1XwkgpSon6IkOf12gum5n&ccb=10-5&oh=00_Afed3rel1J1l-m2W1yU_NbF0TUR5LF6NlLp334ZMq6lljA&oe=6915CED5&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 39,
-    "address": "Harzer Straße, 11, 12059, Berlin",
+    "address": "Harzer Straße, 8, 12059, Berlin",
     "district": "Neukölln",
     "originalProperties": {
       "segment_id": 9000004712,
@@ -2252,7 +2252,7 @@
       "lden": null,
       "note": "No façade point at this coordinate."
     },
-    "address": "Rudower Chaussee, 12489, Berlin",
+    "address": "Rudower Chaussee, 9, 12489, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000004758,
@@ -2298,7 +2298,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 67,
-    "address": "Weigandufer, 12059, Berlin",
+    "address": "Treptower Straße, 82, 12059, Berlin",
     "district": "Neukölln",
     "originalProperties": {
       "segment_id": 9000004869,
@@ -2336,7 +2336,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 48,
-    "address": "Handjerystraße, 18, 12159, Berlin",
+    "address": "Handjerystraße, 12159, Berlin",
     "district": "Tempelhof-Schöneberg",
     "originalProperties": {
       "segment_id": 9000004912,
@@ -2374,7 +2374,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 52,
-    "address": "Handjerystraße, 88, 12159, Berlin",
+    "address": "Handjerystraße, 18, 12159, Berlin",
     "district": "Tempelhof-Schöneberg",
     "originalProperties": {
       "segment_id": 9000004915,
@@ -2434,7 +2434,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-FTKr7FWkOUiA84lLDHqfNmRSFmZ4rXJJrBejaHwJ7b99J0jYso32mqqTjQKDqGzCuQRsbWYivifStZJWbXrOHbcpbE2CzEnmWdZyaNq_Kz-B989uYcJqPbVaIEFFtEkKyIhQX-JLUxgAG4A9fak0?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=or1DWlE6QtCvpdh0e3PrNw&_nc_oc=AdlIZb8Rh5U7KV20mXroZhr2XKP86-mVqyMKF9o5GM1FeAVm6PF2WolKzShBp3G8wNsNhmkzlEy5lqMqGzJXoZWY&ccb=10-5&oh=00_AfdtuZ6II_iKVxAIeXXLgZ-baOcKGZ3ephVpTayhKjqDmA&oe=6915C3F8&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 66,
-    "address": "Oderberger Straße, 8, 10435, Berlin",
+    "address": "Kastanienallee, 91, 10435, Berlin",
     "district": "Pankow",
     "originalProperties": {
       "segment_id": 9000004995,
@@ -2594,7 +2594,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 42,
-    "address": "Hönower Straße, 32a, 10318, Berlin",
+    "address": "Hentigstraße, 26, 10318, Berlin",
     "district": "Lichtenberg",
     "originalProperties": {
       "segment_id": 9000005252,
@@ -2642,7 +2642,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8EwdJQLxEBO8Wjvvc033LOi6L0M_s2BcNMXmrArPZgY-4jyApN1OdmeE7sEjpFb2fxoYzBq_k_Q9O9IZKEbs_PE6f6o8vi_PKB_TZWDOgw7QGZR4O5F3B7X37XxfVJAN81Vq6FNebwkiZF-horzEc?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=jKgWWA__sCe5tKJ9rX70IA&_nc_oc=AdnbJ7AzkU3Mz2uevjHUAUJ5rk5JysymcZu0-FVT01uetRWsHQekMe-jPDFChqhMbho7AmuD8n75jEwZY72_hiK6&ccb=10-5&oh=00_Afe600xartCkoj9AOs4sBS_K79oZ9EtRIM85byBmYpcaKw&oe=6915E0A7&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 73,
-    "address": "Britzer Damm, 5, 12347, Berlin",
+    "address": "Britzer Damm, 3, 12347, Berlin",
     "district": "Neukölln",
     "originalProperties": {
       "segment_id": 9000005444,
@@ -2746,7 +2746,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-cTJMEVK0WFWqD5DKKrDlBPPtQmsfovufEDBHd8o_KxjW1SOB6zW5YE29sPBjC9QSBwhb3bODHmlNDotIZLkUpMRNJRAJte5hERTF0hKeoTXoYJ2sVKvDoJRe9ChB4oc1X7WU-QjGRW9pgdz8deQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=QGhz8Q_0Me8uIDYbXnTXnA&_nc_oc=AdmpjUdXbqYYh2b8Vuuf3W18088Fcmu9LzmpNlg8mr2Fw5y1WqmlugnC6gst6lhaqYpT28LWuf6iirxlbwzWaa8d&ccb=10-5&oh=00_AffDn_2SUe2NpBS_Z_rBtBL3-wuk-a1eBDLooEGyACa3ww&oe=6915CD11&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 51,
-    "address": "Albert-Schweitzer-Straße, 50, 12587, Berlin",
+    "address": "Peter-Hille-Straße, 18, 12587, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000005678,
@@ -2824,7 +2824,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 57,
-    "address": "Donaustraße, 131, 12043, Berlin",
+    "address": "Donaustraße, 3a, 12043, Berlin",
     "district": "Neukölln",
     "originalProperties": {
       "segment_id": 9000005832,
@@ -2924,7 +2924,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_RM5ok3eQ9x3NF8vNo2ivrcBYlxI-SNKU49XMYFJabAKmka55I_p-hvhIq3c6Odoe3579werz3akOoz5E69SbdlMzLJg3lxLSi3Fc43hky9n_z8xIIhDk-adVnpQF_6zXeQGrkn8K9r-h4rosI4Q?stp=s2048x1536&_nc_gid=7c1YUqA84Mb9AX1lfyY6xA&_nc_oc=AdlC9H8KvdN96DIU2JU15OmtFD6CX2hrujS3_s7xWc2laEXHDThm_IpCfYg2EioMAeYPm-3LHq_0YIZ0bNtDmAYB&ccb=10-5&oh=00_AfdEzD-lh52hKydcbUYLNXNG-yVmETPquJU9frqFlF_blg&oe=6915E8AC&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 71,
-    "address": "Glasower Straße, 36, 12051, Berlin",
+    "address": "Glasower Straße, 37, 12051, Berlin",
     "district": "Neukölln",
     "originalProperties": {
       "segment_id": 9000005887,
@@ -2968,7 +2968,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An88o1qjJBUY15sV2lNLQeHkZiwChFM_vfGBqvHSQIS_YvyHp_rSmBeqVsHgrXCtYoWRhmmbaOv-TceHKTgKEeJEZfAMZlytHFbRPXFd-o2ZnyhYtqK10U7iMW9B-1JE1zwK_bd8ZA7p0NA3dNtuzkw?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=Uchi73a9E-urnT4NaPD4UQ&_nc_oc=AdnGePbnr0Zm74WQQPvZugfVXUYHjhXL3AJkF5ggPcLhzd1o-XczcUGgl2ABDilrW11Cb7kZwfYagFya0Tr3MURH&ccb=10-5&oh=00_AfeYuE4pj9MACyA97Z8Gl2PNZsg0b6Hwfv9t4iwx_ABjLg&oe=6915E270&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 39,
-    "address": "Fuldastraße, 25, 12045, Berlin",
+    "address": "Fuldastraße, 23, 12045, Berlin",
     "district": "Neukölln",
     "originalProperties": {
       "segment_id": 9000005977,
@@ -3006,8 +3006,8 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 47,
-    "address": "Regensburger Straße, 27, 10777, Berlin",
-    "district": "Charlottenburg-Wilmersdorf",
+    "address": "Regensburger Straße, 7, 10777, Berlin",
+    "district": "Tempelhof-Schöneberg",
     "originalProperties": {
       "segment_id": 9000006027,
       "last_data_package": "2025-10-14 15:36:00.529700+00:00",
@@ -3042,7 +3042,7 @@
     "imageURL": null,
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 52,
-    "address": "Hackenbergstraße, 12489, Berlin",
+    "address": "Hackenbergstraße, 2, 12489, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000006300,
@@ -3080,7 +3080,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 47,
-    "address": "Nesselweg, 5, 13158, Berlin",
+    "address": "Nesselweg, 19, 13158, Berlin",
     "district": "Pankow",
     "originalProperties": {
       "segment_id": 9000006412,
@@ -3126,7 +3126,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 69,
-    "address": "Köpenicker Straße, 44, 10179, Berlin",
+    "address": "Köpenicker Straße, 126, 10179, Berlin",
     "district": "Mitte",
     "originalProperties": {
       "segment_id": 9000006435,
@@ -3165,8 +3165,8 @@
       "Fahrradstrasse"
     ],
     "nearestNoiseLevel": 58,
-    "address": "Choriner Straße, 10119, Berlin",
-    "district": "Mitte",
+    "address": "Fehrbelliner Straße, 15, 10119, Berlin",
+    "district": "Pankow",
     "originalProperties": {
       "segment_id": 9000006445,
       "last_data_package": "2025-10-14 15:36:12.843300+00:00",
@@ -3201,7 +3201,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-WNIz10S_dJswYQ_Qx9a9_wPBjKopBe6boNCmCBvOgLoEgMn3g1IdIHS3W0FaMLH-9InQKxi0hyYS5tVtCwwAMNzCFLeFuXvCWePDRa7XuRKUGY3WKXaqEd3TzgzunJqeWl_uZVCzFWBtlgbQVC7Q?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=AJ8tC7d78CMw7QvLc772CQ&_nc_oc=AdmHyaANv4Tm54oiPNckRl0j_6vbr4H17NEQqTHwPqIaF91bWEvc-UmtLGFVVVEZzzS388vuCVQbZTeVliKAyjGc&ccb=10-5&oh=00_AfdvIojjf7_dJ0KxCerwNX_dG-9eRljZzpu-cNjb7kznhg&oe=6915DF97&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 47,
-    "address": "Christinenstraße, 35, 10119, Berlin",
+    "address": "Christinenstraße, 31, 10119, Berlin",
     "district": "Pankow",
     "originalProperties": {
       "segment_id": 9000006539,
@@ -3239,7 +3239,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 49,
-    "address": "Dresdener Straße, 108, 10179, Berlin",
+    "address": "Dresdener Straße, 39, 10179, Berlin",
     "district": "Mitte",
     "originalProperties": {
       "segment_id": 9000006667,
@@ -3315,7 +3315,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 53,
-    "address": "Türrschmidtstraße, 17, 10317, Berlin",
+    "address": "Türrschmidtstraße, 23, 10317, Berlin",
     "district": "Lichtenberg",
     "originalProperties": {
       "segment_id": 9000006732,
@@ -3360,10 +3360,10 @@
       ]
     ],
     "airQuality": 3,
-    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An95PZerWnug1K31IpyLhC8qPX7hMKBX71_jSCCFowuh8XprmV5P6Ov91Ghlwz1Z1gUf22f5OtHYO6B6My6yTJgSgf4Mf_iUxmWSVk2tV9wTwS9dFCjtSGsPvN7PGOttGmb_elEmTL_9YNbgc0yKoQ?stp=s1024x576&edm=AOnQwmMEAAAA&_nc_gid=rb-pxw_jrJDS95Vqq04SAA&_nc_oc=Admr21UlfrGrqPPQzKQTN_0c8CwIDC6Ql0j-sMTFFJdyipTIiMKXvu-_d5A8z_a5NXMvdzvEKyYCcRF3WUWwqCeu&ccb=10-5&oh=00_Aff_QxMML-mNbNxMVWXKi45xllvDhc8edLQDFLivhMedNQ&oe=6915EA16&_nc_sid=201bca",
+    "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9jCLouWf2pkfdFXUWOtvCnCfqWz3aoSLmNkkupmqHnlgfFNF4nTA7edhkO7f6tAtzDcEaOQfEGB0NzlDDy2oEiJo1UWYxm5mLbs1_EZ6z-5SFGg1z7AZrYDTNaJqhFVj01djOhvh4Od83XDj-8hw?stp=s2048x1536&_nc_gid=_ecOjKBGxoeOVYSLKSQyug&_nc_oc=AdlVdBITIt4kx0UX_4kgQV_rcq_V_3M8_tLsSKpSuKtB--iNRwYYAsLOA7DjEorQ0xI&ccb=10-5&oh=00_Aff48X7ndaIp8AevpJ_byGVp_Bgrp_dAaUH4FeuGTMp3uA&oe=6916FAD7&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 70,
-    "address": "Nöldnerstraße, 8, 10317, Berlin",
+    "address": "Nöldnerstraße, 10317, Berlin",
     "district": "Lichtenberg",
     "originalProperties": {
       "segment_id": 9000006738,
@@ -3414,7 +3414,7 @@
       "Fahrradstrasse"
     ],
     "nearestNoiseLevel": 50,
-    "address": "Voigtstraße, 38, 10247, Berlin",
+    "address": "Rigaer Straße, 42a, 10247, Berlin",
     "district": "Friedrichshain-Kreuzberg",
     "originalProperties": {
       "segment_id": 9000006798,
@@ -3454,7 +3454,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9e0JjLT9h2W669qZNdW0qHH1iOexux9S9vricrPP_OcSYm6ot4hI4Qml3h_mDhe-RZRZTpFC3WKyui-pRBx7N7sR0Tkd_-G2l11_FzdQ_EyfsDLqIjLIr4e5scBvwb-SnTaVgOt-SOQQuPJdIsIAU?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=F14ujZL_-H4cbplNwuPnSA&_nc_oc=AdnQ4vKle7yLUeNqnjhMPpj_Y1UY1vSCojNv969tGma52BjPy8XLSYgvVLKPnI7HUI8PxN41kiDzFxI6N14ai3sF&ccb=10-5&oh=00_AfcYKLaSNVNlUl_hFKqyDmcwkHXepZMcRc-T92ywr1whlQ&oe=6915CB96&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 51,
-    "address": "Fritschestraße, 21, 10585, Berlin",
+    "address": "Fritschestraße, 69, 10585, Berlin",
     "district": "Charlottenburg-Wilmersdorf",
     "originalProperties": {
       "segment_id": 9000006829,
@@ -3542,7 +3542,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9_tRgztUMGn-HpA8hN1wjNKIfAcG7wkOllM8mlPrdRvXN2Ds4Qv_2SBTXczwyQJQ1itKWN_W28yF92A1PX301BX0mf1BiXAA_Nz5jWOmt4OEqhDyIDZuSXCogIU1UHPP2a9TV93RSULzYsGb1uwMI?stp=s2048x1152&_nc_gid=fuOagaSfnftydJAu7pCgdw&_nc_oc=AdmVwvlo1QIi4Pf1G8hTWIKpOXmbtaDVmUzbCBNmgLJV4eh80wOaSek5dorP2ygUOK57NTgjh6VDd1A6R4caG9FM&ccb=10-5&oh=00_AfcrKqFB0WW6FVUs7nnVPFcCKV5gu_BXAVuPZv6gcDbBng&oe=6915D7E0&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 64,
-    "address": "Königsheideweg, 58, 12437, Berlin",
+    "address": "Königsheideweg, 64, 12437, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000007116,
@@ -3590,7 +3590,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_RIpxPr4Vk0CookQgALSAwNFdVf96r0-ytv-Kynu9Gic75hN0CShCUPc03sxrehasLhBettu6ZxV0FG9lrShcgDMHsYysS8au7rWrBV_SpQ7EPqX7JWGCIsng5JVKPX1zZjV38pp0OjR3g57dAUg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=DVJ8t7YHhxEgaaVruCeSig&_nc_oc=AdnOqnED9AMzSlbX19aDu7pWfO94KTtZRdrywsyguzCQOSkrovGgxuV67StTdtSas8aKEa07dAcaybbGvJ2dk9qT&ccb=10-5&oh=00_AfdGAQvu56bF9m8M8Xy6X37yg39S29ytPhwCdCJrFqhiZA&oe=6915E8FF&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 54,
-    "address": "Sebastianstraße, 16, 10179, Berlin",
+    "address": "Sebastianstraße, 10179, Berlin",
     "district": "Mitte",
     "originalProperties": {
       "segment_id": 9000007365,
@@ -3680,7 +3680,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An96PjJaLHnEnunmG9gGTgiJN8HUlLLv6BzQtNvGEPYQOGOPGaJfuBfjV2EQNUpXCb6Eb2S6_9VM_O0hK_K8fMROve0_p-JMM6ELoY2oCfADyBeHl6_LIS00prhGBYsa0t8rId3WCihNFGbzVvjKSbU?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=TbEiP2TpPOxVQAtvO0mCZg&_nc_oc=AdnBzoiMH6mmOXrAmlSzgiTx6ZdfLJoV_0k3FhZaQzs-596T3ffngUqAH8_Od_aslt4UuJtJ6Md1M8ZfTEHA2FFt&ccb=10-5&oh=00_Afccln0EP2sLprAhJuq-62HPLyw9wmThvZgBP2cLBihQkA&oe=6915CF8D&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 73,
-    "address": "Weerthstraße, 2, 12489, Berlin",
+    "address": "Adlergestell, 263, 12489, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000007740,
@@ -3718,7 +3718,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 65,
-    "address": "Radickestraße, 76, 12489, Berlin",
+    "address": "Radickestraße, 70, 12489, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000007742,
@@ -3785,7 +3785,7 @@
       "lden": null,
       "note": "No façade point at this coordinate."
     },
-    "address": "Platz der Luftbrücke, 12101, Berlin",
+    "address": "Platz der Luftbrücke, 5, 12101, Berlin",
     "district": "Tempelhof-Schöneberg",
     "originalProperties": {
       "segment_id": 9000007879,
@@ -3825,7 +3825,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9Ah1x69LI11Yx2aQHXvohhGZuQJiQ8e-mfT1EbacGkhwx-9IWp7JrBxR_8ZruQKtfvYa9MfeK-gH_XiUFDavYRD1zcV3Ui9rYAot2jNKJKh1QsCd58_b2NpK_jPkmrfIwW3FPurld4EQ6SpNikeg?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=nqv-ehvw_essrV0mMPtBfg&_nc_oc=AdnUlsHP86FjEw6GCOlkGhEIgjNfkauQYJfxqaVbCQv2ZEL48RF2E_bu4sdtdlemtCzExNuBbIbtEMyX4vqv94GO&ccb=10-5&oh=00_Afc8L1yCiUlWA_qSpZ5dqzD7NAIvZxwK6TDMiPtLDWTUxg&oe=6915EE5A&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 43,
-    "address": "Stedingerweg, 32, 10407, Berlin",
+    "address": "Stedingerweg, 31, 10407, Berlin",
     "district": "Pankow",
     "originalProperties": {
       "segment_id": 9000007918,
@@ -3863,7 +3863,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 68,
-    "address": "Chausseestraße, 32, 10115, Berlin",
+    "address": "Chausseestraße, 29, 10115, Berlin",
     "district": "Mitte",
     "originalProperties": {
       "segment_id": 9000007929,
@@ -3901,7 +3901,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 51,
-    "address": "Ligusterweg, 13, 12437, Berlin",
+    "address": "Ligusterweg, 5, 12437, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000008003,
@@ -3953,7 +3953,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_hQiPt1ym0Xl8BI4K9TxpFiyqW3orchMu8GpPykCw_Jr8L1pWh5RIYHk1EVwSqICYx_Vt-bFMsvtoNu1QFfkuQBg0KXm4PSEMhXAi8rnrm9bXllkbDMN3Yypo9K4lHpl9hykue0geIrprl3J897w?stp=s2048x1152&_nc_gid=fhIH7VG4t7pyIpciT9tkCQ&_nc_oc=AdnHFVh0qBbgJN0CtOJqjjTid4iHpjPWLIjNQfuDQKh1iKdDGexrPbuq2eIyUOHaTEE3LfiwMmXK-X5g0fITb04l&ccb=10-5&oh=00_Aff6eTClrg3QzGquWh754SV1g3TBSrXQVvt3yEdZsQQ9Vg&oe=6915E986&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 70,
-    "address": "Schildhornstraße, 20, 12163, Berlin",
+    "address": "Schildhornstraße, 16, 12163, Berlin",
     "district": "Steglitz-Zehlendorf",
     "originalProperties": {
       "segment_id": 9000008121,
@@ -3995,7 +3995,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 68,
-    "address": "Stolzenfelsstraße, 21, 10318, Berlin",
+    "address": "Stolzenfelsstraße, 10318, Berlin",
     "district": "Lichtenberg",
     "originalProperties": {
       "segment_id": 9000008361,
@@ -4031,7 +4031,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9ZdPYvm43W-1Raq7IxQTD9aX2PBDl0pLVdDixVofh6z446mMfP5pv9bEkfnzjvf2edFvjpCLWgQnrwYYKILXWUPOUPNv_gaReEk-iazvzRKsIQ955Eu5xmQBu6rnquIMq8K02i_RVXZuHAzk6b_xk?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=-VeRRh23zTChoKS6BPY-1w&_nc_oc=AdnERubCE3V7sSTC4LMELCfjqnTTc6nnxJ6NPVOBBzFhdVaYPslcIz-W4ALdUbKHKk6TN3IkGpyvT1oXt-z3xp_y&ccb=10-5&oh=00_Afdnog_agc-YyxFcHUGaXcLHyXCcC9BRhLgkHeN1kKuwMg&oe=6915CBA4&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 46,
-    "address": "Soorstraße, 77, 14050, Berlin",
+    "address": "Soorstraße, 79, 14050, Berlin",
     "district": "Charlottenburg-Wilmersdorf",
     "originalProperties": {
       "segment_id": 9000008502,
@@ -4071,7 +4071,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-plxeUFc_NYuvc9j5ZWSHslZh8eH6wtw2_NHxBh52pSA-Ua2x_ElBzFn2SAAF4sN4LND_9PheSjCMDgfsV22-mkWhA_6qqveDw2i8JWSKPe4k945k_H3au_A35g9C2Ai8Ee-pHwLmPDTZSCYaoIG0?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=AHy186dPup5bXsTDx-xWeQ&_nc_oc=AdkesVEJOCfuNHwX_EnjNn_lkv3HhNIWMrg011Q4r9WMRlVk9zv1PZ-acr-1DtfWzdiFaiXjCsYhceAOUE4jgSXQ&ccb=10-5&oh=00_AfdGp5PtUM42GbMrmBNeUFMoZsG1i4T8f4MwWcIT5i4pJw&oe=6915C516&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 67,
-    "address": "Wilhelmstraße, 52, 10117, Berlin",
+    "address": "Wilhelmstraße, 10117, Berlin",
     "district": "Mitte",
     "originalProperties": {
       "segment_id": 9000008514,
@@ -4109,7 +4109,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 70,
-    "address": "Weichselstraße, 36, 10247, Berlin",
+    "address": "Frankfurter Allee, 92, 10247, Berlin",
     "district": "Friedrichshain-Kreuzberg",
     "originalProperties": {
       "segment_id": 9000008542,
@@ -4153,7 +4153,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_Re1tCXbH-MrU5PCYMNUHPkq6T9-2d5ERhipn7sAOSdGmNgvRDcD4oTsWJXLQu7_NXlPW4j8diCt1fy-N8PB_ZrGBqd4uDpUFxmJu85aI7qvTndLAg054tZ5nWE9WjIkytqMNQQJYvhLkUDGU2cSo?stp=s2048x1536&_nc_gid=T17h48RRVIkpmJzaPWneMw&_nc_oc=Adlfbwz3dbjp158n5n2tkFAv6pWrg8F-5sqgTgcjD9Rro_W_Q0Ru7fMKwHWdhjwFBQlKx-kGmrKiKl7STLa2FZvf&ccb=10-5&oh=00_AffLsvk6ZYRFSYJ97g0bgKqSDC3QpJTB-G3F1UlD3m38VQ&oe=6915F569&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 74,
-    "address": "Leipziger Straße, 125, 10117, Berlin",
+    "address": "Leipziger Straße, 126, 10117, Berlin",
     "district": "Mitte",
     "originalProperties": {
       "segment_id": 9000008543,
@@ -4354,7 +4354,7 @@
       "lden": null,
       "note": "No façade point at this coordinate."
     },
-    "address": "Bernauer Straße, 16341, Panketal",
+    "address": "Dorfstraße, 30, 16341, Panketal",
     "district": null,
     "originalProperties": {
       "segment_id": 9000008568,
@@ -4394,7 +4394,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An9cDg7GT33y3skGfAfzBbYS2-vMoXn_rmsjhgJGAqN_2MoQpPjsYl7e8Y44ebGzD5ix72o0uH1Qgdp1jlOa6UMc9Y7neTwDrZBAYiAtEf6UFWE5dNr8o4GNG3ypykI6ytEKdTqWXqOJMueUb41TcP4?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=P_60ygN7p7xzz65rA9J_lw&_nc_oc=AdkuJNPt1syAIRewY3jWgVLxMUeoWVvb-yrwvaqhdAV4Nz2yq4TX4o4HczNVB08eYCVqujvWoqzXaJIopSEFr76O&ccb=10-5&oh=00_Afer80f30NgDaq6KVttE4JK90VUbYXCrPUlPp_BcE-fLlw&oe=6915DE7C&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 42,
-    "address": "Schierker Straße, 35, 12051, Berlin",
+    "address": "Altenbraker Straße, 15, 12053, Berlin",
     "district": "Neukölln",
     "originalProperties": {
       "segment_id": 9000008577,
@@ -4434,7 +4434,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_k8nHr-9E8EVfT3quzArEroJXa7rubNZ-1WIyd35q3-ojXJi-bgqckVcyGhdJd838CYG85BoZIc_WY0Udwk5F7MS_d0uOp43jQUouySqu3IulmbqfwIXQ-CAgTBeAMghzWY3Br6BYNdjgVxNCTw0g?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=ALr3xmZ3Vt0bf0VO_zQi8w&_nc_oc=AdlckFju-x6NMFRYIEIOnF0xjTR8IOe1W8hgQZGyHfGWBeVCTdHMG6hEBKOlIwIUuEAJ41OIkryRO9FHaKadxNgT&ccb=10-5&oh=00_AfeYN-un_KMaF4_BHFXTmgX0ELk9EmiivrQ_EYkebKJOKg&oe=6915C7A6&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 49,
-    "address": "Waldeyerstraße, 8, 10247, Berlin",
+    "address": "Waldeyerstraße, 12, 10247, Berlin",
     "district": "Friedrichshain-Kreuzberg",
     "originalProperties": {
       "segment_id": 9000008734,
@@ -4488,7 +4488,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 71,
-    "address": "Stralauer Allee, 17f, 10245, Berlin",
+    "address": "Stralauer Allee, 20b, 10245, Berlin",
     "district": "Friedrichshain-Kreuzberg",
     "originalProperties": {
       "segment_id": 9000008772,
@@ -4534,7 +4534,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 72,
-    "address": "Invalidenstraße, 36, 10115, Berlin",
+    "address": "Invalidenstraße, 37, 10115, Berlin",
     "district": "Mitte",
     "originalProperties": {
       "segment_id": 9000008784,
@@ -4646,7 +4646,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 46,
-    "address": "Altenbraker Straße, 1, 12053, Berlin",
+    "address": "Thomasstraße, 71, 12053, Berlin",
     "district": "Neukölln",
     "originalProperties": {
       "segment_id": 9000008823,
@@ -4682,7 +4682,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8UkKWdh2r1Upvftul-gu3JrK6rYlaSYf6LfwpbAUP_MP8zdA_whGbZZ9Q020uk6jFzdchQ0D6ONzd12wn4y3JvHupgWTk5bdyA3OQnCIbPkeMs2VIDhfpjwwhg7xuzeEwlzxPhO_1vRNCupRHLIQ?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=cPCNRJW_YxBIKr8iUIgtiQ&_nc_oc=Adkyq3jimhTmzOGHjFu4rq7Fgu7oDSLHNihih6Y0epAB3zvotwrnFN80xUNr6VFtQJX-ZCHSbJ6fyVDJZarE-QvV&ccb=10-5&oh=00_Aff4EaYXvbZKCH3XhMfM_oleT5dGPKc0CRfUlfzzqquJ2A&oe=6915F6C6&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 45,
-    "address": "Lohmühlenstraße, 62, 12435, Berlin",
+    "address": "Lohmühlenstraße, 58, 12435, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000008837,
@@ -4722,7 +4722,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-RSvLHpEVyKJB9Tk_FB3HgubvH_NV6mks_u5uMVWIbR0PI0bDCfma2HPEESSkRfM5l8q9OP17lBX9qLf_RSHGL2SqjAuPtj0M4dgt-M0uj0pj03TKk79TKXpVu2bninp7VyLMxWFl8wT41QMu4oEI?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=d_y_GIlM8i6OGZpwk6p3nA&_nc_oc=AdlLA5Ljpjx0r8qu1MqmlsopHsnf8e4-3dwqX6Quj5iB5YngQveojVNRo0WR6M2MNw4YqZfB4UpvIvA8bROqandS&ccb=10-5&oh=00_AffpRejz0HnMGcKk0A5duy2rnxq-q6n7lpaLqHEE38ctdA&oe=6915ECF3&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 45,
-    "address": "Wattstraße, 5, 13355, Berlin",
+    "address": "Wattstraße, 6, 13355, Berlin",
     "district": "Mitte",
     "originalProperties": {
       "segment_id": 9000008947,
@@ -4766,7 +4766,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-MemHspcTHQbs_IQObHu4Sq-MYFm3CAMWhpyxX_hExhyTAWAJYBfvldlwrp7fmYC7pLvaJI8I1gesO1QUtoVtG27q8QYnOULBLgOS9KXs1cA34_GZCDZc6b-Ga9xa-GZ5330ADoMe4hYbUI3r0YA?stp=s2048x1536&_nc_gid=frFgkxD8FxL6mJDF3lRIfw&_nc_oc=AdkVh8kRwGxde0bEkNrwfqSx2YZA2EOXInGMK4Dq58sKQ8I2yDEqvTiV8uu7TWMgu9MGGzAG2CNqEo7N86OxK_db&ccb=10-5&oh=00_AfcMEYJIowruU4nkZ8Ht84Y_l6K_rtdt6c2ENB4yv8_fCg&oe=6915D768&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 65,
-    "address": "Levetzowstraße, 24, 10555, Berlin",
+    "address": "Zinzendorfstraße, 8, 10555, Berlin",
     "district": "Mitte",
     "originalProperties": {
       "segment_id": 9000008954,
@@ -4822,7 +4822,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_2rRvMHmvjBD-j1KTu3_JK4HcPLYgYdrXzmhVD5eqs821GLXIzeNvX5S2wSdV1tZdUDEoFRcRedGIhfP2Qa4-xU0K3Hiy3mIO8C9xGz_U_L53F9AZ_BAs0A2C_ceYov9SnAEIrrSqX-Qtx5TdM8A?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=S3pPD3KQ18hlPOQHlU4WCA&_nc_oc=AdmG2SBfGo85QHcLVyG2zqzKo6BOymsCOwH8N4HpxPn-Z2g3eez_OC_ErcG6e4uQEeP43r4piC8A6qV9v7z5iUZk&ccb=10-5&oh=00_AfdPmr3Nz-zKAVP1FTcvFocHWQL9pvhNcMOhPQUK5uemYw&oe=6915DA41&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 67,
-    "address": "Karl-Kunger-Straße, 46, 12435, Berlin",
+    "address": "Karl-Kunger-Straße, 45, 12435, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000008993,
@@ -4860,7 +4860,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 66,
-    "address": "Lindenstraße, 26, 12555, Berlin",
+    "address": "Lindenstraße, 28, 12555, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000008999,
@@ -4908,7 +4908,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_b1hhsdhYtOdRhE62YctVhs0ihkBS4wD4NqsFp2SK8E_FTlOzJT_Bk8_bIUXDblBdkVcQb9UBfRxmWdL5DXdNh6pgb77fCIcNQChZvK3bIyVB6-scH53ObJ04MW9hFZfvz3C2rGJWZLma9ij9Ag-k?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=jmAhqmLkC32ia7Lvm31Rfw&_nc_oc=AdnOckyLGuipfNQe9Tw60320Ake6ZqkWIgqi8nMXq_wXPBCEK_ItkeawLHIhJ2wo30NV_Fa7Dwm78ryMQJ_2DiQ_&ccb=10-5&oh=00_Affq6w_ocb8j3zCUGAqcw56H3oQqv5mWOQob7qs7zkZnAQ&oe=6915F915&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 70,
-    "address": "Hessische Straße, 6, 10115, Berlin",
+    "address": "Hessische Straße, 10115, Berlin",
     "district": "Mitte",
     "originalProperties": {
       "segment_id": 9000009010,
@@ -4954,7 +4954,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 60,
-    "address": "Naunynstraße, 59, 10999, Berlin",
+    "address": "Adalbertstraße, 22, 10997, Berlin",
     "district": "Friedrichshain-Kreuzberg",
     "originalProperties": {
       "segment_id": 9000009042,
@@ -4990,7 +4990,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An_RsDBxR0FztfeQ3bgW1dIvCsIYuGhgsGb_hebOURKb4gyOdCEmdKP6EuyRz6R1NeIUrwfUdjEIt-5rTPCTjKhJz6YjLGi9edGkgh1jg6PTmOCjUN5LxakwGKloaHu4_P9Og7Zf-SG0bggo6zhlGA?stp=s2048x1536&_nc_gid=LdcaBKpk-t2bR94ize3jtg&_nc_oc=AdmBBeNlnzv5OwmJnZEPTmQk0f5gLtSQWzyxya7PsoL8yLKLo9V5h-8p5wZQozXF7ZTZxnSiK4rg4WbecsiY7bN6&ccb=10-5&oh=00_Affb_jgQKXMXJ9IRhgI5Pv9b3El8ReoyiioEJFH5FnG2fQ&oe=6915CCE9&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 56,
-    "address": "Christinenstraße, 2, 10119, Berlin",
+    "address": "Christinenstraße, 35, 10119, Berlin",
     "district": "Pankow",
     "originalProperties": {
       "segment_id": 9000009065,
@@ -5078,7 +5078,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 65,
-    "address": "Siemensstraße, 22, 12459, Berlin",
+    "address": "Waltraud-Krause-Weg, 2, 12459, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000009187,
@@ -5116,7 +5116,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 73,
-    "address": "Frankfurter Allee, 28, 10247, Berlin",
+    "address": "Frankfurter Allee, 34, 10247, Berlin",
     "district": "Friedrichshain-Kreuzberg",
     "originalProperties": {
       "segment_id": 9000009232,
@@ -5158,7 +5158,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 57,
-    "address": "Wallstraße, 14, 10179, Berlin",
+    "address": "Neue Grünstraße, 24, 10179, Berlin",
     "district": "Mitte",
     "originalProperties": {
       "segment_id": 9000009301,
@@ -5198,7 +5198,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An-Wc2l3JI8I1nPGHp1OJkWDeXb91U8VCT09660_JjfVMGL0ceBm6Grrf2ymadUqqo9HuGBJAgEHNxtirvEaEjZXin6xL96Ywd4XP63dcnxn0nYdF_CvocJ5m4cR9-oN3M46wenVhpcsD5z0ZC9-8w?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=5YXcLkJVUBhwv7brmEdvvw&_nc_oc=AdnMWCkQiXYZLBH_zI0tzWJsi9aGRlyqhoufrUnuQEsaJB1sSRe2vmlYvgbT6zCqUmy78YOSAE2-y-yCSd4VMFer&ccb=10-5&oh=00_Afcz9gFOayeD-NsHcz2XRVIEIrD2eyWZCPyD12dUfP0HqA&oe=6915C91A&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 63,
-    "address": "Neue Krugallee, 42, 12435, Berlin",
+    "address": "Neue Krugallee, 50, 12435, Berlin",
     "district": "Treptow-Köpenick",
     "originalProperties": {
       "segment_id": 9000009350,
@@ -5236,7 +5236,7 @@
       "Radvorrangnetz"
     ],
     "nearestNoiseLevel": 56,
-    "address": "Seydelstraße, 16, 10117, Berlin",
+    "address": "Alte Jakobstraße, 48, 10179, Berlin",
     "district": "Mitte",
     "originalProperties": {
       "segment_id": 9000009404,
@@ -5282,7 +5282,7 @@
       "Ergänzungsnetz"
     ],
     "nearestNoiseLevel": 44,
-    "address": "Belziger Straße, 33, 10823, Berlin",
+    "address": "Belziger Straße, 10823, Berlin",
     "district": "Tempelhof-Schöneberg",
     "originalProperties": {
       "segment_id": 9000009561,
@@ -5318,7 +5318,7 @@
     "imageURL": "https://scontent-ber1-1.xx.fbcdn.net/m1/v/t6/An8yvUm8uWMpCXpg2bWqNW5B4DnZHdl1DoJgysvdNB0BHIHWnnCAIvaWSoVIbMvknW9AF2cuvGwaPKTwwLqHaE5EthwilXMyL3Gzoxhch-EEcKOkIxnMdqj95RHOg_yXckBl7r0WewUA6BpPGM6TkA?stp=s1024x768&edm=AOnQwmMEAAAA&_nc_gid=7x2SDwtIDd3WcN3UOMDM8Q&_nc_oc=Adlz6bul2ycOJAr7nl-QZ1q43_dN25ZdD5qrMrAXqun1EXHjILSNYFk1xnGPoe5sGCnxwaryIw3wUL5ZtKoQx9g8&ccb=10-5&oh=00_Afdfwt-B0HmbCLRRXt0UtLsjEJ2PUmWBgOMmBo0ke63OHw&oe=6915E3D1&_nc_sid=201bca",
     "bikeLaneTypes": [],
     "nearestNoiseLevel": 48,
-    "address": "Maxstraße, 1, 13347, Berlin",
+    "address": "Adolfstraße, 24, 13347, Berlin",
     "district": "Mitte",
     "originalProperties": {
       "segment_id": 9000009736,
