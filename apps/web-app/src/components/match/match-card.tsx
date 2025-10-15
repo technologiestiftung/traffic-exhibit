@@ -88,12 +88,13 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 				)}
 				{match.originalProperties && <TrafficStats telraamMatch={match} />}
 			</div>
-
-			<NoiseChart
-				title={i18n("noiseChart.title")}
-				value={match.nearestNoiseLevel}
-				markerSize={8}
-			/>
+			{match.nearestNoiseLevel !== null && (
+				<NoiseChart
+					title={i18n("noiseChart.title")}
+					value={match.nearestNoiseLevel}
+					markerSize={8}
+				/>
+			)}
 			<AirQualityChart
 				title={i18n("airQualityChart.title")}
 				value={match.airQuality}
