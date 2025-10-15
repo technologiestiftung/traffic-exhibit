@@ -5,7 +5,7 @@ import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
 import { findClosestMatches } from "./data-processing/find-modal-split-match";
-import telraamDataRaw from "./../data/telraam-data-snippet.json";
+import telraamDataRaw from "./../data/telraam-data.json";
 import enrichedTelraamDataRaw from "./../data/enriched-telraam-data.json";
 import type { TrafficFeature, TelraamMatch } from "./common";
 
@@ -13,7 +13,7 @@ const telraamData = telraamDataRaw as { features: TrafficFeature[] };
 const enrichedTelraamData = enrichedTelraamDataRaw as TelraamMatch[];
 
 const closestMatch = findClosestMatches(
-	{ car: 10, bike: 200, pedestrian: 35, heavy: 5 },
+	{ car: 70, bike: 10, pedestrian: 4, heavy: 12 },
 	telraamData.features,
 );
 

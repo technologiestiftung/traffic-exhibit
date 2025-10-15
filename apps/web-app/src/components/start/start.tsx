@@ -1,11 +1,15 @@
+import { useState } from "react";
 import { useWebSocket } from "../../hooks/useWebSocket";
 import { useScreenStore } from "../../stores/useScreenStore";
 import { i18n } from "../../i18n/i18n-utils";
 import { EqualSegmentsDisc } from "./equal-segment-disk";
+import VisualizationApp from "./data-test";
 
 export const Start = () => {
 	const { occupiedBlocks } = useWebSocket();
 	const { setLoadingScreen } = useScreenStore();
+
+	const [isAllDataVisible, setIsAllDataVisible] = useState(false);
 
 	return (
 		<div className="flex flex-col items-center gap-10 text-center">
@@ -29,6 +33,13 @@ export const Start = () => {
 					</button>
 				</div>
 			</div>
+			<button
+				className="underline"
+				onClick={() => setIsAllDataVisible(!isAllDataVisible)}
+			>
+				{isAllDataVisible ? "Alle Daten verbergen" : "Alle Daten anzeigen"}
+			</button>
+			{isAllDataVisible && <VisualizationApp />}
 		</div>
 	);
 };

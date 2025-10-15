@@ -80,6 +80,15 @@ export async function fetchTelraamData(): Promise<TelraamResponse> {
 
 		const result = await response.json();
 
+		// remove all features with car and bike count of 0
+		if (result.features && Array.isArray(result.features)) {
+			result.features = result.features.filter((feature: any) => {
+				const carCount = feature.properties?.car || 0;
+				const bikeCount = feature.properties?.bike || 0;
+				return carCount > 0 || bikeCount > 0;
+			});
+		}
+
 		// enrich the data with the percentage of each mode using calculatePercentages from utils.ts
 		if (result.features && Array.isArray(result.features)) {
 			result.features = enrichTelraamDataWithPercentages(result.features);
