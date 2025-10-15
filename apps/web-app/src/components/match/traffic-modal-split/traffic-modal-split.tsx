@@ -137,6 +137,7 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 			background:
 				"radial-gradient(ellipse at center, rgba(0,0,0,0.28) 0%, rgba(0,0,0,0.1) 45%, rgba(0,0,0,0) 70%)",
 			filter: `blur(${blur}px)`,
+			left: `calc(100% - ${size}px)`,
 		};
 	}, [size]);
 
@@ -151,7 +152,7 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 					<div
 						aria-hidden
 						style={shadowStyles}
-						className="absolute z-0 left-0 bottom-0 top-full rounded-[50%] opacity-0 animate-disc-shadow"
+						className={`absolute z-0 left-0 bottom-0 top-full rounded-[50%] opacity-0 ${hasModalChanged ? "opacity-100" : "animate-disc-shadow"}`}
 					/>
 					{/* MODAL DISC */}
 					<div
