@@ -5,7 +5,7 @@ interface Segment {
 	segment_id: number;
 	coordinates: number[][];
 	bikeLaneTypes: string[];
-	nearestNoiseLevel: number | { lden: number | null; note: string };
+	nearestNoiseLevel: number | null;
 	address: string;
 	district: string | null;
 	imageURL: string | null;
@@ -43,27 +43,13 @@ const DataCard: React.FC<{ segment: Segment }> = ({ segment }) => {
 		return `rgb(${red}, ${green}, 0)`;
 	};
 
-	// Extract noise level as number
-	const getNoiseLevel = (
-		noiseLevel: number | { lden: number | null; note: string },
-	): number => {
-		if (typeof noiseLevel === "number") {
-			return noiseLevel;
-		}
-		return noiseLevel.lden || 0;
+	// Format noise display (show placeholder when no data)
+	const formatNoiseDisplay = (noiseLevel: number | null): string => {
+		return noiseLevel === null ? "Keine Daten" : `${noiseLevel}`;
 	};
 
-	// Format noise display
-	const formatNoiseDisplay = (
-		noiseLevel: number | { lden: number | null; note: string },
-	): string => {
-		if (typeof noiseLevel === "number") {
-			return `${noiseLevel} dB`;
-		}
-		return noiseLevel.lden ? `${noiseLevel.lden} dB` : noiseLevel.note;
-	};
-
-	const currentNoiseLevel = getNoiseLevel(segment.nearestNoiseLevel);
+	const currentNoiseLevel = segment.nearestNoiseLevel;
+	const noiseDisplay = formatNoiseDisplay(currentNoiseLevel);
 
 	return (
 		<div className="border rounded-lg p-4 bg-gray-50 shadow-sm w-[450px]">
@@ -75,7 +61,7 @@ const DataCard: React.FC<{ segment: Segment }> = ({ segment }) => {
 			/>
 			<div className="flex flex-row justify-start items-center mt-4">
 				<div className="flex flex-col p-3 text-left shrink-0 gap-3">
-					<p className="flex flex-row gap-2">
+					<div className="flex flex-row gap-2">
 						<strong>Straßentyp</strong>{" "}
 						{segment.bikeLaneTypes.length > 0 ? (
 							<div className="bg-green-300 rounded-full px-2 inline-block w-fit">
@@ -86,22 +72,25 @@ const DataCard: React.FC<{ segment: Segment }> = ({ segment }) => {
 								kein Radnetz
 							</div>
 						)}
-					</p>
+					</div>
 					<p>
 						<strong>Nearest Noise Level:</strong>
 					</p>
 					<div className="flex items-center gap-2">
-						<div className="flex-1 bg-gray-200 rounded h-4 relative">
-							<div
-								className="h-full rounded"
-								style={{
-									backgroundColor: getNoiseColor(currentNoiseLevel),
-									width: `${(currentNoiseLevel / 100) * 100}%`,
-								}}
-							/>
+						<div className="flex-1 bg-gray-200 rounded h-4 relative overflow-hidden">
+							{currentNoiseLevel !== null && (
+								<div
+									className="h-full rounded"
+									style={{
+										backgroundColor: getNoiseColor(currentNoiseLevel),
+										width: `${(currentNoiseLevel / 100) * 100}%`,
+									}}
+								/>
+							)}
 						</div>
 						<span className="text-xs">
-							{formatNoiseDisplay(segment.nearestNoiseLevel)} dB
+							{noiseDisplay}
+							{noiseDisplay !== "Keine Daten" && " dB"}
 						</span>
 					</div>
 					<div>
