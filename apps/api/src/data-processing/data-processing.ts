@@ -2,6 +2,7 @@ import "dotenv/config";
 import { writeFile, readFile } from "fs/promises";
 import path from "path";
 import { fetchTelraamData } from "./telraam-service";
+import { logger } from "../logger";
 import { getAirQuality } from "./air-quality-service";
 import { getImage } from "./image-service";
 import { getBikeLaneOverlap } from "./bike-lane-service";
@@ -49,7 +50,7 @@ async function processFeature(
 ): Promise<EnrichedFeatureData> {
 	const coordinates = extractCoordinatesFromFeature(feature);
 
-	console.log(
+	logger.debug(
 		`Processing segment ${feature.properties.segment_id} with ${coordinates.length} coordinates...`,
 	);
 
@@ -108,7 +109,7 @@ async function processFeature(
 			originalProperties: feature.properties,
 		};
 	} catch (error) {
-		console.error(
+		logger.error(
 			`Error processing segment ${feature.properties.segment_id}:`,
 			error,
 		);
@@ -132,15 +133,15 @@ async function processFeature(
  * Main function to fetch Telraam data and enrich it with additional information
  */
 export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
-	console.log("Starting comprehensive Telraam data processing...");
+	logger.info("Starting comprehensive Telraam data processing...");
 
 	try {
 		// Step 1: Fetch fresh Telraam data
-		console.log("Fetching fresh Telraam data...");
+		logger.info("Fetching fresh Telraam data...");
 		await fetchTelraamData();
 
 		// Step 2: Read the saved data
-		console.log("Reading saved Telraam data...");
+		logger.info("Reading saved Telraam data...");
 		const telraamDataPath = path.join(
 			__dirname,
 			"../../data/telraam-data.json",
@@ -151,7 +152,7 @@ export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
 			throw new Error("Invalid Telraam data format");
 		}
 
-		console.log(`Found ${telraamData.features.length} features to process`);
+		logger.info(`Found ${telraamData.features.length} features to process`);
 
 		// Step 2.5: Try load existing enriched data for reuse (if exists)
 		const previousEnrichedPath = path.join(
@@ -163,11 +164,11 @@ export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
 			const rawPrev = await readFile(previousEnrichedPath, "utf-8");
 			const parsedPrev: EnrichedFeatureData[] = JSON.parse(rawPrev);
 			previousBySegment = new Map(parsedPrev.map((f) => [f.segment_id, f]));
-			console.log(
+			logger.info(
 				`Loaded ${previousBySegment.size} previously enriched segments for reuse`,
 			);
 		} catch {
-			console.log("No previous enriched data found (fresh run).");
+			logger.warn("No previous enriched data found (fresh run).");
 		}
 
 		// Step 3: Process each feature
@@ -176,7 +177,7 @@ export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
 		let newSegments = 0;
 
 		for (const [index, feature] of telraamData.features.entries()) {
-			console.log(
+			logger.debug(
 				`Processing feature ${index + 1}/${telraamData.features.length}`,
 			);
 
@@ -199,9 +200,8 @@ export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
 			"../../data/enriched-telraam-data.json",
 		);
 		await writeFile(outputPath, JSON.stringify(enrichedResults, null, 2));
-
-		console.log(`Processing complete! Enriched data saved to ${outputPath}`);
-		console.log(`Processed ${enrichedResults.length} features`);
+		logger.success(`Processing complete! Enriched data saved to ${outputPath}`);
+		logger.info(`Processed ${enrichedResults.length} features`);
 
 		// Log summary statistics
 		const featuresWithImages = enrichedResults.filter(
@@ -217,29 +217,29 @@ export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
 			(f) => f.bikeLaneTypes.length > 0,
 		).length;
 
-		console.log("\nSummary:");
-		console.log(
+		logger.info("\nSummary:");
+		logger.info(
 			`- Reused (skipped) segments: ${reusedSegments} / ${enrichedResults.length}`,
 		);
-		console.log(
+		logger.info(
 			`- Newly fetched telraam segments: ${newSegments} / ${enrichedResults.length}`,
 		);
-		console.log(
+		logger.info(
 			`- Features with images: ${featuresWithImages}/${enrichedResults.length}`,
 		);
-		console.log(
+		logger.info(
 			`- Features with air quality data: ${featuresWithAirQuality}/${enrichedResults.length}`,
 		);
-		console.log(
+		logger.info(
 			`- Features with noise data: ${featuresWithNoise}/${enrichedResults.length}`,
 		);
-		console.log(
+		logger.info(
 			`- Features with bike lane data: ${featuresWithBikeLanes}/${enrichedResults.length}`,
 		);
 
 		return enrichedResults;
 	} catch (error) {
-		console.error("Error in processAllTelraamData:", error);
+		logger.error("Error in processAllTelraamData:", error);
 		throw error;
 	}
 }
@@ -250,11 +250,11 @@ export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
 if (require.main === module) {
 	processAllTelraamData()
 		.then(() => {
-			console.log("Script completed successfully");
+			logger.success("Script completed successfully");
 			process.exit(0);
 		})
 		.catch((error) => {
-			console.error("Script failed:", error);
+			logger.error("Script failed:", error);
 			process.exit(1);
 		});
 }
