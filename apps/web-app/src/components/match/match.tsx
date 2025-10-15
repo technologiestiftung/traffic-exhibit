@@ -96,7 +96,9 @@ export const Match: React.FC = () => {
 									height={CARD_H}
 									zIndex={zIndex}
 									scale={scale}
-									backgroundClass={STACK_CARD_BG[index % STACK_CARD_BG.length]}
+									backgroundClass={
+										STACK_CARD_BG[reverseIndex % STACK_CARD_BG.length]
+									}
 									selected={selectedCard}
 									onSelect={handleSelect}
 								/>
