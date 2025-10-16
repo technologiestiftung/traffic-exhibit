@@ -147,6 +147,7 @@ npm run process-data-hourly
 ```
 
 This command:
+
 - Automatically processes data every hour
 - Logs all activities with timestamps
 - Runs continuously until manually stopped
@@ -283,6 +284,22 @@ Different parts of the autostart setup have different update procedures:
 
 - ✅ **Scripts and app code**: Update automatically
 - ❌ **Service files and autostart config**: Require manual system updates
+
+### Kiosk Mode Browser Launch & Exit Methods
+
+The `setup_autostart.sh` script also launches the application in **Chromium kiosk mode** for a fullscreen view
+
+You can override the binary with `CHROMIUM_BIN` and add/modify flags with `BROWSER_FLAGS` before the service starts.
+
+#### Exit Methods (from kiosk mode)
+
+If you need to exit the fullscreen kiosk browser during the exhibit:
+
+- Keyboard: `Ctrl+Shift+Q`, `Alt+F4`, or open a terminal (`Ctrl+Alt+T`) then run `pkill chromium`
+- Script: From another terminal run `./exit_kiosk.sh`
+- Command: `pkill chromium`
+
+These methods safely close the browser window without stopping the underlying data processing service.
 
 ## Contributing
 

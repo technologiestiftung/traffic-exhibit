@@ -6,7 +6,6 @@ set -euo pipefail
 # 
 # Exit methods:
 # - Keyboard: Ctrl+Shift+Q, Alt+F4, or Ctrl+Alt+T then 'pkill chromium'
-# - Script: Run './exit_kiosk.sh' from another terminal
 # - Command: pkill chromium
 
 PROJECT_DIR="/home/roboter/Desktop/traffic-exhibit"
