@@ -147,6 +147,7 @@ npm run process-data-hourly
 ```
 
 This command:
+
 - Automatically processes data every hour
 - Logs all activities with timestamps
 - Runs continuously until manually stopped
@@ -208,7 +209,7 @@ After reboot, the system will automatically:
 1. **Start the service**: The `traffic-exhibit.service` runs in the background, processing Telraam data and starting the development server
 2. **Start hourly data processing**: Automatically begins processing data every hour in the background
 3. **Open logs terminal**: A terminal window titled "Traffic Exhibit Logs" automatically opens on the desktop showing live service logs
-4. **Launch browser**: The application opens in your default browser at http://localhost:5173
+4. **Launch browser**: The application opens in chromium browser in kiosk mode at http://localhost:5173
 
 ### Management Commands
 
@@ -279,10 +280,21 @@ Different parts of the autostart setup have different update procedures:
 
 - **Desktop autostart configuration** - The file `~/.config/autostart/traffic-exhibit-logs.desktop` must be updated manually if you need to change the autostart behavior
 
-#### Summary:
+### Kiosk Mode Browser Launch & Exit Methods
 
-- ✅ **Scripts and app code**: Update automatically
-- ❌ **Service files and autostart config**: Require manual system updates
+The `setup_autostart.sh` script also launches the application in **Chromium kiosk mode** for a fullscreen view
+
+You can override the binary with `CHROMIUM_BIN` and add/modify flags with `BROWSER_FLAGS` before the service starts.
+
+#### Exit Methods (from kiosk mode)
+
+If you need to exit the fullscreen kiosk browser during the exhibit:
+
+- Keyboard: `Ctrl+Shift+Q`, `Alt+F4`, or open a terminal (`Ctrl+Alt+T`) then run `pkill chromium`
+- Script: From another terminal run `./exit_kiosk.sh`
+- Command: `pkill chromium`
+
+These methods safely close the browser window without stopping the underlying data processing service.
 
 ## Contributing
 
