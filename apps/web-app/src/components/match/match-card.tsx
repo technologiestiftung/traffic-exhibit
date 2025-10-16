@@ -58,12 +58,12 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 							<Pill
 								key={type}
 								value={type}
-								backgroundColor="bg-gray-500"
-								textColor="text-gray-100"
+								backgroundColor="bg-platte-green-400"
+								textColor="text-gray-600"
 							/>
 						))}
 					</div>
-					<p className="text-xl py-2">{match.district ?? ""}</p>
+					<p className="text-xl py-2 text-start">{match.district ?? ""}</p>
 				</div>
 
 				{Array.isArray(match.coordinates) &&
@@ -83,7 +83,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 					<img
 						src={match.imageURL}
 						alt={match.address ?? "Street view"}
-						className="w-full h-full object-cover"
+						className="w-full h-full object-cover rounded-sm"
 					/>
 				)}
 				{match.originalProperties && <TrafficStats telraamMatch={match} />}

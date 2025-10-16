@@ -22,7 +22,7 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 	size = 300,
 	isLegendVisible = true,
 	areInnerCirclesVisible = true,
-	segmentColors = ["#4CAF50", "#2196F3", "#FFC107", "#FF5722"],
+	segmentColors = ["#111b72", "#d7e753", "#ecc0ff", "#5e5ee6"],
 	labelColor = "#fff",
 	animationDurationMs = 1200,
 	animationDelayMs = 1000, // match CSS default
@@ -143,7 +143,7 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 
 	return (
 		<div
-			className="absolute left-16 right-0 bottom-0 -z-10 pointer-events-none"
+			className="absolute left-16 right-0 bottom-0 z-10 pointer-events-none"
 			style={{ width: `calc(100% - ${size / 3}px)` }}
 		>
 			{totalPercentage && (
@@ -172,7 +172,7 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 									<path
 										d={segment.pathData}
 										fill={segment.color}
-										stroke="#fff"
+										stroke="#e1e1e1"
 										strokeWidth={2}
 										strokeLinejoin="round"
 									/>
@@ -223,7 +223,7 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 										cx={pieCenter}
 										cy={pieCenter}
 										r={pieRadius * 0.4}
-										fill="#000000"
+										fill="#303030"
 										opacity={1}
 									/>
 									<circle
