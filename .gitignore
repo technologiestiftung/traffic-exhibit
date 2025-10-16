@@ -273,5 +273,5 @@ cython_debug/
 .idea/
 
 yolo11n_ncnn_model/
-.yolo11n.pt
+yolo11n.pt
 
