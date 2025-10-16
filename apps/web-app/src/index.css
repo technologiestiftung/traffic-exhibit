@@ -6,6 +6,7 @@
    * - left: uses the overlay's width (100%) as reference
    * - transform: only handles rotation; translation is done via left
    */
+
 	@keyframes modal-disc-slide-rotate {
 		from {
 			left: var(--start-left, 0px);
@@ -56,4 +57,21 @@
 			cubic-bezier(0.22, 1, 0.36, 1) var(--move-delay, 1000ms) forwards;
 		will-change: left, opacity;
 	}
+}
+
+@theme {
+	--color-platte-gray-100: #f4f4f4;
+	--color-platte-gray-200: #e1e1e1;
+	--color-platte-gray-300: #c6c6c6;
+	--color-platte-gray-400: #5e5e5e;
+	--color-platte-gray-600: #303030;
+
+	--color-platte-purple-200: #a3a3e5;
+	--color-platte-purple-400: #5e5ee6;
+
+	--color-platte-green-400: #d7e753;
+
+	--color-platte-pink-200: #ecc0ff;
+
+	--color-platte-blue-600: #111b72;
 }

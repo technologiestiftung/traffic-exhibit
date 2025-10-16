@@ -12,7 +12,7 @@ export const Start = () => {
 	const [isAllDataVisible, setIsAllDataVisible] = useState(false);
 
 	return (
-		<div className="flex flex-col items-center gap-10 text-center">
+		<div className="flex flex-col items-center gap-10 text-center lg:max-w-[1540px] mx-auto">
 			<div>
 				<h1 className="text-3xl font-bold">{i18n("start.title")}</h1>
 				<p className="text-2xl py-2">{i18n("start.description")}</p>
