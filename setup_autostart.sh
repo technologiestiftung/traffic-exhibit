@@ -7,9 +7,27 @@ export NPM_CONFIG_AUDIT=false
 export NPM_CONFIG_FUND=false
 
 wait_and_open() {
+  # Allow overriding the chromium binary and flags via env vars.
+  # Always launch in fullscreen app mode (no kiosk toggle).
+  CHROMIUM_BIN="${CHROMIUM_BIN:-chromium-browser}"
+  DEFAULT_FLAGS="--start-fullscreen --app=$APP_URL --noerrdialogs --disable-infobars --disable-session-crashed-bubble --disable-features=Translate,ChromiumBoringSSL"
+  BROWSER_FLAGS="${BROWSER_FLAGS:-$DEFAULT_FLAGS}"
+
+# Wait up to 2 minutes for the app URL to be available
+  echo "Waiting for $APP_URL to be available..."
+  # Try every 2 seconds for up to 2 minutes
   for _ in {1..60}; do
+    # Use curl to check if the URL is reachable 
     if command -v curl >/dev/null 2>&1 && curl -sSf "$APP_URL" >/dev/null 2>&1; then
-      DISPLAY="${DISPLAY:-:0}" xdg-open "$APP_URL" >/dev/null 2>&1 &
+      # URL is reachable, open in browser
+      if command -v "$CHROMIUM_BIN" >/dev/null 2>&1; then
+        echo "Opening $APP_URL in Chromium ($CHROMIUM_BIN) with flags: $BROWSER_FLAGS"
+        DISPLAY="${DISPLAY:-:0}" "$CHROMIUM_BIN" $BROWSER_FLAGS "$APP_URL" >/dev/null 2>&1 &
+      else
+        # Fallback to xdg-open if Chromium is not found
+        echo "Chromium not found (looked for $CHROMIUM_BIN). Falling back to xdg-open."
+        DISPLAY="${DISPLAY:-:0}" xdg-open "$APP_URL" >/dev/null 2>&1 &
+      fi
       break
     fi
     sleep 2
