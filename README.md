@@ -209,7 +209,7 @@ After reboot, the system will automatically:
 1. **Start the service**: The `traffic-exhibit.service` runs in the background, processing Telraam data and starting the development server
 2. **Start hourly data processing**: Automatically begins processing data every hour in the background
 3. **Open logs terminal**: A terminal window titled "Traffic Exhibit Logs" automatically opens on the desktop showing live service logs
-4. **Launch browser**: The application opens in your default browser at http://localhost:5173
+4. **Launch browser**: The application opens in chromium browser in kiosk mode at http://localhost:5173
 
 ### Management Commands
 
@@ -279,11 +279,6 @@ Different parts of the autostart setup have different update procedures:
   ```
 
 - **Desktop autostart configuration** - The file `~/.config/autostart/traffic-exhibit-logs.desktop` must be updated manually if you need to change the autostart behavior
-
-#### Summary:
-
-- ✅ **Scripts and app code**: Update automatically
-- ❌ **Service files and autostart config**: Require manual system updates
 
 ### Kiosk Mode Browser Launch & Exit Methods
 
