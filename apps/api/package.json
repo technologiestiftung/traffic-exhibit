@@ -9,7 +9,8 @@
 		"prettier": "prettier --write src",
 		"prettier:ci": "prettier --check src",
 		"process-data": "ts-node scripts/run-data-processing.ts",
-		"start-button-monitor": "./venv/bin/python3 scripts/button_monitor.py"
+		"start-button-monitor": "./venv/bin/python3 scripts/button_monitor.py",
+		"object-detection": "./venv/bin/python3 scripts/yolo-detect.py"
 	},
 	"keywords": [],
 	"author": "",

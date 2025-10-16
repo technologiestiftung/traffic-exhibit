@@ -61,6 +61,7 @@ npm run dev
 ```bash
 cd apps/api
 npm run start-button-monitor
+npm run object-detection
 ```
 
 - The frontend will be available at: [http://localhost:5174](http://localhost:5174)
