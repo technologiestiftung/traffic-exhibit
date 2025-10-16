@@ -10,7 +10,7 @@
 		"prettier:ci": "prettier --check src",
 		"process-data": "ts-node scripts/run-data-processing.ts",
 		"start-button-monitor": "./venv/bin/python3 scripts/button_monitor.py",
-		"object-detection": "./venv/bin/python3 scripts/yolo-detect.py"
+		"object-detection": "./venv/bin/python3 scripts/yolo_detect.py --model yolo11n.pt --source picamera0 --resolution 1280x720"
 	},
 	"keywords": [],
 	"author": "",

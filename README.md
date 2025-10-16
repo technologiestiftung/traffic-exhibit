@@ -46,6 +46,18 @@ pip install -r requirements.txt
 source apps/api/venv/bin/activate
 ```
 
+**Python Version Compatibility**: The project currently uses Python 3.13 with modified package versions for compatibility. The `ncnn-python` package is temporarily disabled as it doesn't support Python 3.13 yet. If you need NCNN functionality, consider using Python 3.11 instead:
+
+```bash
+# Alternative setup with Python 3.11 (requires pyenv)
+pyenv install 3.11.10
+pyenv local 3.11.10
+python -m venv venv
+source venv/bin/activate
+# Then uncomment ncnn-python in requirements.txt before installing
+pip install -r requirements.txt
+```
+
 ## Usage or Deployment
 
 ### **1. Run the Project Locally**
