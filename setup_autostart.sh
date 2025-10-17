@@ -72,7 +72,14 @@ npm run process-data-hourly &
 echo "Waiting for hourly data processing to start..."
 sleep 10
 
-# 5) Start button monitor (foreground - keeps service alive)
-echo "Starting button monitor..."
+# 5) Start object detection service in background
+echo "Starting object detection service..."
 cd "$PROJECT_DIR/apps/api"
+npm run object-detection &
+echo "Waiting for object detection service to start..."
+sleep 10
+
+# 6) Start button monitor (foreground - keeps service alive)
+echo "Starting button monitor..."
 npm run start-button-monitor
+

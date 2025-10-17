@@ -106,6 +106,10 @@ http://localhost:5173
   ```bash
   npm run start-button-monitor
   ```
+- Use the npm script to start the object detection:
+  ```bash
+  npm run object-detection
+  ```
 
 ## Data Processing
 
@@ -229,6 +233,7 @@ Once setup is complete, you can manage the service manually using:
 You can also use these npm scripts for more granular control:
 
 - **Stop development servers**: `npm run stop`
+- **Stop autostart service**: `npm run stop-service`
 - **Stop hourly data processing only**: `npm run stop-hourly`
 - **Start hourly data processing**: `npm run process-data-hourly`
 
