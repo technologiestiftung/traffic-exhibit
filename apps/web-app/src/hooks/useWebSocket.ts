@@ -1,7 +1,10 @@
 import { io, Socket } from "socket.io-client";
 import { useEffect, useState } from "react";
 import { useScreenStore } from "../stores/useScreenStore";
-import type { TelraamMatch } from "../../../api/src/common";
+import type {
+	TelraamMatch,
+	ObjectDetectionResult,
+} from "../../../api/src/common";
 
 const wsUrl = import.meta.env.VITE_WS_URL;
 
@@ -9,6 +12,8 @@ export const useWebSocket = () => {
 	const [socket, setSocket] = useState<Socket | null>(null);
 	const [occupiedBlocks, setOccupiedBlocks] = useState<number[]>([]);
 	const [telraamMatches, setTelraamMatches] = useState<TelraamMatch[]>([]);
+	const [objectDetection, setObjectDetection] =
+		useState<ObjectDetectionResult | null>(null);
 
 	const { setCurrentScreen, setStartStopButton } = useScreenStore();
 
@@ -22,6 +27,12 @@ export const useWebSocket = () => {
 
 		newSocket.on("telraam-matches", (data: TelraamMatch[]) => {
 			setTelraamMatches(data);
+		});
+
+		newSocket.on("object_detection_result", (data: ObjectDetectionResult) => {
+			setObjectDetection(data);
+			// eslint-disable-next-line no-console
+			console.log("object detection", data);
 		});
 
 		// Handle button press from backend
@@ -41,5 +52,5 @@ export const useWebSocket = () => {
 		socket?.emit("go-back-to-start");
 	};
 
-	return { occupiedBlocks, goBackToStart, telraamMatches };
+	return { occupiedBlocks, goBackToStart, telraamMatches, objectDetection };
 };

@@ -3,6 +3,10 @@ import socketio
 import sys
 import signal
 import platform
+from datetime import datetime
+
+# This script emits button press and snapshot requests.
+# Object detection is performed by the long-running yolo_detect.py process.
 
 # GPIO setup with fallback for non-Raspberry Pi systems
 BUTTON_PIN = 17
@@ -43,17 +47,35 @@ def disconnect():
     print("Disconnected from Node.js server")
 
 def button_callback(channel):
-    """Callback function when button is pressed"""
+    """Callback function when physical button is pressed."""
     print("Button pressed!")
-    sio.emit('button_pressed', {'isStartStopButtonPressed': True})
-    
+    _emit_button_and_snapshot(trigger_source="hardware")
     # Debounce - wait a bit before allowing another press
     time.sleep(0.3)
 
 def simulate_button_press():
-    """Simulate button press for development"""
+    """Simulate button press for development."""
     print("Simulated button press!")
-    sio.emit('button_pressed', {'isStartStopButtonPressed': True})
+    _emit_button_and_snapshot(trigger_source="simulation")
+
+
+def _emit_button_and_snapshot(trigger_source: str):
+    """Emit button_pressed and snapshot_request events to Node server.
+
+    The object detection service (yolo_detect.py) listens for 'snapshot_request' and
+    responds with 'object_detection_result'.
+    """
+    timestamp = datetime.utcnow().isoformat() + "Z"
+    sio.emit('button_pressed', {
+        'isStartStopButtonPressed': True,
+        'triggerSource': trigger_source,
+        'ts': timestamp
+    })
+    sio.emit('snapshot_request', {
+        'reason': 'button_press',
+        'triggerSource': trigger_source,
+        'ts': timestamp
+    })
 
 def main():
     try:

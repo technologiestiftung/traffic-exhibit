@@ -8,7 +8,11 @@ import { Server } from "socket.io";
 import { findClosestMatches } from "./data-processing/find-modal-split-match";
 import telraamDataRaw from "./../data/telraam-data.json";
 import enrichedTelraamDataRaw from "./../data/enriched-telraam-data.json";
-import type { TrafficFeature, TelraamMatch } from "./common";
+import type {
+	TrafficFeature,
+	TelraamMatch,
+	ObjectDetectionResult,
+} from "./common";
 
 const telraamData = telraamDataRaw as { features: TrafficFeature[] };
 const enrichedTelraamData = enrichedTelraamDataRaw as TelraamMatch[];
@@ -72,6 +76,17 @@ io.on("connection", (socket) => {
 		io.emit("start_stop_button_pressed", {
 			isStartStopPressed: data.isStartStopButtonPressed,
 		});
+
+		// (Optional future) Could trigger a request for on-demand detection here:
+		// io.emit("request_object_detection");
+	});
+
+	// Receive object detection result from Python and forward to frontend
+	socket.on("object_detection_result", (data: ObjectDetectionResult) => {
+		logger.info(
+			`Forwarding object detection result: total=${data.total}, classes=${data.classes.join(",")}`,
+		);
+		io.emit("object_detection_result", data);
 	});
 
 	socket.emit("telraam-matches", enrichedMatches);

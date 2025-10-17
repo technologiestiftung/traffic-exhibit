@@ -75,3 +75,10 @@ export type TelraamMatch = {
 	district: string;
 	originalProperties: TrafficFeature["properties"];
 };
+
+// Object detection (YOLO) result sent from Python to Node and forwarded to frontend
+export type ObjectDetectionResult = {
+	total: number; // total number of detected objects (after confidence filtering)
+	classes: string[]; // unique class names detected
+	countsByClass: Record<string, number>; // count per class
+};
