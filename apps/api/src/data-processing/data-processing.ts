@@ -62,10 +62,7 @@ async function processFeature(
 				: getAirQuality(coordinates);
 
 		// Image: reuse previous if available, otherwise fetch now
-		const imageURL: string | null =
-			previous && previous.imageURL !== null
-				? previous.imageURL
-				: await getImage(coordinates);
+		const imageURL: string | null = await getImage(coordinates);
 
 		// Bike lane types: reuse if previously present (non-empty)
 		let bikeLaneTypes: string[];

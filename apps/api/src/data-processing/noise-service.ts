@@ -1,4 +1,3 @@
-import express from "express";
 import type { Coordinates } from "../common";
 import { calculateDistanceMeters } from "../utils";
 
