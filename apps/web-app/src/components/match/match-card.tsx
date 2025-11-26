@@ -6,6 +6,7 @@ import { AirQualityChart } from "../charts/air-quality-chart";
 import { TrafficStats } from "./traffic-stats/traffic-stats";
 import type { TelraamMatch } from "../../../../api/src/common";
 import { i18n } from "../../i18n/i18n-utils";
+import { MatchTinyWorldImg } from "./match-tiny-world-img";
 
 export type MatchCardProps = {
 	match: TelraamMatch;
@@ -20,6 +21,22 @@ export type MatchCardProps = {
 	onSelect: (index: number) => void;
 };
 
+const getImageUrl = (imageURL: string | null): string | null => {
+	if (!imageURL) {
+		return null;
+	}
+
+	// Extract filename from relative paths
+	if (imageURL.includes("../")) {
+		const filename = imageURL.split("/").pop();
+		return filename ? `/api/data/raw-images/${filename}` : null;
+	}
+
+	// Extract relative path from absolute paths
+	const matchImage = imageURL.match(/data\/raw-images\/[^/]+$/);
+	return matchImage ? `/api/${matchImage[0]}` : null;
+};
+
 export const MatchCard: React.FC<MatchCardProps> = ({
 	match,
 	index,
@@ -32,6 +49,8 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 	selected,
 	onSelect,
 }) => {
+	const imageSrc = match.imageURL ? getImageUrl(match.imageURL) : null;
+
 	return (
 		<button
 			type="button"
@@ -47,59 +66,55 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 				transformOrigin: "top",
 			}}
 		>
-			{/* HEADER */}
-			<div className="flex justify-between items-center p-3 w-full">
-				<div>
-					<div className="flex gap-4 items-center max-w-md">
-						<h2 className="text-2xl font-bold max-w-sm truncate">
-							{match.address?.split(",")[0] ?? ""}
-						</h2>
-						{match.bikeLaneTypes?.map((type) => (
-							<Pill
-								key={type}
-								value={type}
-								backgroundColor="bg-platte-green-400"
-								textColor="text-gray-600"
-							/>
-						))}
+			<div className="flex flex-col justify-between h-full">
+				{/* HEADER */}
+				<div className="flex justify-between items-center p-3 w-full">
+					<div>
+						<div className="flex gap-4 items-center max-w-md">
+							<h2 className="text-2xl font-bold max-w-sm truncate">
+								{match.address?.split(",")[0] ?? ""}
+							</h2>
+							{match.bikeLaneTypes?.map((type) => (
+								<Pill
+									key={type}
+									value={type}
+									backgroundColor="bg-platte-green-400"
+									textColor="text-gray-600"
+								/>
+							))}
+						</div>
+						<p className="text-xl py-2 text-start">{match.district ?? ""}</p>
 					</div>
-					<p className="text-xl py-2 text-start">{match.district ?? ""}</p>
+
+					{Array.isArray(match.coordinates) &&
+						Array.isArray(match.coordinates[0]) && (
+							<BerlinMap
+								lat={match.coordinates[0][1]}
+								lon={match.coordinates[0][0]}
+								width={100}
+								height={100}
+							/>
+						)}
 				</div>
 
-				{Array.isArray(match.coordinates) &&
-					Array.isArray(match.coordinates[0]) && (
-						<BerlinMap
-							lat={match.coordinates[0][1]}
-							lon={match.coordinates[0][0]}
-							width={100}
-							height={100}
-						/>
-					)}
-			</div>
-
-			{/* IMAGE */}
-			<div className="w-full h-80 relative">
-				{match.imageURL && (
-					<img
-						src={match.imageURL}
-						alt={match.address ?? "Street view"}
-						className="w-full h-full object-cover rounded-sm"
+				{/* IMAGE */}
+				<div className="w-full h-[400px] relative">
+					{imageSrc && <MatchTinyWorldImg imageUrl={imageSrc} />}
+					{match.originalProperties && <TrafficStats telraamMatch={match} />}
+				</div>
+				{match.nearestNoiseLevel !== null && (
+					<NoiseChart
+						title={i18n("noiseChart.title")}
+						value={match.nearestNoiseLevel}
+						markerSize={8}
 					/>
 				)}
-				{match.originalProperties && <TrafficStats telraamMatch={match} />}
-			</div>
-			{match.nearestNoiseLevel !== null && (
-				<NoiseChart
-					title={i18n("noiseChart.title")}
-					value={match.nearestNoiseLevel}
+				<AirQualityChart
+					title={i18n("airQualityChart.title")}
+					value={match.airQuality}
 					markerSize={8}
 				/>
-			)}
-			<AirQualityChart
-				title={i18n("airQualityChart.title")}
-				value={match.airQuality}
-				markerSize={8}
-			/>
+			</div>
 		</button>
 	);
 };

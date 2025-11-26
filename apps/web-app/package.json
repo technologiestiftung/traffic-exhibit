@@ -13,11 +13,13 @@
 	"dependencies": {
 		"@tailwindcss/vite": "4.1.13",
 		"autoprefixer": "10.4.21",
+		"camera-controls": "^3.1.2",
 		"react": "19.1.1",
 		"react-dom": "19.1.1",
 		"socket.io-client": "4.8.1",
 		"tailwind": "4.0.0",
-		"tailwindcss": "4.1.13"
+		"tailwindcss": "4.1.13",
+		"three": "^0.181.2"
 	},
 	"devDependencies": {
 		"@babel/core": "7.28.4",
@@ -25,6 +27,7 @@
 		"@technologiestiftung/prettier-config": "^1.0.0",
 		"@types/react": "19.1.10",
 		"@types/react-dom": "19.1.7",
+		"@types/three": "^0.181.0",
 		"@vitejs/plugin-react": "5.0.0",
 		"eslint": "9.33.0",
 		"eslint-plugin-react-hooks": "5.2.0",

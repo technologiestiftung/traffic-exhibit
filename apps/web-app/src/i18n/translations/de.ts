@@ -14,7 +14,7 @@ export const de = {
 
 	/* MATCH */
 	"match.title": "Dein Verkehrs-Mix passt zu ...",
-	"match.createNewMixButton.label": "Neuen Mix erstellen",
+	"match.createNewMixButton.label": "Neuer Mix",
 
 	/* TRAFFIC STATS */
 	"trafficStats.liveData": "Livedaten",

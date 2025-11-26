@@ -36,23 +36,15 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 	const clamped = clamp(value, rangeMin, rangeMax);
 	const xAxisValue = pct(clamped, rangeMin, rangeMax);
 
-	// Color stops for the gradient
-	const greenTo = 60,
-		amberTo = 75;
-	const greenStopPercent = pct(greenTo, rangeMin, rangeMax);
-	const amberStopPercent = pct(amberTo, rangeMin, rangeMax);
-
 	const backgroundImage = `linear-gradient(
         to right,
-        rgba(34, 197, 94, 0.8) 0%,      /* green-500 */
-        rgba(250, 204, 21, 0.8) ${greenStopPercent}%, /* yellow-400 */
-        rgba(249, 115, 22, 0.8) ${amberStopPercent}%, /* orange-500 */
-        rgba(239, 68, 68, 0.8) 100%       /* red-500 */
+        rgba(220, 220, 220, 0.8) 0%,
+        rgba(40, 40, 40, 0.8) 100%
     )`;
 
 	return (
 		<section className={`w-full flex flex-col gap-2 p-3 ${className}`}>
-			<h3 className="font-semibold">{title}</h3>
+			<h3 className="font-semibold self-start">{title}</h3>
 			<div className="flex justify-between items-center">
 				<div className="w-full max-w-md">
 					<div

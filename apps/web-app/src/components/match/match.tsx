@@ -6,14 +6,14 @@ import { MatchCard } from "./match-card";
 import type { TelraamMatch } from "../../../../api/src/common";
 import { scaleForStackPosition } from "./utils";
 
-const CARD_W = 600;
-const CARD_H = 600;
+const CARD_W = 700;
+const CARD_H = 700;
 const OFFSET_Y = 32; // keep Y offset only
 const MIN_SCALE = 0.9; // smallest card (back of stack)
 const STACK_CARD_BG: string[] = [
-	"bg-platte-gray-300", // Last Card
+	"bg-gradient-to-b from-platte-yellow-400 to-white", // First Card
 	"bg-platte-gray-200", // Middle Card
-	"bg-platte-gray-100", // First Card
+	"bg-platte-gray-400", // Last Card
 ];
 
 export const Match: React.FC = () => {
@@ -56,16 +56,13 @@ export const Match: React.FC = () => {
 	};
 
 	return (
-		<div className="flex flex-col justify-center p-3 w-full h-full space-y-7 lg:max-w-[1540px] mx-auto">
-			<div className="flex justify-between items-center w-full">
-				<h1 className="text-4xl font-bold">{i18n("match.title")}</h1>
-				<button
-					className="cursor-pointer rounded-sm p-2 hover:bg-gray-200 bg-gray-300"
-					onClick={goBackToStart}
-				>
-					{i18n("match.createNewMixButton.label")}
-				</button>
-			</div>
+		<div className="flex flex-col justify-center p-3 w-full lg:max-w-[1540px] h-full space-y-7 relative mx-auto">
+			<button
+				className="absolute right-5 bottom-0 cursor-pointer rounded-sm p-2 hover:bg-gray-200 bg-gray-300"
+				onClick={goBackToStart}
+			>
+				{i18n("match.createNewMixButton.label")}
+			</button>
 
 			<div className="relative flex items-start gap-6 w-full h-full">
 				{/* Stacked cards: no X offset, keep Y offset */}

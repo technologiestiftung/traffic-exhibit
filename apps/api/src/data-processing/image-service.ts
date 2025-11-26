@@ -62,16 +62,16 @@ export async function getImageInBoundingBox(
 		// sort images by captured_at descending (newest first)
 		data.data.sort((a, b) => b.captured_at - a.captured_at);
 
-		// Filter for non-panoramic images
-		const nonPanoImages = data.data.filter((image) => image.is_pano === false);
+		// Filter for panoramic images
+		const panoImages = data.data.filter((image) => image.is_pano === true);
 
-		if (nonPanoImages.length === 0) {
+		if (panoImages.length === 0) {
 			return null;
 		}
 
 		// Return the highest quality thumbnail available
 		const imageUrl =
-			nonPanoImages[0].thumb_1024_url || nonPanoImages[0].thumb_256_url;
+			panoImages[0].thumb_1024_url || panoImages[0].thumb_256_url;
 
 		if (!imageUrl) {
 			return null;

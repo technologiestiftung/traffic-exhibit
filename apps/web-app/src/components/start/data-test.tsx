@@ -26,6 +26,22 @@ const DataCard: React.FC<{ segment: Segment }> = ({ segment }) => {
 		heavy_percentage,
 	} = segment.originalProperties;
 
+	const getImageUrl = (imageURL: string | null): string | null => {
+		if (!imageURL) {
+			return null;
+		}
+
+		// Extract filename from relative paths
+		if (imageURL.includes("../")) {
+			const filename = imageURL.split("/").pop();
+			return filename ? `/api/data/raw-images/${filename}` : null;
+		}
+
+		// Extract relative path from absolute paths
+		const match = imageURL.match(/data\/raw-images\/[^/]+$/);
+		return match ? `/api/${match[0]}` : null;
+	};
+
 	const chartData = [
 		{ label: "PKWs", value: car_percentage ?? 0, color: "#FF6384" },
 		{ label: "Rad", value: bike_percentage ?? 0, color: "#36A2EB" },
@@ -50,15 +66,21 @@ const DataCard: React.FC<{ segment: Segment }> = ({ segment }) => {
 
 	const currentNoiseLevel = segment.nearestNoiseLevel;
 	const noiseDisplay = formatNoiseDisplay(currentNoiseLevel);
+	const imageSrc = segment.imageURL ? getImageUrl(segment.imageURL) : null;
 
 	return (
 		<div className="border rounded-lg p-4 bg-gray-50 shadow-sm w-[450px]">
 			<h3 className="text-lg font-semibold mb-2">{segment.address}</h3>
-			<img
-				className="w-full h-auto rounded-md"
-				src={segment.imageURL ?? ""}
-				alt="Segment"
-			/>
+			{imageSrc && (
+				<img
+					className="w-full h-auto rounded-md"
+					src={imageSrc}
+					alt="Segment"
+					onError={(e) => {
+						e.currentTarget.style.display = "none";
+					}}
+				/>
+			)}
 			<div className="flex flex-row justify-start items-center mt-4">
 				<div className="flex flex-col p-3 text-left shrink-0 gap-3">
 					<div className="flex flex-row gap-2">
