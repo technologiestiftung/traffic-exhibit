@@ -15,7 +15,7 @@ const telraamData = telraamDataRaw as { features: TrafficFeature[] };
 const enrichedTelraamData = enrichedTelraamDataRaw as TelraamMatch[];
 
 const closestMatch = findClosestMatches(
-	{ car: 34, bike: 20, pedestrian: 25, heavy: 22 },
+	{ car: 60, bike: 15, pedestrian: 8, heavy: 15 },
 	telraamData.features,
 );
 

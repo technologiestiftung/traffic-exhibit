@@ -69,7 +69,6 @@ export async function getImageInBoundingBox(
 			return null;
 		}
 
-		// Return the highest quality thumbnail available
 		const imageUrl =
 			panoImages[0].thumb_1024_url || panoImages[0].thumb_256_url;
 

@@ -57,7 +57,10 @@ export async function saveImage(
 		logger.debug(`Downloading image for segment ${segmentId}...`);
 		const rawImagePath = await downloadImage(imageURL, segmentId, rawImagesDir);
 
-		return rawImagePath;
+		const filename = path.basename(rawImagePath);
+		const relativePath = path.join("data", "raw-images", filename);
+
+		return relativePath;
 	} catch (error) {
 		logger.error(`Error saving image for segment ${segmentId}:`, error);
 		return null;
