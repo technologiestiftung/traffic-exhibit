@@ -11,9 +11,9 @@ const CARD_H = 700;
 const OFFSET_Y = 32; // keep Y offset only
 const MIN_SCALE = 0.9; // smallest card (back of stack)
 const STACK_CARD_BG: string[] = [
+	"bg-platte-yellow-800", // Last Card
+	"bg-platte-yellow-600", // Middle Card
 	"bg-gradient-to-b from-platte-yellow-400 to-white", // First Card
-	"bg-platte-gray-200", // Middle Card
-	"bg-platte-gray-400", // Last Card
 ];
 
 export const Match: React.FC = () => {
@@ -58,7 +58,7 @@ export const Match: React.FC = () => {
 	return (
 		<div className="flex flex-col justify-center p-3 w-full lg:max-w-[1540px] h-full space-y-7 relative mx-auto">
 			<button
-				className="absolute right-5 bottom-0 cursor-pointer rounded-sm p-2 hover:bg-gray-200 bg-gray-300"
+				className="absolute right-5 bottom-0 cursor-pointer z-30 rounded-sm p-2 hover:bg-gray-200 bg-gray-300"
 				onClick={goBackToStart}
 			>
 				{i18n("match.createNewMixButton.label")}
@@ -107,7 +107,7 @@ export const Match: React.FC = () => {
 					<TrafficModalSplit
 						key={`${currentMatch.segment_id}`}
 						telraamMatch={currentMatch}
-						size={600}
+						size={700}
 						isLegendVisible={false}
 						hasModalChanged={hasModalChanged}
 					/>

@@ -4,7 +4,7 @@ import CameraControls from "camera-controls";
 
 CameraControls.install({ THREE });
 
-type ViewType = "panorama" | "littlePlanet";
+type ViewType = "streetView" | "tinyPlanet";
 
 type ViewConfig = {
 	distanceFromCenter: number;
@@ -21,14 +21,14 @@ type MatchTinyWorldImgProps = {
 };
 
 const views: Record<ViewType, ViewConfig> = {
-	panorama: {
+	streetView: {
 		distanceFromCenter: 0.01,
 		horizontalAngle: 70,
 		verticalAngle: 100,
-		zoomFactor: 1,
+		zoomFactor: 0.5,
 		animated: true,
 	},
-	littlePlanet: {
+	tinyPlanet: {
 		distanceFromCenter: -500,
 		horizontalAngle: 200,
 		verticalAngle: 0,
@@ -54,7 +54,7 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 	const environmentSphereRef = useRef<THREE.Mesh | null>(null);
 	const clockRef = useRef<THREE.Clock>(new THREE.Clock());
 	const animationFrameRef = useRef<number | null>(null);
-	const [currentView, setCurrentView] = useState<ViewType>("littlePlanet");
+	const [currentView, setCurrentView] = useState<ViewType>("tinyPlanet");
 
 	const createEnvironmentSphere = async (url: string): Promise<THREE.Mesh> => {
 		const textureLoader = new THREE.TextureLoader();
@@ -99,7 +99,7 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 		);
 	};
 
-	const onFrameRequest = () => {
+	const render = () => {
 		if (
 			!rendererRef.current ||
 			!cameraRef.current ||
@@ -118,29 +118,7 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 			rendererRef.current.render(sceneRef.current, cameraRef.current);
 		}
 
-		animationFrameRef.current = requestAnimationFrame(onFrameRequest);
-	};
-
-	const handleResize = () => {
-		if (
-			!cameraRef.current ||
-			!cameraControlsRef.current ||
-			!rendererRef.current ||
-			!canvasRef.current
-		) {
-			return;
-		}
-
-		cameraControlsRef.current.saveState();
-
-		const newWidth = canvasRef.current.clientWidth;
-		const newHeight = canvasRef.current.clientHeight;
-
-		cameraRef.current.aspect = newWidth / newHeight;
-		cameraRef.current.updateProjectionMatrix();
-
-		cameraControlsRef.current.reset(false);
-		rendererRef.current.setSize(newWidth, newHeight);
+		animationFrameRef.current = requestAnimationFrame(render);
 	};
 
 	useEffect(() => {
@@ -188,18 +166,14 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 			cameraControlsRef.current = cameraControls;
 
 			// Set initial view
-			setView({ ...views.littlePlanet, animated: false });
+			setView({ ...views.tinyPlanet, animated: false });
 
 			// Start animation loop
-			onFrameRequest();
+			render();
 		};
 
 		initScene();
 
-		// Handle window resize
-		window.addEventListener("resize", handleResize);
-
-		// Cleanup
 		// eslint-disable-next-line consistent-return
 		return () => {
 			isMounted = false;
@@ -207,8 +181,6 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 			if (animationFrameRef.current) {
 				cancelAnimationFrame(animationFrameRef.current);
 			}
-
-			window.removeEventListener("resize", handleResize);
 
 			if (cameraControlsRef.current) {
 				cameraControlsRef.current.dispose();
@@ -246,27 +218,27 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 			<div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
 				<button
 					type="button"
-					onClick={() => setCurrentView("panorama")}
-					disabled={currentView === "panorama"}
+					onClick={() => setCurrentView("streetView")}
+					disabled={currentView === "streetView"}
 					className={`px-4 py-2 rounded-sm ${
-						currentView === "panorama"
+						currentView === "streetView"
 							? "bg-gray-300"
-							: "bg-blue-500 text-white hover:bg-blue-600"
+							: "bg-platte-yellow-400 hover:bg-platte-yellow-600"
 					}`}
 				>
-					Panorama
+					Street View
 				</button>
 				<button
 					type="button"
-					onClick={() => setCurrentView("littlePlanet")}
-					disabled={currentView === "littlePlanet"}
+					onClick={() => setCurrentView("tinyPlanet")}
+					disabled={currentView === "tinyPlanet"}
 					className={`px-4 py-2 rounded-sm ${
-						currentView === "littlePlanet"
+						currentView === "tinyPlanet"
 							? "bg-gray-300"
-							: "bg-blue-500 text-white hover:bg-blue-600"
+							: "bg-platte-yellow-400 hover:bg-platte-yellow-600"
 					}`}
 				>
-					Little Planet
+					Tiny Planet
 				</button>
 			</div>
 		</div>
