@@ -5,6 +5,7 @@ import { logger } from "./logger";
 import express from "express";
 import { createServer } from "http";
 import { Server } from "socket.io";
+import path from "path";
 import { findClosestMatches } from "./data-processing/find-modal-split-match";
 import telraamDataRaw from "./../data/telraam-data.json";
 import enrichedTelraamDataRaw from "./../data/enriched-telraam-data.json";
@@ -14,7 +15,7 @@ const telraamData = telraamDataRaw as { features: TrafficFeature[] };
 const enrichedTelraamData = enrichedTelraamDataRaw as TelraamMatch[];
 
 const closestMatch = findClosestMatches(
-	{ car: 70, bike: 10, pedestrian: 4, heavy: 12 },
+	{ car: 60, bike: 15, pedestrian: 8, heavy: 15 },
 	telraamData.features,
 );
 
@@ -28,6 +29,9 @@ const enrichedMatches =
 	) || [];
 
 const app = express();
+
+// Serve static files from the data directory
+app.use("/data", express.static(path.join(__dirname, "../data")));
 
 // --- socket/http (kept in this file, as requested) ---
 const httpServer = createServer(app);

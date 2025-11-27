@@ -5,6 +5,7 @@ import { fetchTelraamData } from "./telraam-service";
 import { logger } from "../logger";
 import { getAirQuality } from "./air-quality-service";
 import { getImage } from "./image-service";
+import { saveImage } from "./save-image-service";
 import { getBikeLaneOverlap } from "./bike-lane-service";
 import { getNearestNoiseLevel } from "./noise-service";
 import { getAddress } from "./address-service";
@@ -44,6 +45,7 @@ function extractCoordinatesFromFeature(feature: TrafficFeature): Coordinates[] {
 /**
  * Process a single Telraam feature to enrich it with additional data
  */
+// eslint-disable-next-line complexity
 async function processFeature(
 	feature: TrafficFeature,
 	previous?: EnrichedFeatureData,
@@ -61,8 +63,26 @@ async function processFeature(
 				? previous.airQuality
 				: getAirQuality(coordinates);
 
-		// Image: reuse previous if available, otherwise fetch now
-		const imageURL: string | null = await getImage(coordinates);
+		// Image: reuse previous if available and already processed, otherwise fetch and process
+		let imageURL: string | null = null;
+		if (
+			previous &&
+			previous.imageURL &&
+			previous.imageURL.startsWith("data/raw-images/")
+		) {
+			// Reuse previously processed image
+			imageURL = previous.imageURL;
+		} else {
+			// Fetch new image URL
+			const fetchedImageURL = await getImage(coordinates);
+			if (fetchedImageURL) {
+				// Process the image: download and save
+				imageURL = await saveImage(
+					fetchedImageURL,
+					feature.properties.segment_id,
+				);
+			}
+		}
 
 		// Bike lane types: reuse if previously present (non-empty)
 		let bikeLaneTypes: string[];

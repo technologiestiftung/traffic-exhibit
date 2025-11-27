@@ -12,7 +12,7 @@ export const TrafficStats: React.FC<TrafficStatsProps> = ({ telraamMatch }) => {
 
 	return (
 		<div className="absolute flex flex-col gap-2 top-0 right-0 p-2.5">
-			<div className="flex flex-col items-center text-center text-red-500 bg-white bg-opacity-50 rounded-sm px-2">
+			<div className="flex flex-col text-end text-red-500 bg-white bg-opacity-50 rounded-sm px-2">
 				{/* pulsing dot */}
 				<div>
 					<div className="w-3 h-3 bg-red-500 rounded-full animate-pulse inline-block mr-2" />
@@ -27,20 +27,12 @@ export const TrafficStats: React.FC<TrafficStatsProps> = ({ telraamMatch }) => {
 			{trafficModal.map((item) => (
 				<div
 					key={item.name}
-					className="flex flex-col text-black bg-white bg-opacity-50 rounded-sm px-2 py-1 items-center"
+					className="flex flex-col w-fit self-end text-black bg-white bg-opacity-50 rounded-sm px-2 py-1"
 				>
-					<div className="flex flex-col text-center">
-						<p>{item.name}</p>
-						{item.count !== undefined && item.percentage !== undefined && (
-							<p className="flex gap-1">
-								<span className="font-semibold">{item.count}</span>
-								<span>
-									({item.percentage}
-									{"%"})
-								</span>
-							</p>
-						)}
-					</div>
+					<p className="text-end">{item.name}</p>
+					{item.percentage !== undefined && (
+						<p className="text-end font-semibold">{`${item.percentage}%`}</p>
+					)}
 				</div>
 			))}
 		</div>

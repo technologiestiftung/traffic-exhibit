@@ -52,7 +52,7 @@ export const BerlinMap: React.FC<BerlinMapProps> = ({
 								<circle
 									cx={x}
 									cy={y}
-									r={2}
+									r={4}
 									fill={d3.color("#ff5722")?.toString() ?? "#ff5722"} //red
 									stroke="#ffffff"
 									strokeWidth={0}

@@ -5,7 +5,7 @@ import type {
 	ModalSplitPercentages,
 } from "./common";
 
-const COORDINATE_PRECISION = 0.0001;
+const COORDINATE_PRECISION = 0.0002;
 const MAX_FEATURES_PER_QUERY = 5;
 
 /**

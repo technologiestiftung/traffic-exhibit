@@ -69,26 +69,21 @@ export const AirQualityChart: React.FC<AirQualityChartProps> = ({
 
 	const currentStep = stepFor(v);
 
-	// Gradient with distinct color bands and white lines between each segment
-	const gradient =
-		"linear-gradient(to right," +
-		" rgba(16,185,129,0.8) 0%, " + // Green (Sehr niedrig)
-		" rgba(16,185,129,0.8) 20%, " +
-		" rgba(250,204,21,0.8) 20%, " + // Yellow (Niedrig)
-		" rgba(250,204,21,0.8) 40%, " +
-		" rgba(253,100,40,0.8) 40%, " + // Orange (Mäßig)
-		" rgba(253,100,40,0.8) 60%, " +
-		" rgba(253,30,30,0.8) 60%, " + // Red (Erhöht)
-		" rgba(253,30,30,0.8) 80%, " +
-		" rgba(124,45,18,0.8) 80%, " + // Dark red (Hoch)
-		" rgba(124,45,18,0.8) 100%)"; // Darkest red (Kritisch)
+	// Gray colors for 5 steps from bright to dark
+	const stepColors = [
+		"rgba(220, 220, 220, 0.8)", // Step 1 - bright gray
+		"rgba(180, 180, 180, 0.8)", // Step 2
+		"rgba(120, 120, 120, 0.8)", // Step 3
+		"rgba(80, 80, 80, 0.8)", // Step 4
+		"rgba(40, 40, 40, 0.8)", // Step 5 - dark gray
+	];
 
 	return (
 		<section
 			className={`w-full flex flex-col gap-2 p-3 ${className}`}
 			aria-label={`Air Quality: ${currentStep.label}`}
 		>
-			<h3 className="font-semibold">{title}</h3>
+			<h3 className="font-semibold self-start">{title}</h3>
 			<div className="flex justify-between items-center">
 				<div className="relative w-full max-w-md">
 					<div
@@ -97,16 +92,16 @@ export const AirQualityChart: React.FC<AirQualityChartProps> = ({
 						aria-valuemax={5}
 						aria-valuenow={v}
 						aria-valuetext={`${currentStep.label}`}
-						className={`relative w-full rounded-sm h-6 overflow-hidden ${height}`}
-						style={{ background: gradient }}
+						className={`relative w-full rounded-sm h-6 overflow-hidden ${height} flex`}
 					>
-						{/* White lines between segments */}
-						{[1, 2, 3, 4].map((i) => (
+						{/* 5 distinct steps */}
+						{stepColors.map((color, index) => (
 							<div
-								key={i}
-								className="absolute top-0 bottom-0 w-0.5 bg-white z-10"
+								key={index}
+								className="h-full"
 								style={{
-									left: `${(i / 5) * 100}%`,
+									width: "20%",
+									backgroundColor: color,
 								}}
 							/>
 						))}

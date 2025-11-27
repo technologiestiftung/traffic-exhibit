@@ -36,7 +36,7 @@
 			opacity: 0;
 		}
 		to {
-			left: calc(100% - var(--disc-size, 600px));
+			left: calc(100% - var(--disc-size, 700px));
 			opacity: 1;
 		}
 	}
@@ -74,4 +74,8 @@
 	--color-platte-pink-200: #ecc0ff;
 
 	--color-platte-blue-600: #111b72;
+
+	--color-platte-yellow-400: #eefe9e;
+	--color-platte-yellow-600: #e8f784;
+	--color-platte-yellow-800: #e3f469;
 }

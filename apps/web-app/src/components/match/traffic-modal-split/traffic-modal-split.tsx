@@ -22,7 +22,7 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 	size = 300,
 	isLegendVisible = true,
 	areInnerCirclesVisible = true,
-	segmentColors = ["#111b72", "#d7e753", "#ecc0ff", "#5e5ee6"],
+	segmentColors = ["#E7FE64", "#00A980", "#E98EBD", "#5753ea"],
 	labelColor = "#fff",
 	animationDurationMs = 1200,
 	animationDelayMs = 1000, // match CSS default
@@ -223,7 +223,7 @@ export const TrafficModalSplit: React.FC<TrafficModalSplitProps> = ({
 										cx={pieCenter}
 										cy={pieCenter}
 										r={pieRadius * 0.4}
-										fill="#303030"
+										fill="#e1e1e1"
 										opacity={1}
 									/>
 									<circle
