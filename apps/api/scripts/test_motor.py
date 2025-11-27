@@ -1,35 +1,24 @@
 from gpiozero import OutputDevice
 import time
 
-# Set GPIO pins
-STEP_PIN = 17  # GPIO pin for step
-DIR_PIN = 18   # GPIO pin for direction
-ENABLE_PIN = 27  # GPIO pin for enabling the driver (active LOW)
+STEP = 20
+DIR = 21
+EN  = 16
 
-# Set up the pins using gpiozero
-step_device = OutputDevice(STEP_PIN, active_high=True, initial_value=False)
-direction_device = OutputDevice(DIR_PIN, active_high=True, initial_value=False)
-enable_device = OutputDevice(ENABLE_PIN, active_high=False, initial_value=True)  # disabled (active LOW)
+# Create gpiozero output devices
+step = OutputDevice(STEP)
+direction = OutputDevice(DIR)
+enable = OutputDevice(EN, active_high=False)   # driver enable is active LOW
 
-# Enable the motor driver (active LOW, so False = enabled)
-enable_device.value = False
+# enable driver (active LOW)
+enable.on()     # because active_high=False → .on() sends LOW
 
-# Set the direction (True for one direction, False for the other)
-direction_device.value = True  # True or False to control direction
+# set direction
+direction.on()  # HIGH   (use .off() for LOW)
 
-# Create a pulse on STEP_PIN to move the motor
-try:
-    while True:
-        step_device.on()
-        time.sleep(0.001)  # Pulse width (controls motor speed)
-        step_device.off()
-        time.sleep(0.001)
-except KeyboardInterrupt:
-    print("\nStopping motor...")
-finally:
-    # Disable the motor driver and cleanup
-    enable_device.value = True  # Disable (active LOW)
-    step_device.close()
-    direction_device.close()
-    enable_device.close()
-    print("Cleanup complete.")
+# do 200 steps
+for _ in range(200):
+    step.on()      # HIGH
+    time.sleep(0.0005)
+    step.off()     # LOW
+    time.sleep(0.0005)
