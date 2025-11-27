@@ -1,24 +1,22 @@
 from gpiozero import OutputDevice
-import time
+from time import sleep
 
-STEP = 20
-DIR = 21
-EN  = 16
+STEP_PIN = 20
+DIR_PIN  = 21   # change direction by flipping this
 
-# Create gpiozero output devices
-step = OutputDevice(STEP)
-direction = OutputDevice(DIR)
-enable = OutputDevice(EN, active_high=False)   # driver enable is active LOW
+step = OutputDevice(STEP_PIN, initial_value=False)
+direction = OutputDevice(DIR_PIN, initial_value=False)
 
-# enable driver (active LOW)
-enable.on()     # because active_high=False → .on() sends LOW
+# choose a direction
+direction.on()   # or .off()
 
-# set direction
-direction.on()  # HIGH   (use .off() for LOW)
+def do_steps(steps, delay=0.01):
+    for _ in range(steps):
+        step.on()
+        sleep(delay)
+        step.off()
+        sleep(delay)
 
-# do 200 steps
-for _ in range(200):
-    step.on()      # HIGH
-    time.sleep(0.0005)
-    step.off()     # LOW
-    time.sleep(0.0005)
+print("Starting…")
+do_steps(200, delay=0.01)  # nice and slow so you can see/hear it
+print("Done")
