@@ -1,6 +1,6 @@
 import React from "react";
 import type { TelraamMatch } from "../../../../../api/src/common";
-import { formatDdMmmYyyy, getTrafficModal } from "../utils";
+import { formatDdMmmYyyy } from "../utils";
 import { i18n } from "../../../i18n/i18n-utils";
 
 type TrafficStatsProps = {
@@ -8,8 +8,6 @@ type TrafficStatsProps = {
 };
 
 export const TrafficStats: React.FC<TrafficStatsProps> = ({ telraamMatch }) => {
-	const trafficModal = getTrafficModal(telraamMatch);
-
 	return (
 		<div className="absolute flex flex-col gap-2 top-0 right-0 p-2.5">
 			<div className="flex flex-col text-end text-red-500 bg-white bg-opacity-50 rounded-sm px-2">
@@ -24,17 +22,7 @@ export const TrafficStats: React.FC<TrafficStatsProps> = ({ telraamMatch }) => {
 				</span>
 			</div>
 
-			{trafficModal.map((item) => (
-				<div
-					key={item.name}
-					className="flex flex-col w-fit self-end text-black bg-white bg-opacity-50 rounded-sm px-2 py-1"
-				>
-					<p className="text-end">{item.name}</p>
-					{item.percentage !== undefined && (
-						<p className="text-end font-semibold">{`${item.percentage}%`}</p>
-					)}
-				</div>
-			))}
+			{/* Percentages removed per design – keep live data only */}
 		</div>
 	);
 };

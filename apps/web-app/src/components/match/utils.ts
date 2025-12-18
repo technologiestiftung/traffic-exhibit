@@ -1,6 +1,8 @@
 import { parse, format } from "date-fns";
 import { i18n } from "../../i18n/i18n-utils";
 import type { TelraamMatch } from "../../../../api/src/common";
+import { color, lab } from "d3";
+
 
 export const formatDdMmmYyyy = (value?: string) => {
 	if (!value) {
@@ -22,6 +24,8 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 			percentage: parseFloat(
 				telraamMatch?.originalProperties.pedestrian_percentage.toFixed(0),
 			),
+			color: "#e7fe64",
+			labelOffset: "15%",
 		},
 		{
 			name: i18n("trafficStats.bikes"),
@@ -29,6 +33,8 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 			percentage: parseFloat(
 				telraamMatch?.originalProperties.bike_percentage.toFixed(0),
 			),
+			color: "#00a980",
+			labelOffset: "25%",
 		},
 		{
 			name: i18n("trafficStats.cars"),
@@ -36,6 +42,8 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 			percentage: parseFloat(
 				telraamMatch?.originalProperties.car_percentage.toFixed(0),
 			),
+			color: "#e98cbd",
+			labelOffset: "30%",
 		},
 		{
 			name: i18n("trafficStats.trucks"),
@@ -43,6 +51,8 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 			percentage: parseFloat(
 				telraamMatch?.originalProperties.heavy_percentage.toFixed(0),
 			),
+			color: "#3360e9",
+			labelOffset: "35%",
 		},
 	];
 }

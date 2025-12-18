@@ -19,6 +19,9 @@ export type MatchCardProps = {
 	backgroundClass: string;
 	selected: boolean;
 	onSelect: (index: number) => void;
+	transformStyle: string;
+	transformOrigin?: string;
+	leftOffset?: number;
 };
 
 const getImageUrl = (imageURL: string | null): string | null => {
@@ -48,6 +51,9 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 	backgroundClass,
 	selected,
 	onSelect,
+	transformStyle,
+	transformOrigin,
+	leftOffset = 0,
 }) => {
 	const imageSrc = match.imageURL ? getImageUrl(match.imageURL) : null;
 
@@ -56,14 +62,15 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 			type="button"
 			onClick={() => onSelect(index)}
 			aria-pressed={selected}
-			className={`absolute rounded-sm cursor-pointer ${backgroundClass} ${selected ? "shadow-2xl" : "shadow-xl hover:-translate-y-0.5"}`}
+			className={`absolute rounded-xl cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${backgroundClass} ${selected ? "shadow-2xl" : "shadow-xl"}`}
 			style={{
 				top: topOffset,
+				left: leftOffset,
 				width,
 				height,
 				zIndex,
-				transform: `scale(${scale})`,
-				transformOrigin: "top",
+				transform: transformStyle || `scale(${scale})`,
+				transformOrigin: transformOrigin ?? "center left",
 			}}
 		>
 			<div className="flex flex-col justify-between h-full">
@@ -99,7 +106,12 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 
 				{/* IMAGE */}
 				<div className="w-full h-[400px] relative">
-					{imageSrc && <MatchTinyWorldImg imageUrl={imageSrc} />}
+					{imageSrc && (
+						<MatchTinyWorldImg
+							imageUrl={imageSrc}
+							shouldAnimate={selected}
+						/>
+					)}
 					{match.originalProperties && <TrafficStats telraamMatch={match} />}
 				</div>
 				{match.nearestNoiseLevel !== null && (
