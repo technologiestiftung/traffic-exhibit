@@ -67,7 +67,10 @@ export const CircleChart: FC<CircleChartProps> = ({
 	const clampedMinRadius = minRadius * maxRadius;
 	const gap = fontSize * 1.5;
 
-	const segments = buildSegments(data, clampedMinRadius, maxRadius, gap);
+
+	// build computed segment data; pass a single options object to satisfy
+	// the linter rule (max-params)
+	const segments = buildSegments({ data, minRadius: clampedMinRadius, maxRadius, gap });
 
 	if (!data.length) {
 		return null;
@@ -182,12 +185,14 @@ const circlePath = (cx: number, cy: number, r: number) =>
 		`A ${r} ${r} 0 1 1 ${cx} ${cy - r}`,
 	].join(" ");
 
-const buildSegments = (
-	data: CircleChartSegment[],
-	minRadius: number,
-	maxRadius: number,
-	gap: number,
-): ComputedSegment[] => {
+type BuildSegmentsOptions = {
+	data: CircleChartSegment[];
+	minRadius: number;
+	maxRadius: number;
+	gap: number;
+};
+
+const buildSegments = ({ data, minRadius, maxRadius, gap }: BuildSegmentsOptions): ComputedSegment[] => {
 	const totalValue = data.reduce((sum, segment) => sum + segment.percentage, 0);
 	const totalGap = gap * data.length;
 	const availableSpan = Math.max(maxRadius - minRadius - totalGap, 0);
