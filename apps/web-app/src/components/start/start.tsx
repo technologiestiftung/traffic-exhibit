@@ -52,9 +52,7 @@ export const Start = () => {
 						className="rounded-full border border-white/60 bg-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-white transition hover:bg-white/40"
 						onClick={() => setIsAllDataVisible(!isAllDataVisible)}
 					>
-						{isAllDataVisible
-							? "Alle Daten verbergen"
-							: "Alle Daten anzeigen"}
+						{isAllDataVisible ? "Alle Daten verbergen" : "Alle Daten anzeigen"}
 					</button>
 					{isAllDataVisible && (
 						<div className="w-full rounded-3xl bg-white/85 p-6 text-left text-[#111] shadow-2xl">

@@ -68,7 +68,7 @@ export const Match: React.FC = () => {
 			</div>
 
 			<div className="relative flex w-full max-w-[1540px] flex-1 items-center gap-6">
-					{/* Stacked cards: no X offset, keep Y offset */}
+				{/* Stacked cards: no X offset, keep Y offset */}
 				<div
 					className="relative z-50 w-full overflow-visible"
 					style={{
@@ -91,9 +91,7 @@ export const Match: React.FC = () => {
 							? 1.02
 							: scaleForStackPosition(reverseIndex, stackLength, MIN_SCALE);
 						const transformStyle = `translateZ(${depthTranslation}px) rotateY(${-rotationAngle}deg) scale(${scale})`;
-						const leftOffset = selectedCard
-							? 0
-							: CARD_W + 40;
+						const leftOffset = selectedCard ? 0 : CARD_W + 40;
 						return (
 							<MatchCard
 								key={match.segment_id ?? index}
@@ -119,7 +117,11 @@ export const Match: React.FC = () => {
 
 				{/* Front card by default; updates with selection/reorder */}
 				{currentMatch && (
-					<CircleChart key={currentMatch.segment_id} data={(getTrafficModal(currentMatch))} size={700} />
+					<CircleChart
+						key={currentMatch.segment_id}
+						data={getTrafficModal(currentMatch)}
+						size={700}
+					/>
 				)}
 			</div>
 		</div>

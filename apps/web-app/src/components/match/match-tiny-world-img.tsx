@@ -116,9 +116,7 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 		}
 
 		const delta = clockRef.current.getDelta();
-		let needsRender = cameraControlsRef.current.update(
-			delta * animationSpeed,
-		);
+		let needsRender = cameraControlsRef.current.update(delta * animationSpeed);
 
 		if (environmentSphereRef.current && shouldAnimateRef.current) {
 			const targetSpeed =

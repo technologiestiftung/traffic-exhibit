@@ -107,10 +107,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 				{/* IMAGE */}
 				<div className="w-full h-[400px] relative">
 					{imageSrc && (
-						<MatchTinyWorldImg
-							imageUrl={imageSrc}
-							shouldAnimate={selected}
-						/>
+						<MatchTinyWorldImg imageUrl={imageSrc} shouldAnimate={selected} />
 					)}
 					{match.originalProperties && <TrafficStats telraamMatch={match} />}
 				</div>
