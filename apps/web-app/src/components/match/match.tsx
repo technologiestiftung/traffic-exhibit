@@ -19,7 +19,6 @@ const STACK_CARD_BG: string[] = [
 export const Match: React.FC = () => {
 	const { goBackToStart, telraamMatches = [] } = useWebSocket();
 	const [stack, setStack] = useState<TelraamMatch[]>([]);
-	const [hasModalChanged, setHasModalChanged] = useState(false);
 
 	const displayStack = (stack.length ? stack : telraamMatches).filter(
 		(match) => match !== null,
@@ -52,7 +51,6 @@ export const Match: React.FC = () => {
 		);
 		const newStack = [clicked, ...others, prevFront];
 		setStack(newStack);
-		setHasModalChanged(true);
 	};
 
 	return (

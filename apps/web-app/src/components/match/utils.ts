@@ -1,8 +1,6 @@
 import { parse, format } from "date-fns";
 import { i18n } from "../../i18n/i18n-utils";
 import type { TelraamMatch } from "../../../../api/src/common";
-import { color, lab } from "d3";
-
 
 export const formatDdMmmYyyy = (value?: string) => {
 	if (!value) {
