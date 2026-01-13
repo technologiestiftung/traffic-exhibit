@@ -22,20 +22,59 @@
       },
       "properties": {
         "segment_id": 9000001786,
-        "last_data_package": "2025-11-26 16:45:26.377000+00:00",
+        "last_data_package": "2026-01-13 13:00:45.337200+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9994444444444444,
-        "heavy": 37,
-        "car": 206,
-        "bike": 19,
-        "pedestrian": 15,
-        "night": 258,
-        "car_percentage": 74.36823104693141,
-        "bike_percentage": 6.859205776173286,
-        "pedestrian_percentage": 5.415162454873646,
-        "heavy_percentage": 13.357400722021662
+        "uptime": 0.9991666666666668,
+        "heavy": 96,
+        "car": 450,
+        "bike": 12,
+        "pedestrian": 39,
+        "night": 0,
+        "car_percentage": 75.37688442211056,
+        "bike_percentage": 2.0100502512562812,
+        "pedestrian_percentage": 6.532663316582915,
+        "heavy_percentage": 16.08040201005025
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.548212894,
+              52.436897803
+            ],
+            [
+              13.549286994,
+              52.436096603
+            ],
+            [
+              13.549360094,
+              52.436042003
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000001833,
+        "last_data_package": "2026-01-13 13:00:04.633100+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.9991666666666668,
+        "heavy": 8,
+        "car": 10,
+        "bike": 0,
+        "pedestrian": 108,
+        "night": 0,
+        "car_percentage": 7.936507936507936,
+        "bike_percentage": 0,
+        "pedestrian_percentage": 85.71428571428571,
+        "heavy_percentage": 6.349206349206349
       }
     },
     {
@@ -65,20 +104,55 @@
       },
       "properties": {
         "segment_id": 9000002074,
-        "last_data_package": "2025-11-26 16:44:17.295800+00:00",
+        "last_data_package": "2026-01-13 13:09:14.203700+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.042222222222222223,
-        "heavy": 0,
-        "car": 663.1578947368421,
-        "bike": 331.57894736842104,
-        "pedestrian": 165.78947368421052,
+        "uptime": 0.7619444444444444,
+        "heavy": 96.98651227669792,
+        "car": 547.4041021185949,
+        "bike": 48.36476236977093,
+        "pedestrian": 107.54865347965102,
         "night": "",
-        "car_percentage": 57.14285714285714,
-        "bike_percentage": 28.57142857142857,
-        "pedestrian_percentage": 14.285714285714285,
-        "heavy_percentage": 0
+        "car_percentage": 68.39951836194193,
+        "bike_percentage": 6.043298614275638,
+        "pedestrian_percentage": 13.438474556571345,
+        "heavy_percentage": 12.1187084672111
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.406749894,
+              52.509225703
+            ],
+            [
+              13.407258794,
+              52.509565303
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000002582,
+        "last_data_package": "2026-01-13 13:09:01.341700+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7861111111111111,
+        "heavy": 34.3522123773114,
+        "car": 136.08154164655787,
+        "bike": 165.1798621257945,
+        "pedestrian": 10.130451887597511,
+        "night": "",
+        "car_percentage": 39.359038730316605,
+        "bike_percentage": 47.775183263012,
+        "pedestrian_percentage": 2.930043585449379,
+        "heavy_percentage": 9.935734421222007
       }
     },
     {
@@ -128,20 +202,20 @@
       },
       "properties": {
         "segment_id": 9000002889,
-        "last_data_package": "2025-11-26 16:43:41.495300+00:00",
+        "last_data_package": "2026-01-13 13:08:51.115000+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.04722222222222222,
-        "heavy": 0,
-        "car": 127.05882352941175,
-        "bike": 21.176470588235293,
-        "pedestrian": 0,
+        "uptime": 0.7872222222222222,
+        "heavy": 6.424068898448985,
+        "car": 46.74599613036038,
+        "bike": 29.17631950582826,
+        "pedestrian": 25.365024241585566,
         "night": "",
-        "car_percentage": 85.71428571428572,
-        "bike_percentage": 14.285714285714288,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 0
+        "car_percentage": 43.39929879431617,
+        "bike_percentage": 27.087492251116863,
+        "pedestrian_percentage": 23.54905996474608,
+        "heavy_percentage": 5.964148989820909
       }
     },
     {
@@ -179,20 +253,110 @@
       },
       "properties": {
         "segment_id": 9000003000,
-        "last_data_package": "2025-11-26 16:43:48.957200+00:00",
+        "last_data_package": "2026-01-13 13:07:58.899900+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.5155555555555555,
-        "heavy": 3.1195840554592724,
-        "car": 66.05051380530148,
-        "bike": 64.50861134530527,
-        "pedestrian": 3.4824586023014312,
+        "uptime": 0.6241666666666668,
+        "heavy": 1.7786561264822136,
+        "car": 37.509179800494536,
+        "bike": 11.153161452423008,
+        "pedestrian": 1.7786561264822136,
         "night": "",
-        "car_percentage": 48.155403501363374,
-        "bike_percentage": 47.03124971597825,
-        "pedestrian_percentage": 2.5389537417521066,
-        "heavy_percentage": 2.274393040906264
+        "car_percentage": 71.82962214843027,
+        "bike_percentage": 21.35816824438854,
+        "pedestrian_percentage": 3.4061048035906016,
+        "heavy_percentage": 3.4061048035906016
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.459547294,
+              52.508039403
+            ],
+            [
+              13.459918794,
+              52.508854903
+            ],
+            [
+              13.459933294,
+              52.508886903
+            ],
+            [
+              13.459980094,
+              52.508973003
+            ],
+            [
+              13.459984794,
+              52.508982003
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000003077,
+        "last_data_package": "2026-01-13 13:00:20.108900+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.9994444444444444,
+        "heavy": 2,
+        "car": 30,
+        "bike": 40,
+        "pedestrian": 13,
+        "night": 0,
+        "car_percentage": 35.294117647058826,
+        "bike_percentage": 47.05882352941176,
+        "pedestrian_percentage": 15.294117647058824,
+        "heavy_percentage": 2.3529411764705883
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.530875094,
+              52.485870403
+            ],
+            [
+              13.531230194,
+              52.485315303
+            ],
+            [
+              13.531980894,
+              52.484141503
+            ],
+            [
+              13.532014894,
+              52.484088403
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000003172,
+        "last_data_package": "2026-01-13 13:06:55.319800+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7958333333333333,
+        "heavy": 25.151741779064732,
+        "car": 299.18282069512605,
+        "bike": 5.0698392516574335,
+        "pedestrian": 1.2587412587412588,
+        "night": "",
+        "car_percentage": 90.47963979132366,
+        "bike_percentage": 1.5332338542169222,
+        "pedestrian_percentage": 0.38067177592875,
+        "heavy_percentage": 7.606454578530673
       }
     },
     {
@@ -234,20 +398,20 @@
       },
       "properties": {
         "segment_id": 9000003310,
-        "last_data_package": "2025-11-26 16:40:57.830700+00:00",
+        "last_data_package": "2026-01-13 13:09:02.285700+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.20472222222222222,
-        "heavy": 14.713896457765667,
-        "car": 56.40326975476839,
-        "bike": 14.713896457765665,
-        "pedestrian": 7.356948228882834,
+        "uptime": 0.7913888888888889,
+        "heavy": 17.785427072098564,
+        "car": 98.581993184769,
+        "bike": 5.034396840844364,
+        "pedestrian": 2.5204303603974365,
         "night": "",
-        "car_percentage": 60.526315789473685,
-        "bike_percentage": 15.789473684210526,
-        "pedestrian_percentage": 7.894736842105263,
-        "heavy_percentage": 15.789473684210526
+        "car_percentage": 79.55148910456423,
+        "bike_percentage": 4.062544816697413,
+        "pedestrian_percentage": 2.03388044689025,
+        "heavy_percentage": 14.3520856318481
       }
     },
     {
@@ -285,19 +449,19 @@
       },
       "properties": {
         "segment_id": 9000003320,
-        "last_data_package": "2025-11-26 16:45:29.882700+00:00",
+        "last_data_package": "2026-01-13 13:09:02.640500+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.12111111111111111,
+        "uptime": 0.7677777777777777,
         "heavy": 0,
-        "car": 0,
-        "bike": 8.256880733944953,
-        "pedestrian": 57.798165137614674,
+        "car": 2.564102564102564,
+        "bike": 5.20478898989386,
+        "pedestrian": 29.909085987054464,
         "night": "",
-        "car_percentage": 0,
-        "bike_percentage": 12.5,
-        "pedestrian_percentage": 87.5,
+        "car_percentage": 6.805308382884736,
+        "bike_percentage": 13.813875716187637,
+        "pedestrian_percentage": 79.38081590092764,
         "heavy_percentage": 0
       }
     },
@@ -320,20 +484,20 @@
       },
       "properties": {
         "segment_id": 9000003479,
-        "last_data_package": "2025-11-26 16:45:18.632000+00:00",
+        "last_data_package": "2026-01-13 13:00:08.204400+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9874999999999999,
-        "heavy": 37.217301943198805,
-        "car": 262.2621449925262,
-        "bike": 65.42563527653215,
+        "uptime": 0.991111111111111,
+        "heavy": 25.142692750287686,
+        "car": 165.3199079401611,
+        "bike": 2.0356731875719216,
         "pedestrian": 0,
-        "night": 857.8878923766816,
-        "car_percentage": 71.87133251270372,
-        "bike_percentage": 17.929494124851765,
+        "night": 0,
+        "car_percentage": 85.88124174293554,
+        "bike_percentage": 1.0575020474530878,
         "pedestrian_percentage": 0,
-        "heavy_percentage": 10.199173362444517
+        "heavy_percentage": 13.061256209611372
       }
     },
     {
@@ -371,20 +535,20 @@
       },
       "properties": {
         "segment_id": 9000003520,
-        "last_data_package": "2025-11-26 16:44:24.637800+00:00",
+        "last_data_package": "2026-01-13 13:08:55.902400+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.01888888888888889,
-        "heavy": 52.94117647058823,
-        "car": 741.1764705882352,
-        "bike": 0,
-        "pedestrian": 0,
+        "uptime": 0.7869444444444444,
+        "heavy": 25.406882906307217,
+        "car": 199.54067862166306,
+        "bike": 17.809731613531028,
+        "pedestrian": 5.100989107516566,
         "night": "",
-        "car_percentage": 93.33333333333333,
-        "bike_percentage": 0,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 6.666666666666667
+        "car_percentage": 80.50595558521174,
+        "bike_percentage": 7.1854494640764015,
+        "pedestrian_percentage": 2.0580264904731775,
+        "heavy_percentage": 10.250568460238691
       }
     },
     {
@@ -414,20 +578,192 @@
       },
       "properties": {
         "segment_id": 9000003561,
-        "last_data_package": "2025-11-26 16:44:14.895700+00:00",
+        "last_data_package": "2026-01-13 13:08:30.480200+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.12083333333333333,
-        "heavy": 0,
-        "car": 66.20689655172414,
-        "bike": 0,
+        "uptime": 0.795,
+        "heavy": 20.145835695265095,
+        "car": 56.552438434599246,
+        "bike": 7.540979779964021,
         "pedestrian": 0,
         "night": "",
-        "car_percentage": 100,
-        "bike_percentage": 0,
+        "car_percentage": 67.13311883689553,
+        "bike_percentage": 8.951859649702095,
         "pedestrian_percentage": 0,
-        "heavy_percentage": 0
+        "heavy_percentage": 23.915021513402365
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.523624294,
+              52.486966703
+            ],
+            [
+              13.523399094,
+              52.486993103
+            ],
+            [
+              13.522492594,
+              52.487099203
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000003564,
+        "last_data_package": "2026-01-13 13:08:17.840700+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7872222222222222,
+        "heavy": 8.87369790745421,
+        "car": 33.03029184725087,
+        "bike": 3.8139424603254337,
+        "pedestrian": 39.42836441322214,
+        "night": "",
+        "car_percentage": 38.79239985205768,
+        "bike_percentage": 4.479281673255907,
+        "pedestrian_percentage": 46.30661106185949,
+        "heavy_percentage": 10.421707412826924
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.481651794,
+              52.514434703
+            ],
+            [
+              13.481321794,
+              52.514732003
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000003738,
+        "last_data_package": "2026-01-13 13:08:46.614600+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7927777777777778,
+        "heavy": 16.417974269870243,
+        "car": 59.387925308206725,
+        "bike": 11.42357389806784,
+        "pedestrian": 32.77918289287804,
+        "night": "",
+        "car_percentage": 49.4863679879814,
+        "bike_percentage": 9.518958251595375,
+        "pedestrian_percentage": 27.31401540909106,
+        "heavy_percentage": 13.680658351332164
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.486724694,
+              52.502412603
+            ],
+            [
+              13.486915994,
+              52.502428203
+            ],
+            [
+              13.487014894,
+              52.502433203
+            ],
+            [
+              13.487093294,
+              52.502431603
+            ],
+            [
+              13.487129094,
+              52.502423803
+            ],
+            [
+              13.487832794,
+              52.502262203
+            ],
+            [
+              13.488368194,
+              52.502128303
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000003747,
+        "last_data_package": "2026-01-13 13:09:04.581900+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.6916631554850035,
+        "heavy": 117.46614357346567,
+        "car": 580.7967089269366,
+        "bike": 33.0732385474375,
+        "pedestrian": 2.214977813999819,
+        "night": "",
+        "car_percentage": 79.17604289338531,
+        "bike_percentage": 4.508648402455898,
+        "pedestrian_percentage": 0.30195277575377616,
+        "heavy_percentage": 16.013355928405005
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.335820494,
+              52.528562803
+            ],
+            [
+              13.336652094,
+              52.528486703
+            ],
+            [
+              13.337132294,
+              52.528442703
+            ],
+            [
+              13.338111694,
+              52.528353003
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000003760,
+        "last_data_package": "2026-01-13 13:08:44.056800+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7911111111111111,
+        "heavy": 7.706767008200968,
+        "car": 49.7062319407903,
+        "bike": 21.74213586558412,
+        "pedestrian": 58.342672382197115,
+        "night": "",
+        "car_percentage": 36.150563382917035,
+        "bike_percentage": 15.812714623491447,
+        "pedestrian_percentage": 42.43171114627536,
+        "heavy_percentage": 5.6050108473161675
       }
     },
     {
@@ -461,20 +797,75 @@
       },
       "properties": {
         "segment_id": 9000003769,
-        "last_data_package": "2025-11-26 16:42:11.614900+00:00",
+        "last_data_package": "2026-01-13 13:08:50.098000+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.08472222222222223,
-        "heavy": 106.2295081967213,
-        "car": 318.6885245901639,
-        "bike": 35.40983606557377,
-        "pedestrian": 0,
+        "uptime": 0.7833333333333333,
+        "heavy": 89.36885572963577,
+        "car": 339.1718774330898,
+        "bike": 24.249364688953964,
+        "pedestrian": 5.131598209242104,
         "night": "",
-        "car_percentage": 69.23076923076923,
-        "bike_percentage": 7.6923076923076925,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 23.076923076923077
+        "car_percentage": 74.0676583683789,
+        "bike_percentage": 5.29552648357763,
+        "pedestrian_percentage": 1.1206278831914964,
+        "heavy_percentage": 19.51618726485198
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.410411494,
+              52.550976103
+            ],
+            [
+              13.410425994,
+              52.551045403
+            ],
+            [
+              13.410506494,
+              52.551431103
+            ],
+            [
+              13.410514394,
+              52.551468603
+            ],
+            [
+              13.410572294,
+              52.551746203
+            ],
+            [
+              13.410688094,
+              52.552300803
+            ],
+            [
+              13.410702194,
+              52.552368503
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000003786,
+        "last_data_package": "2026-01-13 13:08:58.514100+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7730555555555556,
+        "heavy": 18.11537388892384,
+        "car": 129.3149572553899,
+        "bike": 55.687844863636336,
+        "pedestrian": 25.870337300169094,
+        "night": "",
+        "car_percentage": 56.47224630931076,
+        "bike_percentage": 24.31905603435429,
+        "pedestrian_percentage": 11.297657217136846,
+        "heavy_percentage": 7.911040439198104
       }
     },
     {
@@ -504,20 +895,20 @@
       },
       "properties": {
         "segment_id": 9000003997,
-        "last_data_package": "2025-11-26 16:41:27.498800+00:00",
+        "last_data_package": "2026-01-13 13:09:08.378000+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.13166666666666665,
-        "heavy": 68.35443037974684,
-        "car": 205.06329113924053,
-        "bike": 91.13924050632912,
-        "pedestrian": 37.9746835443038,
+        "uptime": 0.7777777777777778,
+        "heavy": 23.045239369421857,
+        "car": 36.13728104867284,
+        "bike": 21.813813818228862,
+        "pedestrian": 37.1829677826136,
         "night": "",
-        "car_percentage": 50.943396226415096,
-        "bike_percentage": 22.641509433962263,
-        "pedestrian_percentage": 9.433962264150942,
-        "heavy_percentage": 16.9811320754717
+        "car_percentage": 30.578350380578627,
+        "bike_percentage": 18.458235448651912,
+        "pedestrian_percentage": 31.46318107095891,
+        "heavy_percentage": 19.500233099810547
       }
     },
     {
@@ -543,20 +934,63 @@
       },
       "properties": {
         "segment_id": 9000004010,
-        "last_data_package": "2025-11-26 16:44:03.658100+00:00",
+        "last_data_package": "2026-01-13 13:08:38.342800+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.1063888888888889,
-        "heavy": 28.198433420365532,
-        "car": 253.78590078328978,
-        "bike": 150.39164490861617,
-        "pedestrian": 0,
+        "uptime": 0.7677777777777778,
+        "heavy": 316.4331038702205,
+        "car": 184.59214751489696,
+        "bike": 42.743676096737545,
+        "pedestrian": 31.264382601099985,
         "night": "",
-        "car_percentage": 58.69565217391305,
-        "bike_percentage": 34.78260869565218,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 6.521739130434782
+        "car_percentage": 32.10112253988686,
+        "bike_percentage": 7.4332521868291925,
+        "pedestrian_percentage": 5.436968963865719,
+        "heavy_percentage": 55.028656309418224
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.452570394,
+              52.486146503
+            ],
+            [
+              13.452464994,
+              52.486201103
+            ],
+            [
+              13.452422794,
+              52.486222903
+            ],
+            [
+              13.451210294,
+              52.486849203
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000004016,
+        "last_data_package": "2026-01-13 13:08:52.174200+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7927777777777778,
+        "heavy": 12.473177905827326,
+        "car": 62.84181594618704,
+        "bike": 4.983846469127468,
+        "pedestrian": 1.2802275960170697,
+        "night": "",
+        "car_percentage": 77.03178958847754,
+        "bike_percentage": 6.1092221281424965,
+        "pedestrian_percentage": 1.5693089277718917,
+        "heavy_percentage": 15.289679355608063
       }
     },
     {
@@ -578,20 +1012,20 @@
       },
       "properties": {
         "segment_id": 9000004024,
-        "last_data_package": "2025-11-26 16:43:31.635600+00:00",
+        "last_data_package": "2026-01-13 13:08:51.036500+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.10833333333333334,
-        "heavy": 0,
-        "car": 55.38461538461538,
-        "bike": 0,
+        "uptime": 0.7880555555555556,
+        "heavy": 1.282051282051282,
+        "car": 44.49438148290065,
+        "bike": 5.117294053464266,
         "pedestrian": 0,
         "night": "",
-        "car_percentage": 100,
-        "bike_percentage": 0,
+        "car_percentage": 87.42606262978583,
+        "bike_percentage": 10.054862108491813,
         "pedestrian_percentage": 0,
-        "heavy_percentage": 0
+        "heavy_percentage": 2.5190752617223624
       }
     },
     {
@@ -621,83 +1055,20 @@
       },
       "properties": {
         "segment_id": 9000004033,
-        "last_data_package": "2025-11-26 16:41:54.000600+00:00",
+        "last_data_package": "2026-01-13 13:08:45.095000+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.013055555555555556,
-        "heavy": 0,
-        "car": 536.1702127659573,
-        "bike": 229.78723404255317,
-        "pedestrian": 153.1914893617021,
+        "uptime": 0.7569444444444445,
+        "heavy": 17.188420855751502,
+        "car": 84.68902198338193,
+        "bike": 137.58032774889415,
+        "pedestrian": 129.02507826695248,
         "night": "",
-        "car_percentage": 58.333333333333336,
-        "bike_percentage": 25.000000000000007,
-        "pedestrian_percentage": 16.666666666666668,
-        "heavy_percentage": 0
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "MultiLineString",
-        "coordinates": [
-          [
-            [
-              13.312629394,
-              52.499254303
-            ],
-            [
-              13.312430994,
-              52.499258903
-            ],
-            [
-              13.312394694,
-              52.499259703
-            ],
-            [
-              13.312363794,
-              52.499257903
-            ],
-            [
-              13.311960394,
-              52.499233903
-            ],
-            [
-              13.311076094,
-              52.499181403
-            ],
-            [
-              13.309871194,
-              52.499108503
-            ],
-            [
-              13.309141494,
-              52.499064303
-            ],
-            [
-              13.308813794,
-              52.499044503
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "segment_id": 9000004035,
-        "last_data_package": "2025-11-26 16:41:53.920100+00:00",
-        "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
-        "period": "hourly",
-        "uptime": 0.1338888888888889,
-        "heavy": 0,
-        "car": 44.81327800829875,
-        "bike": 67.21991701244814,
-        "pedestrian": 0,
-        "night": "",
-        "car_percentage": 40,
-        "bike_percentage": 60,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 0
+        "car_percentage": 22.983165226426078,
+        "bike_percentage": 37.33696919040056,
+        "pedestrian_percentage": 35.01521947843264,
+        "heavy_percentage": 4.664646104740731
       }
     },
     {
@@ -723,20 +1094,20 @@
       },
       "properties": {
         "segment_id": 9000004039,
-        "last_data_package": "2025-11-26 16:44:14.697800+00:00",
+        "last_data_package": "2026-01-13 13:00:16.316000+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.12,
-        "heavy": 16.666666666666668,
-        "car": 400,
-        "bike": 41.66666666666667,
-        "pedestrian": 0,
-        "night": "",
-        "car_percentage": 87.27272727272727,
-        "bike_percentage": 9.090909090909092,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 3.6363636363636362
+        "uptime": 0.9950000000000001,
+        "heavy": 65.25339366515837,
+        "car": 162.68778280542986,
+        "bike": 1,
+        "pedestrian": 5.018099547511312,
+        "night": 0,
+        "car_percentage": 69.53679528092061,
+        "bike_percentage": 0.4274248138477904,
+        "pedestrian_percentage": 2.144860264964704,
+        "heavy_percentage": 27.890919640266898
       }
     },
     {
@@ -774,20 +1145,20 @@
       },
       "properties": {
         "segment_id": 9000004074,
-        "last_data_package": "2025-11-26 16:42:13.614900+00:00",
+        "last_data_package": "2026-01-13 13:09:03.301500+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.08777777777777777,
-        "heavy": 11.39240506329114,
-        "car": 22.78481012658228,
-        "bike": 0,
-        "pedestrian": 0,
+        "uptime": 0.7858333333333333,
+        "heavy": 31.638796127108126,
+        "car": 5.056755157855953,
+        "bike": 19.110129627502545,
+        "pedestrian": 48.39323898210544,
         "night": "",
-        "car_percentage": 66.66666666666666,
-        "bike_percentage": 0,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 33.33333333333333
+        "car_percentage": 4.852982317832423,
+        "bike_percentage": 18.34004579590468,
+        "pedestrian_percentage": 46.44312919084908,
+        "heavy_percentage": 30.36384269541383
       }
     },
     {
@@ -821,20 +1192,20 @@
       },
       "properties": {
         "segment_id": 9000004129,
-        "last_data_package": "2025-11-26 16:45:21.027100+00:00",
+        "last_data_package": "2026-01-13 13:00:14.975300+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9994444444444444,
-        "heavy": 26,
-        "car": 153,
-        "bike": 14,
-        "pedestrian": 2,
-        "night": 507,
-        "car_percentage": 78.46153846153847,
-        "bike_percentage": 7.179487179487179,
-        "pedestrian_percentage": 1.0256410256410255,
-        "heavy_percentage": 13.333333333333334
+        "uptime": 0.9994444444444445,
+        "heavy": 54,
+        "car": 257,
+        "bike": 9,
+        "pedestrian": 26,
+        "night": 0,
+        "car_percentage": 74.27745664739885,
+        "bike_percentage": 2.601156069364162,
+        "pedestrian_percentage": 7.514450867052023,
+        "heavy_percentage": 15.606936416184972
       }
     },
     {
@@ -856,20 +1227,20 @@
       },
       "properties": {
         "segment_id": 9000004187,
-        "last_data_package": "2025-11-26 16:41:40.360700+00:00",
+        "last_data_package": "2026-01-13 13:09:08.504200+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.011666666666666667,
-        "heavy": 0,
-        "car": 171.42857142857142,
-        "bike": 0,
-        "pedestrian": 0,
+        "uptime": 0.7819444444444444,
+        "heavy": 39.73369018406902,
+        "car": 66.57220945775953,
+        "bike": 10.175113554864929,
+        "pedestrian": 39.560872509797626,
         "night": "",
-        "car_percentage": 100,
-        "bike_percentage": 0,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 0
+        "car_percentage": 42.66303829664,
+        "bike_percentage": 6.5207578777943835,
+        "pedestrian_percentage": 25.352726500761552,
+        "heavy_percentage": 25.463477324804053
       }
     },
     {
@@ -891,20 +1262,20 @@
       },
       "properties": {
         "segment_id": 9000004233,
-        "last_data_package": "2025-11-26 16:43:30.141400+00:00",
+        "last_data_package": "2026-01-13 13:09:09.573500+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.10666666666666667,
-        "heavy": 0,
-        "car": 84.375,
-        "bike": 178.125,
-        "pedestrian": 9.375,
+        "uptime": 0.7969444444444445,
+        "heavy": 8.778544159635558,
+        "car": 46.26074820115549,
+        "bike": 17.575849093041864,
+        "pedestrian": 5.017715120458181,
         "night": "",
-        "car_percentage": 31.03448275862069,
-        "bike_percentage": 65.51724137931035,
-        "pedestrian_percentage": 3.4482758620689653,
-        "heavy_percentage": 0
+        "car_percentage": 59.58913563471167,
+        "bike_percentage": 22.639704203364698,
+        "pedestrian_percentage": 6.463391071609554,
+        "heavy_percentage": 11.307769090314093
       }
     },
     {
@@ -938,20 +1309,20 @@
       },
       "properties": {
         "segment_id": 9000004284,
-        "last_data_package": "2025-11-26 16:42:51.000900+00:00",
+        "last_data_package": "2026-01-13 13:09:04.085000+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.03277777777777778,
-        "heavy": 30.508474576271183,
-        "car": 152.5423728813559,
-        "bike": 0,
-        "pedestrian": 0,
+        "uptime": 0.7927777777777777,
+        "heavy": 15.256626890407622,
+        "car": 29.05672025896217,
+        "bike": 83.3816629556418,
+        "pedestrian": 10.054787705427648,
         "night": "",
-        "car_percentage": 83.33333333333334,
-        "bike_percentage": 0,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 16.666666666666668
+        "car_percentage": 21.09383877205236,
+        "bike_percentage": 60.531241628670315,
+        "pedestrian_percentage": 7.29931213348442,
+        "heavy_percentage": 11.075607465792892
       }
     },
     {
@@ -977,20 +1348,59 @@
       },
       "properties": {
         "segment_id": 9000004286,
-        "last_data_package": "2025-11-26 16:44:27.435800+00:00",
+        "last_data_package": "2026-01-13 13:08:59.713300+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.12,
-        "heavy": 0,
-        "car": 8.333333333333334,
-        "bike": 0,
-        "pedestrian": 0,
+        "uptime": 0.7758333333333334,
+        "heavy": 3.8611279091997077,
+        "car": 0,
+        "bike": 23.164455427080636,
+        "pedestrian": 108.27082928355686,
         "night": "",
-        "car_percentage": 100,
-        "bike_percentage": 0,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 0
+        "car_percentage": 0,
+        "bike_percentage": 17.121263586026714,
+        "pedestrian_percentage": 80.02490767274207,
+        "heavy_percentage": 2.853828741231228
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.352969794,
+              52.521235003
+            ],
+            [
+              13.353256494,
+              52.522050403
+            ],
+            [
+              13.353513994,
+              52.522789203
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000004471,
+        "last_data_package": "2026-01-13 13:09:13.977800+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.8011111111111111,
+        "heavy": 6.218666674258115,
+        "car": 22.49835068412191,
+        "bike": 1.2396694214876034,
+        "pedestrian": 18.741034797723735,
+        "night": "",
+        "car_percentage": 46.200006807864085,
+        "bike_percentage": 2.545641523520572,
+        "pedestrian_percentage": 38.48441814236247,
+        "heavy_percentage": 12.769933526252863
       }
     },
     {
@@ -1048,20 +1458,20 @@
       },
       "properties": {
         "segment_id": 9000004519,
-        "last_data_package": "2025-11-26 16:42:27.998700+00:00",
+        "last_data_package": "2026-01-13 13:08:31.836000+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.09083333333333334,
-        "heavy": 0,
-        "car": 209.1743119266055,
-        "bike": 0,
-        "pedestrian": 11.009174311926605,
+        "uptime": 0.7138888888888889,
+        "heavy": 33.71635267561686,
+        "car": 150.2601568308191,
+        "bike": 22.447417931284978,
+        "pedestrian": 5.617443378554805,
         "night": "",
-        "car_percentage": 95,
-        "bike_percentage": 0,
-        "pedestrian_percentage": 5,
-        "heavy_percentage": 0
+        "car_percentage": 70.86360376391488,
+        "bike_percentage": 10.5863388096725,
+        "pedestrian_percentage": 2.649220459634769,
+        "heavy_percentage": 15.900836966777842
       }
     },
     {
@@ -1083,20 +1493,55 @@
       },
       "properties": {
         "segment_id": 9000004542,
-        "last_data_package": "2025-11-26 16:42:43.457400+00:00",
+        "last_data_package": "2026-01-13 13:09:01.760500+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.025833333333333333,
-        "heavy": 0,
-        "car": 232.25806451612905,
-        "bike": 116.12903225806451,
-        "pedestrian": 0,
+        "uptime": 0.7880555555555555,
+        "heavy": 6.343636960865168,
+        "car": 41.7640301073858,
+        "bike": 38.08733035545704,
+        "pedestrian": 10.141616196585423,
         "night": "",
-        "car_percentage": 66.66666666666667,
-        "bike_percentage": 33.33333333333333,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 0
+        "car_percentage": 43.352188267689066,
+        "bike_percentage": 39.535674884293314,
+        "pedestrian_percentage": 10.527270801274124,
+        "heavy_percentage": 6.584866046743492
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.463834994,
+              52.485124003
+            ],
+            [
+              13.464433094,
+              52.485791903
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000004544,
+        "last_data_package": "2026-01-13 13:08:44.983100+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7966666666666667,
+        "heavy": 10.068064039140054,
+        "car": 36.626847135377744,
+        "bike": 17.92797135929741,
+        "pedestrian": 26.436227684597995,
+        "night": "",
+        "car_percentage": 40.223155099500815,
+        "bike_percentage": 19.688278653608197,
+        "pedestrian_percentage": 29.031941582987574,
+        "heavy_percentage": 11.0566246639034
       }
     },
     {
@@ -1150,20 +1595,20 @@
       },
       "properties": {
         "segment_id": 9000004561,
-        "last_data_package": "2025-11-26 16:42:30.857200+00:00",
+        "last_data_package": "2026-01-13 13:08:15.381000+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.026944444444444444,
-        "heavy": 0,
-        "car": 37.11340206185567,
-        "bike": 74.22680412371135,
-        "pedestrian": 0,
+        "uptime": 0.7891666666666667,
+        "heavy": 1.2711864406779663,
+        "car": 20.167747437362006,
+        "bike": 26.836482400884446,
+        "pedestrian": 21.73292554421529,
         "night": "",
-        "car_percentage": 33.333333333333336,
-        "bike_percentage": 66.66666666666667,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 0
+        "car_percentage": 28.80763479345258,
+        "bike_percentage": 38.333263868298395,
+        "pedestrian_percentage": 31.04333709134067,
+        "heavy_percentage": 1.8157642469083646
       }
     },
     {
@@ -1229,20 +1674,63 @@
       },
       "properties": {
         "segment_id": 9000004597,
-        "last_data_package": "2025-11-26 16:40:59.154500+00:00",
+        "last_data_package": "2026-01-13 13:08:10.518800+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.044444444444444446,
-        "heavy": 135,
-        "car": 562.5,
-        "bike": 112.5,
-        "pedestrian": 90,
+        "uptime": 0.6305555555555555,
+        "heavy": 168.0127081564794,
+        "car": 327.0580541860221,
+        "bike": 35.27799898608541,
+        "pedestrian": 151.70648111556,
         "night": "",
-        "car_percentage": 62.5,
-        "bike_percentage": 12.5,
-        "pedestrian_percentage": 10,
-        "heavy_percentage": 15
+        "car_percentage": 47.95184228978413,
+        "bike_percentage": 5.172308163729759,
+        "pedestrian_percentage": 22.242550408661828,
+        "heavy_percentage": 24.633299137824288
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.437476994,
+              52.463546703
+            ],
+            [
+              13.437352194,
+              52.463951803
+            ],
+            [
+              13.437219294,
+              52.464383103
+            ],
+            [
+              13.437197994,
+              52.464452303
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000004602,
+        "last_data_package": "2026-01-13 13:08:57.374300+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7838888888888889,
+        "heavy": 22.950542490158718,
+        "car": 109.50937650754449,
+        "bike": 19.202365752770845,
+        "pedestrian": 11.462474657591434,
+        "night": "",
+        "car_percentage": 67.13228384515241,
+        "bike_percentage": 11.771582574252312,
+        "pedestrian_percentage": 7.026814751596003,
+        "heavy_percentage": 14.069318828999272
       }
     },
     {
@@ -1268,20 +1756,83 @@
       },
       "properties": {
         "segment_id": 9000004669,
-        "last_data_package": "2025-11-26 16:42:42.177300+00:00",
+        "last_data_package": "2026-01-13 13:09:10.521500+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.043611111111111114,
-        "heavy": 68.78980891719745,
-        "car": 573.248407643312,
-        "bike": 0,
-        "pedestrian": 22.929936305732483,
+        "uptime": 0.7444444444444444,
+        "heavy": 148.04166230964876,
+        "car": 705.8593928363255,
+        "bike": 8.28432897006022,
+        "pedestrian": 4.069324784612302,
         "night": "",
-        "car_percentage": 86.20689655172414,
-        "bike_percentage": 0,
-        "pedestrian_percentage": 3.448275862068966,
-        "heavy_percentage": 10.344827586206899
+        "car_percentage": 81.484046849468,
+        "bike_percentage": 0.9563386940284296,
+        "pedestrian_percentage": 0.46976076929805477,
+        "heavy_percentage": 17.08985368720554
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.448726394,
+              52.490358203
+            ],
+            [
+              13.448783194,
+              52.490395303
+            ],
+            [
+              13.448796094,
+              52.490403703
+            ],
+            [
+              13.449022194,
+              52.490552103
+            ],
+            [
+              13.449313994,
+              52.490740903
+            ],
+            [
+              13.449492094,
+              52.490856203
+            ],
+            [
+              13.449648094,
+              52.490957103
+            ],
+            [
+              13.449910894,
+              52.491127203
+            ],
+            [
+              13.450416394,
+              52.491454303
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000004676,
+        "last_data_package": "2026-01-13 13:09:07.674000+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7897222222222222,
+        "heavy": 17.796149679556976,
+        "car": 29.400035648291173,
+        "bike": 22.610163196915682,
+        "pedestrian": 10.112913722692268,
+        "night": "",
+        "car_percentage": 36.78717097920533,
+        "bike_percentage": 28.291256151623674,
+        "pedestrian_percentage": 12.65391275932877,
+        "heavy_percentage": 22.267660109842218
       }
     },
     {
@@ -1307,20 +1858,20 @@
       },
       "properties": {
         "segment_id": 9000004685,
-        "last_data_package": "2025-11-26 16:44:51.537600+00:00",
+        "last_data_package": "2026-01-13 13:08:49.794700+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.06638888888888889,
-        "heavy": 60.25104602510461,
-        "car": 662.7615062761506,
-        "bike": 60.25104602510461,
-        "pedestrian": 30.125523012552303,
+        "uptime": 0.7711111111111111,
+        "heavy": 66.09248264872389,
+        "car": 264.56315151876447,
+        "bike": 15.534115732943865,
+        "pedestrian": 2.584351654875575,
         "night": "",
-        "car_percentage": 81.48148148148147,
-        "bike_percentage": 7.4074074074074066,
-        "pedestrian_percentage": 3.7037037037037033,
-        "heavy_percentage": 7.4074074074074066
+        "car_percentage": 75.8551596402896,
+        "bike_percentage": 4.4539189302392925,
+        "pedestrian_percentage": 0.7409815245315038,
+        "heavy_percentage": 18.949939904939615
       }
     },
     {
@@ -1342,20 +1893,20 @@
       },
       "properties": {
         "segment_id": 9000004706,
-        "last_data_package": "2025-11-26 16:41:46.258400+00:00",
+        "last_data_package": "2026-01-13 13:08:56.323600+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.010833333333333334,
-        "heavy": 0,
-        "car": 184.6153846153846,
-        "bike": 0,
-        "pedestrian": 0,
+        "uptime": 0.7752777777777778,
+        "heavy": 11.581456056394472,
+        "car": 82.72483433384663,
+        "bike": 29.549432414730212,
+        "pedestrian": 12.872119536765728,
         "night": "",
-        "car_percentage": 100,
-        "bike_percentage": 0,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 0
+        "car_percentage": 60.50328368898303,
+        "bike_percentage": 21.611861862688123,
+        "pedestrian_percentage": 9.414409908256435,
+        "heavy_percentage": 8.470444540072405
       }
     },
     {
@@ -1377,20 +1928,20 @@
       },
       "properties": {
         "segment_id": 9000004712,
-        "last_data_package": "2025-11-26 16:45:15.608200+00:00",
+        "last_data_package": "2026-01-13 13:00:16.137300+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9994444444444444,
-        "heavy": 5,
-        "car": 15,
-        "bike": 0,
-        "pedestrian": 0,
-        "night": 320,
-        "car_percentage": 75,
-        "bike_percentage": 0,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 25
+        "uptime": 0.9994444444444445,
+        "heavy": 42,
+        "car": 244,
+        "bike": 11,
+        "pedestrian": 1,
+        "night": 0,
+        "car_percentage": 81.87919463087249,
+        "bike_percentage": 3.691275167785235,
+        "pedestrian_percentage": 0.33557046979865773,
+        "heavy_percentage": 14.093959731543624
       }
     },
     {
@@ -1420,20 +1971,20 @@
       },
       "properties": {
         "segment_id": 9000004758,
-        "last_data_package": "2025-11-26 16:45:15.369900+00:00",
+        "last_data_package": "2026-01-13 13:00:13.027500+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9991666666666668,
-        "heavy": 13,
-        "car": 193,
-        "bike": 36,
-        "pedestrian": 3,
-        "night": 730,
-        "car_percentage": 78.77551020408163,
-        "bike_percentage": 14.69387755102041,
-        "pedestrian_percentage": 1.2244897959183674,
-        "heavy_percentage": 5.3061224489795915
+        "uptime": 0.9994444444444445,
+        "heavy": 89,
+        "car": 251,
+        "bike": 67,
+        "pedestrian": 49,
+        "night": 0,
+        "car_percentage": 55.04385964912281,
+        "bike_percentage": 14.692982456140353,
+        "pedestrian_percentage": 10.74561403508772,
+        "heavy_percentage": 19.517543859649123
       }
     },
     {
@@ -1463,20 +2014,20 @@
       },
       "properties": {
         "segment_id": 9000004869,
-        "last_data_package": "2025-11-26 16:40:59.020200+00:00",
+        "last_data_package": "2026-01-13 13:09:12.800600+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.06722222222222222,
-        "heavy": 0,
-        "car": 148.7603305785124,
-        "bike": 74.3801652892562,
-        "pedestrian": 29.75206611570248,
+        "uptime": 0.8005555555555555,
+        "heavy": 19.81858418753128,
+        "car": 104.0468561055604,
+        "bike": 22.691741822903627,
+        "pedestrian": 13.630303016838242,
         "night": "",
-        "car_percentage": 58.823529411764696,
-        "bike_percentage": 29.411764705882348,
-        "pedestrian_percentage": 11.76470588235294,
-        "heavy_percentage": 0
+        "car_percentage": 64.95317410051152,
+        "bike_percentage": 14.165739479639605,
+        "pedestrian_percentage": 8.508968728446842,
+        "heavy_percentage": 12.372117691402018
       }
     },
     {
@@ -1486,142 +2037,56 @@
         "coordinates": [
           [
             [
-              13.332713394,
-              52.474440803
+              13.409714394,
+              52.538571303
             ],
             [
-              13.332730494,
-              52.475421003
+              13.409588294,
+              52.538451503
+            ],
+            [
+              13.408950994,
+              52.537856703
+            ],
+            [
+              13.408738894,
+              52.537653303
+            ],
+            [
+              13.408053094,
+              52.536994703
+            ],
+            [
+              13.406970294,
+              52.535939403
+            ],
+            [
+              13.406918794,
+              52.535886803
+            ],
+            [
+              13.406746894,
+              52.535711703
             ]
           ]
         ]
       },
       "properties": {
-        "segment_id": 9000004912,
-        "last_data_package": "2025-11-26 16:45:12.375300+00:00",
+        "segment_id": 9000004995,
+        "last_data_package": "2026-01-13 13:08:54.274200+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.04027777777777778,
-        "heavy": 0,
-        "car": 49.6551724137931,
-        "bike": 49.6551724137931,
-        "pedestrian": 0,
+        "uptime": 0.7661111111111111,
+        "heavy": 73.60619042254015,
+        "car": 145.20066221600456,
+        "bike": 75.86052482413108,
+        "pedestrian": 21.045521079515723,
         "night": "",
-        "car_percentage": 50,
-        "bike_percentage": 50,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 0
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "MultiLineString",
-        "coordinates": [
-          [
-            [
-              13.332701194,
-              52.473965903
-            ],
-            [
-              13.332713394,
-              52.474440803
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "segment_id": 9000004915,
-        "last_data_package": "2025-11-26 16:43:46.477800+00:00",
-        "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
-        "period": "hourly",
-        "uptime": 0.10277777777777777,
-        "heavy": 0,
-        "car": 29.18918918918919,
-        "bike": 38.91891891891892,
-        "pedestrian": 0,
-        "night": "",
-        "car_percentage": 42.857142857142854,
-        "bike_percentage": 57.14285714285714,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 0
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "MultiLineString",
-        "coordinates": [
-          [
-            [
-              13.438138294,
-              52.467160703
-            ],
-            [
-              13.438170894,
-              52.467164603
-            ],
-            [
-              13.438268894,
-              52.467176103
-            ],
-            [
-              13.438575294,
-              52.467212003
-            ],
-            [
-              13.438616994,
-              52.467216903
-            ],
-            [
-              13.438810194,
-              52.467239503
-            ],
-            [
-              13.438828994,
-              52.467241703
-            ],
-            [
-              13.439041994,
-              52.467266703
-            ],
-            [
-              13.439787294,
-              52.467354103
-            ],
-            [
-              13.440007794,
-              52.467379903
-            ],
-            [
-              13.440184094,
-              52.467400603
-            ],
-            [
-              13.440409594,
-              52.467427103
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "segment_id": 9000005010,
-        "last_data_package": "2025-11-26 16:42:40.378300+00:00",
-        "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
-        "period": "hourly",
-        "uptime": 0.02,
-        "heavy": 0,
-        "car": 750,
-        "bike": 50,
-        "pedestrian": 0,
-        "night": "",
-        "car_percentage": 93.75,
-        "bike_percentage": 6.25,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 0
+        "car_percentage": 45.991362052824115,
+        "bike_percentage": 24.028326107174607,
+        "pedestrian_percentage": 6.666031440810209,
+        "heavy_percentage": 23.314280399191073
       }
     },
     {
@@ -1647,20 +2112,20 @@
       },
       "properties": {
         "segment_id": 9000005083,
-        "last_data_package": "2025-11-26 16:45:34.930300+00:00",
+        "last_data_package": "2026-01-13 13:00:42.884200+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9991666666666668,
-        "heavy": 1,
-        "car": 12,
-        "bike": 2,
+        "uptime": 0.9994444444444445,
+        "heavy": 6,
+        "car": 25,
+        "bike": 0,
         "pedestrian": 0,
-        "night": 72,
-        "car_percentage": 80,
-        "bike_percentage": 13.333333333333334,
+        "night": 0,
+        "car_percentage": 80.64516129032258,
+        "bike_percentage": 0,
         "pedestrian_percentage": 0,
-        "heavy_percentage": 6.666666666666667
+        "heavy_percentage": 19.35483870967742
       }
     },
     {
@@ -1694,20 +2159,20 @@
       },
       "properties": {
         "segment_id": 9000005444,
-        "last_data_package": "2025-11-26 16:45:31.553900+00:00",
+        "last_data_package": "2026-01-13 13:00:40.204500+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
         "uptime": 0.9994444444444444,
-        "heavy": 21,
-        "car": 207,
-        "bike": 12,
-        "pedestrian": 0,
-        "night": 673,
-        "car_percentage": 86.25,
-        "bike_percentage": 5,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 8.75
+        "heavy": 94,
+        "car": 689,
+        "bike": 13,
+        "pedestrian": 11,
+        "night": 0,
+        "car_percentage": 85.37794299876084,
+        "bike_percentage": 1.6109045848822798,
+        "pedestrian_percentage": 1.3630731102850062,
+        "heavy_percentage": 11.648079306071871
       }
     },
     {
@@ -1749,20 +2214,20 @@
       },
       "properties": {
         "segment_id": 9000005484,
-        "last_data_package": "2025-11-26 16:45:09.470000+00:00",
+        "last_data_package": "2026-01-13 13:00:16.564400+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9830555555555556,
-        "heavy": 42,
-        "car": 182.07142857142858,
-        "bike": 14,
-        "pedestrian": 29,
-        "night": 744.6428571428571,
-        "car_percentage": 68.17330837122226,
-        "bike_percentage": 5.242043327092806,
-        "pedestrian_percentage": 10.858518320406526,
-        "heavy_percentage": 15.726129981278417
+        "uptime": 0.7494444444444445,
+        "heavy": 104,
+        "car": 558.6666666666666,
+        "bike": 18.666666666666664,
+        "pedestrian": 154.66666666666666,
+        "night": 0,
+        "car_percentage": 66.8261562998405,
+        "bike_percentage": 2.2328548644338118,
+        "pedestrian_percentage": 18.50079744816587,
+        "heavy_percentage": 12.44019138755981
       }
     },
     {
@@ -1796,20 +2261,95 @@
       },
       "properties": {
         "segment_id": 9000005678,
-        "last_data_package": "2025-11-26 16:40:54.340200+00:00",
+        "last_data_package": "2026-01-13 13:08:44.523100+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.6880555555555556,
-        "heavy": 1.3024602026049203,
-        "car": 34.246858025348814,
-        "bike": 7.976493645996123,
-        "pedestrian": 1.371951219512195,
+        "uptime": 0.5997222222222223,
+        "heavy": 1.8329938900203666,
+        "car": 13.109527210800799,
+        "bike": 12.350562920676262,
+        "pedestrian": 30.525567947597406,
         "night": "",
-        "car_percentage": 76.27742601353738,
-        "bike_percentage": 17.765904348935475,
-        "pedestrian_percentage": 3.0557228801271314,
-        "heavy_percentage": 2.9009467573999976
+        "car_percentage": 22.67352621401151,
+        "bike_percentage": 21.36086280129442,
+        "pedestrian_percentage": 52.79536431239161,
+        "heavy_percentage": 3.1702466723024543
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.429664394,
+              52.485389603
+            ],
+            [
+              13.429980794,
+              52.485221203
+            ],
+            [
+              13.430234894,
+              52.485086003
+            ],
+            [
+              13.430450894,
+              52.484971103
+            ],
+            [
+              13.430525194,
+              52.484931503
+            ],
+            [
+              13.430753794,
+              52.484809903
+            ],
+            [
+              13.430843194,
+              52.484762303
+            ],
+            [
+              13.430894594,
+              52.484734703
+            ],
+            [
+              13.431000094,
+              52.484678103
+            ],
+            [
+              13.431047094,
+              52.484633403
+            ],
+            [
+              13.431105894,
+              52.484602403
+            ],
+            [
+              13.431265094,
+              52.484516403
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000005832,
+        "last_data_package": "2026-01-13 13:08:19.798800+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7755555555555556,
+        "heavy": 3.851889925188143,
+        "car": 48.968826682940936,
+        "bike": 72.32996740237138,
+        "pedestrian": 23.265591191032016,
+        "night": "",
+        "car_percentage": 32.99424312896063,
+        "bike_percentage": 48.73452544483782,
+        "pedestrian_percentage": 15.675902901780802,
+        "heavy_percentage": 2.59532852442073
       }
     },
     {
@@ -1839,20 +2379,55 @@
       },
       "properties": {
         "segment_id": 9000005977,
-        "last_data_package": "2025-11-26 16:40:53.156900+00:00",
+        "last_data_package": "2026-01-13 13:08:54.400500+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.07666666666666666,
-        "heavy": 13.043478260869566,
-        "car": 104.34782608695653,
-        "bike": 39.1304347826087,
-        "pedestrian": 26.086956521739133,
+        "uptime": 0.7922222222222222,
+        "heavy": 33.115115582193006,
+        "car": 67.83572375837241,
+        "bike": 18.989990223528935,
+        "pedestrian": 24.031840169172217,
         "night": "",
-        "car_percentage": 57.14285714285714,
-        "bike_percentage": 21.42857142857143,
-        "pedestrian_percentage": 14.285714285714285,
-        "heavy_percentage": 7.142857142857142
+        "car_percentage": 47.11708401604932,
+        "bike_percentage": 13.189996586651526,
+        "pedestrian_percentage": 16.691945918412998,
+        "heavy_percentage": 23.00097347888616
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.336056494,
+              52.495982003
+            ],
+            [
+              13.337188494,
+              52.495935603
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000006027,
+        "last_data_package": "2026-01-13 13:09:14.004500+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7944444444444445,
+        "heavy": 24.03755781973151,
+        "car": 75.63761758473467,
+        "bike": 27.687291672498723,
+        "pedestrian": 36.57002696652156,
+        "night": "",
+        "car_percentage": 46.13949054216806,
+        "bike_percentage": 16.88944698489983,
+        "pedestrian_percentage": 22.307979378890316,
+        "heavy_percentage": 14.663083094041776
       }
     },
     {
@@ -1874,20 +2449,98 @@
       },
       "properties": {
         "segment_id": 9000006300,
-        "last_data_package": "2025-11-26 16:45:14.130300+00:00",
+        "last_data_package": "2026-01-13 13:00:16.074600+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9822222222222222,
-        "heavy": 4.15311004784689,
-        "car": 29.45933014354067,
-        "bike": 12.30622009569378,
-        "pedestrian": 22.15311004784689,
-        "night": 157.0622009569378,
-        "car_percentage": 43.27686792718071,
-        "bike_percentage": 18.07830182048218,
-        "pedestrian_percentage": 32.543754832361,
-        "heavy_percentage": 6.101075419976102
+        "uptime": 0.9363888888888889,
+        "heavy": 59.857360526525895,
+        "car": 69.03156150041217,
+        "bike": 10.679367034495435,
+        "pedestrian": 140.5187065447277,
+        "night": 0,
+        "car_percentage": 24.646471483267128,
+        "bike_percentage": 3.81287500027742,
+        "pedestrian_percentage": 50.1696646931496,
+        "heavy_percentage": 21.37098882330587
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.380870794,
+              52.597448603
+            ],
+            [
+              13.380506994,
+              52.597099303
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000006412,
+        "last_data_package": "2026-01-13 13:08:36.374400+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7808333333333333,
+        "heavy": 5.110389293215455,
+        "car": 56.703989919581986,
+        "bike": 9.020924910049981,
+        "pedestrian": 6.369027552491549,
+        "night": "",
+        "car_percentage": 73.44664306924462,
+        "bike_percentage": 11.684480280180306,
+        "pedestrian_percentage": 8.249572808006029,
+        "heavy_percentage": 6.619303842569034
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.424599994,
+              52.508832903
+            ],
+            [
+              13.423483894,
+              52.509143203
+            ],
+            [
+              13.423453494,
+              52.509151603
+            ],
+            [
+              13.423426894,
+              52.509160203
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000006435,
+        "last_data_package": "2026-01-13 13:09:00.755900+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7708333333333333,
+        "heavy": 167.36615917649215,
+        "car": 403.40297440145025,
+        "bike": 94.62741410565906,
+        "pedestrian": 46.75588372763347,
+        "night": "",
+        "car_percentage": 56.64559392180236,
+        "bike_percentage": 13.287522436473454,
+        "pedestrian_percentage": 6.565432015022374,
+        "heavy_percentage": 23.501451626701808
       }
     },
     {
@@ -1909,20 +2562,20 @@
       },
       "properties": {
         "segment_id": 9000006667,
-        "last_data_package": "2025-11-26 16:45:41.619300+00:00",
+        "last_data_package": "2026-01-13 13:00:11.799000+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9997222222222222,
-        "heavy": 1,
-        "car": 26,
+        "uptime": 0.9991666666666668,
+        "heavy": 3,
+        "car": 24,
         "bike": 1,
-        "pedestrian": 0,
-        "night": 88,
-        "car_percentage": 92.85714285714286,
-        "bike_percentage": 3.571428571428571,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 3.571428571428571
+        "pedestrian": 14,
+        "night": 0,
+        "car_percentage": 57.14285714285714,
+        "bike_percentage": 2.380952380952381,
+        "pedestrian_percentage": 33.33333333333333,
+        "heavy_percentage": 7.142857142857142
       }
     },
     {
@@ -1944,20 +2597,20 @@
       },
       "properties": {
         "segment_id": 9000006720,
-        "last_data_package": "2025-11-26 16:44:37.378800+00:00",
+        "last_data_package": "2026-01-13 13:08:54.761600+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.1338888888888889,
-        "heavy": 388.3817427385892,
-        "car": 1359.3360995850621,
-        "bike": 119.50207468879668,
-        "pedestrian": 37.344398340248965,
+        "uptime": 0.7597222222222222,
+        "heavy": 184.30021010806865,
+        "car": 663.3367955277433,
+        "bike": 21.045366572210263,
+        "pedestrian": 6.594665583931706,
         "night": "",
-        "car_percentage": 71.37254901960783,
-        "bike_percentage": 6.2745098039215685,
-        "pedestrian_percentage": 1.9607843137254901,
-        "heavy_percentage": 20.392156862745097
+        "car_percentage": 75.78592455722722,
+        "bike_percentage": 2.404423475486235,
+        "pedestrian_percentage": 0.7534375174022562,
+        "heavy_percentage": 21.056214449884298
       }
     },
     {
@@ -1979,20 +2632,20 @@
       },
       "properties": {
         "segment_id": 9000006732,
-        "last_data_package": "2025-11-26 16:44:38.329300+00:00",
+        "last_data_package": "2026-01-13 13:09:01.775400+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.055,
-        "heavy": 0,
-        "car": 36.36363636363637,
-        "bike": 18.181818181818183,
-        "pedestrian": 0,
+        "uptime": 0.7825,
+        "heavy": 7.6815210095586846,
+        "car": 26.85669512008807,
+        "bike": 19.218759404528335,
+        "pedestrian": 16.65465684042577,
         "night": "",
-        "car_percentage": 66.66666666666667,
-        "bike_percentage": 33.333333333333336,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 0
+        "car_percentage": 38.14241228950107,
+        "bike_percentage": 27.294864152959185,
+        "pedestrian_percentage": 23.653274720035462,
+        "heavy_percentage": 10.909448837504286
       }
     },
     {
@@ -2026,20 +2679,67 @@
       },
       "properties": {
         "segment_id": 9000006738,
-        "last_data_package": "2025-11-26 16:45:31.607300+00:00",
+        "last_data_package": "2026-01-13 13:08:09.913700+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.0636111111111111,
-        "heavy": 0,
-        "car": 15.72052401746725,
-        "bike": 15.72052401746725,
-        "pedestrian": 0,
+        "uptime": 0.7769444444444444,
+        "heavy": 35.99626103768837,
+        "car": 117.29400953724215,
+        "bike": 14.226125584191667,
+        "pedestrian": 38.81113154347254,
         "night": "",
-        "car_percentage": 50,
-        "bike_percentage": 50,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 0
+        "car_percentage": 56.848453933065315,
+        "bike_percentage": 6.8949236888533525,
+        "pedestrian_percentage": 18.81044762937101,
+        "heavy_percentage": 17.446174748710316
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.468102894,
+              52.515843903
+            ],
+            [
+              13.468016694,
+              52.515858903
+            ],
+            [
+              13.467047894,
+              52.516027303
+            ],
+            [
+              13.466471694,
+              52.516129103
+            ],
+            [
+              13.466356094,
+              52.516150903
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000006798,
+        "last_data_package": "2026-01-13 13:09:09.726100+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7805555555555554,
+        "heavy": 1.2517385257301807,
+        "car": 24.49891590031526,
+        "bike": 109.63021248277143,
+        "pedestrian": 53.88359982469866,
+        "night": "",
+        "car_percentage": 12.944276505325083,
+        "bike_percentage": 57.924350183032935,
+        "pedestrian_percentage": 28.470003247131853,
+        "heavy_percentage": 0.661370064510117
       }
     },
     {
@@ -2065,20 +2765,20 @@
       },
       "properties": {
         "segment_id": 9000006829,
-        "last_data_package": "2025-11-26 16:42:26.278600+00:00",
+        "last_data_package": "2026-01-13 13:08:58.765100+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.08444444444444445,
-        "heavy": 0,
-        "car": 47.368421052631575,
-        "bike": 71.05263157894736,
-        "pedestrian": 94.73684210526315,
+        "uptime": 0.7811111111111111,
+        "heavy": 6.433203845572854,
+        "car": 21.772899699710358,
+        "bike": 14.156389258282088,
+        "pedestrian": 40.85834243630221,
         "night": "",
-        "car_percentage": 22.222222222222225,
-        "bike_percentage": 33.33333333333333,
-        "pedestrian_percentage": 44.44444444444445,
-        "heavy_percentage": 0
+        "car_percentage": 26.16279881949551,
+        "bike_percentage": 17.01063107271047,
+        "pedestrian_percentage": 49.096289791536165,
+        "heavy_percentage": 7.73028031625785
       }
     },
     {
@@ -2100,20 +2800,20 @@
       },
       "properties": {
         "segment_id": 9000006878,
-        "last_data_package": "2025-11-26 16:42:50.818300+00:00",
+        "last_data_package": "2026-01-13 13:08:34.900100+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.09638888888888889,
-        "heavy": 10.37463976945245,
-        "car": 31.12391930835735,
-        "bike": 0,
-        "pedestrian": 0,
+        "uptime": 0.7958333333333334,
+        "heavy": 17.55155952665146,
+        "car": 40.24423000273387,
+        "bike": 22.613914234271732,
+        "pedestrian": 13.850601349208546,
         "night": "",
-        "car_percentage": 75,
-        "bike_percentage": 0,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 25
+        "car_percentage": 42.69478011401103,
+        "bike_percentage": 23.99091983332139,
+        "pedestrian_percentage": 14.693991635847222,
+        "heavy_percentage": 18.620308416820354
       }
     },
     {
@@ -2139,20 +2839,20 @@
       },
       "properties": {
         "segment_id": 9000007083,
-        "last_data_package": "2025-11-26 16:40:51.277000+00:00",
+        "last_data_package": "2026-01-13 13:08:52.298100+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.07111111111111111,
-        "heavy": 0,
-        "car": 98.4375,
-        "bike": 42.1875,
-        "pedestrian": 14.0625,
+        "uptime": 0.7927777777777778,
+        "heavy": 16.33252340557371,
+        "car": 197.01428464266885,
+        "bike": 6.3125505781820905,
+        "pedestrian": 6.331041883793397,
         "night": "",
-        "car_percentage": 63.63636363636363,
-        "bike_percentage": 27.27272727272727,
-        "pedestrian_percentage": 9.090909090909092,
-        "heavy_percentage": 0
+        "car_percentage": 87.17816517775539,
+        "bike_percentage": 2.7932826190538442,
+        "pedestrian_percentage": 2.8014649602371677,
+        "heavy_percentage": 7.227087242953598
       }
     },
     {
@@ -2186,20 +2886,20 @@
       },
       "properties": {
         "segment_id": 9000007116,
-        "last_data_package": "2025-11-26 16:44:51.996400+00:00",
+        "last_data_package": "2026-01-13 13:09:05.142200+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.13305555555555557,
-        "heavy": 0,
-        "car": 0,
-        "bike": 22.54697286012526,
-        "pedestrian": 22.54697286012526,
+        "uptime": 0.7883333333333333,
+        "heavy": 25.30033320605922,
+        "car": 121.28142873838321,
+        "bike": 5.082246162609498,
+        "pedestrian": 1.2430939226519337,
         "night": "",
-        "car_percentage": 0,
-        "bike_percentage": 50,
-        "pedestrian_percentage": 50,
-        "heavy_percentage": 0
+        "car_percentage": 79.3170671136145,
+        "bike_percentage": 3.323747618748419,
+        "pedestrian_percentage": 0.8129733061126546,
+        "heavy_percentage": 16.546211961524428
       }
     },
     {
@@ -2233,20 +2933,20 @@
       },
       "properties": {
         "segment_id": 9000007365,
-        "last_data_package": "2025-11-26 16:43:43.135600+00:00",
+        "last_data_package": "2026-01-13 13:09:12.997600+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.10777777777777778,
-        "heavy": 0,
-        "car": 27.835051546391753,
-        "bike": 74.22680412371135,
-        "pedestrian": 18.556701030927837,
+        "uptime": 0.7958333333333334,
+        "heavy": 4.979338842975206,
+        "car": 6.310455192034139,
+        "bike": 37.70700611843591,
+        "pedestrian": 3.7872108362405332,
         "night": "",
-        "car_percentage": 23.076923076923077,
-        "bike_percentage": 61.53846153846154,
-        "pedestrian_percentage": 15.384615384615385,
-        "heavy_percentage": 0
+        "car_percentage": 11.955239993541277,
+        "bike_percentage": 71.43641684563154,
+        "pedestrian_percentage": 7.174920520876235,
+        "heavy_percentage": 9.43342263995093
       }
     },
     {
@@ -2280,20 +2980,20 @@
       },
       "properties": {
         "segment_id": 9000007661,
-        "last_data_package": "2025-11-26 16:41:27.218800+00:00",
+        "last_data_package": "2026-01-13 13:09:08.253600+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.07944444444444444,
-        "heavy": 12.587412587412588,
-        "car": 302.09790209790214,
-        "bike": 855.944055944056,
-        "pedestrian": 12.587412587412588,
+        "uptime": 0.7808333333333333,
+        "heavy": 189.6276451519813,
+        "car": 388.6482491331693,
+        "bike": 62.82368600866088,
+        "pedestrian": 17.938703990103328,
         "night": "",
-        "car_percentage": 25.531914893617014,
-        "bike_percentage": 72.34042553191487,
-        "pedestrian_percentage": 1.0638297872340423,
-        "heavy_percentage": 1.0638297872340423
+        "car_percentage": 58.97202915236696,
+        "bike_percentage": 9.532630729779626,
+        "pedestrian_percentage": 2.7219517314680464,
+        "heavy_percentage": 28.773388386385363
       }
     },
     {
@@ -2319,20 +3019,20 @@
       },
       "properties": {
         "segment_id": 9000007740,
-        "last_data_package": "2025-11-26 16:45:08.442600+00:00",
+        "last_data_package": "2026-01-13 12:45:05.114200+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9875,
-        "heavy": 38.702450408401404,
-        "car": 373.81680280046675,
-        "bike": 4.050175029171529,
-        "pedestrian": 0,
-        "night": 877.8809801633606,
-        "car_percentage": 89.73697478991596,
-        "bike_percentage": 0.9722689075630252,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 9.29075630252101
+        "uptime": 0.9850000000000001,
+        "heavy": 92.38162544169612,
+        "car": 632.7102473498232,
+        "bike": 13.120141342756185,
+        "pedestrian": 9,
+        "night": 0,
+        "car_percentage": 84.67613413348089,
+        "bike_percentage": 1.755879334723661,
+        "pedestrian_percentage": 1.2044774213684795,
+        "heavy_percentage": 12.363509110426985
       }
     },
     {
@@ -2358,20 +3058,20 @@
       },
       "properties": {
         "segment_id": 9000007742,
-        "last_data_package": "2025-11-26 16:45:16.123200+00:00",
+        "last_data_package": "2026-01-13 13:00:16.583900+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9866666666666666,
-        "heavy": 6,
-        "car": 20,
-        "bike": 3,
+        "uptime": 0.9872222222222222,
+        "heavy": 31.63157894736842,
+        "car": 62.89473684210526,
+        "bike": 1,
         "pedestrian": 0,
-        "night": 133.29387551063448,
-        "car_percentage": 68.96551724137932,
-        "bike_percentage": 10.344827586206897,
+        "night": 0,
+        "car_percentage": 65.84022038567493,
+        "bike_percentage": 1.046831955922865,
         "pedestrian_percentage": 0,
-        "heavy_percentage": 20.689655172413794
+        "heavy_percentage": 33.112947658402206
       }
     },
     {
@@ -2421,20 +3121,20 @@
       },
       "properties": {
         "segment_id": 9000007879,
-        "last_data_package": "2025-11-26 16:45:17.810100+00:00",
+        "last_data_package": "2026-01-13 13:00:16.940500+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9716666666666667,
-        "heavy": 3.097572144813171,
-        "car": 122.3671370771232,
-        "bike": 9.254926762829134,
-        "pedestrian": 16.457401986319613,
-        "night": 321.52432375187436,
-        "car_percentage": 80.94293863630782,
-        "bike_percentage": 6.121913014726005,
-        "pedestrian_percentage": 10.886178355649049,
-        "heavy_percentage": 2.048969993317125
+        "uptime": 0.8652777777777778,
+        "heavy": 1.2113055181695827,
+        "car": 17.457293841616554,
+        "bike": 0,
+        "pedestrian": 59.395158363738275,
+        "night": 0,
+        "car_percentage": 22.362866393704,
+        "bike_percentage": 0,
+        "pedestrian_percentage": 76.08544617349315,
+        "heavy_percentage": 1.5516874328028374
       }
     },
     {
@@ -2460,20 +3160,20 @@
       },
       "properties": {
         "segment_id": 9000007918,
-        "last_data_package": "2025-11-26 16:45:06.537400+00:00",
+        "last_data_package": "2026-01-13 13:00:19.916600+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9994444444444445,
-        "heavy": 6,
-        "car": 33,
-        "bike": 10,
-        "pedestrian": 0,
-        "night": 105,
-        "car_percentage": 67.3469387755102,
-        "bike_percentage": 20.408163265306122,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 12.244897959183673
+        "uptime": 0.9994444444444444,
+        "heavy": 16,
+        "car": 156,
+        "bike": 0,
+        "pedestrian": 12,
+        "night": 0,
+        "car_percentage": 84.78260869565217,
+        "bike_percentage": 0,
+        "pedestrian_percentage": 6.521739130434782,
+        "heavy_percentage": 8.695652173913043
       }
     },
     {
@@ -2495,20 +3195,20 @@
       },
       "properties": {
         "segment_id": 9000007929,
-        "last_data_package": "2025-11-26 16:45:09.919100+00:00",
+        "last_data_package": "2026-01-13 12:45:16.176600+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9894444444444443,
-        "heavy": 24.342989571263036,
-        "car": 510.21668597914254,
-        "bike": 156.31517960602548,
-        "pedestrian": 59.428736964078794,
-        "night": 208,
-        "car_percentage": 68.00136522566376,
-        "bike_percentage": 20.833590728820468,
-        "pedestrian_percentage": 7.920625409258824,
-        "heavy_percentage": 3.2444186362569343
+        "uptime": 0.9991666666666668,
+        "heavy": 81,
+        "car": 596,
+        "bike": 96,
+        "pedestrian": 76,
+        "night": 0,
+        "car_percentage": 70.20023557126031,
+        "bike_percentage": 11.307420494699647,
+        "pedestrian_percentage": 8.95170789163722,
+        "heavy_percentage": 9.540636042402827
       }
     },
     {
@@ -2530,20 +3230,20 @@
       },
       "properties": {
         "segment_id": 9000008003,
-        "last_data_package": "2025-11-26 16:44:12.756000+00:00",
+        "last_data_package": "2026-01-13 13:08:33.134800+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.12666666666666668,
-        "heavy": 71.05263157894737,
-        "car": 221.05263157894737,
-        "bike": 31.57894736842105,
-        "pedestrian": 31.57894736842105,
+        "uptime": 0.7869444444444444,
+        "heavy": 12.671296130646654,
+        "car": 81.27140687651634,
+        "bike": 0,
+        "pedestrian": 0,
         "night": "",
-        "car_percentage": 62.222222222222214,
-        "bike_percentage": 8.888888888888888,
-        "pedestrian_percentage": 8.888888888888888,
-        "heavy_percentage": 20
+        "car_percentage": 86.51167602694966,
+        "bike_percentage": 0,
+        "pedestrian_percentage": 0,
+        "heavy_percentage": 13.488323973050345
       }
     },
     {
@@ -2581,20 +3281,20 @@
       },
       "properties": {
         "segment_id": 9000008121,
-        "last_data_package": "2025-11-26 16:45:21.416600+00:00",
+        "last_data_package": "2026-01-13 13:00:18.133400+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.4313888888888888,
-        "heavy": 25.78879007864146,
-        "car": 313.6081775904775,
-        "bike": 25.77172210948434,
+        "uptime": 0.46305555555555555,
+        "heavy": 63.363388329336544,
+        "car": 520.2763685399351,
+        "bike": 4.390243902439025,
         "pedestrian": 0,
-        "night": 506.1945366945541,
-        "car_percentage": 85.88035786436504,
-        "bike_percentage": 7.0574840699265255,
+        "night": 0,
+        "car_percentage": 88.4778613093111,
+        "bike_percentage": 0.7466020265424242,
         "pedestrian_percentage": 0,
-        "heavy_percentage": 7.062158065708438
+        "heavy_percentage": 10.775536664146486
       }
     },
     {
@@ -2620,20 +3320,95 @@
       },
       "properties": {
         "segment_id": 9000008361,
-        "last_data_package": "2025-11-26 16:44:14.295800+00:00",
+        "last_data_package": "2026-01-13 12:59:01.478500+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.11666666666666667,
-        "heavy": 8.571428571428571,
-        "car": 274.2857142857143,
-        "bike": 8.571428571428571,
+        "uptime": 0.22722222222222221,
+        "heavy": 0,
+        "car": 54.54489155903127,
+        "bike": 3.141361256544502,
+        "pedestrian": 8.135593220338983,
+        "night": "",
+        "car_percentage": 82.86745942869732,
+        "bike_percentage": 4.772520744602732,
+        "pedestrian_percentage": 12.360019826699958,
+        "heavy_percentage": 0
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.448285594,
+              52.492666503
+            ],
+            [
+              13.448544094,
+              52.492544003
+            ],
+            [
+              13.448650694,
+              52.492493503
+            ],
+            [
+              13.448998994,
+              52.492328503
+            ],
+            [
+              13.449219594,
+              52.492223903
+            ],
+            [
+              13.449536594,
+              52.492073703
+            ],
+            [
+              13.449614594,
+              52.492036703
+            ],
+            [
+              13.449743794,
+              52.491944703
+            ],
+            [
+              13.449816894,
+              52.491892603
+            ],
+            [
+              13.449968494,
+              52.491784603
+            ],
+            [
+              13.450338694,
+              52.491517303
+            ],
+            [
+              13.450416394,
+              52.491454303
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000008500,
+        "last_data_package": "2026-01-13 13:08:50.594200+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7836111111111111,
+        "heavy": 8.913735320851037,
+        "car": 94.4883444529674,
+        "bike": 15.347246833015465,
         "pedestrian": 0,
         "night": "",
-        "car_percentage": 94.11764705882354,
-        "bike_percentage": 2.9411764705882355,
+        "car_percentage": 79.56958338450882,
+        "bike_percentage": 12.924070621325315,
         "pedestrian_percentage": 0,
-        "heavy_percentage": 2.9411764705882355
+        "heavy_percentage": 7.506345994165883
       }
     },
     {
@@ -2655,20 +3430,20 @@
       },
       "properties": {
         "segment_id": 9000008502,
-        "last_data_package": "2025-11-26 16:45:14.338700+00:00",
+        "last_data_package": "2026-01-13 13:00:28.333600+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.861111111111111,
-        "heavy": 0,
-        "car": 31.14256302188292,
-        "bike": 1.1097410604192355,
-        "pedestrian": 1.1097410604192355,
-        "night": 113.09192971468752,
-        "car_percentage": 93.34728398291044,
-        "bike_percentage": 3.326358008544773,
-        "pedestrian_percentage": 3.326358008544773,
-        "heavy_percentage": 0
+        "uptime": 0.8769444444444444,
+        "heavy": 4.795034139876379,
+        "car": 11.250805149503293,
+        "bike": 0,
+        "pedestrian": 7.131591793028722,
+        "night": 0,
+        "car_percentage": 48.54207142068744,
+        "bike_percentage": 0,
+        "pedestrian_percentage": 30.769552361830044,
+        "heavy_percentage": 20.688376217482517
       }
     },
     {
@@ -2694,20 +3469,20 @@
       },
       "properties": {
         "segment_id": 9000008514,
-        "last_data_package": "2025-11-26 16:45:19.069100+00:00",
+        "last_data_package": "2026-01-13 12:45:11.877100+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9994444444444444,
-        "heavy": 9,
-        "car": 90,
-        "bike": 6,
-        "pedestrian": 0,
-        "night": 586,
-        "car_percentage": 85.71428571428571,
-        "bike_percentage": 5.714285714285714,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 8.571428571428571
+        "uptime": 0.9994444444444445,
+        "heavy": 101,
+        "car": 352,
+        "bike": 20,
+        "pedestrian": 2,
+        "night": 0,
+        "car_percentage": 74.10526315789474,
+        "bike_percentage": 4.2105263157894735,
+        "pedestrian_percentage": 0.42105263157894735,
+        "heavy_percentage": 21.263157894736842
       }
     },
     {
@@ -2729,20 +3504,20 @@
       },
       "properties": {
         "segment_id": 9000008542,
-        "last_data_package": "2025-11-26 16:45:15.962800+00:00",
+        "last_data_package": "2026-01-13 13:00:19.875200+00:00",
         "timezone": "Europe/Brussels",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.8497222222222223,
-        "heavy": 43.82521702176819,
-        "car": 626.4910892575518,
-        "bike": 37.48286429757303,
-        "pedestrian": 1.1734028683181226,
-        "night": 1278.4959257848586,
-        "car_percentage": 88.36605430491545,
-        "bike_percentage": 5.286927266512896,
-        "pedestrian_percentage": 0.16550751217582924,
-        "heavy_percentage": 6.181510916395833
+        "uptime": 0.9316666666666666,
+        "heavy": 138.65545515083647,
+        "car": 1260.2146308979504,
+        "bike": 0,
+        "pedestrian": 0,
+        "night": 0,
+        "car_percentage": 90.088039158627,
+        "bike_percentage": 0,
+        "pedestrian_percentage": 0,
+        "heavy_percentage": 9.911960841372993
       }
     },
     {
@@ -2772,20 +3547,20 @@
       },
       "properties": {
         "segment_id": 9000008543,
-        "last_data_package": "2025-11-26 16:45:18.618200+00:00",
+        "last_data_package": "2026-01-13 13:00:10.448800+00:00",
         "timezone": "Europe/Brussels",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9502777777777778,
-        "heavy": 76.11175343053891,
-        "car": 338.8142522848691,
-        "bike": 4.292677913769505,
-        "pedestrian": 0,
-        "night": 544.8433515371768,
-        "car_percentage": 80.82040842067272,
-        "bike_percentage": 1.0239710397942616,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 18.15562053953302
+        "uptime": 0.8822222222222222,
+        "heavy": 27.28967663259769,
+        "car": 596.3375828372771,
+        "bike": 1.3081395348837208,
+        "pedestrian": 2.0676156583629894,
+        "night": 0,
+        "car_percentage": 95.10920504228828,
+        "bike_percentage": 0.20863369143233912,
+        "pedestrian_percentage": 0.3297616773778808,
+        "heavy_percentage": 4.352399588901497
       }
     },
     {
@@ -2815,20 +3590,20 @@
       },
       "properties": {
         "segment_id": 9000008552,
-        "last_data_package": "2025-11-26 16:43:10.517200+00:00",
+        "last_data_package": "2026-01-13 13:08:16.842700+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.03777777777777778,
-        "heavy": 26.470588235294116,
-        "car": 555.8823529411765,
-        "bike": 185.2941176470588,
-        "pedestrian": 0,
+        "uptime": 0.7763888888888888,
+        "heavy": 74.82045155498275,
+        "car": 209.0169468543456,
+        "bike": 27.088883670963163,
+        "pedestrian": 55.335003218384195,
         "night": "",
-        "car_percentage": 72.41379310344827,
-        "bike_percentage": 24.137931034482758,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 3.4482758620689653
+        "car_percentage": 57.067715110511394,
+        "bike_percentage": 7.3960543356016855,
+        "pedestrian_percentage": 15.1080677755117,
+        "heavy_percentage": 20.42816277837522
       }
     },
     {
@@ -2866,20 +3641,20 @@
       },
       "properties": {
         "segment_id": 9000008562,
-        "last_data_package": "2025-11-26 16:43:21.481500+00:00",
+        "last_data_package": "2026-01-13 13:08:35.474900+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.10166666666666667,
-        "heavy": 9.836065573770492,
-        "car": 59.016393442622956,
-        "bike": 19.672131147540984,
-        "pedestrian": 0,
+        "uptime": 0.7744444444444445,
+        "heavy": 1.2838801711840229,
+        "car": 15.467537537587317,
+        "bike": 3.855308742612594,
+        "pedestrian": 5.157768945217514,
         "night": "",
-        "car_percentage": 66.66666666666666,
-        "bike_percentage": 22.22222222222222,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 11.11111111111111
+        "car_percentage": 60.03431194552956,
+        "bike_percentage": 14.96364932930587,
+        "pedestrian_percentage": 20.01890146041,
+        "heavy_percentage": 4.983137264754571
       }
     },
     {
@@ -3021,20 +3796,141 @@
       },
       "properties": {
         "segment_id": 9000008568,
-        "last_data_package": "2025-11-26 16:44:26.517900+00:00",
+        "last_data_package": "2026-01-13 13:08:03.336000+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.036944444444444446,
-        "heavy": 216.54135338345864,
-        "car": 1407.5187969924812,
-        "bike": 81.203007518797,
+        "uptime": 0.28833333333333333,
+        "heavy": 56.335190446885676,
+        "car": 344.017682950781,
+        "bike": 6.239279588336192,
         "pedestrian": 0,
         "night": "",
-        "car_percentage": 82.53968253968253,
-        "bike_percentage": 4.761904761904762,
+        "car_percentage": 84.61001532477287,
+        "bike_percentage": 1.5345302516330122,
         "pedestrian_percentage": 0,
-        "heavy_percentage": 12.698412698412698
+        "heavy_percentage": 13.85545442359411
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.432408094,
+              52.470140603
+            ],
+            [
+              13.432237194,
+              52.470716303
+            ],
+            [
+              13.432087594,
+              52.471220403
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000008577,
+        "last_data_package": "2026-01-13 13:09:05.694800+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.783611111111111,
+        "heavy": 58.34486673080427,
+        "car": 116.24026405824267,
+        "bike": 29.52876233273677,
+        "pedestrian": 62.647524777676495,
+        "night": "",
+        "car_percentage": 43.57461621457287,
+        "bike_percentage": 11.069352744206014,
+        "pedestrian_percentage": 23.484477354700424,
+        "heavy_percentage": 21.8715536865207
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.432632994,
+              52.469399903
+            ],
+            [
+              13.432514894,
+              52.469788703
+            ],
+            [
+              13.432503894,
+              52.469824903
+            ],
+            [
+              13.432408094,
+              52.470140603
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000008669,
+        "last_data_package": "2026-01-13 13:08:55.094400+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7780555555555556,
+        "heavy": 14.100959039555217,
+        "car": 132.54362967780662,
+        "bike": 155.34087811852413,
+        "pedestrian": 23.24078961343401,
+        "night": "",
+        "car_percentage": 40.75428322573362,
+        "bike_percentage": 47.76394126798643,
+        "pedestrian_percentage": 7.1460373055874795,
+        "heavy_percentage": 4.335738200692467
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.471892094,
+              52.515170803
+            ],
+            [
+              13.471082494,
+              52.514411603
+            ],
+            [
+              13.470838594,
+              52.514174403
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000008734,
+        "last_data_package": "2026-01-13 13:00:28.521800+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.9991666666666668,
+        "heavy": 11,
+        "car": 10,
+        "bike": 0,
+        "pedestrian": 0,
+        "night": 0,
+        "car_percentage": 47.61904761904761,
+        "bike_percentage": 0,
+        "pedestrian_percentage": 0,
+        "heavy_percentage": 52.38095238095239
       }
     },
     {
@@ -3072,67 +3968,20 @@
       },
       "properties": {
         "segment_id": 9000008772,
-        "last_data_package": "2025-11-26 16:45:24.277600+00:00",
+        "last_data_package": "2026-01-13 13:07:54.724500+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.06166666666666667,
-        "heavy": 178.3783783783784,
-        "car": 178.3783783783784,
-        "bike": 129.72972972972974,
-        "pedestrian": 0,
+        "uptime": 0.7811111111111111,
+        "heavy": 246.99724925955468,
+        "car": 527.3066899545694,
+        "bike": 28.07563541562966,
+        "pedestrian": 6.406118034971306,
         "night": "",
-        "car_percentage": 36.666666666666664,
-        "bike_percentage": 26.666666666666668,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 36.666666666666664
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "MultiLineString",
-        "coordinates": [
-          [
-            [
-              13.377195494,
-              52.528939303
-            ],
-            [
-              13.376289994,
-              52.528674003
-            ],
-            [
-              13.376226594,
-              52.528654103
-            ],
-            [
-              13.376168694,
-              52.528635903
-            ],
-            [
-              13.375960394,
-              52.528472403
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "segment_id": 9000008785,
-        "last_data_package": "2025-11-26 16:45:05.459600+00:00",
-        "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
-        "period": "hourly",
-        "uptime": 1,
-        "heavy": 59,
-        "car": 148,
-        "bike": 84,
-        "pedestrian": 34,
-        "night": 476,
-        "car_percentage": 45.53846153846154,
-        "bike_percentage": 25.846153846153847,
-        "pedestrian_percentage": 10.461538461538462,
-        "heavy_percentage": 18.153846153846153
+        "car_percentage": 65.19733159685846,
+        "bike_percentage": 3.471331858397273,
+        "pedestrian_percentage": 0.7920661917083276,
+        "heavy_percentage": 30.53927035303593
       }
     },
     {
@@ -3178,20 +4027,94 @@
       },
       "properties": {
         "segment_id": 9000008823,
-        "last_data_package": "2025-11-26 16:43:04.863900+00:00",
+        "last_data_package": "2026-01-13 13:08:22.453600+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.03888888888888889,
-        "heavy": 25.714285714285715,
-        "car": 102.85714285714286,
-        "bike": 128.57142857142858,
-        "pedestrian": 0,
+        "uptime": 0.7777777777777777,
+        "heavy": 32.139813103569026,
+        "car": 121.07674383298306,
+        "bike": 28.118211807830924,
+        "pedestrian": 15.415264296120906,
         "night": "",
-        "car_percentage": 40,
-        "bike_percentage": 50,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 10
+        "car_percentage": 61.538360101854515,
+        "bike_percentage": 14.291337781906432,
+        "pedestrian_percentage": 7.834948771239822,
+        "heavy_percentage": 16.335353344999216
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.445132694,
+              52.493496403
+            ],
+            [
+              13.444478794,
+              52.493007003
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000008837,
+        "last_data_package": "2026-01-13 13:08:16.543200+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.8016666666666666,
+        "heavy": 17.425235724668756,
+        "car": 69.98619158710814,
+        "bike": 37.37216582811369,
+        "pedestrian": 24.902522313689904,
+        "night": "",
+        "car_percentage": 46.75529949790948,
+        "bike_percentage": 24.967022301880267,
+        "pedestrian_percentage": 16.63649446592291,
+        "heavy_percentage": 11.641183734287324
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.391243594,
+              52.539632203
+            ],
+            [
+              13.391152994,
+              52.539730303
+            ],
+            [
+              13.390673494,
+              52.540247303
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000008947,
+        "last_data_package": "2026-01-13 13:09:07.406800+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7994444444444445,
+        "heavy": 4.980205843916048,
+        "car": 68.96523064499678,
+        "bike": 14.955090392806122,
+        "pedestrian": 27.474785930003872,
+        "night": "",
+        "car_percentage": 59.261048566693695,
+        "bike_percentage": 12.850741305418559,
+        "pedestrian_percentage": 23.60877514843187,
+        "heavy_percentage": 4.279434979455863
       }
     },
     {
@@ -3233,20 +4156,20 @@
       },
       "properties": {
         "segment_id": 9000008993,
-        "last_data_package": "2025-11-26 16:45:21.322200+00:00",
+        "last_data_package": "2026-01-13 13:00:13.990500+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9997222222222222,
-        "heavy": 3,
-        "car": 8,
-        "bike": 0,
-        "pedestrian": 0,
-        "night": 138,
-        "car_percentage": 72.72727272727273,
-        "bike_percentage": 0,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 27.27272727272727
+        "uptime": 0.9994444444444445,
+        "heavy": 10,
+        "car": 72,
+        "bike": 6,
+        "pedestrian": 61,
+        "night": 0,
+        "car_percentage": 48.322147651006716,
+        "bike_percentage": 4.026845637583892,
+        "pedestrian_percentage": 40.939597315436245,
+        "heavy_percentage": 6.7114093959731544
       }
     },
     {
@@ -3268,20 +4191,20 @@
       },
       "properties": {
         "segment_id": 9000008999,
-        "last_data_package": "2025-11-26 16:45:05.155400+00:00",
+        "last_data_package": "2026-01-13 13:00:22.610900+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.8588888888888889,
-        "heavy": 45.593989223177914,
-        "car": 416.77448347551103,
-        "bike": 24.831678295872457,
+        "uptime": 0.8927777777777778,
+        "heavy": 189.73944885898385,
+        "car": 526.5722318291823,
+        "bike": 1.0727056019070322,
         "pedestrian": 0,
-        "night": 1170.130111510049,
-        "car_percentage": 85.54481820761247,
-        "bike_percentage": 5.096812520517805,
+        "night": 0,
+        "car_percentage": 73.40168560851053,
+        "bike_percentage": 0.14953010163135685,
         "pedestrian_percentage": 0,
-        "heavy_percentage": 9.358369271869721
+        "heavy_percentage": 26.4487842898581
       }
     },
     {
@@ -3291,79 +4214,40 @@
         "coordinates": [
           [
             [
-              13.379458294,
-              52.529414303
+              13.419981694,
+              52.502249203
             ],
             [
-              13.379363494,
-              52.529358003
+              13.420578594,
+              52.503106403
             ],
             [
-              13.379349394,
-              52.529360903
+              13.420605694,
+              52.503145303
             ],
             [
-              13.379328594,
-              52.529360503
-            ],
-            [
-              13.379075094,
-              52.529285003
+              13.420671694,
+              52.503240003
             ]
           ]
         ]
       },
       "properties": {
-        "segment_id": 9000009010,
-        "last_data_package": "2025-11-26 16:45:09.425900+00:00",
+        "segment_id": 9000009042,
+        "last_data_package": "2026-01-13 13:08:47.505100+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.6647222222222222,
-        "heavy": 48.83218715612291,
-        "car": 234.99045950412355,
-        "bike": 41.59926440365969,
-        "pedestrian": 29.061370341131006,
-        "night": 645.9403638986256,
-        "car_percentage": 66.29098516937401,
-        "bike_percentage": 11.735183740901967,
-        "pedestrian_percentage": 8.198234406413404,
-        "heavy_percentage": 13.77559668331061
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "MultiLineString",
-        "coordinates": [
-          [
-            [
-              13.407504794,
-              52.529641703
-            ],
-            [
-              13.408172594,
-              52.530454203
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "segment_id": 9000009065,
-        "last_data_package": "2025-11-26 16:45:10.301000+00:00",
-        "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
-        "period": "hourly",
-        "uptime": 0.9713888888888889,
-        "heavy": 0,
-        "car": 6.131160572337043,
-        "bike": 0,
-        "pedestrian": 0,
-        "night": 19.835628924822927,
-        "car_percentage": 100,
-        "bike_percentage": 0,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 0
+        "uptime": 0.6102777777777778,
+        "heavy": 82.70967086550183,
+        "car": 363.7941893539212,
+        "bike": 37.626777732629016,
+        "pedestrian": 1.6822429906542056,
+        "night": "",
+        "car_percentage": 74.88360305473762,
+        "bike_percentage": 7.745117350452979,
+        "pedestrian_percentage": 0.34627385494387475,
+        "heavy_percentage": 17.025005739865527
       }
     },
     {
@@ -3397,20 +4281,20 @@
       },
       "properties": {
         "segment_id": 9000009135,
-        "last_data_package": "2025-11-26 16:45:14.563100+00:00",
+        "last_data_package": "2026-01-13 13:00:14.402300+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9794444444444443,
-        "heavy": 2.107728337236534,
-        "car": 83.2552693208431,
-        "bike": 32.66978922716628,
-        "pedestrian": 1.053864168618267,
-        "night": 215.09406311113258,
-        "car_percentage": 69.91150442477876,
-        "bike_percentage": 27.43362831858407,
-        "pedestrian_percentage": 0.8849557522123894,
-        "heavy_percentage": 1.7699115044247788
+        "uptime": 0.9830555555555556,
+        "heavy": 49.57142857142857,
+        "car": 195.92857142857142,
+        "bike": 20.285714285714285,
+        "pedestrian": 15.214285714285715,
+        "night": 0,
+        "car_percentage": 69.72547025927808,
+        "bike_percentage": 7.219115404168784,
+        "pedestrian_percentage": 5.4143365531265895,
+        "heavy_percentage": 17.641077783426535
       }
     },
     {
@@ -3432,20 +4316,55 @@
       },
       "properties": {
         "segment_id": 9000009187,
-        "last_data_package": "2025-11-26 16:45:07.881600+00:00",
+        "last_data_package": "2026-01-13 13:00:28.202800+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.8541666666666667,
-        "heavy": 8.530174009626064,
-        "car": 183.89843092321553,
-        "bike": 6.081081081081081,
+        "uptime": 0.8113888888888888,
+        "heavy": 66.58794274911824,
+        "car": 298.53738106656044,
+        "bike": 0,
+        "pedestrian": 1.1152416356877324,
+        "night": 0,
+        "car_percentage": 81.51401270873248,
+        "bike_percentage": 0,
+        "pedestrian_percentage": 0.3045106798350624,
+        "heavy_percentage": 18.181476611432483
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.460274394,
+              52.515086103
+            ],
+            [
+              13.461272094,
+              52.514983503
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000009232,
+        "last_data_package": "2026-01-13 13:08:06.382800+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7269444444444444,
+        "heavy": 567.957795827361,
+        "car": 1051.9485056006793,
+        "bike": 19.2736635345331,
         "pedestrian": 0,
-        "night": 762.1636309081305,
-        "car_percentage": 92.63952536316926,
-        "bike_percentage": 3.0633674372214657,
+        "night": "",
+        "car_percentage": 64.17529057736488,
+        "bike_percentage": 1.1758113170309012,
         "pedestrian_percentage": 0,
-        "heavy_percentage": 4.297107199609289
+        "heavy_percentage": 34.64889810560422
       }
     },
     {
@@ -3471,20 +4390,20 @@
       },
       "properties": {
         "segment_id": 9000009301,
-        "last_data_package": "2025-11-26 16:45:19.498000+00:00",
+        "last_data_package": "2026-01-13 13:00:27.614500+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9994444444444444,
-        "heavy": 6,
-        "car": 44,
-        "bike": 40,
-        "pedestrian": 37,
-        "night": 574,
-        "car_percentage": 34.645669291338585,
-        "bike_percentage": 31.496062992125985,
-        "pedestrian_percentage": 29.133858267716533,
-        "heavy_percentage": 4.724409448818897
+        "uptime": 0.9997222222222222,
+        "heavy": 19,
+        "car": 102,
+        "bike": 63,
+        "pedestrian": 50,
+        "night": 0,
+        "car_percentage": 43.58974358974359,
+        "bike_percentage": 26.923076923076923,
+        "pedestrian_percentage": 21.367521367521366,
+        "heavy_percentage": 8.11965811965812
       }
     },
     {
@@ -3510,20 +4429,20 @@
       },
       "properties": {
         "segment_id": 9000009350,
-        "last_data_package": "2025-11-26 16:45:16.125000+00:00",
+        "last_data_package": "2026-01-13 13:08:49.866300+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9559371909000989,
-        "heavy": 5.3412462908011875,
-        "car": 64.56854025546373,
-        "bike": 3.5608308605341246,
-        "pedestrian": 4.451038575667656,
-        "night": 385.35341485875824,
-        "car_percentage": 82.86340869089388,
-        "bike_percentage": 4.569757682428302,
-        "pedestrian_percentage": 5.712197103035379,
-        "heavy_percentage": 6.854636523642455
+        "uptime": 0.9029785118945697,
+        "heavy": 28.067729769402185,
+        "car": 131.47974385525578,
+        "bike": 2.801794125721078,
+        "pedestrian": 25.799965083062762,
+        "night": 0,
+        "car_percentage": 69.88056335666677,
+        "bike_percentage": 1.489133962189127,
+        "pedestrian_percentage": 13.712500813597286,
+        "heavy_percentage": 14.917801867546816
       }
     },
     {
@@ -3545,20 +4464,20 @@
       },
       "properties": {
         "segment_id": 9000009404,
-        "last_data_package": "2025-11-26 16:45:15.164800+00:00",
+        "last_data_package": "2026-01-13 13:00:19.033100+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9997222222222222,
-        "heavy": 1,
-        "car": 6,
-        "bike": 0,
-        "pedestrian": 0,
-        "night": 389,
-        "car_percentage": 85.71428571428571,
-        "bike_percentage": 0,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 14.285714285714285
+        "uptime": 0.9994444444444445,
+        "heavy": 24,
+        "car": 221,
+        "bike": 5,
+        "pedestrian": 1,
+        "night": 0,
+        "car_percentage": 88.04780876494024,
+        "bike_percentage": 1.9920318725099602,
+        "pedestrian_percentage": 0.398406374501992,
+        "heavy_percentage": 9.56175298804781
       }
     },
     {
@@ -3588,20 +4507,142 @@
       },
       "properties": {
         "segment_id": 9000009561,
-        "last_data_package": "2025-11-26 16:45:17.374700+00:00",
+        "last_data_package": "2026-01-13 13:00:15.317100+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.37083333333333335,
-        "heavy": 7.906751370708318,
-        "car": 48.33467537985312,
-        "bike": 9.124061747627817,
-        "pedestrian": 0,
-        "night": 63.72440966426793,
-        "car_percentage": 73.9452522888926,
-        "bike_percentage": 13.95853065166119,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 12.096217059446209
+        "uptime": 0.39916666666666667,
+        "heavy": 4.663212435233161,
+        "car": 242.24038804547422,
+        "bike": 21.99647859129257,
+        "pedestrian": 7.019106217616581,
+        "night": 0,
+        "car_percentage": 87.79396321832729,
+        "bike_percentage": 7.9720728981582525,
+        "pedestrian_percentage": 2.543899297995182,
+        "heavy_percentage": 1.6900645855192908
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.407132794,
+              52.486123603
+            ],
+            [
+              13.407321094,
+              52.486197203
+            ],
+            [
+              13.407503694,
+              52.486362903
+            ],
+            [
+              13.408094394,
+              52.486915003
+            ],
+            [
+              13.408164294,
+              52.487001103
+            ],
+            [
+              13.408196294,
+              52.487074703
+            ],
+            [
+              13.408212694,
+              52.487176503
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000009743,
+        "last_data_package": "2026-01-13 13:08:46.500900+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7938888888888889,
+        "heavy": 21.370853777986007,
+        "car": 100.67482202036746,
+        "bike": 10.054744331793321,
+        "pedestrian": 10.173648761641342,
+        "night": "",
+        "car_percentage": 70.76118846150345,
+        "bike_percentage": 7.06716579494246,
+        "pedestrian_percentage": 7.150740005460371,
+        "heavy_percentage": 15.020905738093715
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.408212694,
+              52.487176503
+            ],
+            [
+              13.408205294,
+              52.487278003
+            ],
+            [
+              13.408187094,
+              52.487371603
+            ],
+            [
+              13.408157194,
+              52.487465003
+            ],
+            [
+              13.408040094,
+              52.487714903
+            ],
+            [
+              13.407984494,
+              52.487833603
+            ],
+            [
+              13.407943994,
+              52.487920103
+            ],
+            [
+              13.407830294,
+              52.488155603
+            ],
+            [
+              13.407743294,
+              52.488338903
+            ],
+            [
+              13.407709094,
+              52.488442903
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000009814,
+        "last_data_package": "2026-01-13 12:45:11.204700+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.9991666666666668,
+        "heavy": 24,
+        "car": 75,
+        "bike": 4,
+        "pedestrian": 4,
+        "night": 0,
+        "car_percentage": 70.09345794392523,
+        "bike_percentage": 3.7383177570093453,
+        "pedestrian_percentage": 3.7383177570093453,
+        "heavy_percentage": 22.429906542056074
       }
     },
     {
@@ -3635,59 +4676,20 @@
       },
       "properties": {
         "segment_id": 9000009882,
-        "last_data_package": "2025-11-26 16:43:56.237900+00:00",
+        "last_data_package": "2026-01-13 13:08:54.317900+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.175,
-        "heavy": 11.428571428571429,
-        "car": 125.71428571428572,
-        "bike": 17.142857142857142,
-        "pedestrian": 0,
-        "night": "",
-        "car_percentage": 81.4814814814815,
-        "bike_percentage": 11.111111111111112,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 7.407407407407408
-      }
-    },
-    {
-      "type": "Feature",
-      "geometry": {
-        "type": "MultiLineString",
-        "coordinates": [
-          [
-            [
-              13.471772494,
-              52.517174903
-            ],
-            [
-              13.471851994,
-              52.517069603
-            ],
-            [
-              13.471954094,
-              52.516930203
-            ]
-          ]
-        ]
-      },
-      "properties": {
-        "segment_id": 9000009895,
-        "last_data_package": "2025-11-26 16:45:26.676800+00:00",
-        "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
-        "period": "hourly",
-        "uptime": 0.9994444444444444,
-        "heavy": 3,
-        "car": 1,
+        "uptime": 0.7858333333333334,
+        "heavy": 10.181423054177728,
+        "car": 46.98645321974404,
         "bike": 0,
         "pedestrian": 0,
-        "night": 154,
-        "car_percentage": 25,
+        "night": "",
+        "car_percentage": 82.19030735829139,
         "bike_percentage": 0,
         "pedestrian_percentage": 0,
-        "heavy_percentage": 75
+        "heavy_percentage": 17.80969264170861
       }
     },
     {
@@ -3745,20 +4747,20 @@
       },
       "properties": {
         "segment_id": 9000009916,
-        "last_data_package": "2025-11-26 16:45:09.495900+00:00",
+        "last_data_package": "2026-01-13 13:00:06.977200+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9413888888888888,
-        "heavy": 5.501222493887531,
-        "car": 151.90832925592477,
-        "bike": 5.501222493887531,
+        "uptime": 0.8563888888888889,
+        "heavy": 19.239594416296825,
+        "car": 257.184683552925,
+        "bike": 21.082207195099443,
         "pedestrian": 0,
-        "night": 318.4786159701048,
-        "car_percentage": 93.24633681298673,
-        "bike_percentage": 3.3768315935066386,
+        "night": 0,
+        "car_percentage": 86.44674868545289,
+        "bike_percentage": 7.086301726651485,
         "pedestrian_percentage": 0,
-        "heavy_percentage": 3.3768315935066386
+        "heavy_percentage": 6.4669495878956225
       }
     },
     {
@@ -3792,20 +4794,133 @@
       },
       "properties": {
         "segment_id": 9000010037,
-        "last_data_package": "2025-11-26 16:45:15.869300+00:00",
+        "last_data_package": "2026-01-13 13:00:15.441200+00:00",
         "timezone": "Europe/Berlin",
-        "date": "2025-11-26 15:00:00+00:00",
+        "date": "2026-01-13 11:00:00+00:00",
         "period": "hourly",
-        "uptime": 0.9766666666666667,
-        "heavy": 7,
-        "car": 36.1015911872705,
-        "bike": 1,
-        "pedestrian": 0,
-        "night": 302.61933904528763,
-        "car_percentage": 81.86006494407594,
-        "bike_percentage": 2.2674918819905083,
-        "pedestrian_percentage": 0,
-        "heavy_percentage": 15.872443173933556
+        "uptime": 0.9997222222222222,
+        "heavy": 17,
+        "car": 59,
+        "bike": 52,
+        "pedestrian": 27,
+        "night": 0,
+        "car_percentage": 38.064516129032256,
+        "bike_percentage": 33.5483870967742,
+        "pedestrian_percentage": 17.419354838709676,
+        "heavy_percentage": 10.967741935483872
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.331145194,
+              52.518965703
+            ],
+            [
+              13.332020294,
+              52.519778103
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000010086,
+        "last_data_package": "2026-01-13 11:55:38.914700+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7297222222222224,
+        "heavy": 6.87334867760824,
+        "car": 23.542563861674907,
+        "bike": 6.430860968933481,
+        "pedestrian": 11.544778321614277,
+        "night": "",
+        "car_percentage": 48.6501527052954,
+        "bike_percentage": 13.289222448471232,
+        "pedestrian_percentage": 23.857011988810644,
+        "heavy_percentage": 14.203612857422716
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.593590894,
+              52.444404003
+            ],
+            [
+              13.593617594,
+              52.445062303
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000010279,
+        "last_data_package": "2026-01-13 13:00:11.773300+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.9947222222222223,
+        "heavy": 61.36579841449604,
+        "car": 410.9445073612684,
+        "bike": 35.115515288788224,
+        "pedestrian": 11,
+        "night": 0,
+        "car_percentage": 79.26775454922777,
+        "bike_percentage": 6.7734888699565285,
+        "pedestrian_percentage": 2.1218078947943293,
+        "heavy_percentage": 11.836948686021366
+      }
+    },
+    {
+      "type": "Feature",
+      "geometry": {
+        "type": "MultiLineString",
+        "coordinates": [
+          [
+            [
+              13.539617094,
+              52.416795903
+            ],
+            [
+              13.539759894,
+              52.416698903
+            ],
+            [
+              13.539812794,
+              52.416661403
+            ],
+            [
+              13.540934294,
+              52.415893503
+            ]
+          ]
+        ]
+      },
+      "properties": {
+        "segment_id": 9000010333,
+        "last_data_package": "2026-01-13 13:00:11.553400+00:00",
+        "timezone": "Europe/Berlin",
+        "date": "2026-01-13 11:00:00+00:00",
+        "period": "hourly",
+        "uptime": 0.7141666666666666,
+        "heavy": 19.12855565567494,
+        "car": 105.85634547991901,
+        "bike": 0,
+        "pedestrian": 2.9508196721311473,
+        "night": 11.745513866231647,
+        "car_percentage": 82.74182129243698,
+        "bike_percentage": 0,
+        "pedestrian_percentage": 2.3064861428075596,
+        "heavy_percentage": 14.951692564755461
       }
     }
   ]

@@ -34,7 +34,7 @@ export async function getImage(
 }
 
 /**
- * Searches for the newest non-panoramic image within a bounding box
+ * Searches for the newest image within a bounding box
  * @param bbox Bounding box in format "left,bottom,right,top" (minLon,minLat,maxLon,maxLat)
  * @param limit Maximum number of images to fetch (max 2000)
  * @returns Promise<string | null> URL of the newest image or null if none found
@@ -65,12 +65,15 @@ export async function getImageInBoundingBox(
 		// Filter for panoramic images
 		const panoImages = data.data.filter((image) => image.is_pano === true);
 
-		if (panoImages.length === 0) {
+		// Use panoramic images if available, otherwise fall back to normal images
+		const imagesToUse = panoImages.length > 0 ? panoImages : data.data;
+
+		if (imagesToUse.length === 0) {
 			return null;
 		}
 
 		const imageUrl =
-			panoImages[0].thumb_1024_url || panoImages[0].thumb_256_url;
+			imagesToUse[0].thumb_1024_url || imagesToUse[0].thumb_256_url;
 
 		if (!imageUrl) {
 			return null;
