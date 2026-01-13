@@ -1,62 +1,20 @@
 import { useId } from "react";
 import type { FC } from "react";
-
-type CircleChartSegment = {
-	/**
-	 * Name for the data segment
-	 */
-	name: string;
-	count: number;
-	/**
-	 * Percentage value for the data segment
-	 */
-	percentage: number;
-	/**
-	 * Color for the data segment
-	 */
-	color: string;
-	/**
-	 * Optional offset for the label position (e.g., "15%", "50%")
-	 */
-	labelOffset?: string;
-};
-
-type ComputedSegment = CircleChartSegment & {
-	radius: number;
-	strokeWidth: number;
-	labelRadius: number;
-	key: string;
-};
+import type { CircleChartSegment } from "./circle-chart-utils";
+import { buildSegments, lightenColor } from "./circle-chart-utils";
+import { i18n } from "../../i18n/i18n-utils";
 
 export type CircleChartProps = {
-	/**
-	 * Data points to render as concentric circles.
-	 */
 	data: CircleChartSegment[];
-	/**
-	 * Overall size of the square SVG in pixels.
-	 */
 	size?: number;
-	/**
-	 * Font size for the labels.
-	 */
 	fontSize?: number;
-	/**
-	 * Minimum inner radius of the first ring to avoid starting at the center.
-	 */
 	minRadius?: number;
-	/**
-	 * Optional descriptive paragraph rendered next to the chart.
-	 */
 	description?: string;
 };
 
-/**
- * CircleChart component renders a concentric circle chart using SVG.
- */
 export const CircleChart: FC<CircleChartProps> = ({
 	data,
-	size = 240,
+	size = 300,
 	fontSize = 12,
 	minRadius = 0.3,
 	description,
@@ -67,8 +25,6 @@ export const CircleChart: FC<CircleChartProps> = ({
 	const clampedMinRadius = minRadius * maxRadius;
 	const gap = fontSize * 1.5;
 
-	// build computed segment data; pass a single options object to satisfy
-	// the linter rule (max-params)
 	const segments = buildSegments({
 		data,
 		minRadius: clampedMinRadius,
@@ -126,7 +82,11 @@ export const CircleChart: FC<CircleChartProps> = ({
 						const baseOffset = segment.labelOffset ?? "25%";
 
 						return (
-							<text key={`label-${segment.key}`} fontSize={fontSize}>
+							<text
+								key={`label-${segment.key}`}
+								fontSize={fontSize}
+								className="font-numbers"
+							>
 								<textPath
 									href={`#${chartInstanceId}-label-${index}`}
 									startOffset={baseOffset}
@@ -152,7 +112,7 @@ export const CircleChart: FC<CircleChartProps> = ({
 
 			<div className="flex max-w-sm flex-col gap-4 self-center rounded-3xl border border-black/10 bg-white/80 p-6 text-slate-800 shadow-lg lg:ml-auto">
 				<h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-slate-600">
-					Verkehrsmix
+					{i18n("circleChart.heading")}
 				</h3>
 				<p className="text-base leading-relaxed">{summary}</p>
 				<ul className="space-y-3">
@@ -173,7 +133,7 @@ export const CircleChart: FC<CircleChartProps> = ({
 								/>
 								<span>{segment.name}</span>
 							</span>
-							<span>{`${segment.percentage}%`}</span>
+							<span className="font-numbers">{`${segment.percentage}%`}</span>
 						</li>
 					))}
 				</ul>
@@ -189,43 +149,6 @@ const circlePath = (cx: number, cy: number, r: number) =>
 		`A ${r} ${r} 0 1 1 ${cx} ${cy - r}`,
 	].join(" ");
 
-type BuildSegmentsOptions = {
-	data: CircleChartSegment[];
-	minRadius: number;
-	maxRadius: number;
-	gap: number;
-};
-
-const buildSegments = ({
-	data,
-	minRadius,
-	maxRadius,
-	gap,
-}: BuildSegmentsOptions): ComputedSegment[] => {
-	const totalValue = data.reduce((sum, segment) => sum + segment.percentage, 0);
-	const totalGap = gap * data.length;
-	const availableSpan = Math.max(maxRadius - minRadius - totalGap, 0);
-	const scale = totalValue > 0 ? availableSpan / totalValue : 0;
-
-	let currentInnerRadius = minRadius;
-
-	return data.map((segment, index) => {
-		const strokeWidth = segment.percentage * scale;
-		const radius = currentInnerRadius + strokeWidth / 2;
-		const labelRadius = currentInnerRadius + strokeWidth + gap / 2;
-
-		currentInnerRadius += strokeWidth + gap;
-
-		return {
-			...segment,
-			radius,
-			strokeWidth,
-			labelRadius,
-			key: `${segment.name}-${index}`,
-		};
-	});
-};
-
 const describeSegments = (segments: CircleChartSegment[]): string | null => {
 	if (!segments.length) {
 		return null;
@@ -239,40 +162,13 @@ const describeSegments = (segments: CircleChartSegment[]): string | null => {
 
 	const trailingMessage =
 		trailingSegment && trailingSegment !== topSegment
-			? `, while ${trailingSegment.name} trails at ${trailingSegment.percentage}%`
+			? `, ${i18n("circleChart.summary.trailingMessage.p1")} ${trailingSegment.name} trails at ${trailingSegment.percentage}%`
 			: "";
 	const totalMessage = totalCount
 		? ` across ${totalCount.toLocaleString()} total observations`
 		: "";
 
 	return `${topSegment.name} leads this ${categories}-segment profile with ${topSegment.percentage}%${trailingMessage}${totalMessage}, highlighting how usage is distributed today.`;
-};
-
-const lightenColor = (hex: string, intensity = 0.5): string => {
-	const normalizedHex = hex.replace("#", "");
-	const value =
-		normalizedHex.length === 3
-			? normalizedHex
-					.split("")
-					.map((char) => char + char)
-					.join("")
-			: normalizedHex;
-
-	const num = parseInt(value, 16);
-	const r = (num >> 16) & 255;
-	const g = (num >> 8) & 255;
-	const b = num & 255;
-
-	const mix = (channel: number) =>
-		Math.round(channel + (255 - channel) * intensity);
-
-	const newR = mix(r);
-	const newG = mix(g);
-	const newB = mix(b);
-
-	const toHex = (channel: number) => channel.toString(16).padStart(2, "0");
-
-	return `#${toHex(newR)}${toHex(newG)}${toHex(newB)}`;
 };
 
 export default CircleChart;

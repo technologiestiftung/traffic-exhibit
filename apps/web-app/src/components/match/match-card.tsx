@@ -75,10 +75,10 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 		>
 			<div className="flex flex-col justify-between h-full">
 				{/* HEADER */}
-				<div className="flex justify-between items-center p-3 w-full">
+				<div className="flex justify-between items-center p-2.5 w-full">
 					<div>
-						<div className="flex gap-4 items-center max-w-md">
-							<h2 className="text-2xl font-bold max-w-sm truncate">
+						<div className="flex gap-3 items-center max-w-md">
+							<h2 className="text-xl font-bold max-w-sm truncate font-title">
 								{match.address?.split(",")[0] ?? ""}
 							</h2>
 							{match.bikeLaneTypes?.map((type) => (
@@ -90,7 +90,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 								/>
 							))}
 						</div>
-						<p className="text-xl py-2 text-start">{match.district ?? ""}</p>
+						<p className="text-base py-1.5 text-start">{match.district ?? ""}</p>
 					</div>
 
 					{Array.isArray(match.coordinates) &&
@@ -98,14 +98,14 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 							<BerlinMap
 								lat={match.coordinates[0][1]}
 								lon={match.coordinates[0][0]}
-								width={100}
-								height={100}
+								width={88}
+								height={88}
 							/>
 						)}
 				</div>
 
 				{/* IMAGE */}
-				<div className="w-full h-[400px] relative">
+				<div className="w-full h-[340px] relative">
 					{imageSrc && (
 						<MatchTinyWorldImg imageUrl={imageSrc} shouldAnimate={selected} />
 					)}

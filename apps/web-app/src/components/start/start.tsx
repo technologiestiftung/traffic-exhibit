@@ -10,36 +10,84 @@ export const Start = () => {
 	const [isAllDataVisible, setIsAllDataVisible] = useState(false);
 
 	return (
-		<div className="min-h-screen w-full bg-gradient-to-b from-[#2f3033] via-[#5b5b61] to-[#d7d7dd] text-[#141414]">
-			<div className="mx-auto flex max-w-[1540px] flex-col items-center gap-10 px-6 py-12 text-center lg:px-10">
-				<div>
-					<h1 className="text-3xl font-bold text-white drop-shadow">
-						Unser Verkehrs-Mix für Deine Straße
-					</h1>
-					<p className="text-lg py-2 text-gray-200">
-						Wir zeigen Dir, welche Verkehrsteilnehmer:innen gerade unterwegs
-						sind.
-					</p>
-				</div>
+		<div
+			className="h-screen w-full overflow-y-auto bg-gradient-to-b from-[#171719] via-[#3b3b41] to-[#d7d7dd] text-white"
+		>
+			<div className="mx-auto flex min-h-full max-w-[1540px] flex-col items-center justify-center gap-10 px-6 pb-12 pt-[calc(3rem+2cm)] lg:px-10">
+				<div className="flex w-full flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
+					<div className="relative flex flex-1 flex-col items-center gap-8">
+						<div className="relative">
+							{/* Decorative icons around the disc (desktop only) */}
+							<div className="pointer-events-none absolute inset-0 hidden lg:block">
+								<img
+									src="/bike.svg"
+									alt="bike"
+									className="absolute -right-40 bottom-20 w-36 rotate-[-10deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)]"
+								/>
+								<img
+									src="/walking.svg"
+									alt="walking"
+									className="absolute -left-36 top-20 w-32 rotate-[-18deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)]"
+								/>
+								<img
+									src="/lkw.svg"
+									alt="truck"
+									className="absolute -left-44 bottom-10 w-40 rotate-[12deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)]"
+								/>
+							</div>
 
-				<div className="flex w-full flex-col items-center justify-between gap-10 rounded-[32px] border border-black/40 bg-black/30 p-8 text-left text-white shadow-[0_35px_80px_rgba(0,0,0,0.45)] backdrop-blur lg:flex-row">
-					<EqualSegmentsDisc
-						size={650}
-						occupiedBlocks={occupiedBlocks}
-						segmentColors={[{ occupied: "#fefefe", empty: "#bdbdc0" }]}
-						showLabels={false}
-					/>
+							<div className="absolute -top-6 -right-40 hidden rotate-6 items-center justify-center lg:flex">
+								{/* Local SVG badge (no background). Placed in `apps/web-app/public/icon.svg`. */}
+								<img src="/icon.svg" width={72*2.5} height={48*2.5} alt="badge" className="block" />
+							</div>
+							<svg
+								aria-hidden
+								width="220"
+								height="60"
+								viewBox="0 0 220 60"
+								className="absolute -top-16 -right-12 hidden text-black/70 lg:block"
+							>
+							</svg>
+							<div className="relative flex items-center justify-center rounded-full border-[14px] border-black bg-gradient-to-b from-[#1b1b1e] to-[#333338] p-6 shadow-[0_25px_60px_rgba(0,0,0,0.55)]">
+								<EqualSegmentsDisc
+									size={520}
+									occupiedBlocks={occupiedBlocks}
+									segmentColors={[{ occupied: "#E7FE64", empty: "#d9d9d9" }]}
+									showLabels
+								/>
+								<div className="pointer-events-none absolute inset-16 flex items-center justify-center">
+									<div className="relative flex h-60 w-60 items-center justify-center rounded-full bg-black/80">
+										<div className="absolute inset-4 rounded-full border-4 border-[#E7FE64]" />
+										<div className="relative z-10 flex h-28 w-28 items-center justify-center rounded-full bg-[#25252a] text-[#E7FE64]">
+											{/* center icon: use the provided flip.svg in public */}
+											<div
+												aria-hidden
+												className="h-12 w-12 bg-white"
+												style={{
+													WebkitMask: 'url(/flip.svg) center / contain no-repeat',
+													mask: 'url(/flip.svg) center / contain no-repeat',
+												}}
+											/>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 
-					<div className="flex max-w-md flex-col items-start gap-6 rounded-[30px] bg-white/85 p-8 text-left text-[#191919] shadow-xl">
-						<h2 className="text-2xl font-semibold">
-							Spüre den Puls Deiner Stadt.
-						</h2>
-						<p className="text-base text-[#2b2b31]">
-							Simuliere Deinen persönlichen Verkehrs-Mix – live, individuell und
-							unverwechselbar.
+					<div className="flex max-w-md flex-1 flex-col items-start gap-4 text-left text-white drop-shadow-lg">
+						<h1 className="text-5xl font-semibold tracking-wide font-title">
+							Berliner Platte
+						</h1>
+						<p className="text-lg text-white/80">
+							Welche Verkehrsteilnehmer:innen fahren auf Berlins Straßen?
+						</p>
+						<p className="text-base text-white/70">
+							Lass Dir Deinen persönlichen Verkehrs-Mix zeigen – reduziert auf
+							das Wesentliche, inspiriert von den Formen der Berliner Platte.
 						</p>
 						<button
-							className="rounded-full border border-[#111] bg-black px-6 py-3 text-lg font-semibold text-white shadow-[0_15px_30px_rgba(0,0,0,0.5)] transition hover:-translate-y-0.5 hover:bg-[#191919]"
+							className="mt-2 rounded-full border-2 border-black bg-black px-6 py-3 text-lg font-semibold text-white shadow-[0_10px_20px_rgba(0,0,0,0.55)] transition hover:-translate-y-0.5 hover:bg-[#111]"
 							onClick={() => setLoadingScreen()}
 						>
 							Start simulieren
@@ -49,7 +97,7 @@ export const Start = () => {
 
 				<div className="flex flex-col items-center gap-4 text-sm text-white/80">
 					<button
-						className="rounded-full border border-white/60 bg-white/20 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-white transition hover:bg-white/40"
+						className="rounded-md border border-white/40 bg-white/10 px-3 py-2 text-sm font-medium text-white/90 transition hover:bg-white/20"
 						onClick={() => setIsAllDataVisible(!isAllDataVisible)}
 					>
 						{isAllDataVisible ? "Alle Daten verbergen" : "Alle Daten anzeigen"}

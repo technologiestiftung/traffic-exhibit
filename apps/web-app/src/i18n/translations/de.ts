@@ -33,4 +33,8 @@ export const de = {
 
 	/* NOISE CHART */
 	"noiseChart.title": "Lärmbelästigung",
+
+	/* CIRCLE CHART */
+	"circleChart.heading": "Verkehrsmix",
+	"circleChart.summary.trailingMessage.p1": "Während",
 };

@@ -7,7 +7,7 @@ function App() {
 	const { currentScreen } = useScreenStore();
 
 	return (
-		<div className="p-5">
+		<div className="h-full w-full">
 			{currentScreen === "start" && <Start />}
 			{currentScreen === "loading" && <Loading />}
 			{currentScreen === "match" && <Match />}

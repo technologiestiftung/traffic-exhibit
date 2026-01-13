@@ -1,6 +1,59 @@
 @import "tailwindcss";
 
+/* Font: served from `apps/web-app/public/PexelGrotesk-Regular.ttf` */
+@font-face {
+	font-family: "Pixel Grotesk";
+	src: url("/PexelGrotesk-Regular.ttf") format("truetype");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+
+:root {
+	--PexelGrotesk-Regular: "Pixel Grotesk", "Space Grotesk", system-ui, -apple-system,
+		BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* Global typography: one consistent font everywhere */
+@layer base {
+	html,
+	body,
+	#root {
+		height: 100%;
+	}
+
+	body {
+		margin: 0;
+		overflow: hidden;
+		font-family: var(--PexelGrotesk-Regular);
+	}
+}
+
 @layer utilities {
+	@keyframes pulse-scale-soft {
+		0%,
+		100% {
+			transform: scale(0.92);
+			opacity: 0.85;
+		}
+		50% {
+			transform: scale(1.18);
+			opacity: 1;
+		}
+	}
+
+	.animate-pulse-scale-soft {
+		animation: pulse-scale-soft 1100ms ease-in-out infinite;
+		transform-origin: center;
+		will-change: transform, opacity;
+	}
+
+	.animate-pulse-scale-soft-slow {
+		animation: pulse-scale-soft 1800ms ease-in-out infinite;
+		transform-origin: center;
+		will-change: transform, opacity;
+	}
+
 	/*
    * slide the disc from a starting offset to the right edge
    * - left: uses the overlay's width (100%) as reference
@@ -57,25 +110,74 @@
 			cubic-bezier(0.22, 1, 0.36, 1) var(--move-delay, 1000ms) forwards;
 		will-change: left, opacity;
 	}
-}
 
-@theme {
-	--color-platte-gray-100: #f4f4f4;
-	--color-platte-gray-200: #e1e1e1;
-	--color-platte-gray-300: #c6c6c6;
-	--color-platte-gray-400: #5e5e5e;
-	--color-platte-gray-600: #303030;
+	/* Loading wedges: show one wedge at a time (pop/step) */
+	@keyframes loading-wedge-step {
+		0%, 24% {
+			opacity: 1;
+			transform: scale(1);
+		}
+		25%, 100% {
+			opacity: 0;
+			transform: scale(0.92);
+		}
+	}
 
-	--color-platte-purple-200: #a3a3e5;
-	--color-platte-purple-400: #5e5ee6;
+	.animate-loading-disc-rotate {
+		animation: loading-disc-rotate-360 1600ms linear infinite;
+		transform-origin: center;
+		will-change: transform;
+	}
 
-	--color-platte-green-400: #d7e753;
+	.animate-loading-wedge-step {
+		animation: loading-wedge-step 1200ms steps(1, end) infinite;
+		transform-origin: 260px 260px;
+		transform-box: fill-box;
+		will-change: transform, opacity;
+	}
 
-	--color-platte-pink-200: #ecc0ff;
+	/* Loading: sequential fill of Start-style 10 segments (no disc rotation) */
+	.loading-seg {
+		fill: var(--loading-empty, #d9d9d9);
+	}
 
-	--color-platte-blue-600: #111b72;
+	/* Cycle the active segment through the four Verkehrsmix colors */
+	.loading-seg-color-1 {
+		--loading-filled: #E7FE64;
+	}
+	.loading-seg-color-2 {
+		--loading-filled: #00a980;
+	}
+	.loading-seg-color-3 {
+		--loading-filled: #e98cbd;
+	}
+	.loading-seg-color-4 {
+		--loading-filled: #3360e9;
+	}
 
-	--color-platte-yellow-400: #eefe9e;
-	--color-platte-yellow-600: #e8f784;
-	--color-platte-yellow-800: #e3f469;
+	@keyframes loading-seg-highlight {
+		0%, 89% {
+			fill: var(--loading-empty, #d9d9d9);
+		}
+		90%, 100% {
+			fill: var(--loading-filled, #E7FE64);
+		}
+	}
+
+	/*
+	 * Exactly ONE segment is green at a time.
+	 * Total cycle: 2000ms. Each segment's highlight window is 200ms.
+	 * We do this by letting each segment flip to green only in the last 10% of
+	 * its own animation, then staggering delays by 200ms.
+	 */
+	.loading-seg-1 { animation: loading-seg-highlight 2000ms steps(1, end) infinite; animation-delay: 0ms; }
+	.loading-seg-2 { animation: loading-seg-highlight 2000ms steps(1, end) infinite; animation-delay: 200ms; }
+	.loading-seg-3 { animation: loading-seg-highlight 2000ms steps(1, end) infinite; animation-delay: 400ms; }
+	.loading-seg-4 { animation: loading-seg-highlight 2000ms steps(1, end) infinite; animation-delay: 600ms; }
+	.loading-seg-5 { animation: loading-seg-highlight 2000ms steps(1, end) infinite; animation-delay: 800ms; }
+	.loading-seg-6 { animation: loading-seg-highlight 2000ms steps(1, end) infinite; animation-delay: 1000ms; }
+	.loading-seg-7 { animation: loading-seg-highlight 2000ms steps(1, end) infinite; animation-delay: 1200ms; }
+	.loading-seg-8 { animation: loading-seg-highlight 2000ms steps(1, end) infinite; animation-delay: 1400ms; }
+	.loading-seg-9 { animation: loading-seg-highlight 2000ms steps(1, end) infinite; animation-delay: 1600ms; }
+	.loading-seg-10 { animation: loading-seg-highlight 2000ms steps(1, end) infinite; animation-delay: 1800ms; }
 }

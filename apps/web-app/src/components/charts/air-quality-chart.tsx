@@ -127,7 +127,7 @@ export const AirQualityChart: React.FC<AirQualityChartProps> = ({
 						</div>
 					</div>
 					{isScaleVisible && (
-						<div className="mt-1 flex justify-between text-sm text-black">
+						<div className="mt-1 flex justify-between text-sm text-black font-numbers">
 							<span>1</span>
 							<span>5</span>
 						</div>
@@ -135,7 +135,7 @@ export const AirQualityChart: React.FC<AirQualityChartProps> = ({
 					{/* Value Label */}
 					{isValueLabelVisible && (
 						<div
-							className={`absolute top-8 mt-1 -translate-y-1/2 text-black text-sm z-20 font-semibold`}
+							className={`absolute top-8 mt-1 -translate-y-1/2 text-black text-sm z-20 font-semibold font-numbers`}
 							style={{
 								left: `calc(${markerPositionPercent}% - ${markerSize / 2}px)`,
 							}}
@@ -145,7 +145,7 @@ export const AirQualityChart: React.FC<AirQualityChartProps> = ({
 					)}
 				</div>
 				{/* Value label*/}
-				<div className="h-fit self-start text-black font-bold">
+				<div className="h-fit self-start text-black font-bold font-numbers">
 					{!isValueLabelVisible && value} {currentStep.label}
 				</div>
 			</div>

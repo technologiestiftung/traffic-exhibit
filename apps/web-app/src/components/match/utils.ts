@@ -56,6 +56,51 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 }
 
 /**
+ * Returns the index of the highest-percentage modal split segment.
+ * Falls back to 0 if data is missing.
+ */
+export function getDominantTrafficModalIndex(telraamMatch: TelraamMatch): number {
+	const modal = getTrafficModal(telraamMatch);
+	if (!modal.length) {
+		return 0;
+	}
+
+	let maxIndex = 0;
+	for (let i = 1; i < modal.length; i += 1) {
+		if (modal[i].percentage > modal[maxIndex].percentage) {
+			maxIndex = i;
+		}
+	}
+
+	return maxIndex;
+}
+
+/**
+ * Maps the dominant traffic modal segment to a Tailwind gradient background.
+ * Keeps the "gradient" feel while reflecting the dominant category.
+ */
+export function getDominantTrafficGradientClass(
+	dominantIndex: number,
+): string {
+	switch (dominantIndex) {
+		// pedestrians
+		case 0:
+			return "bg-gradient-to-b from-[#E7FE64] to-white";
+		// bikes
+		case 1:
+			return "bg-gradient-to-b from-[#00a980] to-white";
+		// cars
+		case 2:
+			return "bg-gradient-to-b from-[#e98cbd] to-white";
+		// trucks
+		case 3:
+			return "bg-gradient-to-b from-[#3360e9] to-white";
+		default:
+			return "bg-gradient-to-b from-[#E7FE64] to-white";
+	}
+}
+
+/**
  * Returns the scale for a card based on its position in the stack.
  * Back-most card gets MIN_SCALE, front-most gets 1.
  */
