@@ -46,8 +46,7 @@ export const Loading = () => {
 								height="60"
 								viewBox="0 0 220 60"
 								className="absolute -top-16 -right-12 hidden text-black/70 lg:block"
-							>
-							</svg>
+							></svg>
 
 							{/* Keep the disc fixed; animate segment fills in sequence */}
 							<div className="relative">
@@ -60,177 +59,188 @@ export const Loading = () => {
 										aria-hidden
 										className="block"
 									>
-									<g>
-										<path
-											d="M 260 260 L 260 10 A 250 250 0 0 1 406.9463130731183 57.74575140626314 Z"
-											stroke="#fff"
-											strokeWidth="2"
-											strokeLinejoin="round"
-											className="loading-seg loading-seg-1 loading-seg-color-1"
-										/>
-										<text
-											x="317.9406864453026"
-											y="81.6769031946587"
-											textAnchor="middle"
-											dominantBaseline="central"
-											fontSize="36.4"
-										>
-											1
-										</text>
-									</g>
-									<g>
-										<path
-											d="M 260 260 L 406.9463130731183 57.74575140626314 A 250 250 0 0 1 497.76412907378835 182.74575140626314 Z"
-											stroke="#fff"
-											strokeWidth="2"
-											strokeLinejoin="round"
-											className="loading-seg loading-seg-2 loading-seg-color-2"
-										/>
-										<text
-											x="411.6906864453026"
-											y="149.79026519516128"
-											textAnchor="middle"
-											dominantBaseline="central"
-											fontSize="36.4"
-										>
-											2
-										</text>
-									</g>
-									<g>
-										<path
-											d="M 260 260 L 497.76412907378835 182.74575140626314 A 250 250 0 0 1 497.76412907378835 337.25424859373686 Z"
-											stroke="#fff"
-											strokeWidth="2"
-											strokeLinejoin="round"
-											className="loading-seg loading-seg-3 loading-seg-color-3"
-										/>
-										<text x="447.5" y="260" textAnchor="middle" dominantBaseline="central" fontSize="36.4">
-											3
-										</text>
-									</g>
-									<g>
-										<path
-											d="M 260 260 L 497.76412907378835 337.25424859373686 A 250 250 0 0 1 406.9463130731183 462.25424859373686 Z"
-											stroke="#fff"
-											strokeWidth="2"
-											strokeLinejoin="round"
-											className="loading-seg loading-seg-4 loading-seg-color-4"
-										/>
-										<text
-											x="411.6906864453026"
-											y="370.2097348048387"
-											textAnchor="middle"
-											dominantBaseline="central"
-											fontSize="36.4"
-										>
-											4
-										</text>
-									</g>
-									<g>
-										<path
-											d="M 260 260 L 406.9463130731183 462.25424859373686 A 250 250 0 0 1 260 510 Z"
-											stroke="#fff"
-											strokeWidth="2"
-											strokeLinejoin="round"
-											className="loading-seg loading-seg-5 loading-seg-color-1"
-										/>
-										<text
-											x="317.9406864453026"
-											y="438.32309680534127"
-											textAnchor="middle"
-											dominantBaseline="central"
-											fontSize="36.4"
-										>
-											5
-										</text>
-									</g>
-									<g>
-										<path
-											d="M 260 260 L 260 510 A 250 250 0 0 1 113.05368692688174 462.25424859373686 Z"
-											stroke="#fff"
-											strokeWidth="2"
-											strokeLinejoin="round"
-											className="loading-seg loading-seg-6 loading-seg-color-2"
-										/>
-										<text
-											x="202.05931355469738"
-											y="438.3230968053413"
-											textAnchor="middle"
-											dominantBaseline="central"
-											fontSize="36.4"
-										>
-											6
-										</text>
-									</g>
-									<g>
-										<path
-											d="M 260 260 L 113.05368692688174 462.25424859373686 A 250 250 0 0 1 22.235870926211618 337.25424859373686 Z"
-											stroke="#fff"
-											strokeWidth="2"
-											strokeLinejoin="round"
-											className="loading-seg loading-seg-7 loading-seg-color-3"
-										/>
-										<text
-											x="108.30931355469738"
-											y="370.2097348048387"
-											textAnchor="middle"
-											dominantBaseline="central"
-											fontSize="36.4"
-										>
-											7
-										</text>
-									</g>
-									<g>
-										<path
-											d="M 260 260 L 22.235870926211618 337.25424859373686 A 250 250 0 0 1 22.23587092621159 182.7457514062632 Z"
-											stroke="#fff"
-											strokeWidth="2"
-											strokeLinejoin="round"
-											className="loading-seg loading-seg-8 loading-seg-color-4"
-										/>
-										<text x="72.5" y="260" textAnchor="middle" dominantBaseline="central" fontSize="36.4">
-											8
-										</text>
-									</g>
-									<g>
-										<path
-											d="M 260 260 L 22.23587092621159 182.7457514062632 A 250 250 0 0 1 113.05368692688168 57.74575140626317 Z"
-											stroke="#fff"
-											strokeWidth="2"
-											strokeLinejoin="round"
-											className="loading-seg loading-seg-9 loading-seg-color-1"
-										/>
-										<text
-											x="108.30931355469733"
-											y="149.7902651951613"
-											textAnchor="middle"
-											dominantBaseline="central"
-											fontSize="36.4"
-										>
-											9
-										</text>
-									</g>
-									<g>
-										<path
-											d="M 260 260 L 113.05368692688168 57.74575140626317 A 250 250 0 0 1 259.99999999999994 10 Z"
-											stroke="#fff"
-											strokeWidth="2"
-											strokeLinejoin="round"
-											className="loading-seg loading-seg-10 loading-seg-color-2"
-										/>
-										<text
-											x="202.05931355469733"
-											y="81.6769031946587"
-											textAnchor="middle"
-											dominantBaseline="central"
-											fontSize="36.4"
-										>
-											10
-										</text>
-									</g>
-									<circle cx="260" cy="260" r="150" fill="#fff" />
-								</svg>
-
+										<g>
+											<path
+												d="M 260 260 L 260 10 A 250 250 0 0 1 406.9463130731183 57.74575140626314 Z"
+												stroke="#fff"
+												strokeWidth="2"
+												strokeLinejoin="round"
+												className="loading-seg loading-seg-1 loading-seg-color-1"
+											/>
+											<text
+												x="317.9406864453026"
+												y="81.6769031946587"
+												textAnchor="middle"
+												dominantBaseline="central"
+												fontSize="36.4"
+											>
+												1
+											</text>
+										</g>
+										<g>
+											<path
+												d="M 260 260 L 406.9463130731183 57.74575140626314 A 250 250 0 0 1 497.76412907378835 182.74575140626314 Z"
+												stroke="#fff"
+												strokeWidth="2"
+												strokeLinejoin="round"
+												className="loading-seg loading-seg-2 loading-seg-color-2"
+											/>
+											<text
+												x="411.6906864453026"
+												y="149.79026519516128"
+												textAnchor="middle"
+												dominantBaseline="central"
+												fontSize="36.4"
+											>
+												2
+											</text>
+										</g>
+										<g>
+											<path
+												d="M 260 260 L 497.76412907378835 182.74575140626314 A 250 250 0 0 1 497.76412907378835 337.25424859373686 Z"
+												stroke="#fff"
+												strokeWidth="2"
+												strokeLinejoin="round"
+												className="loading-seg loading-seg-3 loading-seg-color-3"
+											/>
+											<text
+												x="447.5"
+												y="260"
+												textAnchor="middle"
+												dominantBaseline="central"
+												fontSize="36.4"
+											>
+												3
+											</text>
+										</g>
+										<g>
+											<path
+												d="M 260 260 L 497.76412907378835 337.25424859373686 A 250 250 0 0 1 406.9463130731183 462.25424859373686 Z"
+												stroke="#fff"
+												strokeWidth="2"
+												strokeLinejoin="round"
+												className="loading-seg loading-seg-4 loading-seg-color-4"
+											/>
+											<text
+												x="411.6906864453026"
+												y="370.2097348048387"
+												textAnchor="middle"
+												dominantBaseline="central"
+												fontSize="36.4"
+											>
+												4
+											</text>
+										</g>
+										<g>
+											<path
+												d="M 260 260 L 406.9463130731183 462.25424859373686 A 250 250 0 0 1 260 510 Z"
+												stroke="#fff"
+												strokeWidth="2"
+												strokeLinejoin="round"
+												className="loading-seg loading-seg-5 loading-seg-color-1"
+											/>
+											<text
+												x="317.9406864453026"
+												y="438.32309680534127"
+												textAnchor="middle"
+												dominantBaseline="central"
+												fontSize="36.4"
+											>
+												5
+											</text>
+										</g>
+										<g>
+											<path
+												d="M 260 260 L 260 510 A 250 250 0 0 1 113.05368692688174 462.25424859373686 Z"
+												stroke="#fff"
+												strokeWidth="2"
+												strokeLinejoin="round"
+												className="loading-seg loading-seg-6 loading-seg-color-2"
+											/>
+											<text
+												x="202.05931355469738"
+												y="438.3230968053413"
+												textAnchor="middle"
+												dominantBaseline="central"
+												fontSize="36.4"
+											>
+												6
+											</text>
+										</g>
+										<g>
+											<path
+												d="M 260 260 L 113.05368692688174 462.25424859373686 A 250 250 0 0 1 22.235870926211618 337.25424859373686 Z"
+												stroke="#fff"
+												strokeWidth="2"
+												strokeLinejoin="round"
+												className="loading-seg loading-seg-7 loading-seg-color-3"
+											/>
+											<text
+												x="108.30931355469738"
+												y="370.2097348048387"
+												textAnchor="middle"
+												dominantBaseline="central"
+												fontSize="36.4"
+											>
+												7
+											</text>
+										</g>
+										<g>
+											<path
+												d="M 260 260 L 22.235870926211618 337.25424859373686 A 250 250 0 0 1 22.23587092621159 182.7457514062632 Z"
+												stroke="#fff"
+												strokeWidth="2"
+												strokeLinejoin="round"
+												className="loading-seg loading-seg-8 loading-seg-color-4"
+											/>
+											<text
+												x="72.5"
+												y="260"
+												textAnchor="middle"
+												dominantBaseline="central"
+												fontSize="36.4"
+											>
+												8
+											</text>
+										</g>
+										<g>
+											<path
+												d="M 260 260 L 22.23587092621159 182.7457514062632 A 250 250 0 0 1 113.05368692688168 57.74575140626317 Z"
+												stroke="#fff"
+												strokeWidth="2"
+												strokeLinejoin="round"
+												className="loading-seg loading-seg-9 loading-seg-color-1"
+											/>
+											<text
+												x="108.30931355469733"
+												y="149.7902651951613"
+												textAnchor="middle"
+												dominantBaseline="central"
+												fontSize="36.4"
+											>
+												9
+											</text>
+										</g>
+										<g>
+											<path
+												d="M 260 260 L 113.05368692688168 57.74575140626317 A 250 250 0 0 1 259.99999999999994 10 Z"
+												stroke="#fff"
+												strokeWidth="2"
+												strokeLinejoin="round"
+												className="loading-seg loading-seg-10 loading-seg-color-2"
+											/>
+											<text
+												x="202.05931355469733"
+												y="81.6769031946587"
+												textAnchor="middle"
+												dominantBaseline="central"
+												fontSize="36.4"
+											>
+												10
+											</text>
+										</g>
+										<circle cx="260" cy="260" r="150" fill="#fff" />
+									</svg>
 								</div>
 							</div>
 
@@ -243,8 +253,8 @@ export const Loading = () => {
 											aria-hidden
 											className="h-12 w-12 bg-white"
 											style={{
-												WebkitMask: 'url(/flip.svg) center / contain no-repeat',
-												mask: 'url(/flip.svg) center / contain no-repeat',
+												WebkitMask: "url(/flip.svg) center / contain no-repeat",
+												mask: "url(/flip.svg) center / contain no-repeat",
 											}}
 										/>
 									</div>
@@ -252,7 +262,6 @@ export const Loading = () => {
 							</div>
 						</div>
 					</div>
-
 
 					{/* Right: same text block proportions as Start */}
 					<div className="flex max-w-md flex-1 flex-col items-start gap-4 text-left text-white drop-shadow-lg">

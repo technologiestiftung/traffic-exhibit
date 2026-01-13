@@ -27,7 +27,9 @@ export const Match: React.FC = () => {
 	);
 	const currentMatch = displayStack[0] ?? null;
 	const pageBackgroundClass = currentMatch
-		? getDominantTrafficGradientClass(getDominantTrafficModalIndex(currentMatch))
+		? getDominantTrafficGradientClass(
+				getDominantTrafficModalIndex(currentMatch),
+			)
 		: "bg-gradient-to-b from-[#dff97a] via-[#f8ffc7] to-[#fff8c6]";
 
 	const isSelected = (match: TelraamMatch) =>
@@ -103,7 +105,8 @@ export const Match: React.FC = () => {
 						const transformStyle = `translateZ(${depthTranslation}px) rotateY(${-rotationAngle}deg) scale(${scale})`;
 						const leftOffset = selectedCard ? 0 : CARD_W + 32;
 						const dominantIndex = getDominantTrafficModalIndex(match);
-						const backgroundClass = getDominantTrafficGradientClass(dominantIndex);
+						const backgroundClass =
+							getDominantTrafficGradientClass(dominantIndex);
 						return (
 							<MatchCard
 								key={match.segment_id ?? index}
@@ -127,7 +130,10 @@ export const Match: React.FC = () => {
 
 				{/* Front card by default; updates with selection/reorder */}
 				{currentMatch && (
-					<div style={{ transform: `translateX(${CHART_SHIFT_X}px)` }} className="-ml-16">
+					<div
+						style={{ transform: `translateX(${CHART_SHIFT_X}px)` }}
+						className="-ml-16"
+					>
 						<CircleChart
 							key={currentMatch.segment_id}
 							data={getTrafficModal(currentMatch)}

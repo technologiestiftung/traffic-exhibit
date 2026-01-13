@@ -6,7 +6,6 @@ export const formatDdMmmYyyy = (value?: string) => {
 	if (!value) {
 		return "";
 	}
-	// matches: 2025-09-17 14:00:00+00:00
 	const d = parse(value, "yyyy-MM-dd HH:mm:ssXXX", new Date());
 	if (Number.isNaN(d.getTime())) {
 		return value;
@@ -55,11 +54,9 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 	];
 }
 
-/**
- * Returns the index of the highest-percentage modal split segment.
- * Falls back to 0 if data is missing.
- */
-export function getDominantTrafficModalIndex(telraamMatch: TelraamMatch): number {
+export function getDominantTrafficModalIndex(
+	telraamMatch: TelraamMatch,
+): number {
 	const modal = getTrafficModal(telraamMatch);
 	if (!modal.length) {
 		return 0;
@@ -79,9 +76,7 @@ export function getDominantTrafficModalIndex(telraamMatch: TelraamMatch): number
  * Maps the dominant traffic modal segment to a Tailwind gradient background.
  * Keeps the "gradient" feel while reflecting the dominant category.
  */
-export function getDominantTrafficGradientClass(
-	dominantIndex: number,
-): string {
+export function getDominantTrafficGradientClass(dominantIndex: number): string {
 	switch (dominantIndex) {
 		// pedestrians
 		case 0:
@@ -100,10 +95,6 @@ export function getDominantTrafficGradientClass(
 	}
 }
 
-/**
- * Returns the scale for a card based on its position in the stack.
- * Back-most card gets MIN_SCALE, front-most gets 1.
- */
 export function scaleForStackPosition(
 	index: number, // 0 = back, stackSize - 1 = front
 	size: number,
