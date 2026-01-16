@@ -37,7 +37,8 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 	const xAxisValue = pct(clamped, rangeMin, rangeMax);
 
 	// Smooth gradient bar (non-pixelated)
-	const backgroundImage = "linear-gradient(to right, #dedede 0%, #bdbdbd 30%, #666 70%, #222 100%)";
+	const backgroundImage =
+		"linear-gradient(to right, #dedede 0%, #bdbdbd 30%, #666 70%, #222 100%)";
 
 	return (
 		<section className={`w-full flex flex-col gap-2 p-3 ${className}`}>
