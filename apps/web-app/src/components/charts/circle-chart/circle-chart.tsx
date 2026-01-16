@@ -2,7 +2,7 @@ import { useId } from "react";
 import type { FC } from "react";
 import type { CircleChartSegment } from "./circle-chart-utils";
 import { buildSegments, lightenColor } from "./circle-chart-utils";
-import { i18n } from "../../i18n/i18n-utils";
+import { i18n } from "../../../i18n/i18n-utils";
 
 export type CircleChartProps = {
 	data: CircleChartSegment[];
@@ -161,14 +161,15 @@ const describeSegments = (segments: CircleChartSegment[]): string | null => {
 	const categories = segments.length;
 
 	const trailingMessage =
-		trailingSegment && trailingSegment !== topSegment
-			? `, ${i18n("circleChart.summary.trailingMessage.p1")} ${trailingSegment.name} trails at ${trailingSegment.percentage}%`
-			: "";
-	const totalMessage = totalCount
-		? ` across ${totalCount.toLocaleString()} total observations`
-		: "";
+		trailingSegment &&
+		trailingSegment !== topSegment &&
+		` ${i18n("circleChart.summary.trailingMessage.p1")} ${trailingSegment.name} ${i18n("circleChart.summary.trailingMessage.p2")} ${trailingSegment.percentage}% `;
 
-	return `${topSegment.name} leads this ${categories}-segment profile with ${topSegment.percentage}%${trailingMessage}${totalMessage}, highlighting how usage is distributed today.`;
+	const totalMessage =
+		totalCount &&
+		`${i18n("circleChart.summary.totalMessage.p1")} ${totalCount.toLocaleString()} ${i18n("circleChart.summary.totalMessage.p2")}`;
+
+	return `${topSegment.name} ${i18n("circleChart.summary.leadsThisMessage.p1")} ${categories}${i18n("circleChart.summary.leadsThisMessage.p2")} ${topSegment.percentage}%${trailingMessage}${totalMessage}${i18n("circleChart.summary.usageDistributionMessage")}`;
 };
 
 export default CircleChart;

@@ -3,7 +3,7 @@ import { BerlinMap } from "../map/berlin-map";
 import { Pill } from "../pill/pill";
 import { NoiseChart } from "../charts/noise-chart";
 import { AirQualityChart } from "../charts/air-quality-chart";
-import { TrafficStats } from "./traffic-stats/traffic-stats";
+import { DataDateIndicator } from "../data-date-indicator/data-date-indicator";
 import type { TelraamMatch } from "../../../../api/src/common";
 import { i18n } from "../../i18n/i18n-utils";
 import { MatchTinyWorldImg } from "./match-tiny-world-img";
@@ -11,7 +11,7 @@ import { MatchTinyWorldImg } from "./match-tiny-world-img";
 export type MatchCardProps = {
 	match: TelraamMatch;
 	index: number;
-	topOffset: number; // computed top
+	topOffset: number;
 	width: number;
 	height: number;
 	zIndex: number;
@@ -90,7 +90,9 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 								/>
 							))}
 						</div>
-						<p className="text-base py-1.5 text-start">{match.district ?? ""}</p>
+						<p className="text-base py-1.5 text-start">
+							{match.district ?? ""}
+						</p>
 					</div>
 
 					{Array.isArray(match.coordinates) &&
@@ -109,7 +111,11 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 					{imageSrc && (
 						<MatchTinyWorldImg imageUrl={imageSrc} shouldAnimate={selected} />
 					)}
-					{match.originalProperties && <TrafficStats telraamMatch={match} />}
+					{match.originalProperties && (
+						<DataDateIndicator
+							telraamDataDate={match?.originalProperties?.date}
+						/>
+					)}
 				</div>
 				{match.nearestNoiseLevel !== null && (
 					<NoiseChart

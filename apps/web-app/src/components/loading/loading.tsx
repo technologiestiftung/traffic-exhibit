@@ -46,7 +46,7 @@ export const Loading = () => {
 								height="60"
 								viewBox="0 0 220 60"
 								className="absolute -top-16 -right-12 hidden text-black/70 lg:block"
-							></svg>
+							/>
 
 							{/* Keep the disc fixed; animate segment fills in sequence */}
 							<div className="relative">
@@ -247,8 +247,8 @@ export const Loading = () => {
 							{/* Inner disc (same as Start) - stays fixed */}
 							<div className="pointer-events-none absolute inset-16 flex items-center justify-center">
 								<div className="relative flex h-60 w-60 items-center justify-center rounded-full bg-black/80">
-									<div className="absolute inset-4 rounded-full border-4 border-[#E7FE64]" />
-									<div className="relative z-10 flex h-28 w-28 items-center justify-center rounded-full bg-[#25252a] text-[#E7FE64]">
+									<div className="absolute inset-4 rounded-full border-4 border-bp-yellow" />
+									<div className="relative z-10 flex h-28 w-28 items-center justify-center rounded-full bg-bp-gray-dark text-bp-yellow">
 										<div
 											aria-hidden
 											className="h-12 w-12 bg-white"

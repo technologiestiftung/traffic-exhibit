@@ -1,4 +1,5 @@
 import React, { useMemo } from "react";
+import { trafficColors } from "../match/utils";
 
 type EqualSegmentsDiscProps = {
 	size?: number;
@@ -9,7 +10,7 @@ type EqualSegmentsDiscProps = {
 
 export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 	size = 300,
-	segmentColors = [{ occupied: "#7bf1a8", empty: "#999999" }],
+	segmentColors = [{ occupied: trafficColors.green, empty: "#999999" }],
 	occupiedBlocks = [],
 	showLabels = true,
 }) => {
@@ -26,7 +27,10 @@ export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 	const startAtTwelveOClock = -Math.PI / 2; // SVG coords: -π/2 is the top
 
 	// Colors
-	const palette = segmentColors[0] ?? { occupied: "#7bf1a8", empty: "#999999" };
+	const palette = segmentColors[0] ?? {
+		occupied: trafficColors.green,
+		empty: "#999999",
+	};
 
 	// 1-based occupied indices -> fast lookup
 	const occupiedIndexSet = useMemo(() => {

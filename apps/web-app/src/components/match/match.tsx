@@ -9,7 +9,7 @@ import {
 	getTrafficModal,
 	scaleForStackPosition,
 } from "./utils";
-import CircleChart from "../charts/circle-chart";
+import CircleChart from "../charts/circle-chart/circle-chart";
 
 const CARD_W = 620;
 const CARD_H = 620;
@@ -30,7 +30,7 @@ export const Match: React.FC = () => {
 		? getDominantTrafficGradientClass(
 				getDominantTrafficModalIndex(currentMatch),
 			)
-		: "bg-gradient-to-b from-[#dff97a] via-[#f8ffc7] to-[#fff8c6]";
+		: "bg-gradient-to-b from-bp-yellow via-bp-green to-bp-pink";
 
 	const isSelected = (match: TelraamMatch) =>
 		currentMatch?.segment_id
@@ -66,7 +66,7 @@ export const Match: React.FC = () => {
 		>
 			<div className="mb-10 flex w-full max-w-[1540px] flex-col gap-4 px-6 md:flex-row md:items-center md:justify-between lg:px-10">
 				<div className="text-left text-4xl font-semibold tracking-[0.25em] text-[#1e2402] drop-shadow font-title">
-					Dein Verkehrs-Mix passt zu.
+					{i18n("match.title")}
 				</div>
 				<button
 					className="self-start rounded-full border border-black/20 bg-white/70 px-4 py-2 text-sm font-semibold tracking-wide text-slate-700 transition hover:-translate-y-0.5 hover:bg-white md:self-center"

@@ -13,6 +13,13 @@ export const formatDdMmmYyyy = (value?: string) => {
 	return format(d, "dd MMM yyyy");
 };
 
+export const trafficColors = {
+	yellow: "#e7fe64", // var(--color-bp-yellow)
+	green: "#00a980", // var(--color-bp-green)
+	pink: "#e98cbd", // var(--color-bp-pink)
+	blue: "#3360e9", // var(--color-bp-blue)
+} as const;
+
 export function getTrafficModal(telraamMatch: TelraamMatch) {
 	return [
 		{
@@ -21,7 +28,7 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 			percentage: parseFloat(
 				telraamMatch?.originalProperties.pedestrian_percentage.toFixed(0),
 			),
-			color: "#e7fe64",
+			color: trafficColors.yellow,
 			labelOffset: "15%",
 		},
 		{
@@ -30,7 +37,7 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 			percentage: parseFloat(
 				telraamMatch?.originalProperties.bike_percentage.toFixed(0),
 			),
-			color: "#00a980",
+			color: trafficColors.green,
 			labelOffset: "25%",
 		},
 		{
@@ -39,7 +46,7 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 			percentage: parseFloat(
 				telraamMatch?.originalProperties.car_percentage.toFixed(0),
 			),
-			color: "#e98cbd",
+			color: trafficColors.pink,
 			labelOffset: "30%",
 		},
 		{
@@ -48,7 +55,7 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 			percentage: parseFloat(
 				telraamMatch?.originalProperties.heavy_percentage.toFixed(0),
 			),
-			color: "#3360e9",
+			color: trafficColors.blue,
 			labelOffset: "35%",
 		},
 	];
@@ -80,18 +87,18 @@ export function getDominantTrafficGradientClass(dominantIndex: number): string {
 	switch (dominantIndex) {
 		// pedestrians
 		case 0:
-			return "bg-gradient-to-b from-[#E7FE64] to-white";
+			return "bg-gradient-to-b from-bp-yellow to-white";
 		// bikes
 		case 1:
-			return "bg-gradient-to-b from-[#00a980] to-white";
+			return "bg-gradient-to-b from-bp-green to-white";
 		// cars
 		case 2:
-			return "bg-gradient-to-b from-[#e98cbd] to-white";
+			return "bg-gradient-to-b from-bp-pink to-white";
 		// trucks
 		case 3:
-			return "bg-gradient-to-b from-[#3360e9] to-white";
+			return "bg-gradient-to-b from-bp-blue to-white";
 		default:
-			return "bg-gradient-to-b from-[#E7FE64] to-white";
+			return "bg-gradient-to-b from-bp-yellow to-white";
 	}
 }
 

@@ -1,13 +1,14 @@
 import React from "react";
-import type { TelraamMatch } from "../../../../../api/src/common";
-import { formatDdMmmYyyy } from "../utils";
-import { i18n } from "../../../i18n/i18n-utils";
+import { formatDdMmmYyyy } from "../match/utils";
+import { i18n } from "../../i18n/i18n-utils";
 
-type TrafficStatsProps = {
-	telraamMatch: TelraamMatch;
+type DataDateIndicatorProps = {
+	telraamDataDate: string;
 };
 
-export const TrafficStats: React.FC<TrafficStatsProps> = ({ telraamMatch }) => {
+export const DataDateIndicator: React.FC<DataDateIndicatorProps> = ({
+	telraamDataDate,
+}) => {
 	return (
 		<div className="absolute flex flex-col gap-2 top-0 right-0 p-2.5">
 			<div className="flex flex-col text-end text-red-500 bg-white bg-opacity-50 rounded-sm px-2">
@@ -18,11 +19,9 @@ export const TrafficStats: React.FC<TrafficStatsProps> = ({ telraamMatch }) => {
 				</div>
 				<span className="text-sm font-numbers">
 					{" "}
-					{formatDdMmmYyyy(telraamMatch?.originalProperties?.date)}
+					{formatDdMmmYyyy(telraamDataDate)}
 				</span>
 			</div>
-
-			{/* Percentages removed per design – keep live data only */}
 		</div>
 	);
 };
