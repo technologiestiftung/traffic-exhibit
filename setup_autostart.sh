@@ -76,3 +76,9 @@ sleep 10
 echo "Starting button monitor..."
 cd "$PROJECT_DIR/apps/api"
 npm run start-button-monitor
+sleep 10
+
+# 6) Start yolo detect
+echo "Starting yolo detect..."
+cd "$PROJECT_DIR/apps/api"
+npm run yolo-detect
