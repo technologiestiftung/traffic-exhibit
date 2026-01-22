@@ -23,6 +23,8 @@ parser.add_argument('--resolution', help='Resolution in WxH to display inference
                     default=None)
 parser.add_argument('--record', help='Record results from video or webcam and save it as "demo1.avi". Must specify --resolution argument to record.',
                     action='store_true')
+parser.add_argument('--headless', help='Run without GUI display (for headless/kiosk mode)',
+                    action='store_true')
 
 args = parser.parse_args()
 
@@ -33,6 +35,7 @@ img_source = args.source
 min_thresh = args.thresh
 user_res = args.resolution
 record = args.record
+headless = args.headless
 
 # Check if model file exists and is valid
 if (not os.path.exists(model_path)):
@@ -208,21 +211,34 @@ while True:
     
     # Display detection results
     cv2.putText(frame, f'Number of objects: {object_count}', (10,40), cv2.FONT_HERSHEY_SIMPLEX, .7, (0,255,255), 2) # Draw total number of detected objects
-    cv2.imshow('YOLO detection results',frame) # Display image
+    
+    if not headless:
+        cv2.imshow('YOLO detection results',frame) # Display image
     if record: recorder.write(frame)
 
     # If inferencing on individual images, wait for user keypress before moving to next image. Otherwise, wait 5ms before moving to next frame.
-    if source_type == 'image' or source_type == 'folder':
-        key = cv2.waitKey()
-    elif source_type == 'video' or source_type == 'usb' or source_type == 'picamera':
-        key = cv2.waitKey(5)
-    
-    if key == ord('q') or key == ord('Q'): # Press 'q' to quit
-        break
-    elif key == ord('s') or key == ord('S'): # Press 's' to pause inference
-        cv2.waitKey()
-    elif key == ord('p') or key == ord('P'): # Press 'p' to save a picture of results on this frame
-        cv2.imwrite('capture.png',frame)
+    if not headless:
+        if source_type == 'image' or source_type == 'folder':
+            key = cv2.waitKey()
+        elif source_type == 'video' or source_type == 'usb' or source_type == 'picamera':
+            key = cv2.waitKey(5)
+        
+        if key == ord('q') or key == ord('Q'): # Press 'q' to quit
+            break
+        elif key == ord('s') or key == ord('S'): # Press 's' to pause inference
+            cv2.waitKey()
+        elif key == ord('p') or key == ord('P'): # Press 'p' to save a picture of results on this frame
+            cv2.imwrite('capture.png',frame)
+    else:
+        # In headless mode, print detection results and add simple exit condition
+        if object_count > 0:
+            print(f'Frame processed: {object_count} objects detected')
+        
+        # For headless mode with images, automatically continue
+        if source_type == 'image' or source_type == 'folder':
+            time.sleep(0.1)  # Small delay for images
+        elif source_type == 'video' or source_type == 'usb' or source_type == 'picamera':
+            time.sleep(0.01)  # Very small delay for video/camera
     
     # Calculate FPS for this frame
     t_stop = time.perf_counter()
@@ -246,4 +262,5 @@ if source_type == 'video' or source_type == 'usb':
 elif source_type == 'picamera':
     cap.stop()
 if record: recorder.release()
-cv2.destroyAllWindows()
+if not headless:
+    cv2.destroyAllWindows()
