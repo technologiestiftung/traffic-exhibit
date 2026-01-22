@@ -10,7 +10,7 @@
 		"prettier:ci": "prettier --check src",
 		"process-data": "ts-node scripts/run-data-processing.ts",
 		"start-button-monitor": "./venv/bin/python3 scripts/button_monitor.py",
-		"yolo-detect": "./venv/bin/python3 scripts/yolo_detect.py --model yolo11n.pt --source picamera0 --resolution 1280x720",
+		"yolo-detect": "./venv/bin/python3 scripts/yolo_detect.py --model scripts/yolo11n.pt --source picamera0 --resolution 1280x720 --headless",
 		"stop-yolo-detect": "pkill -f 'yolo_detect.py'"
 	},
 	"keywords": [],
