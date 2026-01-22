@@ -36,11 +36,9 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 	const clamped = clamp(value, rangeMin, rangeMax);
 	const xAxisValue = pct(clamped, rangeMin, rangeMax);
 
-	const backgroundImage = `linear-gradient(
-        to right,
-        rgba(220, 220, 220, 0.8) 0%,
-        rgba(40, 40, 40, 0.8) 100%
-    )`;
+	// Smooth gradient bar (non-pixelated)
+	const backgroundImage =
+		"linear-gradient(to right, #dedede 0%, #bdbdbd 30%, #666 70%, #222 100%)";
 
 	return (
 		<section className={`w-full flex flex-col gap-2 p-3 ${className}`}>
@@ -54,7 +52,7 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 						aria-valuemax={rangeMax}
 						aria-valuenow={clamped}
 						aria-valuetext={`${Math.round(clamped)} dB`}
-						className="relative w-full rounded-sm h-6"
+						className="relative w-full rounded-sm h-6 overflow-hidden"
 						style={{
 							backgroundImage,
 							backgroundSize: "100% 100%",
@@ -75,7 +73,7 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 							style={{ left: `${xAxisValue}%` }}
 						>
 							<div
-								className={`rounded-full ${markerColor}`}
+								className={`${markerColor}`}
 								style={{ width: markerSize, height: markerSize }}
 							/>
 						</div>
@@ -83,7 +81,7 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 						{/* Value Label */}
 						{isValueLabelVisible && (
 							<div
-								className={`absolute top-8 mt-1 -translate-y-1/2 text-black text-sm z-20 font-semibold`}
+								className={`absolute top-8 mt-1 -translate-y-1/2 text-black text-sm z-20 font-semibold font-numbers`}
 								style={{ left: `calc(${xAxisValue}% - ${markerSize / 2}px)` }}
 							>
 								{value}
@@ -91,13 +89,13 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 						)}
 					</div>
 					{isScaleVisible && (
-						<div className="mt-1 flex justify-between text-sm text-black">
+						<div className="mt-1 flex justify-between text-sm text-black font-numbers">
 							<span>{rangeMin}</span>
 							<span>{rangeMax}</span>
 						</div>
 					)}
 				</div>
-				<p className="font-bold self-start">{value} dB</p>
+				<p className="font-bold self-start font-numbers">{value} dB</p>
 			</div>
 		</section>
 	);

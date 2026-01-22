@@ -1,30 +1,36 @@
 import React, { useState } from "react";
 import { useWebSocket } from "../../hooks/useWebSocket";
 import { i18n } from "../../i18n/i18n-utils";
-import { TrafficModalSplit } from "./traffic-modal-split/traffic-modal-split";
 import { MatchCard } from "./match-card";
 import type { TelraamMatch } from "../../../../api/src/common";
-import { scaleForStackPosition } from "./utils";
+import {
+	getDominantTrafficGradientClass,
+	getDominantTrafficModalIndex,
+	getTrafficModal,
+	scaleForStackPosition,
+} from "./utils";
+import CircleChart from "../charts/circle-chart/circle-chart";
 
-const CARD_W = 700;
-const CARD_H = 700;
-const OFFSET_Y = 32; // keep Y offset only
+const CARD_W = 620;
+const CARD_H = 620;
+const OFFSET_Y = 0; // keep Y offset only
 const MIN_SCALE = 0.9; // smallest card (back of stack)
-const STACK_CARD_BG: string[] = [
-	"bg-platte-yellow-800", // Last Card
-	"bg-platte-yellow-600", // Middle Card
-	"bg-gradient-to-b from-platte-yellow-400 to-white", // First Card
-];
+const ROW_SHIFT_X = 90; // move cards + chart together to the left
+const CHART_SHIFT_X = -180; // additional left shift for the circle chart
 
 export const Match: React.FC = () => {
 	const { goBackToStart, telraamMatches = [] } = useWebSocket();
 	const [stack, setStack] = useState<TelraamMatch[]>([]);
-	const [hasModalChanged, setHasModalChanged] = useState(false);
 
 	const displayStack = (stack.length ? stack : telraamMatches).filter(
 		(match) => match !== null,
 	);
 	const currentMatch = displayStack[0] ?? null;
+	const pageBackgroundClass = currentMatch
+		? getDominantTrafficGradientClass(
+				getDominantTrafficModalIndex(currentMatch),
+			)
+		: "bg-gradient-to-b from-bp-yellow via-bp-green to-bp-pink";
 
 	const isSelected = (match: TelraamMatch) =>
 		currentMatch?.segment_id
@@ -52,36 +58,55 @@ export const Match: React.FC = () => {
 		);
 		const newStack = [clicked, ...others, prevFront];
 		setStack(newStack);
-		setHasModalChanged(true);
 	};
 
 	return (
-		<div className="flex flex-col justify-center p-3 w-full lg:max-w-[1540px] h-full space-y-7 relative mx-auto">
-			<button
-				className="absolute right-5 bottom-0 cursor-pointer z-30 rounded-sm p-2 hover:bg-gray-200 bg-gray-300"
-				onClick={goBackToStart}
-			>
-				{i18n("match.createNewMixButton.label")}
-			</button>
+		<div
+			className={`relative flex min-h-screen w-full flex-col items-center ${pageBackgroundClass} px-4 py-10`}
+		>
+			<div className="mb-10 flex w-full max-w-[1540px] flex-col gap-4 px-6 md:flex-row md:items-center md:justify-between lg:px-10">
+				<div className="text-left text-4xl font-semibold tracking-[0.25em] text-[#1e2402] drop-shadow font-title">
+					{i18n("match.title")}
+				</div>
+				<button
+					className="self-start rounded-full border border-black/20 bg-white/70 px-4 py-2 text-sm font-semibold tracking-wide text-slate-700 transition hover:-translate-y-0.5 hover:bg-white md:self-center"
+					onClick={goBackToStart}
+				>
+					{i18n("match.createNewMixButton.label")}
+				</button>
+			</div>
 
-			<div className="relative flex items-start gap-6 w-full h-full">
+			<div
+				className="relative flex w-full max-w-[1540px] flex-1 items-center gap-6"
+				style={{ transform: `translateX(${ROW_SHIFT_X}px)` }}
+			>
 				{/* Stacked cards: no X offset, keep Y offset */}
 				<div
-					className="relative z-50 w-full"
+					className="relative z-50 w-full overflow-visible"
 					style={{
-						width: CARD_W,
+						width: CARD_W + 220,
 						height: CARD_H + Math.max(0, displayStack.length - 1) * OFFSET_Y,
+						perspective: "2200px",
+						transformStyle: "preserve-3d",
 					}}
 				>
 					{displayStack.map((match, index) => {
 						const stackLength = displayStack.length;
 						const selectedCard = isSelected(match);
 						const reverseIndex = stackLength - 1 - index; // reverseIndex: 0 = back, max (stackLength -1) = front
-						// Scale by distance from back: reverseIndex 0 = smallest (back), reverseIndex max (stackLength - 1) = largest (front)
-						const scale = selectedCard
-							? 1
-							: scaleForStackPosition(reverseIndex, stackLength, MIN_SCALE);
 						const zIndex = stackLength - index; // index 0 => highest
+						const rotationAngle = selectedCard ? 0 : 90;
+						const depthTranslation = selectedCard
+							? 0
+							: -reverseIndex * 140 - 80;
+						const scale = selectedCard
+							? 1.02
+							: scaleForStackPosition(reverseIndex, stackLength, MIN_SCALE);
+						const transformStyle = `translateZ(${depthTranslation}px) rotateY(${-rotationAngle}deg) scale(${scale})`;
+						const leftOffset = selectedCard ? 0 : CARD_W + 32;
+						const dominantIndex = getDominantTrafficModalIndex(match);
+						const backgroundClass =
+							getDominantTrafficGradientClass(dominantIndex);
 						return (
 							<MatchCard
 								key={match.segment_id ?? index}
@@ -92,11 +117,12 @@ export const Match: React.FC = () => {
 								height={CARD_H}
 								zIndex={zIndex}
 								scale={scale}
-								backgroundClass={
-									STACK_CARD_BG[reverseIndex % STACK_CARD_BG.length]
-								}
+								backgroundClass={backgroundClass}
 								selected={selectedCard}
 								onSelect={handleSelect}
+								transformStyle={transformStyle}
+								transformOrigin={selectedCard ? "center" : "left center"}
+								leftOffset={leftOffset}
 							/>
 						);
 					})}
@@ -104,13 +130,16 @@ export const Match: React.FC = () => {
 
 				{/* Front card by default; updates with selection/reorder */}
 				{currentMatch && (
-					<TrafficModalSplit
-						key={`${currentMatch.segment_id}`}
-						telraamMatch={currentMatch}
-						size={700}
-						isLegendVisible={false}
-						hasModalChanged={hasModalChanged}
-					/>
+					<div
+						style={{ transform: `translateX(${CHART_SHIFT_X}px)` }}
+						className="-ml-16"
+					>
+						<CircleChart
+							key={currentMatch.segment_id}
+							data={getTrafficModal(currentMatch)}
+							size={620}
+						/>
+					</div>
 				)}
 			</div>
 		</div>

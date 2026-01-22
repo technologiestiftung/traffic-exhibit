@@ -6,13 +6,19 @@ export const formatDdMmmYyyy = (value?: string) => {
 	if (!value) {
 		return "";
 	}
-	// matches: 2025-09-17 14:00:00+00:00
 	const d = parse(value, "yyyy-MM-dd HH:mm:ssXXX", new Date());
 	if (Number.isNaN(d.getTime())) {
 		return value;
 	}
 	return format(d, "dd MMM yyyy");
 };
+
+export const trafficColors = {
+	yellow: "#e7fe64", // var(--color-bp-yellow)
+	green: "#00a980", // var(--color-bp-green)
+	pink: "#e98cbd", // var(--color-bp-pink)
+	blue: "#3360e9", // var(--color-bp-blue)
+} as const;
 
 export function getTrafficModal(telraamMatch: TelraamMatch) {
 	return [
@@ -22,6 +28,8 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 			percentage: parseFloat(
 				telraamMatch?.originalProperties.pedestrian_percentage.toFixed(0),
 			),
+			color: trafficColors.yellow,
+			labelOffset: "15%",
 		},
 		{
 			name: i18n("trafficStats.bikes"),
@@ -29,6 +37,8 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 			percentage: parseFloat(
 				telraamMatch?.originalProperties.bike_percentage.toFixed(0),
 			),
+			color: trafficColors.green,
+			labelOffset: "25%",
 		},
 		{
 			name: i18n("trafficStats.cars"),
@@ -36,6 +46,8 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 			percentage: parseFloat(
 				telraamMatch?.originalProperties.car_percentage.toFixed(0),
 			),
+			color: trafficColors.pink,
+			labelOffset: "30%",
 		},
 		{
 			name: i18n("trafficStats.trucks"),
@@ -43,14 +55,53 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 			percentage: parseFloat(
 				telraamMatch?.originalProperties.heavy_percentage.toFixed(0),
 			),
+			color: trafficColors.blue,
+			labelOffset: "35%",
 		},
 	];
 }
 
+export function getDominantTrafficModalIndex(
+	telraamMatch: TelraamMatch,
+): number {
+	const modal = getTrafficModal(telraamMatch);
+	if (!modal.length) {
+		return 0;
+	}
+
+	let maxIndex = 0;
+	for (let i = 1; i < modal.length; i += 1) {
+		if (modal[i].percentage > modal[maxIndex].percentage) {
+			maxIndex = i;
+		}
+	}
+
+	return maxIndex;
+}
+
 /**
- * Returns the scale for a card based on its position in the stack.
- * Back-most card gets MIN_SCALE, front-most gets 1.
+ * Maps the dominant traffic modal segment to a Tailwind gradient background.
+ * Keeps the "gradient" feel while reflecting the dominant category.
  */
+export function getDominantTrafficGradientClass(dominantIndex: number): string {
+	switch (dominantIndex) {
+		// pedestrians
+		case 0:
+			return "bg-gradient-to-b from-bp-yellow to-white";
+		// bikes
+		case 1:
+			return "bg-gradient-to-b from-bp-green to-white";
+		// cars
+		case 2:
+			return "bg-gradient-to-b from-bp-pink to-white";
+		// trucks
+		case 3:
+			return "bg-gradient-to-b from-bp-blue to-white";
+		default:
+			return "bg-gradient-to-b from-bp-yellow to-white";
+	}
+}
+
 export function scaleForStackPosition(
 	index: number, // 0 = back, stackSize - 1 = front
 	size: number,

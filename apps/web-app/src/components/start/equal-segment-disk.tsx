@@ -1,15 +1,18 @@
 import React, { useMemo } from "react";
+import { trafficColors } from "../match/utils";
 
 type EqualSegmentsDiscProps = {
 	size?: number;
 	segmentColors?: { occupied: string; empty: string }[];
 	occupiedBlocks?: number[];
+	showLabels?: boolean;
 };
 
 export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 	size = 300,
-	segmentColors = [{ occupied: "#7bf1a8", empty: "#999999" }],
+	segmentColors = [{ occupied: trafficColors.green, empty: "#999999" }],
 	occupiedBlocks = [],
+	showLabels = true,
 }) => {
 	// Geometry
 	const centerX = size / 2;
@@ -24,7 +27,10 @@ export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 	const startAtTwelveOClock = -Math.PI / 2; // SVG coords: -π/2 is the top
 
 	// Colors
-	const palette = segmentColors[0] ?? { occupied: "#7bf1a8", empty: "#999999" };
+	const palette = segmentColors[0] ?? {
+		occupied: trafficColors.green,
+		empty: "#999999",
+	};
 
 	// 1-based occupied indices -> fast lookup
 	const occupiedIndexSet = useMemo(() => {
@@ -112,16 +118,17 @@ export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 								strokeWidth={2}
 								strokeLinejoin="round"
 							/>
-							{/* numeric labels */}
-							<text
-								x={slice.labelX}
-								y={slice.labelY}
-								textAnchor="middle"
-								dominantBaseline="central"
-								fontSize={size * 0.07}
-							>
-								{slice.key}
-							</text>
+							{showLabels && (
+								<text
+									x={slice.labelX}
+									y={slice.labelY}
+									textAnchor="middle"
+									dominantBaseline="central"
+									fontSize={size * 0.07}
+								>
+									{slice.key}
+								</text>
+							)}
 						</g>
 					))}
 

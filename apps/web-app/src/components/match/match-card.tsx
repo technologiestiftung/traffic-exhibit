@@ -3,7 +3,7 @@ import { BerlinMap } from "../map/berlin-map";
 import { Pill } from "../pill/pill";
 import { NoiseChart } from "../charts/noise-chart";
 import { AirQualityChart } from "../charts/air-quality-chart";
-import { TrafficStats } from "./traffic-stats/traffic-stats";
+import { DataDateIndicator } from "../data-date-indicator/data-date-indicator";
 import type { TelraamMatch } from "../../../../api/src/common";
 import { i18n } from "../../i18n/i18n-utils";
 import { MatchTinyWorldImg } from "./match-tiny-world-img";
@@ -11,7 +11,7 @@ import { MatchTinyWorldImg } from "./match-tiny-world-img";
 export type MatchCardProps = {
 	match: TelraamMatch;
 	index: number;
-	topOffset: number; // computed top
+	topOffset: number;
 	width: number;
 	height: number;
 	zIndex: number;
@@ -19,6 +19,9 @@ export type MatchCardProps = {
 	backgroundClass: string;
 	selected: boolean;
 	onSelect: (index: number) => void;
+	transformStyle: string;
+	transformOrigin?: string;
+	leftOffset?: number;
 };
 
 const getImageUrl = (imageURL: string | null): string | null => {
@@ -48,6 +51,9 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 	backgroundClass,
 	selected,
 	onSelect,
+	transformStyle,
+	transformOrigin,
+	leftOffset = 0,
 }) => {
 	const imageSrc = match.imageURL ? getImageUrl(match.imageURL) : null;
 
@@ -56,22 +62,23 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 			type="button"
 			onClick={() => onSelect(index)}
 			aria-pressed={selected}
-			className={`absolute rounded-sm cursor-pointer ${backgroundClass} ${selected ? "shadow-2xl" : "shadow-xl hover:-translate-y-0.5"}`}
+			className={`absolute rounded-xl cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${backgroundClass} ${selected ? "shadow-2xl" : "shadow-xl"}`}
 			style={{
 				top: topOffset,
+				left: leftOffset,
 				width,
 				height,
 				zIndex,
-				transform: `scale(${scale})`,
-				transformOrigin: "top",
+				transform: transformStyle || `scale(${scale})`,
+				transformOrigin: transformOrigin ?? "center left",
 			}}
 		>
 			<div className="flex flex-col justify-between h-full">
 				{/* HEADER */}
-				<div className="flex justify-between items-center p-3 w-full">
+				<div className="flex justify-between items-center p-2.5 w-full">
 					<div>
-						<div className="flex gap-4 items-center max-w-md">
-							<h2 className="text-2xl font-bold max-w-sm truncate">
+						<div className="flex gap-3 items-center max-w-md">
+							<h2 className="text-xl font-bold max-w-sm truncate font-title">
 								{match.address?.split(",")[0] ?? ""}
 							</h2>
 							{match.bikeLaneTypes?.map((type) => (
@@ -83,7 +90,9 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 								/>
 							))}
 						</div>
-						<p className="text-xl py-2 text-start">{match.district ?? ""}</p>
+						<p className="text-base py-1.5 text-start">
+							{match.district ?? ""}
+						</p>
 					</div>
 
 					{Array.isArray(match.coordinates) &&
@@ -91,16 +100,22 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 							<BerlinMap
 								lat={match.coordinates[0][1]}
 								lon={match.coordinates[0][0]}
-								width={100}
-								height={100}
+								width={88}
+								height={88}
 							/>
 						)}
 				</div>
 
 				{/* IMAGE */}
-				<div className="w-full h-[400px] relative">
-					{imageSrc && <MatchTinyWorldImg imageUrl={imageSrc} />}
-					{match.originalProperties && <TrafficStats telraamMatch={match} />}
+				<div className="w-full h-[340px] relative">
+					{imageSrc && (
+						<MatchTinyWorldImg imageUrl={imageSrc} shouldAnimate={selected} />
+					)}
+					{match.originalProperties && (
+						<DataDateIndicator
+							telraamDataDate={match?.originalProperties?.date}
+						/>
+					)}
 				</div>
 				{match.nearestNoiseLevel !== null && (
 					<NoiseChart

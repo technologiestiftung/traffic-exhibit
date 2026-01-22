@@ -18,6 +18,7 @@ type MatchTinyWorldImgProps = {
 	imageUrl: string;
 	width?: number;
 	height?: number;
+	shouldAnimate?: boolean;
 };
 
 const views: Record<ViewType, ViewConfig> = {
@@ -38,13 +39,16 @@ const views: Record<ViewType, ViewConfig> = {
 };
 
 const animationSpeed = 0.2;
+const tinyPlanetSpinSpeed = 0.3;
+const streetViewSpinSpeed = 0.05;
 
 const rad = (deg: number): number => THREE.MathUtils.degToRad(deg);
 
 export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 	imageUrl,
-	width = 700,
-	height = 400,
+	width = 620,
+	height = 340,
+	shouldAnimate = true,
 }) => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const sceneRef = useRef<THREE.Scene | null>(null);
@@ -55,6 +59,8 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 	const clockRef = useRef<THREE.Clock>(new THREE.Clock());
 	const animationFrameRef = useRef<number | null>(null);
 	const [currentView, setCurrentView] = useState<ViewType>("tinyPlanet");
+	const currentViewRef = useRef<ViewType>("tinyPlanet");
+	const shouldAnimateRef = useRef<boolean>(shouldAnimate);
 
 	const createEnvironmentSphere = async (url: string): Promise<THREE.Mesh> => {
 		const textureLoader = new THREE.TextureLoader();
@@ -110,15 +116,26 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 		}
 
 		const delta = clockRef.current.getDelta();
-		const cameraChanged = cameraControlsRef.current.update(
-			delta * animationSpeed,
-		);
+		let needsRender = cameraControlsRef.current.update(delta * animationSpeed);
 
-		if (cameraChanged) {
+		if (environmentSphereRef.current && shouldAnimateRef.current) {
+			const targetSpeed =
+				currentViewRef.current === "tinyPlanet"
+					? tinyPlanetSpinSpeed
+					: streetViewSpinSpeed;
+			environmentSphereRef.current.rotation.y += delta * targetSpeed;
+			needsRender = true;
+		}
+
+		if (needsRender) {
 			rendererRef.current.render(sceneRef.current, cameraRef.current);
 		}
 
-		animationFrameRef.current = requestAnimationFrame(render);
+		if (shouldAnimateRef.current) {
+			animationFrameRef.current = requestAnimationFrame(render);
+		} else {
+			animationFrameRef.current = null;
+		}
 	};
 
 	useEffect(() => {
@@ -169,7 +186,11 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 			setView({ ...views.tinyPlanet, animated: false });
 
 			// Start animation loop
-			render();
+			if (shouldAnimateRef.current) {
+				render();
+			} else {
+				renderer.render(scene, camera);
+			}
 		};
 
 		initScene();
@@ -207,10 +228,24 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 	}, [imageUrl, width, height]);
 
 	useEffect(() => {
+		currentViewRef.current = currentView;
 		if (cameraControlsRef.current) {
 			setView(views[currentView]);
 		}
 	}, [currentView]);
+
+	useEffect(() => {
+		shouldAnimateRef.current = shouldAnimate;
+		if (shouldAnimate && !animationFrameRef.current) {
+			clockRef.current.start();
+			render();
+		}
+
+		if (!shouldAnimate && animationFrameRef.current) {
+			cancelAnimationFrame(animationFrameRef.current);
+			animationFrameRef.current = null;
+		}
+	}, [shouldAnimate]);
 
 	return (
 		<div className="relative w-full h-full">
