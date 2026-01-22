@@ -72,13 +72,16 @@ npm run process-data-hourly &
 echo "Waiting for hourly data processing to start..."
 sleep 10
 
-# 5) Start button monitor (foreground - keeps service alive)
+
+
+
+# 5) Start yolo detect
+echo "Starting yolo detect..."
+cd "$PROJECT_DIR/apps/api"
+npm run yolo-detect &
+sleep 15
+
+# 6) Start button monitor in background
 echo "Starting button monitor..."
 cd "$PROJECT_DIR/apps/api"
 npm run start-button-monitor
-sleep 10
-
-# 6) Start yolo detect
-echo "Starting yolo detect..."
-cd "$PROJECT_DIR/apps/api"
-npm run yolo-detect
