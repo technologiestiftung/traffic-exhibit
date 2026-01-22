@@ -11,7 +11,7 @@ _pi_arch = platform.machine() in ["armv6l", "armv7l", "aarch64"]
 
 try:
     if _pi_arch:
-        from gpiozero import OutputDevice, Button  # Same as working simple script
+        from gpiozero import OutputDevice, DigitalInputDevice  # Changed from Button to DigitalInputDevice for rotary encoder
         _HAS_GPIO = True
     else:
         _HAS_GPIO = False
@@ -29,7 +29,10 @@ STEP_DELAY = 0.001  # 1 ms for smooth, quiet operation with 1/32 microsteps
 ROTATIONS_PER_PRESS = 2  # Same as test_motor.py
 
 # GPIO pin assignments (BCM numbering)
-BUTTON_PIN = 17
+# Rotary encoder pins (changed from button pin)
+CLK_PIN = 5   # Rotary encoder CLK pin
+DT_PIN = 6    # Rotary encoder DT pin
+
 STEP_PIN = 21
 DIRECTION_PIN = 20
 
@@ -42,13 +45,21 @@ M2_PIN = 18
 ENABLE_PIN = 23
 
 # =============================================
+# Rotary Encoder Variables
+# =============================================
+encoder_position = 0
+last_clk_state = None
+last_direction = None
+encoder_running = True
+
+# =============================================
 # Motor Control Variables
 # =============================================
 motor_running = False
 stop_event = threading.Event()
 motor_thread = None
 
-# Initialize pins using gpiozero (same as working simple script)
+# Initialize pins using gpiozero 
 if _HAS_GPIO:
     try:
         step = OutputDevice(STEP_PIN, initial_value=False)
@@ -71,9 +82,14 @@ if _HAS_GPIO:
         m2.on()   # M2 = HIGH
         print("Microstep mode set to: thirty_second (1/32) for quiet operation")
         
-        # Setup button using gpiozero (Pi 5 compatible)
-        button = Button(BUTTON_PIN, pull_up=True)
-        print(f"GPIO pins initialized successfully: STEP={STEP_PIN}, DIR={DIRECTION_PIN}, BUTTON={BUTTON_PIN}")
+        # Setup rotary encoder using gpiozero (Pi 5 compatible)
+        clk = DigitalInputDevice(CLK_PIN, pull_up=True)
+        dt = DigitalInputDevice(DT_PIN, pull_up=True)
+        
+        # Initialize encoder state
+        last_clk_state = clk.value
+        
+        print(f"GPIO pins initialized successfully: STEP={STEP_PIN}, DIR={DIRECTION_PIN}, CLK={CLK_PIN}, DT={DT_PIN}")
         print(f"Microstep pins: M0={M0_PIN}, M1={M1_PIN}, M2={M2_PIN}, ENABLE={ENABLE_PIN}")
     except Exception as e:
         print(f"GPIO initialization failed: {e}")
@@ -81,7 +97,8 @@ if _HAS_GPIO:
 else:
     step = None
     direction = None
-    button = None
+    clk = None
+    dt = None
     m0 = None
     m1 = None
     m2 = None
@@ -192,6 +209,8 @@ def cleanup_motor():
 
 def cleanup_and_exit(_signum=None, _frame=None):
     print("\nCleaning up...")
+    global encoder_running
+    encoder_running = False  # Stop encoder monitoring
     try:
         cleanup_motor()
     except Exception as e:  # noqa: BLE001
@@ -215,9 +234,9 @@ def connect():
 def disconnect():
     print("Disconnected from Node.js server")
 
-def button_pressed():
-    """Callback function when button is pressed (same as working simple script)"""
-    print("Button pressed!")
+def rotary_encoder_triggered():
+    """Callback function when rotary encoder direction changes to clockwise"""
+    print("Clockwise rotation detected - triggering motor!")
     
     # Send event to web interface (if connected)
     try:
@@ -227,16 +246,59 @@ def button_pressed():
     
     # Check if motor is already running
     if motor_running:
-        print("Motor is already running, ignoring button press")
+        print("Motor is already running, ignoring encoder trigger")
         return
     
     print(f"Starting motor for {ROTATIONS_PER_PRESS} complete rotations...")
     start_motor()
 
-def simulate_button_press():
-    """Simulate button press for development"""
-    print("Simulated button press!")
-    button_pressed()
+def monitor_rotary_encoder():
+    """Monitor rotary encoder for direction changes"""
+    global encoder_position, last_clk_state, last_direction, encoder_running
+    
+    if not _HAS_GPIO:
+        return
+    
+    try:
+        while encoder_running:
+            current_clk_state = clk.value
+            
+            # Check if CLK pin has changed state (falling edge detection)
+            if current_clk_state != last_clk_state:
+                # Determine direction (corrected logic)
+                if dt.value != current_clk_state:
+                    current_direction = "Counter-clockwise"  # Swapped
+                    encoder_position -= 1  # Swapped
+                else:
+                    current_direction = "Clockwise"  # Swapped
+                    encoder_position += 1  # Swapped
+                
+                # Check for direction change
+                if last_direction is not None and last_direction != current_direction:
+                    if current_direction == "Clockwise":
+                        print(f"Direction changed to clockwise (position: {encoder_position})")
+                        rotary_encoder_triggered()
+                    elif current_direction == "Counter-clockwise" and last_direction == "Clockwise":
+                        print(f"Direction changed from clockwise to counter-clockwise (position: {encoder_position})")
+                        print("Stopping motor due to direction change...")
+                        stop_motor()
+                elif last_direction != current_direction and current_direction == "Clockwise":
+                    # First time detecting clockwise motion
+                    print(f"Initial clockwise rotation detected (position: {encoder_position})")
+                    rotary_encoder_triggered()
+                
+                last_direction = current_direction
+            
+            last_clk_state = current_clk_state
+            time.sleep(0.001)  # Small delay to prevent excessive CPU usage
+            
+    except Exception as e:
+        print(f"Error monitoring rotary encoder: {e}")
+
+def simulate_encoder_trigger():
+    """Simulate encoder trigger for development"""
+    print("Simulated clockwise rotation detected!")
+    rotary_encoder_triggered()
 
 def main():
     try:
@@ -251,27 +313,28 @@ def main():
             print("Continuing without web interface connection...")
         
         if _HAS_GPIO:
-            # Set up button callback using gpiozero (same as working simple script)
-            button.when_pressed = button_pressed
+            # Start rotary encoder monitoring in a separate thread
+            encoder_thread = threading.Thread(target=monitor_rotary_encoder, daemon=True)
+            encoder_thread.start()
             
-            print("Button monitor started on Raspberry Pi. Press Ctrl+C to exit.")
-            print(f"Monitoring GPIO pin {BUTTON_PIN} for button presses...")
-            print(f"Motor will rotate {ROTATIONS_PER_PRESS} times when button is pressed.")
+            print("Rotary encoder monitor started on Raspberry Pi. Press Ctrl+C to exit.")
+            print(f"Monitoring GPIO pins CLK={CLK_PIN}, DT={DT_PIN} for clockwise rotation...")
+            print(f"Motor will rotate {ROTATIONS_PER_PRESS} times when clockwise direction change is detected.")
             
             # Keep the script running
             while True:
                 time.sleep(1)
         else:
-            # Development mode - simulate button presses
-            print("Development mode - Button monitor started. Press Ctrl+C to exit.")
-            print("Simulating button press every 10 seconds for testing...")
+            # Development mode - simulate encoder triggers
+            print("Development mode - Rotary encoder monitor started. Press Ctrl+C to exit.")
+            print("Simulating clockwise rotation every 10 seconds for testing...")
             
             counter = 0
             while True:
                 time.sleep(10)
                 counter += 1
-                print(f"Simulation {counter}: Sending button press...")
-                simulate_button_press()
+                print(f"Simulation {counter}: Sending clockwise rotation trigger...")
+                simulate_encoder_trigger()
                 
     except Exception as e:
         print(f"Error: {e}")
