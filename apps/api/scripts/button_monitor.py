@@ -277,17 +277,17 @@ def on_off_button_pressed():
     
     print("=" * 30)
 
-def rotary_encoder_triggered():
-    """Callback function when rotary encoder direction changes to clockwise"""
+def rotary_encoder_start():
+    """Callback function when rotary encoder rotates clockwise - sends start event"""
     if not system_enabled:
         print("System disabled - ignoring rotary encoder input")
         return
     
-    print("Clockwise rotation detected - triggering motor!")
+    print("Clockwise rotation detected - sending start event!")
     
-    # Send event to web interface (if connected)
+    # Send start event to web interface
     try:
-        sio.emit('button_pressed', {'isStartStopButtonPressed': True})
+        sio.emit('start-event', {})
     except Exception as e:
         print(f"Socket.IO emit failed: {e}")
     
@@ -298,6 +298,24 @@ def rotary_encoder_triggered():
     
     print(f"Starting motor for {ROTATIONS_PER_PRESS} complete rotations...")
     start_motor()
+
+def rotary_encoder_stop():
+    """Callback function when rotary encoder rotates counter-clockwise - sends stop event"""
+    if not system_enabled:
+        print("System disabled - ignoring rotary encoder input")
+        return
+    
+    print("Counter-clockwise rotation detected - sending stop event!")
+    
+    # Send stop event to web interface
+    try:
+        sio.emit('stop-event', {})
+    except Exception as e:
+        print(f"Socket.IO emit failed: {e}")
+    
+    # Stop motor
+    print("Stopping motor due to counter-clockwise rotation...")
+    stop_motor()
 
 def monitor_rotary_encoder():
     """Monitor rotary encoder for direction changes"""
@@ -324,18 +342,18 @@ def monitor_rotary_encoder():
                 if last_direction is not None and last_direction != current_direction:
                     if current_direction == "Clockwise":
                         print(f"Direction changed to clockwise (position: {encoder_position})")
-                        rotary_encoder_triggered()
-                    elif current_direction == "Counter-clockwise" and last_direction == "Clockwise":
-                        if system_enabled:
-                            print(f"Direction changed from clockwise to counter-clockwise (position: {encoder_position})")
-                            print("Stopping motor due to direction change...")
-                            stop_motor()
-                        else:
-                            print("Direction change detected but system is disabled")
+                        rotary_encoder_start()
+                    elif current_direction == "Counter-clockwise":
+                        print(f"Direction changed to counter-clockwise (position: {encoder_position})")
+                        rotary_encoder_stop()
                 elif last_direction != current_direction and current_direction == "Clockwise":
                     # First time detecting clockwise motion
                     print(f"Initial clockwise rotation detected (position: {encoder_position})")
-                    rotary_encoder_triggered()
+                    rotary_encoder_start()
+                elif last_direction != current_direction and current_direction == "Counter-clockwise":
+                    # First time detecting counter-clockwise motion
+                    print(f"Initial counter-clockwise rotation detected (position: {encoder_position})")
+                    rotary_encoder_stop()
                 
                 last_direction = current_direction
             
@@ -346,14 +364,15 @@ def monitor_rotary_encoder():
         print(f"Error monitoring rotary encoder: {e}")
 
 def monitor_second_rotary_encoder():
-    """Monitor the second rotary encoder for rotation and log every 6 pulses"""
+    """Monitor the second rotary encoder for rotation and emit after 6 pulses"""
     global encoder2_position, last_clk2_state, last_direction2, encoder_running
     
     print("Starting second rotary encoder monitoring...")
     
     pulse_count = 0
-    PULSES_PER_LOG = 6
+    PULSES_REQUIRED = 6
     TOTAL_PULSES = 20
+    current_direction_accumulator = None  # Track current direction for pulse accumulation
     
     try:
         while encoder_running:
@@ -369,16 +388,36 @@ def monitor_second_rotary_encoder():
                 if dt2.value != current_clk2_state:
                     current_direction2 = "Clockwise"
                     encoder2_position -= 1
-                    pulse_count -= 1
+                    direction = "clockwise"
                 else:
                     current_direction2 = "Counter-Clockwise"
                     encoder2_position += 1
-                    pulse_count += 1
+                    direction = "counter-clockwise"
                 
-                # Log every 6 pulses
-                if abs(pulse_count) >= PULSES_PER_LOG:
+                # Reset accumulator if direction changed
+                if current_direction_accumulator is not None and current_direction_accumulator != direction:
+                    pulse_count = 0
+                
+                current_direction_accumulator = direction
+                pulse_count += 1
+                
+                # Only emit after 6 pulses in the same direction
+                if pulse_count >= PULSES_REQUIRED:
+                    # Send socket io event to frontend
+                    try:
+                        sio.emit('rotary_encoder2_rotated', {
+                            'direction': direction,
+                            'position': encoder2_position,
+                            'pulseCount': pulse_count
+                        })
+                    except Exception as e:
+                        print(f"Socket.IO emit failed: {e}")
+                    
+                    # Log the event
                     progress = (abs(encoder2_position) % TOTAL_PULSES)
-                    print(f"[ROTARY 2] {abs(pulse_count)} pulses - Direction: {current_direction2} (progress: {progress}/{TOTAL_PULSES})")
+                    print(f"[ROTARY 2] {pulse_count} pulses - Direction: {current_direction2} (progress: {progress}/{TOTAL_PULSES})")
+                    
+                    # Reset pulse count after emitting
                     pulse_count = 0
                 
                 # Update direction tracking
@@ -393,7 +432,7 @@ def monitor_second_rotary_encoder():
 def simulate_encoder_trigger():
     """Simulate encoder trigger for development"""
     print("Simulated clockwise rotation detected!")
-    rotary_encoder_triggered()
+    rotary_encoder_start()
 
 def main():
     """Main function - handles both rotary encoder and on-off button"""

@@ -57,10 +57,19 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 }) => {
 	const imageSrc = match.imageURL ? getImageUrl(match.imageURL) : null;
 
+	const handleKeyDown = (e: React.KeyboardEvent) => {
+		if (e.key === "Enter" || e.key === " ") {
+			e.preventDefault();
+			onSelect(index);
+		}
+	};
+
 	return (
-		<button
-			type="button"
+		<div
+			role="button"
+			tabIndex={0}
 			onClick={() => onSelect(index)}
+			onKeyDown={handleKeyDown}
 			aria-pressed={selected}
 			className={`absolute rounded-xl cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${backgroundClass} ${selected ? "shadow-2xl" : "shadow-xl"}`}
 			style={{
@@ -130,6 +139,6 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 					markerSize={8}
 				/>
 			</div>
-		</button>
+		</div>
 	);
 };

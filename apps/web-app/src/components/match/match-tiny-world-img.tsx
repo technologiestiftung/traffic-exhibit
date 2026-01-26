@@ -253,7 +253,10 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 			<div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
 				<button
 					type="button"
-					onClick={() => setCurrentView("streetView")}
+					onClick={(e) => {
+						e.stopPropagation();
+						setCurrentView("streetView");
+					}}
 					disabled={currentView === "streetView"}
 					className={`px-4 py-2 rounded-sm ${
 						currentView === "streetView"
@@ -265,7 +268,10 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 				</button>
 				<button
 					type="button"
-					onClick={() => setCurrentView("tinyPlanet")}
+					onClick={(e) => {
+						e.stopPropagation();
+						setCurrentView("tinyPlanet");
+					}}
 					disabled={currentView === "tinyPlanet"}
 					className={`px-4 py-2 rounded-sm ${
 						currentView === "tinyPlanet"

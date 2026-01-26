@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useWebSocket } from "../../hooks/useWebSocket";
 import { i18n } from "../../i18n/i18n-utils";
 import { MatchCard } from "./match-card";
@@ -19,13 +19,57 @@ const ROW_SHIFT_X = 90; // move cards + chart together to the left
 const CHART_SHIFT_X = -180; // additional left shift for the circle chart
 
 export const Match: React.FC = () => {
-	const { goBackToStart, telraamMatches = [] } = useWebSocket();
+	const {
+		goBackToStart,
+		telraamMatches = [],
+		onRotaryEncoder2Rotated,
+	} = useWebSocket();
 	const [stack, setStack] = useState<TelraamMatch[]>([]);
+
+	// Initialize stack when telraamMatches first loads
+	useEffect(() => {
+		if (telraamMatches.length > 0 && stack.length === 0) {
+			setStack(telraamMatches.filter((match) => match !== null));
+		}
+	}, [telraamMatches, stack.length]);
 
 	const displayStack = (stack.length ? stack : telraamMatches).filter(
 		(match) => match !== null,
 	);
 	const currentMatch = displayStack[0] ?? null;
+
+	// Handle rotary encoder 2 rotation to navigate between matches
+	useEffect(() => {
+		onRotaryEncoder2Rotated((data) => {
+			// eslint-disable-next-line no-console
+			console.log("Rotary encoder 2 in match.tsx:", data);
+
+			setStack((currentStack) => {
+				// Determine the working stack: use current stack if it exists, otherwise use telraamMatches
+				const workingStack =
+					currentStack.length > 0
+						? currentStack
+						: telraamMatches.filter((match) => match !== null);
+
+				if (workingStack.length <= 1) {
+					return currentStack; // No matches to navigate
+				}
+
+				if (data.direction === "clockwise") {
+					// Move to next match: shift first item to end
+					return [...workingStack.slice(1), workingStack[0]];
+				} else if (data.direction === "counter-clockwise") {
+					// Move to previous match: move last item to front
+					return [
+						workingStack[workingStack.length - 1],
+						...workingStack.slice(0, -1),
+					];
+				}
+
+				return currentStack;
+			});
+		});
+	}, [onRotaryEncoder2Rotated, telraamMatches]);
 	const pageBackgroundClass = currentMatch
 		? getDominantTrafficGradientClass(
 				getDominantTrafficModalIndex(currentMatch),
