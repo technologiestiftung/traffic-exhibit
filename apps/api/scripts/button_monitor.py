@@ -370,11 +370,28 @@ def monitor_second_rotary_encoder():
                     current_direction2 = "Clockwise"
                     encoder2_position -= 1
                     pulse_count -= 1
+                    # Send socket io event to frontend
+                    try:
+                        sio.emit('rotary_encoder2_rotated', {
+                            'direction': 'clockwise',
+                            'position': encoder2_position,
+                            'pulseCount': pulse_count
+                        })
+                    except Exception as e:
+                        print(f"Socket.IO emit failed: {e}")
                 else:
                     current_direction2 = "Counter-Clockwise"
                     encoder2_position += 1
                     pulse_count += 1
-                
+                    # Send socket io event to frontend
+                    try:
+                        sio.emit('rotary_encoder2_rotated', {
+                            'direction': 'counter-clockwise',
+                            'position': encoder2_position,
+                            'pulseCount': pulse_count
+                        })
+                    except Exception as e:
+                        print(f"Socket.IO emit failed: {e}")
                 # Log every 6 pulses
                 if abs(pulse_count) >= PULSES_PER_LOG:
                     progress = (abs(encoder2_position) % TOTAL_PULSES)

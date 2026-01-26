@@ -5,10 +5,19 @@ import type { TelraamMatch } from "../../../api/src/common";
 
 const wsUrl = import.meta.env.VITE_WS_URL;
 
+type RotaryEncoder2Data = {
+	direction: "clockwise" | "counter-clockwise";
+	position: number;
+	pulseCount: number;
+};
+
 export const useWebSocket = () => {
 	const [socket, setSocket] = useState<Socket | null>(null);
 	const [occupiedBlocks, setOccupiedBlocks] = useState<number[]>([]);
 	const [telraamMatches, setTelraamMatches] = useState<TelraamMatch[]>([]);
+	const [rotaryEncoder2Callback, setRotaryEncoder2Callback] = useState<
+		((data: RotaryEncoder2Data) => void) | null
+	>(null);
 
 	const { setCurrentScreen, setStartStopButton } = useScreenStore();
 
@@ -31,15 +40,33 @@ export const useWebSocket = () => {
 			console.log("pressed start/stop button");
 		});
 
+		// Handle second rotary encoder rotation from backend
+		newSocket.on("rotary_encoder2_rotated", (data: RotaryEncoder2Data) => {
+			if (rotaryEncoder2Callback) {
+				rotaryEncoder2Callback(data);
+			}
+		});
+
 		return () => {
 			newSocket.disconnect();
 		};
-	}, []);
+	}, [rotaryEncoder2Callback]);
 
 	const goBackToStart = () => {
 		setCurrentScreen("start");
 		socket?.emit("go-back-to-start");
 	};
 
-	return { occupiedBlocks, goBackToStart, telraamMatches };
+	const onRotaryEncoder2Rotated = (
+		callback: (data: RotaryEncoder2Data) => void,
+	) => {
+		setRotaryEncoder2Callback(() => callback);
+	};
+
+	return {
+		occupiedBlocks,
+		goBackToStart,
+		telraamMatches,
+		onRotaryEncoder2Rotated,
+	};
 };

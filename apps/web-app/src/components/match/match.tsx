@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useWebSocket } from "../../hooks/useWebSocket";
 import { i18n } from "../../i18n/i18n-utils";
 import { MatchCard } from "./match-card";
@@ -19,8 +19,20 @@ const ROW_SHIFT_X = 90; // move cards + chart together to the left
 const CHART_SHIFT_X = -180; // additional left shift for the circle chart
 
 export const Match: React.FC = () => {
-	const { goBackToStart, telraamMatches = [] } = useWebSocket();
+	const { goBackToStart, telraamMatches = [], onRotaryEncoder2Rotated } =
+		useWebSocket();
 	const [stack, setStack] = useState<TelraamMatch[]>([]);
+	const stackRef = useRef(stack);
+	const telraamMatchesRef = useRef(telraamMatches);
+
+	// Keep refs in sync with state
+	useEffect(() => {
+		stackRef.current = stack;
+	}, [stack]);
+
+	useEffect(() => {
+		telraamMatchesRef.current = telraamMatches;
+	}, [telraamMatches]);
 
 	const displayStack = (stack.length ? stack : telraamMatches).filter(
 		(match) => match !== null,
@@ -59,6 +71,51 @@ export const Match: React.FC = () => {
 		const newStack = [clicked, ...others, prevFront];
 		setStack(newStack);
 	};
+
+	// Handle rotary encoder 2 rotation to switch between cards
+	useEffect(() => {
+		onRotaryEncoder2Rotated((data) => {
+			// Get current state from refs
+			const currentStack = stackRef.current;
+			const currentTelraamMatches = telraamMatchesRef.current;
+			const currentDisplayStack = (
+				currentStack.length ? currentStack : currentTelraamMatches
+			).filter((match) => match !== null);
+
+			if (!currentDisplayStack.length) {
+				return;
+			}
+
+			// Stabilize stack if not already stabilized
+			if (!currentStack.length) {
+				setStack(currentDisplayStack.slice());
+				return;
+			}
+
+			// Clockwise = next card (move to previous in stack, which is index 1)
+			// Counter-clockwise = previous card (move to last in stack)
+			if (data.direction === "clockwise") {
+				// Move to next card: take card at index 1 and move it to front
+				if (currentDisplayStack.length > 1) {
+					const currentFront = currentDisplayStack[0];
+					const nextCard = currentDisplayStack[1];
+					const others = currentDisplayStack.slice(2);
+					const newStack = [nextCard, ...others, currentFront];
+					setStack(newStack);
+				}
+			} else if (data.direction === "counter-clockwise") {
+				// Move to previous card: take last card and move it to front
+				if (currentDisplayStack.length > 1) {
+					const currentFront = currentDisplayStack[0];
+					const others = currentDisplayStack.slice(1, -1);
+					const previousCard =
+						currentDisplayStack[currentDisplayStack.length - 1];
+					const newStack = [previousCard, currentFront, ...others];
+					setStack(newStack);
+				}
+			}
+		});
+	}, [onRotaryEncoder2Rotated]);
 
 	return (
 		<div

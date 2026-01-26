@@ -78,6 +78,13 @@ io.on("connection", (socket) => {
 		});
 	});
 
+	// Handle second rotary encoder rotation from Python script
+	socket.on("rotary_encoder2_rotated", (data) => {
+		logger.info("Second rotary encoder rotated", data);
+		// Forward to all connected frontend clients
+		io.emit("rotary_encoder2_rotated", data);
+	});
+
 	socket.emit("telraam-matches", enrichedMatches);
 
 	/*
