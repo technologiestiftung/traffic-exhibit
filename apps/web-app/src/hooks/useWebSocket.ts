@@ -1,5 +1,5 @@
 import { io, Socket } from "socket.io-client";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useScreenStore } from "../stores/useScreenStore";
 import type { TelraamMatch } from "../../../api/src/common";
 
@@ -15,7 +15,7 @@ export const useWebSocket = () => {
 	const [socket, setSocket] = useState<Socket | null>(null);
 	const [occupiedBlocks, setOccupiedBlocks] = useState<number[]>([]);
 	const [telraamMatches, setTelraamMatches] = useState<TelraamMatch[]>([]);
-	const [rotaryEncoder2Callback, setRotaryEncoder2Callback] = useState<
+	const rotaryEncoder2CallbackRef = useRef<
 		((data: RotaryEncoder2Data) => void) | null
 	>(null);
 
@@ -42,15 +42,17 @@ export const useWebSocket = () => {
 
 		// Handle second rotary encoder rotation from backend
 		newSocket.on("rotary_encoder2_rotated", (data: RotaryEncoder2Data) => {
-			if (rotaryEncoder2Callback) {
-				rotaryEncoder2Callback(data);
+			// eslint-disable-next-line no-console
+			console.log("rotary_encoder2_rotated signal received:", data);
+			if (rotaryEncoder2CallbackRef.current) {
+				rotaryEncoder2CallbackRef.current(data);
 			}
 		});
 
 		return () => {
 			newSocket.disconnect();
 		};
-	}, [rotaryEncoder2Callback]);
+	}, [setStartStopButton]);
 
 	const goBackToStart = () => {
 		setCurrentScreen("start");
@@ -60,7 +62,7 @@ export const useWebSocket = () => {
 	const onRotaryEncoder2Rotated = (
 		callback: (data: RotaryEncoder2Data) => void,
 	) => {
-		setRotaryEncoder2Callback(() => callback);
+		rotaryEncoder2CallbackRef.current = callback;
 	};
 
 	return {
