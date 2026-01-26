@@ -19,8 +19,11 @@ const ROW_SHIFT_X = 90; // move cards + chart together to the left
 const CHART_SHIFT_X = -180; // additional left shift for the circle chart
 
 export const Match: React.FC = () => {
-	const { goBackToStart, telraamMatches = [], onRotaryEncoder2Rotated } =
-		useWebSocket();
+	const {
+		goBackToStart,
+		telraamMatches = [],
+		onRotaryEncoder2Rotated,
+	} = useWebSocket();
 	const [stack, setStack] = useState<TelraamMatch[]>([]);
 
 	// Initialize stack when telraamMatches first loads
@@ -40,7 +43,7 @@ export const Match: React.FC = () => {
 		onRotaryEncoder2Rotated((data) => {
 			// eslint-disable-next-line no-console
 			console.log("Rotary encoder 2 in match.tsx:", data);
-			
+
 			setStack((currentStack) => {
 				// Determine the working stack: use current stack if it exists, otherwise use telraamMatches
 				const workingStack =
