@@ -69,13 +69,18 @@ io.on("connection", (socket) => {
 	 */
 	// console.log("Frontend connected");
 
-	// Handle button press from Python script
-	socket.on("button_pressed", (data) => {
-		logger.info("Button pressed event received from Python");
+	// Handle start event from first rotary encoder (clockwise rotation)
+	socket.on("start-event", () => {
+		logger.info("Start event received from first rotary encoder");
 		// Forward to all connected frontend clients
-		io.emit("start_stop_button_pressed", {
-			isStartStopPressed: data.isStartStopButtonPressed,
-		});
+		io.emit("start-event");
+	});
+
+	// Handle stop event from first rotary encoder (counter-clockwise rotation)
+	socket.on("stop-event", () => {
+		logger.info("Stop event received from first rotary encoder");
+		// Forward to all connected frontend clients
+		io.emit("stop-event");
 	});
 
 	// Handle second rotary encoder rotation from Python script

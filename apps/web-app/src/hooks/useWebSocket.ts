@@ -33,11 +33,18 @@ export const useWebSocket = () => {
 			setTelraamMatches(data);
 		});
 
-		// Handle button press from backend
-		newSocket.on("start_stop_button_pressed", () => {
+		// Handle start event from first rotary encoder (clockwise rotation)
+		newSocket.on("start-event", () => {
 			setStartStopButton();
 			// eslint-disable-next-line no-console
-			console.log("pressed start/stop button");
+			console.log("start event received from first rotary encoder");
+		});
+
+		// Handle stop event from first rotary encoder (counter-clockwise rotation)
+		newSocket.on("stop-event", () => {
+			setStartStopButton();
+			// eslint-disable-next-line no-console
+			console.log("stop event received from first rotary encoder");
 		});
 
 		// Handle second rotary encoder rotation from backend

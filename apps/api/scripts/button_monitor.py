@@ -277,17 +277,17 @@ def on_off_button_pressed():
     
     print("=" * 30)
 
-def rotary_encoder_triggered():
-    """Callback function when rotary encoder direction changes to clockwise"""
+def rotary_encoder_start():
+    """Callback function when rotary encoder rotates clockwise - sends start event"""
     if not system_enabled:
         print("System disabled - ignoring rotary encoder input")
         return
     
-    print("Clockwise rotation detected - triggering motor!")
+    print("Clockwise rotation detected - sending start event!")
     
-    # Send event to web interface (if connected)
+    # Send start event to web interface
     try:
-        sio.emit('button_pressed', {'isStartStopButtonPressed': True})
+        sio.emit('start-event', {})
     except Exception as e:
         print(f"Socket.IO emit failed: {e}")
     
@@ -298,6 +298,24 @@ def rotary_encoder_triggered():
     
     print(f"Starting motor for {ROTATIONS_PER_PRESS} complete rotations...")
     start_motor()
+
+def rotary_encoder_stop():
+    """Callback function when rotary encoder rotates counter-clockwise - sends stop event"""
+    if not system_enabled:
+        print("System disabled - ignoring rotary encoder input")
+        return
+    
+    print("Counter-clockwise rotation detected - sending stop event!")
+    
+    # Send stop event to web interface
+    try:
+        sio.emit('stop-event', {})
+    except Exception as e:
+        print(f"Socket.IO emit failed: {e}")
+    
+    # Stop motor
+    print("Stopping motor due to counter-clockwise rotation...")
+    stop_motor()
 
 def monitor_rotary_encoder():
     """Monitor rotary encoder for direction changes"""
@@ -324,18 +342,18 @@ def monitor_rotary_encoder():
                 if last_direction is not None and last_direction != current_direction:
                     if current_direction == "Clockwise":
                         print(f"Direction changed to clockwise (position: {encoder_position})")
-                        rotary_encoder_triggered()
-                    elif current_direction == "Counter-clockwise" and last_direction == "Clockwise":
-                        if system_enabled:
-                            print(f"Direction changed from clockwise to counter-clockwise (position: {encoder_position})")
-                            print("Stopping motor due to direction change...")
-                            stop_motor()
-                        else:
-                            print("Direction change detected but system is disabled")
+                        rotary_encoder_start()
+                    elif current_direction == "Counter-clockwise":
+                        print(f"Direction changed to counter-clockwise (position: {encoder_position})")
+                        rotary_encoder_stop()
                 elif last_direction != current_direction and current_direction == "Clockwise":
                     # First time detecting clockwise motion
                     print(f"Initial clockwise rotation detected (position: {encoder_position})")
-                    rotary_encoder_triggered()
+                    rotary_encoder_start()
+                elif last_direction != current_direction and current_direction == "Counter-clockwise":
+                    # First time detecting counter-clockwise motion
+                    print(f"Initial counter-clockwise rotation detected (position: {encoder_position})")
+                    rotary_encoder_stop()
                 
                 last_direction = current_direction
             
@@ -414,7 +432,7 @@ def monitor_second_rotary_encoder():
 def simulate_encoder_trigger():
     """Simulate encoder trigger for development"""
     print("Simulated clockwise rotation detected!")
-    rotary_encoder_triggered()
+    rotary_encoder_start()
 
 def main():
     """Main function - handles both rotary encoder and on-off button"""
