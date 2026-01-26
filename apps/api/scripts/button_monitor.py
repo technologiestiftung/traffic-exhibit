@@ -346,14 +346,15 @@ def monitor_rotary_encoder():
         print(f"Error monitoring rotary encoder: {e}")
 
 def monitor_second_rotary_encoder():
-    """Monitor the second rotary encoder for rotation and log every 6 pulses"""
+    """Monitor the second rotary encoder for rotation and emit after 6 pulses"""
     global encoder2_position, last_clk2_state, last_direction2, encoder_running
     
     print("Starting second rotary encoder monitoring...")
     
     pulse_count = 0
-    PULSES_PER_LOG = 6
+    PULSES_REQUIRED = 6
     TOTAL_PULSES = 20
+    current_direction_accumulator = None  # Track current direction for pulse accumulation
     
     try:
         while encoder_running:
@@ -369,33 +370,36 @@ def monitor_second_rotary_encoder():
                 if dt2.value != current_clk2_state:
                     current_direction2 = "Clockwise"
                     encoder2_position -= 1
-                    pulse_count -= 1
-                    # Send socket io event to frontend
-                    try:
-                        sio.emit('rotary_encoder2_rotated', {
-                            'direction': 'clockwise',
-                            'position': encoder2_position,
-                            'pulseCount': pulse_count
-                        })
-                    except Exception as e:
-                        print(f"Socket.IO emit failed: {e}")
+                    direction = "clockwise"
                 else:
                     current_direction2 = "Counter-Clockwise"
                     encoder2_position += 1
-                    pulse_count += 1
+                    direction = "counter-clockwise"
+                
+                # Reset accumulator if direction changed
+                if current_direction_accumulator is not None and current_direction_accumulator != direction:
+                    pulse_count = 0
+                
+                current_direction_accumulator = direction
+                pulse_count += 1
+                
+                # Only emit after 6 pulses in the same direction
+                if pulse_count >= PULSES_REQUIRED:
                     # Send socket io event to frontend
                     try:
                         sio.emit('rotary_encoder2_rotated', {
-                            'direction': 'counter-clockwise',
+                            'direction': direction,
                             'position': encoder2_position,
                             'pulseCount': pulse_count
                         })
                     except Exception as e:
                         print(f"Socket.IO emit failed: {e}")
-                # Log every 6 pulses
-                if abs(pulse_count) >= PULSES_PER_LOG:
+                    
+                    # Log the event
                     progress = (abs(encoder2_position) % TOTAL_PULSES)
-                    print(f"[ROTARY 2] {abs(pulse_count)} pulses - Direction: {current_direction2} (progress: {progress}/{TOTAL_PULSES})")
+                    print(f"[ROTARY 2] {pulse_count} pulses - Direction: {current_direction2} (progress: {progress}/{TOTAL_PULSES})")
+                    
+                    # Reset pulse count after emitting
                     pulse_count = 0
                 
                 # Update direction tracking
