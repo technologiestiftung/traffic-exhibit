@@ -41,31 +41,30 @@ export const Match: React.FC = () => {
 	// Handle rotary encoder 2 rotation to navigate between matches
 	useEffect(() => {
 		onRotaryEncoder2Rotated((data) => {
-			// eslint-disable-next-line no-console
-			console.log("Rotary encoder 2 in match.tsx:", data);
-
 			setStack((currentStack) => {
 				// Determine the working stack: use current stack if it exists, otherwise use telraamMatches
 				const workingStack =
 					currentStack.length > 0
 						? currentStack
 						: telraamMatches.filter((match) => match !== null);
-
+			
 				if (workingStack.length <= 1) {
 					return currentStack; // No matches to navigate
 				}
-
+			
 				if (data.direction === "clockwise") {
 					// Move to next match: shift first item to end
 					return [...workingStack.slice(1), workingStack[0]];
-				} else if (data.direction === "counter-clockwise") {
+				}
+			
+				if (data.direction === "counter-clockwise") {
 					// Move to previous match: move last item to front
 					return [
 						workingStack[workingStack.length - 1],
 						...workingStack.slice(0, -1),
 					];
 				}
-
+			
 				return currentStack;
 			});
 		});
