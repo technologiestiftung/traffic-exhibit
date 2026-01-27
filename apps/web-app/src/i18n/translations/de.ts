@@ -2,11 +2,11 @@ export const de = {
 	/* START */
 	"start.title": "Berliner Platte",
 	"start.subHeading":
-		"Welche Verkehrsteilnehmer:innen fahren auf Berlins Straßen?",
-	"start.description":
-		"Lass Dir Deinen persönlichen Verkehrs-Mix zeigen - reduziert auf das Wesentliche, inspiriert von den Formen der Berliner Platte.",
-	"start.infoText":
-		"Stelle einen prozentualen Mix zusammen und entdecke Berlins Straßen",
+		"Welchen Verkehrsmix willst du auf Berlins Straßen sehen?",
+	"start.description.p1":
+		"Erstelle Deinen eigenen Verkehrs-Mix und entdecke Berlins Straßen.",
+	"start.description.p2":
+		"Platziere 10 Holzblöcke auf der Drehscheibe – jeder Block entspricht 10% des Verkehrs.",
 	"start.simulateButton.label": "Start simulieren",
 	"start.showAllDataButton.label": "Alle Daten anzeigen",
 	"start.hideAllDataButton.label": "Alle Daten verbergen",

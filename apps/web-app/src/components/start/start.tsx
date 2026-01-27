@@ -16,6 +16,9 @@ export const Start = () => {
 			<div className="mx-auto flex min-h-full max-w-[1540px] flex-col items-center justify-center gap-10 px-6 pb-12 pt-[calc(3rem+2cm)] lg:px-10">
 				<div className="flex w-full flex-col gap-12 lg:flex-row lg:items-center lg:justify-between">
 					<div className="relative flex flex-1 flex-col items-center gap-8">
+						<h1 className="text-5xl font-semibold tracking-wide font-title">
+							{i18n("start.title")}
+						</h1>
 						<div className="relative">
 							{/* Decorative icons around the disc (desktop only) */}
 							<div className="pointer-events-none absolute inset-0 hidden lg:block">
@@ -84,13 +87,15 @@ export const Start = () => {
 						</div>
 					</div>
 
-					<div className="flex max-w-md flex-1 flex-col items-start gap-4 text-left text-white drop-shadow-lg">
-						<h1 className="text-5xl font-semibold tracking-wide font-title">
-							{i18n("start.title")}
-						</h1>
-						<p className="text-lg text-white/80">{i18n("start.subHeading")}</p>
+					<div className="flex max-w-md justify-start flex-1 flex-col items-start gap-4 text-left text-white drop-shadow-lg">
+						<h2 className="text-4xl font-semibold tracking-wide">
+							{i18n("start.subHeading")}
+						</h2>
+						<p className="text-lg text-white/70">
+							{i18n("start.description.p1")}
+						</p>
 						<p className="text-base text-white/70">
-							{i18n("start.description")}
+							{i18n("start.description.p2")}
 						</p>
 						<button
 							className="mt-2 rounded-full border-2 border-black bg-black px-6 py-3 text-lg font-semibold text-white shadow-[0_10px_20px_rgba(0,0,0,0.55)] transition hover:-translate-y-0.5 hover:bg-[#111]"
