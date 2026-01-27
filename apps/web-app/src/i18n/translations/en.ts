@@ -1,10 +1,9 @@
 export const en = {
 	/* START */
 	"start.title": "Berliner Platte",
+	"start.subHeading": "Who's on Berlin's streets?",
 	"start.description":
 		"Show your personal traffic mix - reduced to the essentials, inspired by the forms of the Berliner Platte.",
-	"start.subHeading": "Who's on Berlin's streets?",
-	"start.infoText": "Create your own traffic mix and explore Berlin's roads.",
 	"start.simulateButton.label": "Simulate Start",
 	"start.showAllDataButton.label": "Show all data",
 	"start.hideAllDataButton.label": "Hide all data",
