@@ -3,6 +3,9 @@ import sys
 import argparse
 import glob
 import time
+import requests
+import json
+import socketio
 
 import cv2
 import numpy as np
@@ -25,6 +28,12 @@ parser.add_argument('--record', help='Record results from video or webcam and sa
                     action='store_true')
 parser.add_argument('--headless', help='Run without GUI display (for headless/kiosk mode)',
                     action='store_true')
+parser.add_argument('--server-url', help='URL of the server to send detection data to (example: "http://localhost:3001")',
+                    default='http://localhost:3001')
+parser.add_argument('--send-interval', help='Interval in seconds between sending detection data to server (default: 2.0)',
+                    type=float, default=2.0)
+parser.add_argument('--listen-motor', help='Listen for motor start/stop events to reset detection counts',
+                    action='store_true')
 
 args = parser.parse_args()
 
@@ -36,6 +45,56 @@ min_thresh = args.thresh
 user_res = args.resolution
 record = args.record
 headless = args.headless
+server_url = args.server_url
+send_interval = args.send_interval
+listen_motor = args.listen_motor
+
+# Socket.IO client for listening to motor events
+sio = None
+if listen_motor:
+    sio = socketio.Client()
+    
+    @sio.event
+    def connect():
+        print("YOLO: Connected to server for motor event listening")
+    
+    @sio.event
+    def disconnect():
+        print("YOLO: Disconnected from server")
+    
+    @sio.on('start-event')
+    def on_start_event():
+        global detection_enabled
+        print("Start event received - sending data and disabling YOLO detection")
+        # Send current detection data to server
+        send_detection_data()
+        # Turn off detection
+        detection_enabled = False
+    
+    @sio.on('stop-event')
+    def on_stop_event():
+        global detection_counts, detection_enabled
+        print("Stop event received - enabling YOLO detection and resetting counts")
+        # Reset counts and turn on detection
+        detection_counts = {'car': 0, 'bike': 0, 'pedestrian': 0, 'heavy': 0}
+        detection_enabled = True
+    
+    try:
+        sio.connect(server_url)
+        print(f"YOLO: Connected to server at {server_url} for motor events")
+    except Exception as e:
+        print(f"YOLO: Failed to connect to server for motor events: {e}")
+        print("YOLO: Continuing without motor event listening")
+        sio = None
+
+# Map YOLO class names to our categories
+# Your model classes: Pedestrian, Car, Bike, Truck
+CLASS_MAPPING = {
+    'Pedestrian': 'pedestrian',
+    'Car': 'car',
+    'Bike': 'bike',
+    'Truck': 'heavy',
+}
 
 # Check if model file exists and is valid
 if (not os.path.exists(model_path)):
@@ -128,6 +187,48 @@ frame_rate_buffer = []
 fps_avg_len = 200
 img_count = 0
 
+# Detection counting variables
+detection_counts = {'car': 0, 'bike': 0, 'pedestrian': 0, 'heavy': 0}
+last_send_time = 0
+detection_enabled = True  # Start enabled, will be disabled on start-event (after sending data)
+
+def send_detection_data():
+    """Send current detection data to server"""
+    global last_send_time
+    try:
+        # Calculate percentages
+        total = sum(detection_counts.values())
+        if total > 0:
+            percentages = {
+                'car': round((detection_counts['car'] / total) * 100, 2),
+                'bike': round((detection_counts['bike'] / total) * 100, 2),
+                'pedestrian': round((detection_counts['pedestrian'] / total) * 100, 2),
+                'heavy': round((detection_counts['heavy'] / total) * 100, 2),
+            }
+        else:
+            percentages = {'car': 0, 'bike': 0, 'pedestrian': 0, 'heavy': 0}
+        
+        # Send both counts and percentages
+        payload = {
+            'counts': detection_counts.copy(),
+            'percentages': percentages
+        }
+        
+        response = requests.post(
+            f'{server_url}/api/detections',
+            json=payload,
+            timeout=2.0
+        )
+        if response.status_code == 200:
+            print(f'Detection data sent: {percentages}')
+            return True
+        else:
+            print(f'Failed to send detection data: {response.status_code}')
+            return False
+    except Exception as e:
+        print(f'Error sending detection data: {e}')
+        return False
+
 # Begin inference loop
 while True:
 
@@ -165,52 +266,92 @@ while True:
     if resize == True:
         frame = cv2.resize(frame,(resW,resH))
 
-    # Run inference on frame
-    results = model(frame, verbose=False)
-
-    # Extract results
-    detections = results[0].boxes
+    # Only run inference and count if detection is enabled
+    if detection_enabled:
+        # Run inference on frame
+        results = model(frame, verbose=False)
+    else:
+        # Skip inference when detection is disabled
+        results = None
 
     # Initialize variable for basic object counting example
     object_count = 0
+    
+    # Reset detection counts for this frame
+    frame_counts = {'car': 0, 'bike': 0, 'pedestrian': 0, 'heavy': 0}
 
-    # Go through each detection and get bbox coords, confidence, and class
-    for i in range(len(detections)):
+    # Only process detections if enabled
+    if detection_enabled and results is not None:
+        # Extract results
+        detections = results[0].boxes
 
-        # Get bounding box coordinates
-        # Ultralytics returns results in Tensor format, which have to be converted to a regular Python array
-        xyxy_tensor = detections[i].xyxy.cpu() # Detections in Tensor format in CPU memory
-        xyxy = xyxy_tensor.numpy().squeeze() # Convert tensors to Numpy array
-        xmin, ymin, xmax, ymax = xyxy.astype(int) # Extract individual coordinates and convert to int
+        # Go through each detection and get bbox coords, confidence, and class
+        for i in range(len(detections)):
 
-        # Get bounding box class ID and name
-        classidx = int(detections[i].cls.item())
-        classname = labels[classidx]
+            # Get bounding box coordinates
+            # Ultralytics returns results in Tensor format, which have to be converted to a regular Python array
+            xyxy_tensor = detections[i].xyxy.cpu() # Detections in Tensor format in CPU memory
+            xyxy = xyxy_tensor.numpy().squeeze() # Convert tensors to Numpy array
+            xmin, ymin, xmax, ymax = xyxy.astype(int) # Extract individual coordinates and convert to int
 
-        # Get bounding box confidence
-        conf = detections[i].conf.item()
+            # Get bounding box class ID and name
+            classidx = int(detections[i].cls.item())
+            classname = labels[classidx]
 
-        # Draw box if confidence threshold is high enough
-        if conf > 0.5:
+            # Get bounding box confidence
+            conf = detections[i].conf.item()
 
-            color = bbox_colors[classidx % 10]
-            cv2.rectangle(frame, (xmin,ymin), (xmax,ymax), color, 2)
+            # Map class name to our categories and count
+            # Direct mapping since your model uses exact class names: Pedestrian, Car, Bike, Truck
+            category = CLASS_MAPPING.get(classname, None)
+            
+            # Draw box if confidence threshold is high enough
+            if conf > min_thresh:
 
-            label = f'{classname}: {int(conf*100)}%'
-            labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1) # Get font size
-            label_ymin = max(ymin, labelSize[1] + 10) # Make sure not to draw label too close to top of window
-            cv2.rectangle(frame, (xmin, label_ymin-labelSize[1]-10), (xmin+labelSize[0], label_ymin+baseLine-10), color, cv2.FILLED) # Draw white box to put label text in
-            cv2.putText(frame, label, (xmin, label_ymin-7), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1) # Draw label text
+                color = bbox_colors[classidx % 10]
+                cv2.rectangle(frame, (xmin,ymin), (xmax,ymax), color, 2)
 
-            # Basic example: count the number of objects in the image
-            object_count = object_count + 1
+                label = f'{classname}: {int(conf*100)}%'
+                labelSize, baseLine = cv2.getTextSize(label, cv2.FONT_HERSHEY_SIMPLEX, 0.5, 1) # Get font size
+                label_ymin = max(ymin, labelSize[1] + 10) # Make sure not to draw label too close to top of window
+                cv2.rectangle(frame, (xmin, label_ymin-labelSize[1]-10), (xmin+labelSize[0], label_ymin+baseLine-10), color, cv2.FILLED) # Draw white box to put label text in
+                cv2.putText(frame, label, (xmin, label_ymin-7), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 0), 1) # Draw label text
 
+                # Basic example: count the number of objects in the image
+                object_count = object_count + 1
+                
+                # Count by category
+                if category:
+                    frame_counts[category] = frame_counts.get(category, 0) + 1
+
+        # Update cumulative detection counts (accumulate over time)
+        for category in detection_counts:
+            detection_counts[category] += frame_counts.get(category, 0)
+    
     # Calculate and draw framerate (if using video, USB, or Picamera source)
     if source_type == 'video' or source_type == 'usb' or source_type == 'picamera':
         cv2.putText(frame, f'FPS: {avg_frame_rate:0.2f}', (10,20), cv2.FONT_HERSHEY_SIMPLEX, .7, (0,255,255), 2) # Draw framerate
     
     # Display detection results
     cv2.putText(frame, f'Number of objects: {object_count}', (10,40), cv2.FONT_HERSHEY_SIMPLEX, .7, (0,255,255), 2) # Draw total number of detected objects
+    
+    # Display category counts
+    y_offset = 60
+    for category, count in detection_counts.items():
+        cv2.putText(frame, f'{category}: {count}', (10, y_offset), cv2.FONT_HERSHEY_SIMPLEX, .5, (0,255,255), 1)
+        y_offset += 20
+    
+    # Display detection status
+    status_text = "DETECTING" if detection_enabled else "STOPPED"
+    status_color = (0, 255, 0) if detection_enabled else (0, 0, 255)
+    cv2.putText(frame, f'Status: {status_text}', (10, y_offset + 20), cv2.FONT_HERSHEY_SIMPLEX, .5, status_color, 1)
+    
+    # Send detection data to server at specified interval (only when enabled)
+    if detection_enabled:
+        current_time = time.time()
+        if current_time - last_send_time >= send_interval:
+            send_detection_data()
+            last_send_time = current_time
     
     if not headless:
         cv2.imshow('YOLO detection results',frame) # Display image
@@ -264,3 +405,8 @@ elif source_type == 'picamera':
 if record: recorder.release()
 if not headless:
     cv2.destroyAllWindows()
+if sio:
+    try:
+        sio.disconnect()
+    except Exception as e:
+        print(f"Error disconnecting Socket.IO: {e}")

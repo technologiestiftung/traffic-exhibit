@@ -14,13 +14,17 @@ import type { TrafficFeature, TelraamMatch } from "./common";
 const telraamData = telraamDataRaw as { features: TrafficFeature[] };
 const enrichedTelraamData = enrichedTelraamDataRaw as TelraamMatch[];
 
-const closestMatch = findClosestMatches(
-	{ car: 60, bike: 15, pedestrian: 8, heavy: 15 },
+// Store current detection data (default to example values)
+let currentDetections = { car: 60, bike: 15, pedestrian: 8, heavy: 15 };
+
+// Calculate initial matches
+let closestMatch = findClosestMatches(
+	currentDetections,
 	telraamData.features,
 );
 
 // for each match the closest result with enriched-telraam-data
-const enrichedMatches =
+let enrichedMatches =
 	closestMatch?.map((match) =>
 		enrichedTelraamData.find(
 			(feature) =>
@@ -30,8 +34,56 @@ const enrichedMatches =
 
 const app = express();
 
+// Middleware to parse JSON
+app.use(express.json());
+
 // Serve static files from the data directory
 app.use("/data", express.static(path.join(__dirname, "../data")));
+
+// API endpoint to receive YOLO detection data
+app.post("/api/detections", (req, res) => {
+	try {
+		const { percentages } = req.body;
+		
+		if (!percentages || typeof percentages !== "object") {
+			return res.status(400).json({ error: "Invalid request: percentages required" });
+		}
+
+		// Update current detections with new data
+		currentDetections = {
+			car: percentages.car || 0,
+			bike: percentages.bike || 0,
+			pedestrian: percentages.pedestrian || 0,
+			heavy: percentages.heavy || 0,
+		};
+
+		logger.info("Received detection data:", currentDetections);
+
+		// Recalculate matches with new detection data
+		closestMatch = findClosestMatches(
+			currentDetections,
+			telraamData.features,
+		);
+
+		// Update enriched matches
+		enrichedMatches =
+			closestMatch?.map((match) =>
+				enrichedTelraamData.find(
+					(feature) =>
+						feature.originalProperties.segment_id === match.properties.segment_id,
+				),
+			) || [];
+
+		// Broadcast updated matches to all connected clients
+		io.emit("telraam-matches", enrichedMatches);
+		io.emit("detection-update", currentDetections);
+
+		return res.json({ success: true, detections: currentDetections });
+	} catch (error) {
+		logger.error("Error processing detection data:", error);
+		return res.status(500).json({ error: "Internal server error" });
+	}
+});
 
 // --- socket/http (kept in this file, as requested) ---
 const httpServer = createServer(app);
@@ -89,6 +141,7 @@ io.on("connection", (socket) => {
 		// Forward to all connected frontend clients
 		io.emit("rotary_encoder2_rotated", data);
 	});
+
 
 	socket.emit("telraam-matches", enrichedMatches);
 
