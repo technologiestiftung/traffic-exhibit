@@ -22,7 +22,7 @@
       },
       "properties": {
         "segment_id": 9000001786,
-        "last_data_package": "2026-01-28 15:45:31.979500+00:00",
+        "last_data_package": "2026-01-28 16:00:45.748800+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -61,7 +61,7 @@
       },
       "properties": {
         "segment_id": 9000001833,
-        "last_data_package": "2026-01-28 15:45:18.754700+00:00",
+        "last_data_package": "2026-01-28 16:00:14.181100+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -104,7 +104,7 @@
       },
       "properties": {
         "segment_id": 9000002074,
-        "last_data_package": "2026-01-28 15:49:47.243600+00:00",
+        "last_data_package": "2026-01-28 16:04:53.940600+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -139,7 +139,7 @@
       },
       "properties": {
         "segment_id": 9000002582,
-        "last_data_package": "2026-01-28 15:47:22.692400+00:00",
+        "last_data_package": "2026-01-28 16:02:30.471800+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -202,7 +202,7 @@
       },
       "properties": {
         "segment_id": 9000002889,
-        "last_data_package": "2026-01-28 15:50:39.850500+00:00",
+        "last_data_package": "2026-01-28 16:05:46.880400+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -253,7 +253,7 @@
       },
       "properties": {
         "segment_id": 9000003000,
-        "last_data_package": "2026-01-28 15:47:35.664500+00:00",
+        "last_data_package": "2026-01-28 16:02:56.595600+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -300,7 +300,7 @@
       },
       "properties": {
         "segment_id": 9000003077,
-        "last_data_package": "2026-01-28 15:45:18.158000+00:00",
+        "last_data_package": "2026-01-28 16:00:17.692400+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -355,7 +355,7 @@
       },
       "properties": {
         "segment_id": 9000003310,
-        "last_data_package": "2026-01-28 15:47:49.318100+00:00",
+        "last_data_package": "2026-01-28 16:02:54.465300+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -406,7 +406,7 @@
       },
       "properties": {
         "segment_id": 9000003320,
-        "last_data_package": "2026-01-28 15:47:53.034500+00:00",
+        "last_data_package": "2026-01-28 16:03:00.665300+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -441,7 +441,7 @@
       },
       "properties": {
         "segment_id": 9000003479,
-        "last_data_package": "2026-01-28 15:45:12.052800+00:00",
+        "last_data_package": "2026-01-28 16:00:25.836700+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -492,7 +492,7 @@
       },
       "properties": {
         "segment_id": 9000003520,
-        "last_data_package": "2026-01-28 15:46:46.149400+00:00",
+        "last_data_package": "2026-01-28 16:01:51.748400+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -535,7 +535,7 @@
       },
       "properties": {
         "segment_id": 9000003561,
-        "last_data_package": "2026-01-28 15:50:29.523600+00:00",
+        "last_data_package": "2026-01-28 16:05:35.068500+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -574,7 +574,7 @@
       },
       "properties": {
         "segment_id": 9000003564,
-        "last_data_package": "2026-01-28 15:50:34.584400+00:00",
+        "last_data_package": "2026-01-28 16:05:40.375300+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -609,7 +609,7 @@
       },
       "properties": {
         "segment_id": 9000003738,
-        "last_data_package": "2026-01-28 15:50:58.083800+00:00",
+        "last_data_package": "2026-01-28 16:06:04.327500+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -664,7 +664,7 @@
       },
       "properties": {
         "segment_id": 9000003747,
-        "last_data_package": "2026-01-28 15:46:59.490200+00:00",
+        "last_data_package": "2026-01-28 16:02:05.208600+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -707,7 +707,7 @@
       },
       "properties": {
         "segment_id": 9000003760,
-        "last_data_package": "2026-01-28 15:50:48.971700+00:00",
+        "last_data_package": "2026-01-28 16:05:54.731400+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -754,7 +754,7 @@
       },
       "properties": {
         "segment_id": 9000003769,
-        "last_data_package": "2026-01-28 15:48:05.029900+00:00",
+        "last_data_package": "2026-01-28 16:03:10.614000+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -809,7 +809,7 @@
       },
       "properties": {
         "segment_id": 9000003786,
-        "last_data_package": "2026-01-28 15:51:05.156000+00:00",
+        "last_data_package": "2026-01-28 16:06:10.895400+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -852,7 +852,7 @@
       },
       "properties": {
         "segment_id": 9000003997,
-        "last_data_package": "2026-01-28 15:49:46.183600+00:00",
+        "last_data_package": "2026-01-28 16:04:52.008500+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -891,7 +891,7 @@
       },
       "properties": {
         "segment_id": 9000004010,
-        "last_data_package": "2026-01-28 15:50:57.279600+00:00",
+        "last_data_package": "2026-01-28 16:06:08.313800+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -934,7 +934,7 @@
       },
       "properties": {
         "segment_id": 9000004016,
-        "last_data_package": "2026-01-28 15:51:01.129700+00:00",
+        "last_data_package": "2026-01-28 16:06:06.895200+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -969,7 +969,7 @@
       },
       "properties": {
         "segment_id": 9000004024,
-        "last_data_package": "2026-01-28 15:48:06.251800+00:00",
+        "last_data_package": "2026-01-28 16:03:11.625300+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1075,7 +1075,7 @@
       },
       "properties": {
         "segment_id": 9000004035,
-        "last_data_package": "2026-01-28 15:51:03.683700+00:00",
+        "last_data_package": "2026-01-28 16:06:09.208500+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1114,7 +1114,7 @@
       },
       "properties": {
         "segment_id": 9000004039,
-        "last_data_package": "2026-01-28 15:45:18.117300+00:00",
+        "last_data_package": "2026-01-28 16:00:17.638100+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1165,7 +1165,7 @@
       },
       "properties": {
         "segment_id": 9000004074,
-        "last_data_package": "2026-01-28 15:48:42.048600+00:00",
+        "last_data_package": "2026-01-28 16:03:47.986700+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1212,7 +1212,7 @@
       },
       "properties": {
         "segment_id": 9000004129,
-        "last_data_package": "2026-01-28 15:45:02.827700+00:00",
+        "last_data_package": "2026-01-28 16:00:11.441900+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1247,7 +1247,7 @@
       },
       "properties": {
         "segment_id": 9000004187,
-        "last_data_package": "2026-01-28 15:47:15.532200+00:00",
+        "last_data_package": "2026-01-28 16:02:21.048400+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1282,7 +1282,7 @@
       },
       "properties": {
         "segment_id": 9000004233,
-        "last_data_package": "2026-01-28 15:49:57.165000+00:00",
+        "last_data_package": "2026-01-28 16:05:02.413300+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1329,7 +1329,7 @@
       },
       "properties": {
         "segment_id": 9000004284,
-        "last_data_package": "2026-01-28 15:47:11.522400+00:00",
+        "last_data_package": "2026-01-28 16:02:16.727100+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1368,7 +1368,7 @@
       },
       "properties": {
         "segment_id": 9000004286,
-        "last_data_package": "2026-01-28 15:50:00.489800+00:00",
+        "last_data_package": "2026-01-28 16:05:13.274300+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1407,7 +1407,7 @@
       },
       "properties": {
         "segment_id": 9000004471,
-        "last_data_package": "2026-01-28 15:46:55.952300+00:00",
+        "last_data_package": "2026-01-28 16:02:01.088400+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1478,7 +1478,7 @@
       },
       "properties": {
         "segment_id": 9000004519,
-        "last_data_package": "2026-01-28 15:48:34.354400+00:00",
+        "last_data_package": "2026-01-28 16:03:42.058700+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1513,7 +1513,7 @@
       },
       "properties": {
         "segment_id": 9000004542,
-        "last_data_package": "2026-01-28 15:50:40.727400+00:00",
+        "last_data_package": "2026-01-28 16:01:59.924500+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1548,7 +1548,7 @@
       },
       "properties": {
         "segment_id": 9000004544,
-        "last_data_package": "2026-01-28 15:51:08.526300+00:00",
+        "last_data_package": "2026-01-28 16:01:12.495900+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1615,7 +1615,7 @@
       },
       "properties": {
         "segment_id": 9000004561,
-        "last_data_package": "2026-01-28 15:47:18.837600+00:00",
+        "last_data_package": "2026-01-28 16:02:24.818500+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1694,7 +1694,7 @@
       },
       "properties": {
         "segment_id": 9000004597,
-        "last_data_package": "2026-01-28 15:49:04.147100+00:00",
+        "last_data_package": "2026-01-28 15:59:18.428200+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1737,7 +1737,7 @@
       },
       "properties": {
         "segment_id": 9000004602,
-        "last_data_package": "2026-01-28 15:51:08.718500+00:00",
+        "last_data_package": "2026-01-28 16:01:12.353900+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1776,7 +1776,7 @@
       },
       "properties": {
         "segment_id": 9000004669,
-        "last_data_package": "2026-01-28 15:50:37.996000+00:00",
+        "last_data_package": "2026-01-28 16:05:44.775200+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1839,7 +1839,7 @@
       },
       "properties": {
         "segment_id": 9000004676,
-        "last_data_package": "2026-01-28 15:50:37.008900+00:00",
+        "last_data_package": "2026-01-28 16:05:42.928500+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1878,7 +1878,7 @@
       },
       "properties": {
         "segment_id": 9000004685,
-        "last_data_package": "2026-01-28 15:46:41.824900+00:00",
+        "last_data_package": "2026-01-28 16:01:47.954400+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1913,7 +1913,7 @@
       },
       "properties": {
         "segment_id": 9000004706,
-        "last_data_package": "2026-01-28 15:49:48.307200+00:00",
+        "last_data_package": "2026-01-28 16:04:56.400600+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1948,7 +1948,7 @@
       },
       "properties": {
         "segment_id": 9000004712,
-        "last_data_package": "2026-01-28 15:45:15.975800+00:00",
+        "last_data_package": "2026-01-28 16:00:26.540600+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -1991,7 +1991,7 @@
       },
       "properties": {
         "segment_id": 9000004758,
-        "last_data_package": "2026-01-28 15:45:21.884000+00:00",
+        "last_data_package": "2026-01-28 16:00:16.457500+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2034,7 +2034,7 @@
       },
       "properties": {
         "segment_id": 9000004869,
-        "last_data_package": "2026-01-28 15:47:50.840000+00:00",
+        "last_data_package": "2026-01-28 16:02:56.355600+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2093,7 +2093,7 @@
       },
       "properties": {
         "segment_id": 9000004995,
-        "last_data_package": "2026-01-28 15:47:53.180400+00:00",
+        "last_data_package": "2026-01-28 16:02:58.493100+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2132,7 +2132,7 @@
       },
       "properties": {
         "segment_id": 9000005083,
-        "last_data_package": "2026-01-28 15:45:30.585600+00:00",
+        "last_data_package": "2026-01-28 16:01:23.586300+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2171,7 +2171,7 @@
       },
       "properties": {
         "segment_id": 9000005252,
-        "last_data_package": "2026-01-28 15:50:53.823800+00:00",
+        "last_data_package": "2026-01-28 16:06:00.431300+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2218,7 +2218,7 @@
       },
       "properties": {
         "segment_id": 9000005444,
-        "last_data_package": "2026-01-28 15:45:47.795400+00:00",
+        "last_data_package": "2026-01-28 16:00:40.957200+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2273,7 +2273,7 @@
       },
       "properties": {
         "segment_id": 9000005484,
-        "last_data_package": "2026-01-28 15:45:17.742400+00:00",
+        "last_data_package": "2026-01-28 16:00:11.016300+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2320,7 +2320,7 @@
       },
       "properties": {
         "segment_id": 9000005678,
-        "last_data_package": "2026-01-28 15:48:12.387100+00:00",
+        "last_data_package": "2026-01-28 16:03:33.411500+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2395,7 +2395,7 @@
       },
       "properties": {
         "segment_id": 9000005832,
-        "last_data_package": "2026-01-28 15:49:11.703300+00:00",
+        "last_data_package": "2026-01-28 16:04:32.250600+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2438,7 +2438,7 @@
       },
       "properties": {
         "segment_id": 9000005977,
-        "last_data_package": "2026-01-28 15:47:58.188800+00:00",
+        "last_data_package": "2026-01-28 16:03:04.340900+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2473,7 +2473,7 @@
       },
       "properties": {
         "segment_id": 9000006027,
-        "last_data_package": "2026-01-28 15:47:08.192400+00:00",
+        "last_data_package": "2026-01-28 16:02:13.870800+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2508,7 +2508,7 @@
       },
       "properties": {
         "segment_id": 9000006300,
-        "last_data_package": "2026-01-28 15:45:15.093600+00:00",
+        "last_data_package": "2026-01-28 16:00:14.563700+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2543,7 +2543,7 @@
       },
       "properties": {
         "segment_id": 9000006412,
-        "last_data_package": "2026-01-28 15:46:54.830200+00:00",
+        "last_data_package": "2026-01-28 16:02:00.328400+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2586,7 +2586,7 @@
       },
       "properties": {
         "segment_id": 9000006435,
-        "last_data_package": "2026-01-28 15:50:39.336100+00:00",
+        "last_data_package": "2026-01-28 16:05:46.308700+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2621,7 +2621,7 @@
       },
       "properties": {
         "segment_id": 9000006667,
-        "last_data_package": "2026-01-28 15:45:29.195500+00:00",
+        "last_data_package": "2026-01-28 16:00:40.467600+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2656,7 +2656,7 @@
       },
       "properties": {
         "segment_id": 9000006732,
-        "last_data_package": "2026-01-28 15:49:18.708600+00:00",
+        "last_data_package": "2026-01-28 16:04:24.346900+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2703,7 +2703,7 @@
       },
       "properties": {
         "segment_id": 9000006798,
-        "last_data_package": "2026-01-28 15:50:38.950700+00:00",
+        "last_data_package": "2026-01-28 16:05:45.428500+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2742,7 +2742,7 @@
       },
       "properties": {
         "segment_id": 9000006829,
-        "last_data_package": "2026-01-28 15:50:35.223600+00:00",
+        "last_data_package": "2026-01-28 16:05:40.967700+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2777,7 +2777,7 @@
       },
       "properties": {
         "segment_id": 9000006878,
-        "last_data_package": "2026-01-28 15:48:34.189000+00:00",
+        "last_data_package": "2026-01-28 16:03:39.652900+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2816,7 +2816,7 @@
       },
       "properties": {
         "segment_id": 9000007083,
-        "last_data_package": "2026-01-28 15:50:51.779600+00:00",
+        "last_data_package": "2026-01-28 16:05:57.611300+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2863,7 +2863,7 @@
       },
       "properties": {
         "segment_id": 9000007116,
-        "last_data_package": "2026-01-28 15:48:08.130000+00:00",
+        "last_data_package": "2026-01-28 16:03:14.855700+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2910,7 +2910,7 @@
       },
       "properties": {
         "segment_id": 9000007365,
-        "last_data_package": "2026-01-28 15:47:46.309800+00:00",
+        "last_data_package": "2026-01-28 16:02:52.031700+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2957,7 +2957,7 @@
       },
       "properties": {
         "segment_id": 9000007661,
-        "last_data_package": "2026-01-28 15:46:30.650900+00:00",
+        "last_data_package": "2026-01-28 16:01:36.664500+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -2996,7 +2996,7 @@
       },
       "properties": {
         "segment_id": 9000007740,
-        "last_data_package": "2026-01-28 15:45:06.279900+00:00",
+        "last_data_package": "2026-01-28 16:00:14.196700+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3035,7 +3035,7 @@
       },
       "properties": {
         "segment_id": 9000007742,
-        "last_data_package": "2026-01-28 15:45:19.174400+00:00",
+        "last_data_package": "2026-01-28 16:00:24.909800+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3098,7 +3098,7 @@
       },
       "properties": {
         "segment_id": 9000007879,
-        "last_data_package": "2026-01-28 15:45:15.408900+00:00",
+        "last_data_package": "2026-01-28 16:00:23.691100+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3137,7 +3137,7 @@
       },
       "properties": {
         "segment_id": 9000007918,
-        "last_data_package": "2026-01-28 15:45:12.822200+00:00",
+        "last_data_package": "2026-01-28 16:00:07.815700+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3172,7 +3172,7 @@
       },
       "properties": {
         "segment_id": 9000007929,
-        "last_data_package": "2026-01-28 15:45:05.332400+00:00",
+        "last_data_package": "2026-01-28 16:00:04.646500+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3207,7 +3207,7 @@
       },
       "properties": {
         "segment_id": 9000008003,
-        "last_data_package": "2026-01-28 15:49:12.264700+00:00",
+        "last_data_package": "2026-01-28 16:04:18.518800+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3258,7 +3258,7 @@
       },
       "properties": {
         "segment_id": 9000008121,
-        "last_data_package": "2026-01-28 15:45:19.332300+00:00",
+        "last_data_package": "2026-01-28 16:00:07.958200+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3297,7 +3297,7 @@
       },
       "properties": {
         "segment_id": 9000008361,
-        "last_data_package": "2026-01-28 15:50:38.445200+00:00",
+        "last_data_package": "2026-01-28 16:05:44.466900+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3372,7 +3372,7 @@
       },
       "properties": {
         "segment_id": 9000008500,
-        "last_data_package": "2026-01-28 15:46:36.272300+00:00",
+        "last_data_package": "2026-01-28 16:01:41.812300+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3407,7 +3407,7 @@
       },
       "properties": {
         "segment_id": 9000008502,
-        "last_data_package": "2026-01-28 15:45:21.659500+00:00",
+        "last_data_package": "2026-01-28 16:00:06.321300+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3446,7 +3446,7 @@
       },
       "properties": {
         "segment_id": 9000008514,
-        "last_data_package": "2026-01-28 15:45:16.331100+00:00",
+        "last_data_package": "2026-01-28 16:00:23.717500+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3481,7 +3481,7 @@
       },
       "properties": {
         "segment_id": 9000008542,
-        "last_data_package": "2026-01-28 15:45:07.430200+00:00",
+        "last_data_package": "2026-01-28 16:00:23.672200+00:00",
         "timezone": "Europe/Brussels",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3524,7 +3524,7 @@
       },
       "properties": {
         "segment_id": 9000008543,
-        "last_data_package": "2026-01-28 15:45:10.488200+00:00",
+        "last_data_package": "2026-01-28 16:00:12.680900+00:00",
         "timezone": "Europe/Brussels",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3567,7 +3567,7 @@
       },
       "properties": {
         "segment_id": 9000008552,
-        "last_data_package": "2026-01-28 15:48:24.691400+00:00",
+        "last_data_package": "2026-01-28 16:03:30.669300+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3618,7 +3618,7 @@
       },
       "properties": {
         "segment_id": 9000008562,
-        "last_data_package": "2026-01-28 15:47:10.409300+00:00",
+        "last_data_package": "2026-01-28 16:02:16.987100+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3773,7 +3773,7 @@
       },
       "properties": {
         "segment_id": 9000008568,
-        "last_data_package": "2026-01-28 15:45:45.164200+00:00",
+        "last_data_package": "2026-01-28 16:02:32.812800+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3812,7 +3812,7 @@
       },
       "properties": {
         "segment_id": 9000008577,
-        "last_data_package": "2026-01-28 15:49:59.203500+00:00",
+        "last_data_package": "2026-01-28 16:05:05.435400+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3855,7 +3855,7 @@
       },
       "properties": {
         "segment_id": 9000008669,
-        "last_data_package": "2026-01-28 15:47:40.729600+00:00",
+        "last_data_package": "2026-01-28 16:02:47.052800+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3894,7 +3894,7 @@
       },
       "properties": {
         "segment_id": 9000008734,
-        "last_data_package": "2026-01-28 15:45:18.060800+00:00",
+        "last_data_package": "2026-01-28 16:00:09.655000+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -3945,7 +3945,7 @@
       },
       "properties": {
         "segment_id": 9000008772,
-        "last_data_package": "2026-01-28 15:47:26.775400+00:00",
+        "last_data_package": "2026-01-28 16:02:32.915600+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4004,7 +4004,7 @@
       },
       "properties": {
         "segment_id": 9000008823,
-        "last_data_package": "2026-01-28 15:48:54.887100+00:00",
+        "last_data_package": "2026-01-28 16:04:00.465700+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4039,7 +4039,7 @@
       },
       "properties": {
         "segment_id": 9000008837,
-        "last_data_package": "2026-01-28 15:49:41.747200+00:00",
+        "last_data_package": "2026-01-28 16:04:47.227100+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4078,7 +4078,7 @@
       },
       "properties": {
         "segment_id": 9000008947,
-        "last_data_package": "2026-01-28 15:49:07.816900+00:00",
+        "last_data_package": "2026-01-28 16:04:13.298800+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4133,7 +4133,7 @@
       },
       "properties": {
         "segment_id": 9000008993,
-        "last_data_package": "2026-01-28 15:45:18.328300+00:00",
+        "last_data_package": "2026-01-28 16:00:23.198300+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4168,7 +4168,7 @@
       },
       "properties": {
         "segment_id": 9000008999,
-        "last_data_package": "2026-01-28 15:45:11.146600+00:00",
+        "last_data_package": "2026-01-28 16:00:21.534400+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4211,7 +4211,7 @@
       },
       "properties": {
         "segment_id": 9000009042,
-        "last_data_package": "2026-01-28 15:46:17.632200+00:00",
+        "last_data_package": "2026-01-28 16:01:23.418700+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4258,7 +4258,7 @@
       },
       "properties": {
         "segment_id": 9000009135,
-        "last_data_package": "2026-01-28 15:45:06.567100+00:00",
+        "last_data_package": "2026-01-28 16:00:04.901800+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4293,7 +4293,7 @@
       },
       "properties": {
         "segment_id": 9000009187,
-        "last_data_package": "2026-01-28 15:45:11.744800+00:00",
+        "last_data_package": "2026-01-28 16:00:10.425600+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4328,7 +4328,7 @@
       },
       "properties": {
         "segment_id": 9000009232,
-        "last_data_package": "2026-01-28 15:50:53.236000+00:00",
+        "last_data_package": "2026-01-28 16:06:00.995200+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4367,7 +4367,7 @@
       },
       "properties": {
         "segment_id": 9000009301,
-        "last_data_package": "2026-01-28 15:45:10.628200+00:00",
+        "last_data_package": "2026-01-28 16:00:07.952900+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4406,7 +4406,7 @@
       },
       "properties": {
         "segment_id": 9000009350,
-        "last_data_package": "2026-01-28 15:50:04.249700+00:00",
+        "last_data_package": "2026-01-28 16:05:28.866800+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4441,7 +4441,7 @@
       },
       "properties": {
         "segment_id": 9000009404,
-        "last_data_package": "2026-01-28 15:45:16.720900+00:00",
+        "last_data_package": "2026-01-28 16:00:15.807900+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4484,7 +4484,7 @@
       },
       "properties": {
         "segment_id": 9000009561,
-        "last_data_package": "2026-01-28 15:45:22.834000+00:00",
+        "last_data_package": "2026-01-28 16:00:23.217000+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4519,7 +4519,7 @@
       },
       "properties": {
         "segment_id": 9000009736,
-        "last_data_package": "2026-01-28 15:45:29.062100+00:00",
+        "last_data_package": "2026-01-28 16:00:27.886500+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4574,7 +4574,7 @@
       },
       "properties": {
         "segment_id": 9000009743,
-        "last_data_package": "2026-01-28 15:46:39.783100+00:00",
+        "last_data_package": "2026-01-28 16:01:45.072400+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4641,7 +4641,7 @@
       },
       "properties": {
         "segment_id": 9000009814,
-        "last_data_package": "2026-01-28 15:45:10.316100+00:00",
+        "last_data_package": "2026-01-28 16:00:16.666000+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4688,7 +4688,7 @@
       },
       "properties": {
         "segment_id": 9000009882,
-        "last_data_package": "2026-01-28 15:46:54.931000+00:00",
+        "last_data_package": "2026-01-28 16:02:00.052600+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4727,7 +4727,7 @@
       },
       "properties": {
         "segment_id": 9000009895,
-        "last_data_package": "2026-01-28 15:45:31.590900+00:00",
+        "last_data_package": "2026-01-28 16:01:04.540800+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4798,7 +4798,7 @@
       },
       "properties": {
         "segment_id": 9000009916,
-        "last_data_package": "2026-01-28 15:45:12.196600+00:00",
+        "last_data_package": "2026-01-28 16:00:22.686700+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4845,7 +4845,7 @@
       },
       "properties": {
         "segment_id": 9000010037,
-        "last_data_package": "2026-01-28 15:45:14.589500+00:00",
+        "last_data_package": "2026-01-28 16:00:17.829400+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4880,7 +4880,7 @@
       },
       "properties": {
         "segment_id": 9000010086,
-        "last_data_package": "2026-01-28 15:50:31.827300+00:00",
+        "last_data_package": "2026-01-28 16:05:38.466800+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4915,7 +4915,7 @@
       },
       "properties": {
         "segment_id": 9000010279,
-        "last_data_package": "2026-01-28 15:45:18.305500+00:00",
+        "last_data_package": "2026-01-28 16:00:23.200500+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -4958,7 +4958,7 @@
       },
       "properties": {
         "segment_id": 9000010333,
-        "last_data_package": "2026-01-28 15:45:19.941200+00:00",
+        "last_data_package": "2026-01-28 16:00:15.496900+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -5009,7 +5009,7 @@
       },
       "properties": {
         "segment_id": 9000010415,
-        "last_data_package": "2026-01-28 15:51:01.110800+00:00",
+        "last_data_package": "2026-01-28 16:06:06.548600+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -5060,7 +5060,7 @@
       },
       "properties": {
         "segment_id": 9000010447,
-        "last_data_package": "2026-01-28 15:46:35.137200+00:00",
+        "last_data_package": "2026-01-28 16:01:40.827600+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -5095,7 +5095,7 @@
       },
       "properties": {
         "segment_id": 9000010471,
-        "last_data_package": "2026-01-28 15:45:27.373000+00:00",
+        "last_data_package": "2026-01-28 16:00:21.927600+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
@@ -5130,7 +5130,7 @@
       },
       "properties": {
         "segment_id": 9000010481,
-        "last_data_package": "2026-01-28 15:50:00.631500+00:00",
+        "last_data_package": "2026-01-28 16:05:06.456400+00:00",
         "timezone": "Europe/Berlin",
         "date": "2026-01-28 14:00:00+00:00",
         "period": "hourly",
