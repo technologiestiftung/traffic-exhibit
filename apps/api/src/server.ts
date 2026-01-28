@@ -18,10 +18,7 @@ const enrichedTelraamData = enrichedTelraamDataRaw as TelraamMatch[];
 let currentDetections = { car: 60, bike: 15, pedestrian: 8, heavy: 15 };
 
 // Calculate initial matches
-let closestMatch = findClosestMatches(
-	currentDetections,
-	telraamData.features,
-);
+let closestMatch = findClosestMatches(currentDetections, telraamData.features);
 
 // for each match the closest result with enriched-telraam-data
 let enrichedMatches =
@@ -44,9 +41,11 @@ app.use("/data", express.static(path.join(__dirname, "../data")));
 app.post("/api/detections", (req, res) => {
 	try {
 		const { percentages } = req.body;
-		
+
 		if (!percentages || typeof percentages !== "object") {
-			return res.status(400).json({ error: "Invalid request: percentages required" });
+			return res
+				.status(400)
+				.json({ error: "Invalid request: percentages required" });
 		}
 
 		// Update current detections with new data
@@ -60,17 +59,15 @@ app.post("/api/detections", (req, res) => {
 		logger.info("Received detection data:", currentDetections);
 
 		// Recalculate matches with new detection data
-		closestMatch = findClosestMatches(
-			currentDetections,
-			telraamData.features,
-		);
+		closestMatch = findClosestMatches(currentDetections, telraamData.features);
 
 		// Update enriched matches
 		enrichedMatches =
 			closestMatch?.map((match) =>
 				enrichedTelraamData.find(
 					(feature) =>
-						feature.originalProperties.segment_id === match.properties.segment_id,
+						feature.originalProperties.segment_id ===
+						match.properties.segment_id,
 				),
 			) || [];
 
@@ -141,7 +138,6 @@ io.on("connection", (socket) => {
 		// Forward to all connected frontend clients
 		io.emit("rotary_encoder2_rotated", data);
 	});
-
 
 	socket.emit("telraam-matches", enrichedMatches);
 
