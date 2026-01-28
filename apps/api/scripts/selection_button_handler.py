@@ -144,6 +144,9 @@ class SelectionButtonHandler:
             # Determine direction
             direction_label, direction_key = self._determine_direction()
             
+            # Add logging to identify selection button activity
+            print(f"[SELECTION BUTTON ONLY] State change on pin {self.clk_pin}, direction: {direction_label}")
+            
             # Update position
             self._update_position(direction_key)
             

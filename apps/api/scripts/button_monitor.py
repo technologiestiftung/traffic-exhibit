@@ -186,40 +186,64 @@ def monitor_rotary_encoder():
     if not _HAS_GPIO:
         return
     
+    print(f"[PRIMARY ENCODER] Starting monitoring on pins CLK={CLK_PIN}, DT={DT_PIN}")
+    
     try:
+        # Add debouncing and direction confirmation
+        direction_pulse_count = 0
+        confirmed_direction = None
+        MIN_PULSES_FOR_CONFIRMATION = 2  # Require at least 2 pulses in same direction
+        
         while encoder_running:
             current_clk_state = clk.value
             
-            # Check if CLK pin has changed state (falling edge detection)
+            # Check if CLK pin has changed state (edge detection)
             if current_clk_state != last_clk_state:
-                # Determine direction (corrected logic)
+                # Determine direction
                 if dt.value != current_clk_state:
-                    current_direction = "Counter-clockwise"  # Swapped
-                    encoder_position -= 1  # Swapped
+                    current_direction = "Counter-clockwise"
+                    encoder_position -= 1
                 else:
-                    current_direction = "Clockwise"  # Swapped
-                    encoder_position += 1  # Swapped
+                    current_direction = "Clockwise"
+                    encoder_position += 1
                 
-                # Check for direction change
-                if last_direction is not None and last_direction != current_direction:
-                    if current_direction == "Clockwise":
-                        print(f"Direction changed to clockwise (position: {encoder_position})")
-                        rotary_encoder_start()
-                    elif current_direction == "Counter-clockwise":
-                        print(f"Direction changed to counter-clockwise (position: {encoder_position})")
-                        rotary_encoder_stop()
-                elif last_direction != current_direction and current_direction == "Clockwise":
-                    # First time detecting clockwise motion
-                    print(f"Initial clockwise rotation detected (position: {encoder_position})")
-                    rotary_encoder_start()
-                elif last_direction != current_direction and current_direction == "Counter-clockwise":
-                    # First time detecting counter-clockwise motion
-                    print(f"Initial counter-clockwise rotation detected (position: {encoder_position})")
-                    rotary_encoder_stop()
+                # Track direction consistency
+                if confirmed_direction is None:
+                    # First detection - start tracking
+                    confirmed_direction = current_direction
+                    direction_pulse_count = 1
+                elif confirmed_direction == current_direction:
+                    # Same direction - increment counter
+                    direction_pulse_count += 1
+                else:
+                    # Direction changed - reset and start tracking new direction
+                    confirmed_direction = current_direction
+                    direction_pulse_count = 1
                 
-                last_direction = current_direction
+                # Only trigger motor control after confirming direction with multiple pulses
+                # This prevents false triggers from noise or interference
+                if direction_pulse_count >= MIN_PULSES_FOR_CONFIRMATION:
+                    # Check if this is a new direction (not already triggered)
+                    if last_direction != confirmed_direction:
+                        if confirmed_direction == "Clockwise":
+                            print(f"[PRIMARY ENCODER] Confirmed clockwise rotation (position: {encoder_position}, pulses: {direction_pulse_count})")
+                            rotary_encoder_start()
+                        elif confirmed_direction == "Counter-clockwise":
+                            print(f"[PRIMARY ENCODER] Confirmed counter-clockwise rotation (position: {encoder_position}, pulses: {direction_pulse_count})")
+                            rotary_encoder_stop()
+                        last_direction = confirmed_direction
+                        # Reset counter after triggering to prevent multiple triggers
+                        direction_pulse_count = 0
+                
+                last_clk_state = current_clk_state
+            else:
+                # No state change - reset direction tracking if we haven't confirmed yet
+                # This helps filter out single-pulse noise
+                if direction_pulse_count > 0 and direction_pulse_count < MIN_PULSES_FOR_CONFIRMATION:
+                    # Reset if we haven't confirmed direction yet
+                    confirmed_direction = None
+                    direction_pulse_count = 0
             
-            last_clk_state = current_clk_state
             time.sleep(0.001)  # Small delay to prevent excessive CPU usage
             
     except Exception as e:
