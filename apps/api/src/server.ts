@@ -14,13 +14,14 @@ import type { TrafficFeature, TelraamMatch } from "./common";
 const telraamData = telraamDataRaw as { features: TrafficFeature[] };
 const enrichedTelraamData = enrichedTelraamDataRaw as TelraamMatch[];
 
-const closestMatch = findClosestMatches(
-	{ car: 60, bike: 15, pedestrian: 8, heavy: 15 },
-	telraamData.features,
-);
+// Store current detection data (default to example values)
+let currentDetections = { car: 60, bike: 15, pedestrian: 8, heavy: 15 };
+
+// Calculate initial matches
+let closestMatch = findClosestMatches(currentDetections, telraamData.features);
 
 // for each match the closest result with enriched-telraam-data
-const enrichedMatches =
+let enrichedMatches =
 	closestMatch?.map((match) =>
 		enrichedTelraamData.find(
 			(feature) =>
@@ -30,8 +31,56 @@ const enrichedMatches =
 
 const app = express();
 
+// Middleware to parse JSON
+app.use(express.json());
+
 // Serve static files from the data directory
 app.use("/data", express.static(path.join(__dirname, "../data")));
+
+// API endpoint to receive YOLO detection data
+app.post("/api/detections", (req, res) => {
+	try {
+		const { percentages } = req.body;
+
+		if (!percentages || typeof percentages !== "object") {
+			return res
+				.status(400)
+				.json({ error: "Invalid request: percentages required" });
+		}
+
+		// Update current detections with new data
+		currentDetections = {
+			car: percentages.car || 0,
+			bike: percentages.bike || 0,
+			pedestrian: percentages.pedestrian || 0,
+			heavy: percentages.heavy || 0,
+		};
+
+		logger.info("Received detection data:", currentDetections);
+
+		// Recalculate matches with new detection data
+		closestMatch = findClosestMatches(currentDetections, telraamData.features);
+
+		// Update enriched matches
+		enrichedMatches =
+			closestMatch?.map((match) =>
+				enrichedTelraamData.find(
+					(feature) =>
+						feature.originalProperties.segment_id ===
+						match.properties.segment_id,
+				),
+			) || [];
+
+		// Broadcast updated matches to all connected clients
+		io.emit("telraam-matches", enrichedMatches);
+		io.emit("detection-update", currentDetections);
+
+		return res.json({ success: true, detections: currentDetections });
+	} catch (error) {
+		logger.error("Error processing detection data:", error);
+		return res.status(500).json({ error: "Internal server error" });
+	}
+});
 
 // --- socket/http (kept in this file, as requested) ---
 const httpServer = createServer(app);
@@ -43,31 +92,6 @@ const io = new Server(httpServer, {
 
 io.on("connection", (socket) => {
 	logger.success("Frontend connected");
-
-	/* OPTIONAL
-	 * TO DO: get filled block positions from camera
-	 * 1. run new python script to get filled block positions
-	 * 2. send filled block positions to frontend
-	 */
-	setInterval(() => {
-		const count = Math.floor(Math.random() * 10) + 1;
-		const numbers = Array.from({ length: 10 }, (_, i) => i + 1)
-			.sort(() => Math.random() - 0.5)
-			.slice(0, count);
-		socket.emit("camera-data", numbers);
-	}, 4000);
-
-	/*
-	 * TO DO: Handle press start button
-	 * 1. start rotating disc
-	 * 2. turn light to green
-	 * 3. save current modal split
-	 * 4. fetch telraam data
-	 * 5. find match between modal split and telraam data
-	 * 6. send match to frontend
-	 * 7. (optional: turn on audio mix for the match)
-	 */
-	// console.log("Frontend connected");
 
 	// Handle start event from first rotary encoder (clockwise rotation)
 	socket.on("start-event", () => {
