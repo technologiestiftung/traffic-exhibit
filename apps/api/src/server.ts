@@ -93,31 +93,6 @@ const io = new Server(httpServer, {
 io.on("connection", (socket) => {
 	logger.success("Frontend connected");
 
-	/* OPTIONAL
-	 * TO DO: get filled block positions from camera
-	 * 1. run new python script to get filled block positions
-	 * 2. send filled block positions to frontend
-	 */
-	setInterval(() => {
-		const count = Math.floor(Math.random() * 10) + 1;
-		const numbers = Array.from({ length: 10 }, (_, i) => i + 1)
-			.sort(() => Math.random() - 0.5)
-			.slice(0, count);
-		socket.emit("camera-data", numbers);
-	}, 4000);
-
-	/*
-	 * TO DO: Handle press start button
-	 * 1. start rotating disc
-	 * 2. turn light to green
-	 * 3. save current modal split
-	 * 4. fetch telraam data
-	 * 5. find match between modal split and telraam data
-	 * 6. send match to frontend
-	 * 7. (optional: turn on audio mix for the match)
-	 */
-	// console.log("Frontend connected");
-
 	// Handle start event from first rotary encoder (clockwise rotation)
 	socket.on("start-event", () => {
 		logger.info("Start event received from first rotary encoder");
