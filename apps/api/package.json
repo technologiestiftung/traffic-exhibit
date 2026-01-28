@@ -11,6 +11,7 @@
 		"process-data": "ts-node scripts/run-data-processing.ts",
 		"start-button-monitor": "./venv/bin/python3 scripts/button_monitor.py",
 		"yolo-detect": "./venv/bin/python3 scripts/yolo_detect.py --model scripts/my_model.pt --source picamera0 --resolution 1280x720 --headless --listen-motor",
+		"start-motor-and-detection": "./venv/bin/python3 scripts/button_monitor.py & sleep 100 ./venv/bin/python3 scripts/yolo_detect.py --model scripts/my_model.pt --source picamera0 --resolution 1280x720 --headless --listen-motor",
 		"stop-yolo-detect": "pkill -f 'yolo_detect.py'"
 	},
 	"keywords": [],

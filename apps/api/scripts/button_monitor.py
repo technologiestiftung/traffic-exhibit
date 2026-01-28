@@ -28,12 +28,12 @@ ROTATIONS_PER_PRESS = 2  # Number of complete rotations to perform when triggere
 
 # GPIO pin assignments (BCM numbering)
 # Primary rotary encoder pins (motor control)
-CLK_PIN = 5   # Rotary encoder CLK pin
-DT_PIN = 6    # Rotary encoder DT pin
+CLK_PIN = 12   # Rotary encoder CLK pin
+DT_PIN = 16    # Rotary encoder DT pin
 
 # Secondary rotary encoder pins (step counter)
-CLK2_PIN = 12   # Second rotary encoder CLK pin
-DT2_PIN = 16    # Second rotary encoder DT pin
+CLK2_PIN = 5   # Second rotary encoder CLK pin
+DT2_PIN = 6    # Second rotary encoder DT pin
 
 # On-off button pin
 ON_OFF_BUTTON_PIN = 17  # Physical push button for on/off control
