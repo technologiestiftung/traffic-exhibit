@@ -131,10 +131,6 @@ sio = socketio.Client()
 # Initialize button handler
 button_handler = ButtonHandler(sio, motor_control, system_state)
 
-# Initialize button if GPIO is available
-if _HAS_GPIO:
-    button_handler.initialize_button(ON_OFF_BUTTON_PIN)
-
 # Initialize selection button handler
 selection_button_handler = SelectionButtonHandler(
     socketio_client=sio,
@@ -275,7 +271,9 @@ def main():
             print("Continuing without web interface connection...")
         
         if _HAS_GPIO:
-            # Button is already initialized via button_handler.initialize_button()
+            # Initialize on-off button after Socket.IO connection is established
+            button_handler.initialize_button(ON_OFF_BUTTON_PIN)
+            
             # Start rotary encoder monitoring in a separate thread
             encoder_thread = threading.Thread(target=monitor_rotary_encoder, daemon=True)
             encoder_thread.start()
