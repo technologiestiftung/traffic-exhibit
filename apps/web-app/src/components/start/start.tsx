@@ -9,7 +9,7 @@ export const Start = () => {
 	// const [isAllDataVisible, setIsAllDataVisible] = useState(false);
 
 	return (
-		<StartLayout variant="start">
+		<StartLayout>
 			<h1 className="text-7xl 2xl:text-8xl font-pixel font-semibold tracking-wide font-title mb-4">
 				{i18n("start.title")}
 			</h1>

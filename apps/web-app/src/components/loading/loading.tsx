@@ -3,7 +3,7 @@ import { StartLayout } from "../start/start-layout";
 
 export const Loading = () => {
 	return (
-		<StartLayout variant="loading" isLoading={true} animateDecorations={true}>
+		<StartLayout isLoading={true} animateDecorations={true}>
 			<h1 className="text-5xl font-semibold tracking-wide">
 				{i18n("loading.title")}
 			</h1>
