@@ -36,7 +36,6 @@ export const en = {
 	"noiseChart.title": "Noise Pollution",
 
 	/* CIRCLE CHART */
-	"circleChart.heading": "Traffic Mix",
 	"circleChart.summary.trailingMessage.p1": "while",
 	"circleChart.summary.trailingMessage.p2": "trails at",
 	"circleChart.summary.totalMessage.p1": "across",

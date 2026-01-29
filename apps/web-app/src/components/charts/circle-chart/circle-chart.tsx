@@ -110,16 +110,12 @@ export const CircleChart: FC<CircleChartProps> = ({
 				</svg>
 			</div>
 
-			<div className="flex max-w-sm flex-col gap-4 self-center rounded-3xl border border-black/10 bg-white/80 p-6 text-slate-800 shadow-lg lg:ml-auto">
-				<h3 className="text-lg font-semibold uppercase tracking-[0.3em] text-slate-600">
-					{i18n("circleChart.heading")}
-				</h3>
-				<p className="text-base leading-relaxed">{summary}</p>
+			<div className="flex max-w-sm flex-col gap-4 self-center rounded-3xl text-slate-800 lg:ml-auto">
 				<ul className="space-y-3">
 					{data.map((segment, index) => (
 						<li
 							key={`legend-${segment.name}-${index}`}
-							className="flex items-center justify-between rounded-xl border border-black/20 px-4 py-2 text-sm font-semibold shadow"
+							className="flex items-center justify-between border border-gray-600 px-4 py-2 text-sm font-semibold shadow"
 							style={{
 								backgroundColor: lightenColor(segment.color, 0.55),
 								color: "#1a1a1a",
@@ -137,6 +133,7 @@ export const CircleChart: FC<CircleChartProps> = ({
 						</li>
 					))}
 				</ul>
+				<p className="text-base leading-relaxed">{summary}</p>
 			</div>
 		</div>
 	);

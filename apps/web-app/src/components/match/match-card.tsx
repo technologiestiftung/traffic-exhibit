@@ -3,7 +3,6 @@ import { BerlinMap } from "../map/berlin-map";
 import { Pill } from "../pill/pill";
 import { NoiseChart } from "../charts/noise-chart";
 import { AirQualityChart } from "../charts/air-quality-chart";
-import { DataDateIndicator } from "../data-date-indicator/data-date-indicator";
 import type { TelraamMatch } from "../../../../api/src/common";
 import { i18n } from "../../i18n/i18n-utils";
 import { MatchTinyWorldImg } from "./match-tiny-world-img";
@@ -71,7 +70,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 			onClick={() => onSelect(index)}
 			onKeyDown={handleKeyDown}
 			aria-pressed={selected}
-			className={`absolute rounded-xl cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${backgroundClass} ${selected ? "shadow-2xl" : "shadow-xl"}`}
+			className={`absolute border border-gray-900 cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${backgroundClass} ${selected ? "shadow-2xl" : "shadow-xl"}`}
 			style={{
 				top: topOffset,
 				left: leftOffset,
@@ -87,7 +86,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 				<div className="flex justify-between items-center p-2.5 w-full">
 					<div>
 						<div className="flex gap-3 items-center max-w-md">
-							<h2 className="text-xl font-bold max-w-sm truncate font-title">
+							<h2 className="text-xl font-pixel text max-w-sm truncate font-title">
 								{match.address?.split(",")[0] ?? ""}
 							</h2>
 							{match.bikeLaneTypes?.map((type) => (
@@ -116,14 +115,9 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 				</div>
 
 				{/* IMAGE */}
-				<div className="w-full h-[340px] relative">
+				<div className="h-[340px] relative">
 					{imageSrc && (
 						<MatchTinyWorldImg imageUrl={imageSrc} shouldAnimate={selected} />
-					)}
-					{match.originalProperties && (
-						<DataDateIndicator
-							telraamDataDate={match?.originalProperties?.date}
-						/>
 					)}
 				</div>
 				{match.nearestNoiseLevel !== null && (

@@ -36,7 +36,6 @@ export const de = {
 	"noiseChart.title": "Lärmbelästigung",
 
 	/* CIRCLE CHART */
-	"circleChart.heading": "Verkehrsmix",
 	"circleChart.summary.trailingMessage.p1": ", Während",
 	"circleChart.summary.trailingMessage.p2": "mit",
 	"circleChart.summary.totalMessage.p1": "bei insgesamt",
