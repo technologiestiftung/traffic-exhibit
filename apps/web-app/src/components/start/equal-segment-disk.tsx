@@ -6,6 +6,7 @@ type EqualSegmentsDiscProps = {
 	segmentColors?: { occupied: string; empty: string }[];
 	occupiedBlocks?: number[];
 	showLabels?: boolean;
+	isLoading?: boolean;
 };
 
 export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
@@ -13,6 +14,7 @@ export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 	segmentColors = [{ occupied: trafficColors.green, empty: "#999999" }],
 	occupiedBlocks = [],
 	showLabels = true,
+	isLoading = false,
 }) => {
 	// Geometry
 	const centerX = size / 2;
@@ -82,12 +84,19 @@ export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 			const labelX = centerX + sliceRadius * 0.75 * Math.cos(midAngle);
 			const labelY = centerY + sliceRadius * 0.75 * Math.sin(midAngle);
 
+			// Loading animation classes (cycle through 4 colors)
+			const colorIndex = ((oneBasedIndex - 1) % 4) + 1;
+			const loadingClasses = isLoading
+				? `loading-seg loading-seg-${oneBasedIndex} loading-seg-color-${colorIndex}`
+				: "";
+
 			return {
 				key: oneBasedIndex,
 				pathData,
 				fillColor,
 				labelX,
 				labelY,
+				loadingClasses,
 			};
 		});
 	}, [
@@ -97,6 +106,7 @@ export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 		sliceRadius,
 		occupiedIndexSet,
 		palette,
+		isLoading,
 	]);
 
 	return (
@@ -117,6 +127,7 @@ export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 								stroke="#fff"
 								strokeWidth={2}
 								strokeLinejoin="round"
+								className={slice.loadingClasses}
 							/>
 							{showLabels && (
 								<text

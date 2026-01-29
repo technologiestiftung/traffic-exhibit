@@ -18,7 +18,7 @@ export const useScreenStore = create<ScreenState>((set, get) => ({
 		set({ currentScreen: "loading" });
 		setTimeout(() => {
 			set({ currentScreen: "match" });
-		}, 2500);
+		}, 10000);
 	},
 
 	setStartStopButton: () => {

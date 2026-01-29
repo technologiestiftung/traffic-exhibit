@@ -2,7 +2,15 @@ import { EqualSegmentsDisc } from "./equal-segment-disk";
 import { trafficColors } from "../match/utils";
 import { useWebSocket } from "../../hooks/useWebSocket";
 
-export function StartWheel() {
+type StartWheelProps = {
+	isLoading?: boolean;
+	animateDecorations?: boolean;
+};
+
+export function StartWheel({
+	isLoading = false,
+	animateDecorations = false,
+}: StartWheelProps) {
 	const { occupiedBlocks } = useWebSocket();
 	const isLargeScreen = window.innerWidth > 1620;
 
@@ -13,22 +21,22 @@ export function StartWheel() {
 					<img
 						src="/bike.svg"
 						alt="bike"
-						className="absolute -right-40 bottom-20 w-36 2xl:w-52 rotate-[-10deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)]"
+						className={`absolute -right-40 bottom-20 w-36 2xl:w-52 rotate-[-10deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)] ${animateDecorations ? "animate-pulse-scale-soft-slow" : ""}`}
 					/>
 					<img
 						src="/walking.svg"
 						alt="walking"
-						className="absolute -left-36 top-20 w-32 2xl:w-48 rotate-[-18deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)]"
+						className={`absolute -left-36 top-20 w-32 2xl:w-48 rotate-[-18deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)] ${animateDecorations ? "animate-pulse-scale-soft-slow" : ""}`}
 					/>
 					<img
 						src="/lkw.svg"
 						alt="truck"
-						className="absolute -left-44 bottom-10 w-40 2xl:w-56 rotate-[12deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)]"
+						className={`absolute -left-44 bottom-10 w-40 2xl:w-56 rotate-[12deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)] ${animateDecorations ? "animate-pulse-scale-soft-slow" : ""}`}
 					/>
 					<img
 						src="/icon.svg"
 						alt="car"
-						className="absolute -top-6 -right-40 w-48 2xl:w-60 hidden rotate-6 items-center justify-center lg:flex"
+						className={`absolute -top-6 -right-40 w-48 2xl:w-60 hidden rotate-6 items-center justify-center lg:flex ${animateDecorations ? "animate-pulse-scale-soft-slow" : ""}`}
 					/>
 				</div>
 
@@ -40,6 +48,7 @@ export function StartWheel() {
 							{ occupied: trafficColors.yellow, empty: "#d9d9d9" },
 						]}
 						showLabels
+						isLoading={isLoading}
 					/>
 					<div className="pointer-events-none absolute inset-16 flex items-center justify-center">
 						<div className="relative flex size-60 2xl:size-[350px] items-center justify-center rounded-full bg-black">
