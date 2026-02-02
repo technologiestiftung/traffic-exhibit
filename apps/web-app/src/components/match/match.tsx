@@ -22,7 +22,7 @@ export const Match: React.FC = () => {
 	const {
 		goBackToStart,
 		telraamMatches = [],
-		onRotaryEncoder2Rotated,
+		onSelectionButtonRotated,
 	} = useWebSocket();
 	const [stack, setStack] = useState<TelraamMatch[]>([]);
 
@@ -38,11 +38,11 @@ export const Match: React.FC = () => {
 	);
 	const currentMatch = displayStack[0] ?? null;
 
-	// Handle rotary encoder 2 rotation to navigate between matches
+	// Handle selection button rotation to navigate between matches
 	useEffect(() => {
-		onRotaryEncoder2Rotated((data) => {
+		onSelectionButtonRotated((data) => {
 			// eslint-disable-next-line no-console
-			console.log("Rotary encoder 2 in match.tsx:", data);
+			console.log("Selection button in match.tsx:", data);
 
 			setStack((currentStack) => {
 				// Determine the working stack: use current stack if it exists, otherwise use telraamMatches
@@ -69,7 +69,7 @@ export const Match: React.FC = () => {
 				return currentStack;
 			});
 		});
-	}, [onRotaryEncoder2Rotated, telraamMatches]);
+	}, [onSelectionButtonRotated, telraamMatches]);
 	const pageBackgroundClass = currentMatch
 		? getDominantTrafficGradientClass(
 				getDominantTrafficModalIndex(currentMatch),
