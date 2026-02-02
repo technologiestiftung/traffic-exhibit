@@ -80,7 +80,9 @@ export const AirQualityChart: React.FC<AirQualityChartProps> = ({
 			className={`w-full flex flex-col gap-2 p-3 ${className}`}
 			aria-label={`Air Quality: ${currentStep.label}`}
 		>
-			<h3 className="font-semibold self-start">{title}</h3>
+			<h3 className="font-semibold self-start text-base 2xl:text-xl">
+				{title}
+			</h3>
 			<div className="flex justify-between items-center">
 				<div className="relative w-full max-w-md">
 					<div
@@ -142,7 +144,7 @@ export const AirQualityChart: React.FC<AirQualityChartProps> = ({
 					)}
 				</div>
 				{/* Value label*/}
-				<div className="h-fit self-start text-black font-bold font-numbers">
+				<div className="h-fit self-start text-black font-bold font-numbers text-base 2xl:text-xl">
 					{!isValueLabelVisible && value} {currentStep.label}
 				</div>
 			</div>

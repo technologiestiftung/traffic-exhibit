@@ -3,19 +3,19 @@ import type { FC } from "react";
 import type { CircleChartSegment } from "./circle-chart-utils";
 import { buildSegments } from "./circle-chart-utils";
 
+const isLargeScreen = window.innerWidth > 1620;
+
 export type CircleChartProps = {
 	data: CircleChartSegment[];
-	size?: number;
-	fontSize?: number;
 	minRadius?: number;
 };
 
 export const CircleChart: FC<CircleChartProps> = ({
 	data,
-	size = 300,
-	fontSize = 12,
 	minRadius = 0.3,
 }) => {
+	const fontSize = isLargeScreen ? 16 : 12;
+	const size = isLargeScreen ? 775 : 620;
 	const chartInstanceId = useId();
 	const center = size / 2;
 	const maxRadius = center - 4; // leave a little padding to avoid clipping
@@ -72,7 +72,6 @@ export const CircleChart: FC<CircleChartProps> = ({
 
 					{segments.map((segment, index) => {
 						const baseOffset = segment.labelOffset ?? "25%";
-						console.log(segment.labelOffset);
 
 						return (
 							<text key={`label-${segment.key}`} fontSize={fontSize}>

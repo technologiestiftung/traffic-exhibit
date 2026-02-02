@@ -39,7 +39,9 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 
 	return (
 		<section className={`w-full flex flex-col gap-2 p-3 ${className}`}>
-			<h3 className="font-semibold self-start">{title}</h3>
+			<h3 className="font-semibold self-start text-base 2xl:text-xl">
+				{title}
+			</h3>
 			<div className="flex justify-between items-center">
 				<div className="w-full max-w-md">
 					<div
@@ -92,7 +94,9 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 						</div>
 					)}
 				</div>
-				<p className="font-bold self-start font-numbers">{value} dB</p>
+				<p className="font-bold self-start font-numbers text-base 2xl:text-xl">
+					{value} dB
+				</p>
 			</div>
 		</section>
 	);

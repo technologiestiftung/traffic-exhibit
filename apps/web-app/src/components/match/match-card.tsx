@@ -11,15 +11,12 @@ import {
 	getDominantTrafficGradientClass,
 } from "./utils";
 
-const CARD_W = 620;
-const CARD_H = 620;
+const isLargeScreen = window.innerWidth > 1620;
 
 export type StackPositionStyles = {
-	topOffset: number;
 	zIndex: number;
 	scale: number;
 	transformStyle: string;
-	transformOrigin: string;
 	leftOffset: number;
 };
 
@@ -58,14 +55,11 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 			aria-pressed={selected}
 			className={`absolute border border-gray-900 cursor-pointer transition-transform duration-700 ease-[cubic-bezier(0.34,1.56,0.64,1)] ${backgroundClass} ${selected ? "shadow-2xl" : "shadow-xl"}`}
 			style={{
-				top: stackPosition.topOffset,
+				top: 0,
 				left: stackPosition.leftOffset,
-				width: CARD_W,
-				height: CARD_H,
 				zIndex: stackPosition.zIndex,
 				transform:
 					stackPosition.transformStyle || `scale(${stackPosition.scale})`,
-				transformOrigin: stackPosition.transformOrigin,
 			}}
 		>
 			<div className="flex flex-col justify-between h-full">
@@ -73,7 +67,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 				<div className="flex justify-between items-center p-2.5 w-full">
 					<div>
 						<div className="flex gap-5 items-center max-w-md">
-							<h2 className="text-4xl font-pixel truncate">
+							<h2 className="text-4xl 2xl:text-5xl font-pixel truncate">
 								{match.address?.split(",")[0] ?? ""}
 							</h2>
 							{match.bikeLaneTypes?.map((type) => (
@@ -84,30 +78,37 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 								/>
 							))}
 						</div>
-						<p className="text-base py-1.5 text-start">
+						<p className="text-base 2xl:text-lg py-1.5 text-start">
 							{match.district ?? ""}
 						</p>
 					</div>
 				</div>
 
 				{/* IMAGE */}
-				<div className="h-[340px] relative">
+				<div className="bg-amber-200 relative">
 					{imageSrc && (
-						<MatchTinyWorldImg imageUrl={imageSrc} shouldAnimate={selected} />
+						<MatchTinyWorldImg
+							imageUrl={imageSrc}
+							shouldAnimate={selected}
+							width={isLargeScreen ? 850 : 600}
+							height={isLargeScreen ? 550 : 340}
+						/>
 					)}
 				</div>
-				{match.nearestNoiseLevel !== null && (
-					<NoiseChart
-						title={i18n("noiseChart.title")}
-						value={match.nearestNoiseLevel}
+				<div className="flex flex-col gap-2 mb-2">
+					{match.nearestNoiseLevel !== null && (
+						<NoiseChart
+							title={i18n("noiseChart.title")}
+							value={match.nearestNoiseLevel}
+							markerSize={8}
+						/>
+					)}
+					<AirQualityChart
+						title={i18n("airQualityChart.title")}
+						value={match.airQuality}
 						markerSize={8}
 					/>
-				)}
-				<AirQualityChart
-					title={i18n("airQualityChart.title")}
-					value={match.airQuality}
-					markerSize={8}
-				/>
+				</div>
 			</div>
 		</div>
 	);

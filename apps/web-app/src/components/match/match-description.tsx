@@ -40,16 +40,16 @@ export const MatchDescription = ({
 						<span className="flex items-center gap-3">
 							<span
 								aria-hidden="true"
-								className="inline-block h-3 w-6 rounded-sm border border-black/20"
+								className="inline-block h-3 w-6 rounded-sm 2xl:h-4 2xl:w-8 border border-black/20"
 								style={{ backgroundColor: segment.color }}
 							/>
-							<span>{segment.name}</span>
+							<span className="text-base 2xl:text-lg">{segment.name}</span>
 						</span>
 						<span className="font-numbers">{`${segment.percentage}%`}</span>
 					</li>
 				))}
 			</ul>
-			<p className="text-base leading-relaxed mt-8">{summary}</p>
+			<p className="text-base 2xl:text-xl leading-relaxed mt-8">{summary}</p>
 		</div>
 	);
 };

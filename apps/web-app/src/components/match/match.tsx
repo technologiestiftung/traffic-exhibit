@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useWebSocket } from "../../hooks/useWebSocket";
 import { i18n } from "../../i18n/i18n-utils";
-import { MatchCard, type StackPositionStyles } from "./match-card";
 import type { TelraamMatch } from "../../../../api/src/common";
 import {
 	getDominantTrafficGradientClass,
@@ -10,9 +9,7 @@ import {
 } from "./utils";
 import CircleChart from "../charts/circle-chart/circle-chart";
 import { MatchDescription } from "./match-description";
-
-const CARD_W = 620;
-const CARD_H = 620;
+import { MatchCards } from "./match-cards";
 
 export const Match: React.FC = () => {
 	const {
@@ -81,7 +78,7 @@ export const Match: React.FC = () => {
 		<div
 			className={`relative flex min-h-screen w-full flex-col items-center ${pageBackgroundClass} px-4 py-10`}
 		>
-			<div className="mb-10 flex w-full max-w-[1540px] flex-col gap-4 px-6 md:flex-row md:items-center md:justify-between lg:px-10">
+			<div className="mb-10 flex w-full max-w-[1540px] xl:max-w-[1820px] xl:px-0 flex-col gap-4 px-6 md:flex-row md:items-center md:justify-between lg:px-10">
 				<div className="font-pixel text-left text-4xl font-semibold tracking-[0.25em] text-[#1e2402] drop-shadow font-title">
 					{i18n("match.title")}
 				</div>
@@ -93,60 +90,14 @@ export const Match: React.FC = () => {
 				</button>
 			</div>
 
-			<div className="relative flex w-full max-w-[1540px] flex-1 items-center gap-6 px-12">
+			<div className="relative flex w-full max-w-[1540px] 2xl:max-w-[1820px] flex-1 items-center gap-6 px-12">
 				{/* Stacked cards*/}
-				<div
-					className="relative z-50 overflow-visible"
-					style={{
-						width: CARD_W + 220,
-						height: CARD_H,
-						perspective: "2200px",
-						transformStyle: "preserve-3d",
-						marginLeft: 50 * (matchStack.length - 1) + 32,
-					}}
-				>
-					{matchStack.map((match, index) => {
-						const stackLength = matchStack.length;
-						const isSelectedCard = index === selectedIndex;
-						const leftOffset = -50 * index;
-
-						// Custom z-index logic: index 1 always in middle unless selected
-						let zIndex: number;
-						if (isSelectedCard) {
-							zIndex = stackLength + 1; // Selected card always on top
-						} else if (index === 1) {
-							zIndex = 2; // Middle card always at z-index 2
-						} else if (index === 0) {
-							zIndex = selectedIndex === 2 ? 1 : 3; // First card: low when third is selected, high otherwise
-						} else if (index === 2) {
-							zIndex = selectedIndex === 0 ? 1 : 3; // Third card: low when first is selected, high otherwise
-						} else {
-							zIndex = stackLength - index; // Fallback for more than 3 cards
-						}
-
-						const scale = isSelectedCard ? 1.02 : 0.95;
-						const transformStyle = `scale(${scale})`;
-
-						const stackPosition: StackPositionStyles = {
-							topOffset: 0,
-							zIndex,
-							scale,
-							transformStyle,
-							transformOrigin: "center",
-							leftOffset,
-						};
-
-						return (
-							<MatchCard
-								key={match.segment_id ?? index}
-								match={match}
-								index={index}
-								stackPosition={stackPosition}
-								selected={isSelectedCard}
-								onSelect={handleSelect}
-							/>
-						);
-					})}
+				<div className="relative flex items-center z-50 h-[600px] 2xl:h-[850px] overflow-visible ml-20">
+					<MatchCards
+						matchStack={matchStack}
+						selectedIndex={selectedIndex}
+						handleSelect={handleSelect}
+					/>
 				</div>
 
 				{/* Front card by default; updates with selection/reorder */}
@@ -156,7 +107,6 @@ export const Match: React.FC = () => {
 							<CircleChart
 								key={currentMatch.segment_id}
 								data={getTrafficModal(currentMatch)}
-								size={620}
 							/>
 						</div>
 
