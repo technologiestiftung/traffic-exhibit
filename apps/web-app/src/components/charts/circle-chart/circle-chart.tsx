@@ -72,17 +72,15 @@ export const CircleChart: FC<CircleChartProps> = ({
 
 					{segments.map((segment, index) => {
 						const baseOffset = segment.labelOffset ?? "25%";
+						console.log(segment.labelOffset);
 
 						return (
-							<text
-								key={`label-${segment.key}`}
-								fontSize={fontSize}
-								className="font-numbers"
-							>
+							<text key={`label-${segment.key}`} fontSize={fontSize}>
 								<textPath
 									href={`#${chartInstanceId}-label-${index}`}
 									startOffset={baseOffset}
 									textAnchor="middle"
+									fill={segment.color}
 									dominantBaseline="middle"
 								>
 									{`${segment.name} ${segment.percentage}%`}

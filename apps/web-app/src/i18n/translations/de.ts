@@ -40,8 +40,8 @@ export const de = {
 	"circleChart.summary.trailingMessage.p2": "mit",
 	"circleChart.summary.totalMessage.p1": "bei insgesamt",
 	"circleChart.summary.totalMessage.p2": "Beobachtungen",
-	"circleChart.summary.leadsThisMessage.p1": "führen dieses",
-	"circleChart.summary.leadsThisMessage.p2": "-Segment-profil mit",
+	"circleChart.summary.leadsThisMessage.p1": "führen diesen",
+	"circleChart.summary.leadsThisMessage.p2": " Verkehrs-Mix mit",
 	"circleChart.summary.usageDistributionMessage":
 		"zurückliegen, was verdeutlicht, wie sich die Nutzung heute verteilt.",
 };

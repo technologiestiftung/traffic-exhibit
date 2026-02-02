@@ -72,16 +72,15 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 				{/* HEADER */}
 				<div className="flex justify-between items-center p-2.5 w-full">
 					<div>
-						<div className="flex gap-3 items-center max-w-md">
-							<h2 className="text-xl font-pixel text max-w-sm truncate font-title">
+						<div className="flex gap-5 items-center max-w-md">
+							<h2 className="text-4xl font-pixel truncate">
 								{match.address?.split(",")[0] ?? ""}
 							</h2>
 							{match.bikeLaneTypes?.map((type) => (
 								<Pill
 									key={type}
 									value={type}
-									backgroundColor="bg-platte-green-400"
-									textColor="text-gray-600"
+									className="bg-black text-bp-green"
 								/>
 							))}
 						</div>

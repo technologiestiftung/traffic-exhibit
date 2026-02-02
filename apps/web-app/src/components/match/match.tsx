@@ -117,12 +117,13 @@ export const Match: React.FC = () => {
 			<div className="relative flex w-full max-w-[1540px] flex-1 items-center gap-6 px-12">
 				{/* Stacked cards*/}
 				<div
-					className="relative z-50 w-full overflow-visible"
+					className="relative z-50 overflow-visible"
 					style={{
 						width: CARD_W + 220,
 						height: CARD_H + Math.max(0, matchStack.length - 1) * OFFSET_Y,
 						perspective: "2200px",
 						transformStyle: "preserve-3d",
+						marginLeft: 32 * (matchStack.length - 1),
 					}}
 				>
 					{matchStack.map((match, index) => {
@@ -130,22 +131,19 @@ export const Match: React.FC = () => {
 						const selectedCard = isSelected(match);
 						const reverseIndex = stackLength - 1 - index;
 						const zIndex = stackLength - index;
-						const rotationAngle = selectedCard ? 0 : 90;
-						const depthTranslation = selectedCard
-							? 0
-							: -reverseIndex * 140 - 80;
 						const scale = selectedCard
 							? 1.02
 							: scaleForStackPosition(reverseIndex, stackLength, MIN_SCALE);
-						const transformStyle = `translateZ(${depthTranslation}px) rotateY(${-rotationAngle}deg) scale(${scale})`;
-						const leftOffset = selectedCard ? 0 : CARD_W + 32;
+						const transformStyle = `scale(${scale})`;
+						// Progressive left offset: cards further from front are shifted more to the left
+						const leftOffset = selectedCard ? 0 : -50 * index;
 
 						const stackPosition: StackPositionStyles = {
 							topOffset: reverseIndex * OFFSET_Y,
 							zIndex,
 							scale,
 							transformStyle,
-							transformOrigin: selectedCard ? "center" : "left center",
+							transformOrigin: "center",
 							leftOffset,
 						};
 
