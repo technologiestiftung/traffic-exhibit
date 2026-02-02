@@ -13,6 +13,27 @@ export const formatDdMmmYyyy = (value?: string) => {
 	return format(d, "dd MMM yyyy");
 };
 
+// Shared utility functions
+export function clamp(n: number, min: number, max: number): number {
+	return Math.min(Math.max(n, min), max);
+}
+
+export const getImageUrl = (imageURL: string | null): string | null => {
+	if (!imageURL) {
+		return null;
+	}
+
+	// Extract filename from relative paths
+	if (imageURL.includes("../")) {
+		const filename = imageURL.split("/").pop();
+		return filename ? `/api/data/raw-images/${filename}` : null;
+	}
+
+	// Extract relative path from absolute paths
+	const matchImage = imageURL.match(/data\/raw-images\/[^/]+$/);
+	return matchImage ? `/api/${matchImage[0]}` : null;
+};
+
 export const trafficColors = {
 	yellow: "#e7fe64", // var(--color-bp-yellow)
 	green: "#00a980", // var(--color-bp-green)

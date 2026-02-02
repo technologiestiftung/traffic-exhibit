@@ -1,15 +1,13 @@
 import { useId } from "react";
 import type { FC } from "react";
 import type { CircleChartSegment } from "./circle-chart-utils";
-import { buildSegments, lightenColor } from "./circle-chart-utils";
-import { i18n } from "../../../i18n/i18n-utils";
+import { buildSegments } from "./circle-chart-utils";
 
 export type CircleChartProps = {
 	data: CircleChartSegment[];
 	size?: number;
 	fontSize?: number;
 	minRadius?: number;
-	description?: string;
 };
 
 export const CircleChart: FC<CircleChartProps> = ({
@@ -17,7 +15,6 @@ export const CircleChart: FC<CircleChartProps> = ({
 	size = 300,
 	fontSize = 12,
 	minRadius = 0.3,
-	description,
 }) => {
 	const chartInstanceId = useId();
 	const center = size / 2;
@@ -35,11 +32,6 @@ export const CircleChart: FC<CircleChartProps> = ({
 	if (!data.length) {
 		return null;
 	}
-
-	const summary =
-		description ??
-		describeSegments(data) ??
-		"This visualization highlights the share of each traffic class.";
 
 	return (
 		<div className="flex flex-col gap-8 lg:flex-row lg:items-start">
@@ -109,32 +101,6 @@ export const CircleChart: FC<CircleChartProps> = ({
 					})}
 				</svg>
 			</div>
-
-			<div className="flex max-w-sm flex-col gap-4 self-center rounded-3xl text-slate-800 lg:ml-auto">
-				<ul className="space-y-3">
-					{data.map((segment, index) => (
-						<li
-							key={`legend-${segment.name}-${index}`}
-							className="flex items-center justify-between border border-gray-600 px-4 py-2 text-sm font-semibold shadow"
-							style={{
-								backgroundColor: lightenColor(segment.color, 0.55),
-								color: "#1a1a1a",
-							}}
-						>
-							<span className="flex items-center gap-3">
-								<span
-									aria-hidden="true"
-									className="inline-block h-3 w-6 rounded-sm border border-black/20"
-									style={{ backgroundColor: segment.color }}
-								/>
-								<span>{segment.name}</span>
-							</span>
-							<span className="font-numbers">{`${segment.percentage}%`}</span>
-						</li>
-					))}
-				</ul>
-				<p className="text-base leading-relaxed">{summary}</p>
-			</div>
 		</div>
 	);
 };
@@ -145,28 +111,5 @@ const circlePath = (cx: number, cy: number, r: number) =>
 		`A ${r} ${r} 0 1 1 ${cx} ${cy + r}`,
 		`A ${r} ${r} 0 1 1 ${cx} ${cy - r}`,
 	].join(" ");
-
-const describeSegments = (segments: CircleChartSegment[]): string | null => {
-	if (!segments.length) {
-		return null;
-	}
-
-	const totalCount = segments.reduce((sum, segment) => sum + segment.count, 0);
-	const sorted = [...segments].sort((a, b) => b.percentage - a.percentage);
-	const topSegment = sorted[0];
-	const trailingSegment = sorted[sorted.length - 1];
-	const categories = segments.length;
-
-	const trailingMessage =
-		trailingSegment &&
-		trailingSegment !== topSegment &&
-		` ${i18n("circleChart.summary.trailingMessage.p1")} ${trailingSegment.name} ${i18n("circleChart.summary.trailingMessage.p2")} ${trailingSegment.percentage}% `;
-
-	const totalMessage =
-		totalCount &&
-		`${i18n("circleChart.summary.totalMessage.p1")} ${totalCount.toLocaleString()} ${i18n("circleChart.summary.totalMessage.p2")}`;
-
-	return `${topSegment.name} ${i18n("circleChart.summary.leadsThisMessage.p1")} ${categories}${i18n("circleChart.summary.leadsThisMessage.p2")} ${topSegment.percentage}%${trailingMessage}${totalMessage}${i18n("circleChart.summary.usageDistributionMessage")}`;
-};
 
 export default CircleChart;

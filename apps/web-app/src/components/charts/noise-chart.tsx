@@ -1,4 +1,5 @@
 import React from "react";
+import { clamp } from "../match/utils";
 
 type NoiseChartProps = {
 	title: string;
@@ -11,10 +12,6 @@ type NoiseChartProps = {
 	markerColor?: string;
 	isValueLabelVisible?: boolean;
 };
-
-function clamp(n: number, min: number, max: number) {
-	return Math.min(Math.max(n, min), max);
-}
 
 function pct(value: number, min: number, max: number) {
 	const span = Math.max(1e-6, max - min);

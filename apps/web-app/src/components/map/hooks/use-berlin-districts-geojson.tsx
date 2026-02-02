@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 import type { FeatureCollection } from "geojson";
 
-export function useBerlinDistrictsGeojson() {
+export function useBerlinGeojson() {
 	const [geoJson, setGeoJson] = useState<FeatureCollection | null>(null);
 
 	useEffect(() => {
 		const abortController = new AbortController();
 
 		const fetchData = async () => {
-			const berlinBezirkeRaw = await fetch("/data/bezirksgrenzen.geojson", {
+			const berlinRaw = await fetch("/data/berlin.geojson", {
 				signal: abortController.signal,
 			});
-			const berlinBezirkeParsed = await berlinBezirkeRaw.json();
-			setGeoJson(berlinBezirkeParsed);
+			const berlinParsed = await berlinRaw.json();
+			setGeoJson(berlinParsed);
 		};
 
 		fetchData().catch((error) => {

@@ -1,5 +1,6 @@
 import * as React from "react";
 import { i18n } from "../../i18n/i18n-utils";
+import { clamp } from "../match/utils";
 
 type AirQualityStep = {
 	label: string;
@@ -28,10 +29,6 @@ const AIR_QUALITY_STEPS: AirQualityStep[] = [
 		value: 5,
 	},
 ];
-
-function clamp(n: number, min: number, max: number) {
-	return Math.max(min, Math.min(max, n));
-}
 
 function stepFor(value: number): AirQualityStep {
 	const v = clamp(value, 1, 5);
