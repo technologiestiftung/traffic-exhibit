@@ -13,7 +13,6 @@ export const formatDdMmmYyyy = (value?: string) => {
 	return format(d, "dd MMM yyyy");
 };
 
-// Shared utility functions
 export function clamp(n: number, min: number, max: number): number {
 	return Math.min(Math.max(n, min), max);
 }

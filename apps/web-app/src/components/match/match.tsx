@@ -7,15 +7,12 @@ import {
 	getDominantTrafficGradientClass,
 	getDominantTrafficModalIndex,
 	getTrafficModal,
-	scaleForStackPosition,
 } from "./utils";
 import CircleChart from "../charts/circle-chart/circle-chart";
 import { MatchDescription } from "./match-description";
 
 const CARD_W = 620;
 const CARD_H = 620;
-const OFFSET_Y = 0;
-const MIN_SCALE = 0.9;
 
 export const Match: React.FC = () => {
 	const {
@@ -24,17 +21,19 @@ export const Match: React.FC = () => {
 		onRotaryEncoder2Rotated,
 	} = useWebSocket();
 	const [stack, setStack] = useState<TelraamMatch[]>([]);
+	const [selectedIndex, setSelectedIndex] = useState<number>(0);
 
 	// Initialize stack when telraamMatches first loads
 	useEffect(() => {
 		if (telraamMatches.length > 0 && stack.length === 0) {
 			setStack(telraamMatches.filter((match) => match !== null));
+			setSelectedIndex(0);
 		}
 	}, [telraamMatches, stack.length]);
 
 	const matchStack =
 		stack.length > 0 ? stack : telraamMatches.filter((match) => match !== null);
-	const currentMatch = matchStack[0] ?? null;
+	const currentMatch = matchStack[selectedIndex] ?? null;
 
 	// Handle rotary encoder 2 rotation to navigate between matches
 	useEffect(() => {
@@ -42,60 +41,40 @@ export const Match: React.FC = () => {
 			// eslint-disable-next-line no-console
 			console.log("Rotary encoder 2 in match.tsx:", data);
 
-			setStack((currentStack) => {
-				const activeStack =
-					currentStack.length > 0
-						? currentStack
-						: telraamMatches.filter((match) => match !== null);
+			const activeStack =
+				stack.length > 0
+					? stack
+					: telraamMatches.filter((match) => match !== null);
 
-				if (activeStack.length <= 1) {
-					return currentStack;
-				}
+			if (activeStack.length <= 1) {
+				return;
+			}
 
-				if (data.direction === "clockwise") {
-					return [...activeStack.slice(1), activeStack[0]];
-				} else if (data.direction === "counter-clockwise") {
-					return [
-						activeStack[activeStack.length - 1],
-						...activeStack.slice(0, -1),
-					];
-				}
-
-				return currentStack;
-			});
+			if (data.direction === "clockwise") {
+				setSelectedIndex((prev) => (prev + 1) % activeStack.length);
+			} else if (data.direction === "counter-clockwise") {
+				setSelectedIndex(
+					(prev) => (prev - 1 + activeStack.length) % activeStack.length,
+				);
+			}
 		});
-	}, [onRotaryEncoder2Rotated, telraamMatches]);
+	}, [onRotaryEncoder2Rotated, telraamMatches, stack]);
 	const pageBackgroundClass = currentMatch
 		? getDominantTrafficGradientClass(
 				getDominantTrafficModalIndex(currentMatch),
 			)
 		: "bg-gradient-to-b from-bp-yellow via-bp-green to-bp-pink";
 
-	const isSelected = (match: TelraamMatch) =>
-		currentMatch?.segment_id
-			? match.segment_id === currentMatch.segment_id
-			: match === currentMatch;
-
-	// Reorder so clicked index becomes NEW FRONT (index 0), previous front moves to very back.
 	const handleSelect = (clickedIndex: number) => {
 		if (!matchStack.length) {
 			return;
 		}
 
-		if (clickedIndex === 0) {
-			if (!stack.length) {
-				setStack(matchStack.slice());
-			}
-			return;
+		if (!stack.length) {
+			setStack(matchStack.slice());
 		}
 
-		const prevFront = matchStack[0];
-		const clicked = matchStack[clickedIndex];
-		const others = matchStack.filter(
-			(_, idx) => idx !== clickedIndex && idx !== 0,
-		);
-		const newStack = [clicked, ...others, prevFront];
-		setStack(newStack);
+		setSelectedIndex(clickedIndex);
 	};
 
 	return (
@@ -120,26 +99,36 @@ export const Match: React.FC = () => {
 					className="relative z-50 overflow-visible"
 					style={{
 						width: CARD_W + 220,
-						height: CARD_H + Math.max(0, matchStack.length - 1) * OFFSET_Y,
+						height: CARD_H,
 						perspective: "2200px",
 						transformStyle: "preserve-3d",
-						marginLeft: 32 * (matchStack.length - 1),
+						marginLeft: 50 * (matchStack.length - 1) + 32,
 					}}
 				>
 					{matchStack.map((match, index) => {
 						const stackLength = matchStack.length;
-						const selectedCard = isSelected(match);
-						const reverseIndex = stackLength - 1 - index;
-						const zIndex = stackLength - index;
-						const scale = selectedCard
-							? 1.02
-							: scaleForStackPosition(reverseIndex, stackLength, MIN_SCALE);
+						const isSelectedCard = index === selectedIndex;
+						const leftOffset = -50 * index;
+
+						// Custom z-index logic: index 1 always in middle unless selected
+						let zIndex: number;
+						if (isSelectedCard) {
+							zIndex = stackLength + 1; // Selected card always on top
+						} else if (index === 1) {
+							zIndex = 2; // Middle card always at z-index 2
+						} else if (index === 0) {
+							zIndex = selectedIndex === 2 ? 1 : 3; // First card: low when third is selected, high otherwise
+						} else if (index === 2) {
+							zIndex = selectedIndex === 0 ? 1 : 3; // Third card: low when first is selected, high otherwise
+						} else {
+							zIndex = stackLength - index; // Fallback for more than 3 cards
+						}
+
+						const scale = isSelectedCard ? 1.02 : 0.95;
 						const transformStyle = `scale(${scale})`;
-						// Progressive left offset: cards further from front are shifted more to the left
-						const leftOffset = selectedCard ? 0 : -50 * index;
 
 						const stackPosition: StackPositionStyles = {
-							topOffset: reverseIndex * OFFSET_Y,
+							topOffset: 0,
 							zIndex,
 							scale,
 							transformStyle,
@@ -153,7 +142,7 @@ export const Match: React.FC = () => {
 								match={match}
 								index={index}
 								stackPosition={stackPosition}
-								selected={selectedCard}
+								selected={isSelectedCard}
 								onSelect={handleSelect}
 							/>
 						);
