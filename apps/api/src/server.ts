@@ -15,7 +15,7 @@ const telraamData = telraamDataRaw as { features: TrafficFeature[] };
 const enrichedTelraamData = enrichedTelraamDataRaw as TelraamMatch[];
 
 // Store current detection data (default to example values)
-let currentDetections = { car: 60, bike: 15, pedestrian: 8, heavy: 15 };
+let currentDetections = { car: 40, bike: 50, pedestrian: 8, heavy: 15 };
 
 // Calculate initial matches
 let closestMatch = findClosestMatches(currentDetections, telraamData.features);

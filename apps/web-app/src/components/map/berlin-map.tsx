@@ -1,7 +1,7 @@
 import * as d3 from "d3";
 import React, { useCallback } from "react";
-import { useBerlinDistrictsGeojson } from "./hooks/use-berlin-districts-geojson";
-import { BerlinDistrictPaths } from "./berlin-district-paths";
+import { useBerlinGeojson } from "./hooks/use-berlin-districts-geojson";
+import { BerlinPaths } from "./berlin-paths";
 
 type BerlinMapProps = {
 	lat: number;
@@ -17,7 +17,7 @@ export const BerlinMap: React.FC<BerlinMapProps> = ({
 	height = 200,
 }) => {
 	const location = { lat, lon };
-	const berlinDistrictsGeoJson = useBerlinDistrictsGeojson();
+	const berlinGeoJson = useBerlinGeojson();
 
 	const svgMargin = { top: 0, right: 0, bottom: 0, left: 0 };
 	const innerHeight = height - svgMargin.top - svgMargin.bottom;
@@ -34,11 +34,7 @@ export const BerlinMap: React.FC<BerlinMapProps> = ({
 	);
 	return (
 		<svg width={width} height={height}>
-			<BerlinDistrictPaths
-				projection={projection}
-				berlinDistrictsGeoJson={berlinDistrictsGeoJson}
-				pathColor="black"
-			/>
+			<BerlinPaths projection={projection} berlinGeoJson={berlinGeoJson} />
 
 			{location && projection
 				? (() => {
