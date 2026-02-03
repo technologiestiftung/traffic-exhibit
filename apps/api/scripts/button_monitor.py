@@ -15,7 +15,7 @@ except ImportError:
 # =============================================
 # Motor configuration
 FULL_STEPS_PER_REV = 200  # Number of full steps per revolution for 1.8° motor
-STEP_DELAY = 0.001  # Delay between step pulses in seconds (1ms for smooth operation)
+STEP_DELAY = 0.0005  # Delay between step pulses in seconds (0.5ms for smooth operation)
 ROTATIONS_PER_PRESS = 2  # Number of complete rotations to perform when triggered
 
 # GPIO pin assignments (BCM numbering)
@@ -289,57 +289,52 @@ def monitor_start_button():
         print(f"Error monitoring start button: {e}")
 
 def monitor_selection_button():
-    """Monitor the selection button for rotation and emit after 6 pulses"""
+    """Monitor the selection button for rotation and emit on each detent"""
     global selection_button_position, last_clk2_state, last_direction2, encoder_running
     
     print("Starting selection button monitoring...")
     
     pulse_count = 0
-    PULSES_REQUIRED = 6
+    skip_counter = 0  # Counter to skip every other pulse
     TOTAL_PULSES = 20
-    current_direction_accumulator = None  # Track current direction for pulse accumulation
     
     try:
         while encoder_running:
             current_clk2_state = clk2.value
             
-            # Check if CLK pin has changed state (falling edge detection)
+            # Detect any state change
             if current_clk2_state != last_clk2_state:
-                # Determine direction
+                # Determine direction by comparing DT with CLK
                 if dt2.value != current_clk2_state:
-                    current_direction2 = "Clockwise"
-                    selection_button_position -= 1
-                    direction = "clockwise"
-                else:
                     current_direction2 = "Counter-Clockwise"
-                    selection_button_position += 1
+                    selection_button_position -= 1
                     direction = "counter-clockwise"
+                else:
+                    current_direction2 = "Clockwise"
+                    selection_button_position += 1
+                    direction = "clockwise"
                 
-                # Reset accumulator if direction changed
-                if current_direction_accumulator is not None and current_direction_accumulator != direction:
-                    pulse_count = 0
+                skip_counter += 1
                 
-                current_direction_accumulator = direction
-                pulse_count += 1
-                
-                # Only emit after 6 pulses in the same direction
-                if pulse_count >= PULSES_REQUIRED:
-                    # Send socket io event to frontend
+                # Only emit every other pulse (to get one event per detent)
+                if skip_counter % 2 == 0:
+                    pulse_count += 1
+                    
+                    # Debug: Log every pulse
+                    print(f"[SELECTION DEBUG] Pulse detected - Direction: {direction}")
+                    
+                    # Emit event immediately
                     try:
                         sio.emit('selection_button_rotated', {
-                            'direction': direction,
-                            'position': selection_button_position,
-                            'pulseCount': pulse_count
+                            'direction': direction
                         })
+                        print(f"✅ [SELECTION BUTTON] Event emitted!")
                     except Exception as e:
                         print(f"Socket.IO emit failed: {e}")
                     
                     # Log the event
                     progress = (abs(selection_button_position) % TOTAL_PULSES)
-                    print(f"[SELECTION BUTTON] {pulse_count} pulses - Direction: {current_direction2} (progress: {progress}/{TOTAL_PULSES})")
-                    
-                    # Reset pulse count after emitting
-                    pulse_count = 0
+                    print(f"[SELECTION BUTTON] Direction: {current_direction2}")
                 
                 # Update direction tracking
                 last_direction2 = current_direction2
