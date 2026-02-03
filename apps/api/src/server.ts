@@ -93,25 +93,25 @@ const io = new Server(httpServer, {
 io.on("connection", (socket) => {
 	logger.success("Frontend connected");
 
-	// Handle start event from first rotary encoder (clockwise rotation)
+	// Handle start event from start button (clockwise rotation)
 	socket.on("start-event", () => {
-		logger.info("Start event received from first rotary encoder");
+		logger.info("Start event received from start button");
 		// Forward to all connected frontend clients
 		io.emit("start-event");
 	});
 
-	// Handle stop event from first rotary encoder (counter-clockwise rotation)
+	// Handle stop event from start button (counter-clockwise rotation)
 	socket.on("stop-event", () => {
-		logger.info("Stop event received from first rotary encoder");
+		logger.info("Stop event received from start button");
 		// Forward to all connected frontend clients
 		io.emit("stop-event");
 	});
 
-	// Handle second rotary encoder rotation from Python script
-	socket.on("rotary_encoder2_rotated", (data) => {
-		logger.info("Second rotary encoder rotated", data);
+	// Handle selection button rotation from Python script
+	socket.on("selection_button_rotated", (data) => {
+		logger.info("Selection button rotated", data);
 		// Forward to all connected frontend clients
-		io.emit("rotary_encoder2_rotated", data);
+		io.emit("selection_button_rotated", data);
 	});
 
 	socket.emit("telraam-matches", enrichedMatches);

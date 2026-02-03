@@ -5,7 +5,7 @@ import type { TelraamMatch } from "../../../api/src/common";
 
 const wsUrl = import.meta.env.VITE_WS_URL;
 
-type RotaryEncoder2Data = {
+type SelectionButtonData = {
 	direction: "clockwise" | "counter-clockwise";
 	position: number;
 	pulseCount: number;
@@ -15,8 +15,8 @@ export const useWebSocket = () => {
 	const [socket, setSocket] = useState<Socket | null>(null);
 	const [occupiedBlocks, setOccupiedBlocks] = useState<number[]>([]);
 	const [telraamMatches, setTelraamMatches] = useState<TelraamMatch[]>([]);
-	const rotaryEncoder2CallbackRef = useRef<
-		((data: RotaryEncoder2Data) => void) | null
+	const selectionButtonCallbackRef = useRef<
+		((data: SelectionButtonData) => void) | null
 	>(null);
 
 	const { setCurrentScreen, setStartStopButton } = useScreenStore();
@@ -33,26 +33,26 @@ export const useWebSocket = () => {
 			setTelraamMatches(data);
 		});
 
-		// Handle start event from first rotary encoder (clockwise rotation)
+		// Handle start event from start button (clockwise rotation)
 		newSocket.on("start-event", () => {
 			setStartStopButton();
 			// eslint-disable-next-line no-console
-			console.log("start event received from first rotary encoder");
+			console.log("start event received from start button");
 		});
 
-		// Handle stop event from first rotary encoder (counter-clockwise rotation)
+		// Handle stop event from start button (counter-clockwise rotation)
 		newSocket.on("stop-event", () => {
 			setStartStopButton();
 			// eslint-disable-next-line no-console
-			console.log("stop event received from first rotary encoder");
+			console.log("stop event received from start button");
 		});
 
-		// Handle second rotary encoder rotation from backend
-		newSocket.on("rotary_encoder2_rotated", (data: RotaryEncoder2Data) => {
+		// Handle selection button rotation from backend
+		newSocket.on("selection_button_rotated", (data: SelectionButtonData) => {
 			// eslint-disable-next-line no-console
-			console.log("rotary_encoder2_rotated signal received:", data);
-			if (rotaryEncoder2CallbackRef.current) {
-				rotaryEncoder2CallbackRef.current(data);
+			console.log("selection_button_rotated signal received:", data);
+			if (selectionButtonCallbackRef.current) {
+				selectionButtonCallbackRef.current(data);
 			}
 		});
 
@@ -66,16 +66,16 @@ export const useWebSocket = () => {
 		socket?.emit("go-back-to-start");
 	};
 
-	const onRotaryEncoder2Rotated = (
-		callback: (data: RotaryEncoder2Data) => void,
+	const onSelectionButtonRotated = (
+		callback: (data: SelectionButtonData) => void,
 	) => {
-		rotaryEncoder2CallbackRef.current = callback;
+		selectionButtonCallbackRef.current = callback;
 	};
 
 	return {
 		occupiedBlocks,
 		goBackToStart,
 		telraamMatches,
-		onRotaryEncoder2Rotated,
+		onSelectionButtonRotated,
 	};
 };
