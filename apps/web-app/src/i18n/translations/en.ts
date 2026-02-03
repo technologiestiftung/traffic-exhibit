@@ -1,9 +1,10 @@
 export const en = {
 	/* START */
 	"start.title": "Berliner Platte",
-	"start.subHeading": "Who's on Berlin's streets?",
+	"start.subHeading":
+		"Which traffic mix do you want to see on Berlin's streets?",
 	"start.description":
-		"Show your personal traffic mix - reduced to the essentials, inspired by the forms of the Berliner Platte.",
+		"Create your own traffic mix and explore Berlin's streets. Place 10 traffic blocks on the wheel - each block represents 10% of the traffic.",
 	"start.simulateButton.label": "Simulate Start",
 	"start.showAllDataButton.label": "Show all data",
 	"start.hideAllDataButton.label": "Hide all data",
@@ -35,7 +36,6 @@ export const en = {
 	"noiseChart.title": "Noise Pollution",
 
 	/* CIRCLE CHART */
-	"circleChart.heading": "Traffic Mix",
 	"circleChart.summary.trailingMessage.p1": "while",
 	"circleChart.summary.trailingMessage.p2": "trails at",
 	"circleChart.summary.totalMessage.p1": "across",

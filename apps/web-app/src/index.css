@@ -3,16 +3,22 @@
 /* Font: served from `apps/web-app/public/PexelGrotesk-Regular.ttf` */
 @font-face {
 	font-family: "Pixel Grotesk";
-	src: url("/PexelGrotesk-Regular.ttf") format("truetype");
+	src: url("fonts/PexelGrotesk-Regular.ttf") format("truetype");
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
 
-:root {
-	--PexelGrotesk-Regular:
-		"Pixel Grotesk", "Space Grotesk", system-ui, -apple-system,
-		BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+@font-face {
+	font-family: "Host Grotesk";
+	src: url("fonts/HostGrotesk-VariableFont_wght.ttf") format("truetype");
+	font-display: swap;
+}
+
+@font-face {
+	font-family: "Host Grotesk Italic";
+	src: url("fonts/HostGrotesk-Italic-VariableFont_wght.ttf") format("truetype");
+	font-display: swap;
 }
 
 /* Global typography: one consistent font everywhere */
@@ -26,7 +32,7 @@
 	body {
 		margin: 0;
 		overflow: hidden;
-		font-family: var(--PexelGrotesk-Regular);
+		font-family: "Host Grotesk", "Host Grotesk Italic", "Pixel Grotesk";
 	}
 }
 
@@ -37,6 +43,7 @@
 	--color-bp-blue: #3360e9;
 	--color-bp-gray-light: #999999;
 	--color-bp-gray-dark: #25252a;
+	--font-pixel: "Pixel Grotesk";
 }
 
 @layer utilities {

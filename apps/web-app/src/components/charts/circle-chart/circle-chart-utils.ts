@@ -38,7 +38,7 @@ export const buildSegments = ({
 
 	return data.map((segment, index) => {
 		const strokeWidth = segment.percentage * scale;
-		const radius = currentInnerRadius + strokeWidth / 2;
+		const radius = currentInnerRadius + strokeWidth / 1.75;
 		const labelRadius = currentInnerRadius + strokeWidth + gap / 2;
 
 		currentInnerRadius += strokeWidth + gap;
