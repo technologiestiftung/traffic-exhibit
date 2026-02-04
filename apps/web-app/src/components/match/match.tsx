@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useWebSocket } from "../../hooks/useWebSocket";
 import { i18n } from "../../i18n/i18n-utils";
 import type { TelraamMatch } from "../../../../api/src/common";
@@ -32,30 +32,27 @@ export const Match: React.FC = () => {
 		stack.length > 0 ? stack : telraamMatches.filter((match) => match !== null);
 	const currentMatch = matchStack[selectedIndex] ?? null;
 
-	// Handle selection button rotation to navigate between matches
+	// Ref so selection-button callback always sees current stack (avoids stale closure)
+	const matchStackRef = useRef(matchStack);
+	matchStackRef.current = matchStack;
+
+	// Handle selection button rotation: clockwise -> next card, counter-clockwise -> previous card (looping)
 	useEffect(() => {
 		onSelectionButtonRotated((data) => {
-			// eslint-disable-next-line no-console
-			console.log("Selection button in match.tsx:", data);
-
-			const activeStack =
-				stack.length > 0
-					? stack
-					: telraamMatches.filter((match) => match !== null);
-
-			if (activeStack.length <= 1) {
+			const activeStack = matchStackRef.current;
+			const n = activeStack.length;
+			if (n <= 1) {
 				return;
 			}
 
 			if (data.direction === "clockwise") {
-				setSelectedIndex((prev) => (prev + 1) % activeStack.length);
+				setSelectedIndex((prev) => (prev + 1) % n);
 			} else if (data.direction === "counter-clockwise") {
-				setSelectedIndex(
-					(prev) => (prev - 1 + activeStack.length) % activeStack.length,
-				);
+				setSelectedIndex((prev) => (prev - 1 + n) % n);
 			}
 		});
-	}, [onSelectionButtonRotated, telraamMatches]);
+	}, [onSelectionButtonRotated]);
+
 	const pageBackgroundClass = currentMatch
 		? getDominantTrafficGradientClass(
 				getDominantTrafficModalIndex(currentMatch),
