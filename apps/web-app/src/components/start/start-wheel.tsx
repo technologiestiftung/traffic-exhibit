@@ -21,17 +21,17 @@ export function StartWheel({
 					<img
 						src="/bike.svg"
 						alt="bike"
-						className={`absolute -right-40 bottom-20 w-36 2xl:w-52 rotate-[-10deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)] ${animateDecorations ? "animate-pulse-scale-soft-slow" : ""}`}
+						className={`absolute -right-40 bottom-20 w-36 2xl:w-52 rotate-[120deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)] ${animateDecorations ? "animate-pulse-scale-soft-slow" : ""}`}
 					/>
 					<img
 						src="/walking.svg"
 						alt="walking"
-						className={`absolute -left-36 top-20 w-32 2xl:w-48 rotate-[-18deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)] ${animateDecorations ? "animate-pulse-scale-soft-slow" : ""}`}
+						className={`absolute -left-36 top-20 w-32 2xl:w-48 rotate-[-50deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)] ${animateDecorations ? "animate-pulse-scale-soft-slow" : ""}`}
 					/>
 					<img
 						src="/lkw.svg"
 						alt="truck"
-						className={`absolute -left-44 bottom-10 w-40 2xl:w-56 rotate-[12deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)] ${animateDecorations ? "animate-pulse-scale-soft-slow" : ""}`}
+						className={`absolute -left-44 bottom-10 w-40 2xl:w-56 rotate-[-120deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)] ${animateDecorations ? "animate-pulse-scale-soft-slow" : ""}`}
 					/>
 					<img
 						src="/icon.svg"
