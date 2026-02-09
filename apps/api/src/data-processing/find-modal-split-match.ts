@@ -17,10 +17,11 @@ function calculateDistance(
 	);
 }
 
-/** Return the 3 closest matches (smallest distance → largest). */
+/** Return the 3 closest matches; if segmentIdsWithImage is set, skip matches without images. */
 export function findClosestMatches(
 	currentDetections: ModalSplitPercentages,
 	fetchedTrafficData: TrafficFeature[],
+	segmentIdsWithImage?: Set<number>,
 ): TrafficFeature[] | null {
 	if (!Array.isArray(fetchedTrafficData) || fetchedTrafficData.length === 0) {
 		return null;
@@ -53,6 +54,19 @@ export function findClosestMatches(
 			: featureA.distance - featureB.distance,
 	);
 
-	// pick top 3 closest features
+	// pick top 3 closest features; if segmentIdsWithImage is set, only include features that have an image
+	if (segmentIdsWithImage) {
+		const result: TrafficFeature[] = [];
+		for (const entry of featuresWithDistances) {
+			if (result.length >= 3) {
+				break;
+			}
+			if (segmentIdsWithImage.has(entry.feature.properties.segment_id)) {
+				result.push(entry.feature);
+			}
+		}
+		return result.length > 0 ? result : null;
+	}
+
 	return featuresWithDistances.slice(0, 3).map((entry) => entry.feature);
 }
