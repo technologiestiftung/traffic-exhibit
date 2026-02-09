@@ -11,6 +11,24 @@ const __dirname = dirname(__filename);
 const PROJECT_ROOT = resolve(__dirname, "..");
 const API_DIR = join(PROJECT_ROOT, "apps", "api");
 
+const EU_TIMEZONE = "Europe/Berlin";
+const PROCESSING_START_HOUR = 7; // 7 AM
+const PROCESSING_END_HOUR = 18; // 6 PM (inclusive)
+
+function getCurrentHourEU() {
+  const formatter = new Intl.DateTimeFormat("en-GB", {
+    timeZone: EU_TIMEZONE,
+    hour: "numeric",
+    hour12: false,
+  });
+  return parseInt(formatter.format(new Date()), 10);
+}
+
+function isWithinProcessingWindow() {
+  const hour = getCurrentHourEU();
+  return hour >= PROCESSING_START_HOUR && hour <= PROCESSING_END_HOUR;
+}
+
 // Run data processing
 function processData() {
   return new Promise((res, reject) => {
@@ -43,25 +61,41 @@ function processData() {
   });
 }
 
-// Schedule data processing every hour
+// Schedule data processing every hour (between 7am and 6pm EU time)
 async function scheduleHourlyProcessing() {
   logger.time(new Date().toISOString());
-  logger.info(`Starting hourly data processing scheduler...`);
+  logger.info(
+    `Starting hourly data processing scheduler (EU ${PROCESSING_START_HOUR}:00–${PROCESSING_END_HOUR}:00)...`,
+  );
 
-  // Run processData every hour (3600000 milliseconds = 1 hour)
-  setInterval(async () => {
-    try {
-      await processData();
-    } catch (error) {
-      console.error(
-        `[${new Date().toISOString()}] Scheduled data processing failed:`,
-        error
+  const runIfWithinWindow = async () => {
+    if (isWithinProcessingWindow()) {
+      try {
+        await processData();
+      } catch (error) {
+        console.error(
+          `[${new Date().toISOString()}] Scheduled data processing failed:`,
+          error,
+        );
+      }
+    } else {
+      logger.time(new Date().toISOString());
+      logger.info(
+        `Skipping run (outside EU ${PROCESSING_START_HOUR}:00–${PROCESSING_END_HOUR}:00, current hour EU: ${getCurrentHourEU()})`,
       );
     }
-  }, 3600000); // 1 hour in milliseconds
+  };
+
+  // Run once at startup if within window
+  await runIfWithinWindow();
+
+  // Run every hour (3600000 milliseconds = 1 hour)
+  setInterval(runIfWithinWindow, 3600000);
 
   logger.time(new Date().toISOString());
-  logger.info(`Scheduler started. Data will be processed every hour.`);
+  logger.info(
+    `Scheduler started. Data will be processed every hour between EU ${PROCESSING_START_HOUR}:00–${PROCESSING_END_HOUR}:00.`,
+  );
 }
 
 // Handle graceful shutdown
