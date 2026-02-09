@@ -14,11 +14,22 @@ import type { TrafficFeature, TelraamMatch } from "./common";
 const telraamData = telraamDataRaw as { features: TrafficFeature[] };
 const enrichedTelraamData = enrichedTelraamDataRaw as TelraamMatch[];
 
+// Segment IDs that have an image (skip matches without images in favour of next closest)
+const segmentIdsWithImage = new Set(
+	enrichedTelraamData
+		.filter((e) => e.imageURL !== null && e.imageURL !== "")
+		.map((e) => e.segment_id),
+);
+
 // Store current detection data (default to example values)
 let currentDetections = { car: 40, bike: 50, pedestrian: 8, heavy: 15 };
 
-// Calculate initial matches
-let closestMatch = findClosestMatches(currentDetections, telraamData.features);
+// Calculate initial matches (only features that have images)
+let closestMatch = findClosestMatches(
+	currentDetections,
+	telraamData.features,
+	segmentIdsWithImage,
+);
 
 // for each match the closest result with enriched-telraam-data
 let enrichedMatches =
@@ -58,8 +69,12 @@ app.post("/api/detections", (req, res) => {
 
 		logger.info("Received detection data:", currentDetections);
 
-		// Recalculate matches with new detection data
-		closestMatch = findClosestMatches(currentDetections, telraamData.features);
+		// Recalculate matches with new detection data (only features that have images)
+		closestMatch = findClosestMatches(
+			currentDetections,
+			telraamData.features,
+			segmentIdsWithImage,
+		);
 
 		// Update enriched matches
 		enrichedMatches =
