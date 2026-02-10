@@ -36,7 +36,7 @@ export function StartWheel({
 					<img
 						src="/icon.svg"
 						alt="car"
-						className={`absolute -top-6 -right-30 w-43 2xl:w-55 hidden rotate-[45deg] items-center justify-center lg:flex ${animateDecorations ? "animate-pulse-scale-soft-slow" : ""}`}
+						className={`absolute -top-6 -right-40 w-48 2xl:w-60 hidden ${iconRotationClassName} items-center justify-center lg:flex ${animateDecorations ? "animate-pulse-scale-soft-slow" : ""}`}
 					/>
 				</div>
 
