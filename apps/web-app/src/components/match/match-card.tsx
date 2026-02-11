@@ -1,6 +1,5 @@
 import React from "react";
 import { Pill } from "../pill/pill";
-import { NoiseChart } from "../charts/noise-chart";
 import { AirQualityChart } from "../charts/air-quality-chart";
 import type { TelraamMatch } from "../../../../api/src/common";
 import { i18n } from "../../i18n/i18n-utils";
@@ -96,12 +95,6 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 					)}
 				</div>
 				<div className="flex flex-col gap-2 mb-2">
-					{match.nearestNoiseLevel !== null && (
-						<NoiseChart
-							title={i18n("noiseChart.title")}
-							value={match.nearestNoiseLevel}
-						/>
-					)}
 					<AirQualityChart
 						title={i18n("airQualityChart.title")}
 						value={match.airQuality}

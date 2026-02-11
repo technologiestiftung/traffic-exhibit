@@ -4,7 +4,8 @@ import { i18n } from "../../i18n/i18n-utils";
 
 const INITIAL_FILL_DURATION_MS = 1200; // 0 → value on first load
 const MIN_DISPLAY_PERCENT = 20; // minimum range so blocks visible when value is 0
-const LOOP_RANGE_BLOCKS = 10; // loop in last N blocks (10 blocks = 20%)
+const LOOP_OVERSHOOT_PERCENT = 6; // jitter/pulse can go this much above current value (e.g. 3 blocks)
+const LOOP_SINE_AMPLITUDE_BLOCKS = 1; // sine wave moves only this many blocks (less = calmer)
 const LOOP_BASE_PERIOD_MS = 9000; // base period for loop oscillation (slower = calmer)
 const LOOP_PERIOD_VARIANCE_MS = 2500; // random variance so not same every time
 const LOOP_NOISE_AMOUNT = 1; // random jitter like real VU meter (±%)
@@ -33,7 +34,7 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 	isScaleVisible = true,
 	className = "",
 	isValueLabelVisible = true,
-	animationDurationMs = 400,
+	animationDurationMs: _animationDurationMs = 400,
 }) => {
 	const [rangeMin, rangeMax] = [VU_RANGE_MIN, VU_RANGE_MAX];
 	const clamped = clamp(value, rangeMin, rangeMax);
@@ -41,13 +42,16 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 		0,
 		Math.min(100, ((clamped - rangeMin) / (rangeMax - rangeMin)) * 100),
 	);
-	const BLOCKS = 50; // one block per 2%
-	const blockColors: string[] = [
-		...Array(15).fill("#22c55e"), // 0–30% green
-		...Array(10).fill("#eab308"), // 30–50% yellow
-		...Array(5).fill("#f59e0b"), // 50–60% orange
-		...Array(20).fill("#dc2626"), // 60–100% red
-	];
+	const COLS = 3;
+	const ROWS = 20; // each row = 5% of 100%
+	const ROW_PERCENT = 5;
+	const FILLED_COLOR = "#000";
+	const GRID_BG = "transparent";
+	const GAP = 2;
+	const PAD = 2;
+	const CELL_SIZE = 10;
+	const GRID_WIDTH = COLS * CELL_SIZE + (COLS - 1) * GAP + PAD * 2;
+	const GRID_HEIGHT = ROWS * CELL_SIZE + (ROWS - 1) * GAP + PAD * 2;
 
 	// Phase 1: 0 → value. Phase 2: loop in last LOOP_RANGE_BLOCKS with random variation
 	const [displayPercent, setDisplayPercent] = useState(MIN_DISPLAY_PERCENT / 2);
@@ -76,7 +80,6 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 				MIN_DISPLAY_PERCENT,
 				fillPercentRef.current,
 			);
-			const loopRangePercent = LOOP_RANGE_BLOCKS * 2; // N blocks * 2% each
 
 			if (phaseRef.current === "initial") {
 				const t = Math.min(1, elapsed / INITIAL_FILL_DURATION_MS);
@@ -88,10 +91,8 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 					lastNowRef.current = now;
 				}
 			} else {
-				const loopMin = Math.max(0, targetPercent - loopRangePercent);
-				const loopMax = targetPercent;
-				const halfRange = (loopMax - loopMin) / 2;
-				const mid = loopMin + halfRange;
+				// Center oscillation on current value; jitter can exceed it so it looks "around" the value
+				const sineHalfAmplitudePercent = LOOP_SINE_AMPLITUDE_BLOCKS * 2 * 0.5; // ±N blocks
 				const deltaMs =
 					lastNowRef.current !== null ? now - lastNowRef.current : 16;
 				lastNowRef.current = now;
@@ -100,7 +101,8 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 					Math.sin(now * 0.0008) * LOOP_PERIOD_VARIANCE_MS;
 				loopPhaseRef.current += (deltaMs / period) * 2 * Math.PI;
 				const cycle = loopPhaseRef.current;
-				const base = mid + halfRange * Math.sin(cycle);
+				// Base fill level = current value; sine + jitter oscillate around it (can exceed above)
+				const base = targetPercent + sineHalfAmplitudePercent * Math.sin(cycle);
 				noiseRef.current =
 					noiseRef.current * LOOP_NOISE_SMOOTH +
 					(Math.random() - 0.5) * 2 * LOOP_NOISE_AMOUNT;
@@ -108,7 +110,12 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 					-LOOP_NOISE_AMOUNT * 2,
 					Math.min(LOOP_NOISE_AMOUNT * 2, noiseRef.current),
 				);
-				const percent = Math.max(0, Math.min(100, base + noiseRef.current));
+				const raw = base + noiseRef.current;
+				const maxPercent = Math.min(
+					100,
+					targetPercent + LOOP_OVERSHOOT_PERCENT,
+				);
+				const percent = Math.max(0, Math.min(maxPercent, raw));
 				setDisplayPercent(percent);
 			}
 
@@ -124,57 +131,71 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 
 	return (
 		<section className={`w-full flex flex-col gap-2 p-3 ${className}`}>
-			<h3 className="font-semibold self-start text-base 2xl:text-xl">
-				{title}
+			<h3 className="font-normal self-start text-base 2xl:text-xl">
+				{title}{" "}
+				<span className="font-semibold">({Math.round(clamped)} dB)</span>
 			</h3>
-			<div className="flex flex-col gap-2 w-full">
-				{/* Horizontal VU meter: 50 blocks (2% each), unfilled blocks invisible */}
-				<div
-					role="meter"
-					aria-label="Noise level"
-					aria-valuemin={rangeMin}
-					aria-valuemax={rangeMax}
-					aria-valuenow={clamped}
-					aria-valuetext={`${Math.round(clamped)} dB`}
-					className="flex w-full gap-0.5 sm:gap-1 bg-black p-0.5 sm:p-1"
-				>
-					{Array.from({ length: BLOCKS }, (_, i) => {
-						const threshold = (i + 1) * 2;
-						const isOn = displayPercent >= threshold;
-						return (
-							<div
-								key={i}
-								className="flex-1 h-6 sm:h-8"
-								style={{
-									backgroundColor: isOn ? blockColors[i] : "transparent",
-									boxShadow: isOn ? `0 0 8px ${blockColors[i]}40` : "none",
-								}}
-							/>
-						);
-					})}
+			<div className="flex items-start gap-3 w-full">
+				{/* Vertical grid: 3 columns × 20 rows, fill from bottom, transparent bg, black cells */}
+				<div className="flex flex-col gap-0.5 sm:gap-1 items-center shrink-0">
+					{isScaleVisible && (
+						<span className="text-xs text-neutral-700 h-4 flex items-center">
+							{i18n("noiseChart.scale.loud")}
+						</span>
+					)}
+					<div
+						role="meter"
+						aria-label="Noise level"
+						aria-valuemin={rangeMin}
+						aria-valuemax={rangeMax}
+						aria-valuenow={clamped}
+						aria-valuetext={`${Math.round(clamped)} dB`}
+						className="grid overflow-hidden shrink-0"
+						style={{
+							width: GRID_WIDTH,
+							height: GRID_HEIGHT,
+							padding: PAD,
+							gap: GAP,
+							gridTemplateColumns: `repeat(${COLS}, ${CELL_SIZE}px)`,
+							gridTemplateRows: `repeat(${ROWS}, ${CELL_SIZE}px)`,
+							backgroundColor: GRID_BG,
+						}}
+					>
+						{Array.from({ length: ROWS }, (_, row) =>
+							Array.from({ length: COLS }, (_unused, c) => {
+								const i = row * COLS + c;
+								const threshold = (ROWS - row) * ROW_PERCENT;
+								const isOn = displayPercent >= threshold;
+								return (
+									<div
+										key={i}
+										className="min-h-0 min-w-0 box-border border border-black"
+										style={{
+											backgroundColor: isOn ? FILLED_COLOR : GRID_BG,
+										}}
+									/>
+								);
+							}),
+						)}
+					</div>
+					{isScaleVisible && (
+						<span className="text-xs text-neutral-700 h-4 flex items-center">
+							{i18n("noiseChart.scale.quiet")}
+						</span>
+					)}
 				</div>
-				{(isScaleVisible || isValueLabelVisible) && (
-					<div className="relative flex justify-between items-baseline text-xs w-full min-h-[1.25rem]">
+				{/* Value label: aligned with fill level */}
+				{isValueLabelVisible && (
+					<div className="flex flex-col gap-0.5 sm:gap-1 shrink-0">
 						{isScaleVisible && (
-							<span className="text-neutral-500 z-0">
-								{i18n("noiseChart.scale.quiet")}
-							</span>
-						)}
-						{isValueLabelVisible && (
-							<span
-								className="absolute font-bold font-numbers tabular-nums z-10 ease-out"
-								style={{
-									left: `${fillPercent}%`,
-									transform: "translateX(-50%)",
-									transition: `left ${animationDurationMs}ms ease-out`,
-								}}
-							>
-								{Math.round(clamped)} dB
-							</span>
-						)}
-						{isScaleVisible && (
-							<span className="text-neutral-500 z-0">
+							<span className="text-xs invisible h-4">
 								{i18n("noiseChart.scale.loud")}
+							</span>
+						)}
+
+						{isScaleVisible && (
+							<span className="text-xs invisible h-4">
+								{i18n("noiseChart.scale.quiet")}
 							</span>
 						)}
 					</div>

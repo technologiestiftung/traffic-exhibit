@@ -10,6 +10,7 @@ import {
 import CircleChart from "../charts/circle-chart/circle-chart";
 import { MatchDescription } from "./match-description";
 import { MatchCards } from "./match-cards";
+import { NoiseChart } from "../charts/noise-chart";
 
 export const Match: React.FC = () => {
 	const {
@@ -109,11 +110,20 @@ export const Match: React.FC = () => {
 								data={getTrafficModal(currentMatch)}
 							/>
 						</div>
-
-						<MatchDescription
-							data={getTrafficModal(currentMatch)}
-							coordinates={currentMatch.coordinates}
-						/>
+						<div className="flex gap-4">
+							<MatchDescription
+								data={getTrafficModal(currentMatch)}
+								coordinates={currentMatch.coordinates}
+							/>
+							<div className="flex lg:w-1/5 flex-col self-center text-slate-800 lg:ml-auto">
+								{currentMatch.nearestNoiseLevel !== null && (
+									<NoiseChart
+										title={i18n("noiseChart.title")}
+										value={currentMatch.nearestNoiseLevel}
+									/>
+								)}
+							</div>
+						</div>
 					</>
 				)}
 			</div>
