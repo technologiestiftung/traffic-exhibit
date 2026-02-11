@@ -78,9 +78,12 @@ export const Match: React.FC = () => {
 
 	return (
 		<div
-			className={`flex justify-center h-screen w-full flex-col items-center ${pageBackgroundClass} px-4 pb-20`}
+			className={`flex justify-center h-screen w-full flex-col items-center ${pageBackgroundClass} px-4 pb-20 relative`}
 		>
-			<div className="mb-8 2xl:mb-16 flex w-full max-w-[1540px] 2xl:max-w-[2300px] xl:px-0 gap-4 2xl:gap-10 flex-row md:justify-between px-10">
+			{/* Transition overlay: starts with loading gradient, fades out to reveal match gradient */}
+			<div className="absolute inset-0 bg-gradient-to-b from-[#171719] via-[#3b3b41] to-[#d7d7dd] animate-fade-out pointer-events-none" />
+
+			<div className="mb-8 2xl:mb-16 flex w-full max-w-[1540px] 2xl:max-w-[2300px] xl:px-0 gap-4 2xl:gap-10 flex-row md:justify-between px-10 relative z-10 animate-fade-in">
 				<h1 className="font-pixel text-left text-4xl 2xl:text-6xl font-semibold text-[#1e2402] drop-shadow font-title">
 					{i18n("match.title")}
 				</h1>
@@ -90,7 +93,7 @@ export const Match: React.FC = () => {
 				</h2>
 			</div>
 
-			<div className="relative flex w-full max-w-[1540px] 2xl:max-w-[2300px] items-center justify-between gap-12">
+			<div className="relative flex w-full max-w-[1540px] 2xl:max-w-[2300px] items-center justify-between gap-12 z-10 animate-fade-in-delay-200">
 				{/* Stacked cards*/}
 				<div className="relative flex z-50 h-[600px] 2xl:h-[850px] overflow-visible ml-44">
 					<MatchCards
@@ -127,7 +130,7 @@ export const Match: React.FC = () => {
 				)}
 			</div>
 			<button
-				className="absolute bottom-10 left-1/2 -translate-x-1/2 border border-gray-600 bg-white/70 px-4 py-2 text-sm font-semibold tracking-wide text-slate-700 transition hover:-translate-y-0.5 hover:bg-white md:self-center"
+				className="absolute bottom-10 left-1/2 -translate-x-1/2 border border-gray-600 bg-white/70 px-4 py-2 text-sm font-semibold tracking-wide text-slate-700 transition hover:-translate-y-0.5 hover:bg-white md:self-center z-10 animate-fade-in-delay-200"
 				onClick={goBackToStart}
 			>
 				{i18n("match.createNewMixButton.label")}

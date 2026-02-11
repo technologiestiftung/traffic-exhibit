@@ -48,6 +48,41 @@
 }
 
 @layer utilities {
+	@keyframes fade-out {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+
+	.animate-fade-out {
+		animation: fade-out 1200ms ease-in-out;
+		animation-fill-mode: both;
+	}
+
+	@keyframes fade-in {
+		0% {
+			opacity: 0;
+			transform: translateY(10px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.animate-fade-in {
+		animation: fade-in 1000ms ease-out;
+		animation-fill-mode: both;
+	}
+
+	.animate-fade-in-delay-200 {
+		animation: fade-in 1000ms ease-out 200ms;
+		animation-fill-mode: both;
+	}
+
 	@keyframes pulse-scale-soft {
 		0%,
 		100% {
