@@ -5,9 +5,9 @@ import { i18n } from "../../i18n/i18n-utils";
 const INITIAL_FILL_DURATION_MS = 1200; // 0 → value on first load
 const MIN_DISPLAY_PERCENT = 20; // minimum range so blocks visible when value is 0
 const LOOP_OVERSHOOT_PERCENT = 6; // jitter/pulse can go this much above current value (e.g. 3 blocks)
-const LOOP_SINE_AMPLITUDE_BLOCKS = 1; // sine wave moves only this many blocks (less = calmer)
-const LOOP_BASE_PERIOD_MS = 9000; // base period for loop oscillation (slower = calmer)
-const LOOP_PERIOD_VARIANCE_MS = 2500; // random variance so not same every time
+const LOOP_SINE_AMPLITUDE_PERCENT = 20; // sine wave ±20% (4 rows) – clearly visible
+const LOOP_BASE_PERIOD_MS = 2500; // one full back-and-forth in 2.5s
+const LOOP_PERIOD_VARIANCE_MS = 400; // slight variance
 const LOOP_NOISE_AMOUNT = 1; // random jitter like real VU meter (±%)
 const LOOP_NOISE_SMOOTH = 0.995; // higher = slower, calmer jitter
 
@@ -53,8 +53,8 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 	const GRID_WIDTH = COLS * CELL_SIZE + (COLS - 1) * GAP + PAD * 2;
 	const GRID_HEIGHT = ROWS * CELL_SIZE + (ROWS - 1) * GAP + PAD * 2;
 
-	// Phase 1: 0 → value. Phase 2: loop in last LOOP_RANGE_BLOCKS with random variation
-	const [displayPercent, setDisplayPercent] = useState(MIN_DISPLAY_PERCENT / 2);
+	// Phase 1: 0 → value. Phase 2: loop with sine + jitter around value
+	const [displayPercent, setDisplayPercent] = useState(0);
 	const startTimeRef = useRef<number | null>(null);
 	const rafRef = useRef<number | null>(null);
 	const fillPercentRef = useRef(fillPercent);
@@ -67,6 +67,7 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 	useEffect(() => {
 		startTimeRef.current = null;
 		phaseRef.current = "initial";
+		setDisplayPercent(0);
 		noiseRef.current = 0;
 		loopPhaseRef.current = 0;
 		lastNowRef.current = null;
@@ -83,7 +84,7 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 
 			if (phaseRef.current === "initial") {
 				const t = Math.min(1, elapsed / INITIAL_FILL_DURATION_MS);
-				const easeOut = 1 - (1 - t) * (1 - t); // ease-out quad
+				const easeOut = 1 - (1 - t) * (1 - t);
 				const percent = targetPercent * easeOut;
 				setDisplayPercent(percent);
 				if (t >= 1) {
@@ -92,17 +93,17 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 				}
 			} else {
 				// Center oscillation on current value; jitter can exceed it so it looks "around" the value
-				const sineHalfAmplitudePercent = LOOP_SINE_AMPLITUDE_BLOCKS * 2 * 0.5; // ±N blocks
+				const sineHalfAmplitudePercent = LOOP_SINE_AMPLITUDE_PERCENT; // ±N %
 				const deltaMs =
 					lastNowRef.current !== null ? now - lastNowRef.current : 16;
 				lastNowRef.current = now;
-				const period =
+				const periodMs =
 					LOOP_BASE_PERIOD_MS +
 					Math.sin(now * 0.0008) * LOOP_PERIOD_VARIANCE_MS;
-				loopPhaseRef.current += (deltaMs / period) * 2 * Math.PI;
+				loopPhaseRef.current += (deltaMs / periodMs) * 2 * Math.PI;
 				const cycle = loopPhaseRef.current;
 				// Base fill level = current value; sine + jitter oscillate around it (can exceed above)
-				const base = targetPercent + sineHalfAmplitudePercent * Math.sin(cycle);
+				const base = targetPercent + sineHalfAmplitudePercent * Math.sin(cycle); // sine moves ± one row
 				noiseRef.current =
 					noiseRef.current * LOOP_NOISE_SMOOTH +
 					(Math.random() - 0.5) * 2 * LOOP_NOISE_AMOUNT;
@@ -127,7 +128,7 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 				cancelAnimationFrame(rafRef.current);
 			}
 		};
-	}, []);
+	}, [fillPercent]);
 
 	return (
 		<section className={`w-full flex flex-col gap-2 p-3 ${className}`}>
