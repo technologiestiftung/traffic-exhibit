@@ -28,11 +28,13 @@ export const en = {
 
 	/* AIR QUALITY CHART */
 	"airQualityChart.title": "Need for Air Improvement",
-	"airQualityChart.step.veryLow": "Very Low",
-	"airQualityChart.step.low": "Low",
-	"airQualityChart.step.moderate": "Moderate",
-	"airQualityChart.step.elevated": "Elevated",
-	"airQualityChart.step.high": "High",
+	"airQualityChart.step.veryLow": "very low",
+	"airQualityChart.step.low": "low",
+	"airQualityChart.step.moderate": "moderate",
+	"airQualityChart.step.elevated": "elevated",
+	"airQualityChart.step.high": "high",
+	"airQualityChart.description":
+		"Based on the analysis of the three most important air pollutants: Nitrogen dioxide, coarse particles and fine particles. (Digital Berlin Air Map, 2024)",
 
 	/* NOISE CHART */
 	"noiseChart.title": "Noise Pollution",

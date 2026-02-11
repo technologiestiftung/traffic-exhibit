@@ -10,6 +10,7 @@ import {
 import CircleChart from "../charts/circle-chart/circle-chart";
 import { MatchCards } from "./match-cards";
 import { BerlinMap } from "../map/berlin-map";
+import { AirQualityGrid } from "../charts/air-quality-grid";
 
 const isLargeScreen = window.innerWidth > 1920;
 
@@ -120,9 +121,7 @@ export const Match: React.FC = () => {
 						<div className="border h-full w-full bg-white">
 							{currentMatch.nearestNoiseLevel}dB
 						</div>
-						<div className="border h-full w-full bg-white">
-							Luftqualität {currentMatch.airQuality}
-						</div>
+						<AirQualityGrid airQuality={currentMatch.airQuality} />
 					</div>
 				)}
 			</div>
