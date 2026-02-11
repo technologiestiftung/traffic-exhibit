@@ -48,7 +48,32 @@ source apps/api/venv/bin/activate
 
 ## Usage or Deployment
 
-### **1. Run the Project Locally**
+### **1. Start All Processes (recommended)**
+
+To start the full stack in one go (data processing, dev server, hourly processing, YOLO detection, button monitor, and open the app in the browser):
+
+```bash
+npm run start-all
+```
+
+This runs the `start_all.sh` script, which:
+
+1. Runs initial data processing (`process-data`)
+2. Starts the dev server (frontend + backend)
+3. Starts hourly data processing in the background
+4. Starts YOLO detection
+5. Starts the button monitor (foreground; Ctrl+C stops it)
+6. Opens the app in the browser (normal window, not kiosk)
+
+Options (environment variables):
+
+- `OPEN_BROWSER=0` — do not open the browser
+- `PROJECT_DIR=/path/to/traffic-exhibit` — override project directory
+- `APP_URL=http://localhost:5173` — override app URL
+
+You can also run the script directly: `./start_all.sh`
+
+### **2. Run the Project Locally (manual)**
 
 In the **root directory**, start both the frontend and backend:
 
@@ -67,7 +92,7 @@ npm run start-button-monitor
 - The backend WebSocket server will run on: [http://localhost:3001](http://localhost:3001)
 - The Python button monitor will be running in the background
 
-### **2. Access the Application**
+### **3. Access the Application**
 
 Open your browser and navigate to:
 
@@ -158,6 +183,33 @@ To stop the hourly processing:
 npm run stop-hourly
 ```
 
+### **YOLO Detect**
+
+The exhibit uses YOLO (object detection) to classify live traffic from the camera (cars, bikes, pedestrians, heavy vehicles) and send real-time counts to the backend for pattern matching.
+
+**Run YOLO detection** from the `apps/api` directory:
+
+```bash
+cd apps/api
+npm run yolo-detect
+```
+
+This runs the Python script with the Raspberry Pi camera (`picamera0`), the trained model, headless mode, and motor event listening (so counts reset on motor start/stop). The backend must be running so the script can send detection data and listen for motor events.
+
+**Stop YOLO detection:**
+
+```bash
+npm run stop-yolo-detect
+```
+
+Or from the project root:
+
+```bash
+npm run stop-yolo-detect --workspace=api
+```
+
+**Customisation:** Edit the `yolo-detect` script in `apps/api/package.json` to change the model path, camera source, resolution, or other arguments. See `apps/api/scripts/yolo_detect.py` for available options (e.g. `--thresh`, `--server-url`, `--send-interval`).
+
 ### **Data Matching & Real-time Processing**
 
 The system also includes intelligent traffic pattern matching functionality:
@@ -227,9 +279,11 @@ Once setup is complete, you can manage the service manually using:
 
 You can also use these npm scripts for more granular control:
 
+- **Start all processes** (dev server, hourly processing, YOLO, button monitor, browser): `npm run start-all`
 - **Stop development servers**: `npm run stop`
 - **Stop hourly data processing only**: `npm run stop-hourly`
 - **Start hourly data processing**: `npm run process-data-hourly`
+- **Stop YOLO detection**: `npm run stop-yolo-detect --workspace=api`
 
 ### Logs Terminal
 
