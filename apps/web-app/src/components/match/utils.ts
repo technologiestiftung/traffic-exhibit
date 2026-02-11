@@ -115,13 +115,13 @@ export function getDominantTrafficGradientClass(dominantIndex: number): string {
 	switch (dominantIndex) {
 		// pedestrians
 		case 0:
-			return "bg-gradient-to-b from-bp-red to-white";
+			return "bg-gradient-to-b from-bp-blue to-white";
 		// bikes
 		case 1:
 			return "bg-gradient-to-b from-bp-yellow to-white";
 		// cars
 		case 2:
-			return "bg-gradient-to-b from-bp-blue-dark to-white";
+			return "bg-gradient-to-b from-bp-red to-white";
 		// trucks
 		case 3:
 			return "bg-gradient-to-b from-bp-orange to-white";
