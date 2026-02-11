@@ -33,11 +33,19 @@ export const getImageUrl = (imageURL: string | null): string | null => {
 	return matchImage ? `/api/${matchImage[0]}` : null;
 };
 
+// Traffic modal colors - references to CSS theme variables in index.css
 export const trafficColors = {
-	blue: "#48cdf7", // custom blue shade
-	yellow: "#e7fe64", // var(--color-bp-yellow)
-	red: "#ff4155", // var(--color-bp-red)
-	orange: "#ff7715", // var(--color-bp-orange)
+	blue: "var(--color-bp-blue)",
+	yellow: "var(--color-bp-yellow)",
+	red: "var(--color-bp-red)",
+	orange: "var(--color-bp-orange)",
+} as const;
+
+// UI colors - references to CSS theme variables in index.css
+export const uiColors = {
+	grayLight: "var(--color-bp-gray-light)",
+	grayDark: "var(--color-bp-gray-dark)",
+	grayLoading: "var(--color-bp-gray-loading)",
 } as const;
 
 export function getTrafficModal(telraamMatch: TelraamMatch) {
@@ -113,7 +121,7 @@ export function getDominantTrafficGradientClass(dominantIndex: number): string {
 			return "bg-gradient-to-b from-bp-yellow to-white";
 		// cars
 		case 2:
-			return "bg-gradient-to-b from-bp-blue to-white";
+			return "bg-gradient-to-b from-bp-blue-dark to-white";
 		// trucks
 		case 3:
 			return "bg-gradient-to-b from-bp-orange to-white";

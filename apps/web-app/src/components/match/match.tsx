@@ -10,6 +10,8 @@ import {
 import CircleChart from "../charts/circle-chart/circle-chart";
 import { MatchDescription } from "./match-description";
 import { MatchCards } from "./match-cards";
+import { AirQualityChart } from "../charts/air-quality-chart";
+import NoiseChart from "../charts/noise-chart";
 
 export const Match: React.FC = () => {
 	const {
@@ -60,7 +62,7 @@ export const Match: React.FC = () => {
 		? getDominantTrafficGradientClass(
 				getDominantTrafficModalIndex(currentMatch),
 			)
-		: "bg-gradient-to-b from-bp-yellow via-bp-green to-bp-pink";
+		: "bg-gradient-to-b from-bp-gray-light to-bp-white";
 
 	const handleSelect = (clickedIndex: number) => {
 		if (!matchStack.length) {
@@ -110,10 +112,25 @@ export const Match: React.FC = () => {
 							/>
 						</div>
 
-						<MatchDescription
-							data={getTrafficModal(currentMatch)}
-							coordinates={currentMatch.coordinates}
-						/>
+						<div className="flex flex-col gap-2 items-end">
+							<MatchDescription
+								data={getTrafficModal(currentMatch)}
+								coordinates={currentMatch.coordinates}
+							/>
+
+							{currentMatch.nearestNoiseLevel !== null && (
+								<NoiseChart
+									title={i18n("noiseChart.title")}
+									value={currentMatch.nearestNoiseLevel}
+									markerSize={8}
+								/>
+							)}
+							<AirQualityChart
+								title={i18n("airQualityChart.title")}
+								value={currentMatch.airQuality}
+								markerSize={8}
+							/>
+						</div>
 					</>
 				)}
 			</div>

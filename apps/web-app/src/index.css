@@ -38,11 +38,13 @@
 
 @theme {
 	--color-bp-yellow: #e7fe64;
-	--color-bp-green: #00a980;
-	--color-bp-pink: #e98cbd;
-	--color-bp-blue: #3360e9;
+	--color-bp-blue: #48cdf7;
+	--color-bp-blue-dark: #3360e9;
+	--color-bp-red: #ff4155;
+	--color-bp-orange: #ff7715;
 	--color-bp-gray-light: #999999;
 	--color-bp-gray-dark: #25252a;
+	--color-bp-gray-loading: #d9d9d9;
 	--font-pixel: "Pixel Grotesk";
 }
 
@@ -108,10 +110,10 @@
 		--loading-filled: var(--color-bp-yellow);
 	}
 	.loading-seg-color-2 {
-		--loading-filled: var(--color-bp-green);
+		--loading-filled: var(--color-bp-red);
 	}
 	.loading-seg-color-3 {
-		--loading-filled: var(--color-bp-pink);
+		--loading-filled: var(--color-bp-orange);
 	}
 	.loading-seg-color-4 {
 		--loading-filled: var(--color-bp-blue);

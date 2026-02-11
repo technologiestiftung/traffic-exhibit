@@ -53,7 +53,21 @@ export const buildSegments = ({
 	});
 };
 
-export const lightenColor = (hex: string, intensity = 0.5): string => {
+export const lightenColor = (color: string, intensity = 0.5): string => {
+	// Handle CSS variables by resolving them first
+	let hex = color;
+	if (color.startsWith("var(")) {
+		// Extract variable name from var(--variable-name)
+		const varName = color.match(/var\((--[^)]+)\)/)?.[1];
+		if (varName && typeof document !== "undefined") {
+			// Resolve the CSS variable from the document root
+			const resolvedColor = getComputedStyle(
+				document.documentElement,
+			).getPropertyValue(varName);
+			hex = resolvedColor.trim();
+		}
+	}
+
 	const normalizedHex = hex.replace("#", "");
 	const value =
 		normalizedHex.length === 3

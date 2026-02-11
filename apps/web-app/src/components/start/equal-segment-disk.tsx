@@ -1,5 +1,5 @@
 import React, { useMemo } from "react";
-import { trafficColors } from "../match/utils";
+import { trafficColors, uiColors } from "../match/utils";
 
 type EqualSegmentsDiscProps = {
 	size?: number;
@@ -11,7 +11,9 @@ type EqualSegmentsDiscProps = {
 
 export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 	size = 300,
-	segmentColors = [{ occupied: trafficColors.yellow, empty: "#999999" }],
+	segmentColors = [
+		{ occupied: trafficColors.yellow, empty: uiColors.grayLight },
+	],
 	occupiedBlocks = [],
 	showLabels = true,
 	isLoading = false,
@@ -31,7 +33,7 @@ export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 	// Colors
 	const palette = segmentColors[0] ?? {
 		occupied: trafficColors.yellow,
-		empty: "#999999",
+		empty: uiColors.grayLight,
 	};
 
 	const occupiedIndexSet = useMemo(() => {

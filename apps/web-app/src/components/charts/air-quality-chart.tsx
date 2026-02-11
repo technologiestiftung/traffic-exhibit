@@ -77,7 +77,7 @@ export const AirQualityChart: React.FC<AirQualityChartProps> = ({
 
 	return (
 		<section
-			className={`w-full flex flex-col gap-2 p-3 ${className}`}
+			className={`w-1/3 flex flex-col gap-2 p-3 ${className}`}
 			aria-label={`Air Quality: ${currentStep.label}`}
 		>
 			<h3 className="font-semibold self-start text-base 2xl:text-xl">

@@ -1,5 +1,5 @@
 import { EqualSegmentsDisc } from "./equal-segment-disk";
-import { trafficColors } from "../match/utils";
+import { trafficColors, uiColors } from "../match/utils";
 import { useWebSocket } from "../../hooks/useWebSocket";
 
 type StartWheelProps = {
@@ -44,7 +44,7 @@ export function StartWheel({
 					<EqualSegmentsDisc
 						size={isLargeScreen ? 700 : 520}
 						occupiedBlocks={occupiedBlocks}
-						segmentColors={[{ occupied: trafficColors.yellow, empty: "#d9d9d9" }]}
+						segmentColors={[{ occupied: trafficColors.yellow, empty: uiColors.grayLoading }]}
 						showLabels
 						isLoading={isLoading}
 					/>
