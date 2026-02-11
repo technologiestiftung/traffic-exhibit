@@ -10,6 +10,7 @@ import {
 import CircleChart from "../charts/circle-chart/circle-chart";
 import { MatchCards } from "./match-cards";
 import { BerlinMap } from "../map/berlin-map";
+import NoiseChart from "../charts/noise-chart";
 
 const isLargeScreen = window.innerWidth > 1920;
 
@@ -117,9 +118,10 @@ export const Match: React.FC = () => {
 								height={isLargeScreen ? 270 : 170}
 							/>
 						)}
-						<div className="border h-full w-full bg-white">
-							{currentMatch.nearestNoiseLevel}dB
-						</div>
+						<NoiseChart
+							title={i18n("noiseChart.title")}
+							value={currentMatch.nearestNoiseLevel}
+						/>
 						<div className="border h-full w-full bg-white">
 							Luftqualität {currentMatch.airQuality}
 						</div>
