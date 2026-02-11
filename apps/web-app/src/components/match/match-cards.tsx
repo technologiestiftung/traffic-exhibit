@@ -38,7 +38,6 @@ export const MatchCards = ({
 
 		const zIndex = isSelectedCard ? stackLength + 1 : slotZ[slotIndex];
 		const scale = slotScale[slotIndex];
-		// Keep `left` stable and do the "card" motion via transform only.
 		const leftOffset = 0;
 		const transformStyle = `translateX(${slotX[slotIndex]}px) rotate(${slotRotate[slotIndex]}deg) scale(${scale})`;
 

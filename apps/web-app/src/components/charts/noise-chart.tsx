@@ -38,7 +38,7 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 		"linear-gradient(to right, #dedede 0%, #bdbdbd 30%, #666 70%, #222 100%)";
 
 	return (
-		<section className={`w-1/3 flex flex-col gap-2 p-3 ${className}`}>
+		<section className={`w-full flex flex-col gap-2 p-3 ${className}`}>
 			<h3 className="font-semibold self-start text-base 2xl:text-xl">
 				{title}
 			</h3>

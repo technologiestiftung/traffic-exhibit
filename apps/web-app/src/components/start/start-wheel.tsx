@@ -44,7 +44,9 @@ export function StartWheel({
 					<EqualSegmentsDisc
 						size={isLargeScreen ? 700 : 520}
 						occupiedBlocks={occupiedBlocks}
-						segmentColors={[{ occupied: trafficColors.yellow, empty: uiColors.grayLoading }]}
+						segmentColors={[
+							{ occupied: trafficColors.yellow, empty: uiColors.grayLoading },
+						]}
 						showLabels
 						isLoading={isLoading}
 					/>

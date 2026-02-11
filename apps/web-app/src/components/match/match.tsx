@@ -8,10 +8,10 @@ import {
 	getTrafficModal,
 } from "./utils";
 import CircleChart from "../charts/circle-chart/circle-chart";
-import { MatchDescription } from "./match-description";
 import { MatchCards } from "./match-cards";
-import { AirQualityChart } from "../charts/air-quality-chart";
-import NoiseChart from "../charts/noise-chart";
+import { BerlinMap } from "../map/berlin-map";
+
+const isLargeScreen = window.innerWidth > 1920;
 
 export const Match: React.FC = () => {
 	const {
@@ -78,62 +78,60 @@ export const Match: React.FC = () => {
 
 	return (
 		<div
-			className={`relative flex min-h-screen w-full flex-col items-center ${pageBackgroundClass} px-4 py-10`}
+			className={`flex justify-center h-screen w-full flex-col items-center ${pageBackgroundClass} px-4 pb-20`}
 		>
-			<div className="mb-10 flex w-full max-w-[1540px] xl:max-w-[1820px] xl:px-0 flex-col gap-4 px-6 md:flex-row md:items-center md:justify-between lg:px-10">
-				<div className="font-pixel text-left text-4xl font-semibold tracking-[0.25em] text-[#1e2402] drop-shadow font-title">
+			<div className="mb-8 2xl:mb-16 flex w-full max-w-[1540px] 2xl:max-w-[2300px] xl:px-0 gap-4 2xl:gap-10 flex-row md:justify-between px-10">
+				<h1 className="font-pixel text-left text-4xl 2xl:text-6xl font-semibold text-[#1e2402] drop-shadow font-title">
 					{i18n("match.title")}
-				</div>
-				<button
-					className="self-start border border-gray-600 bg-white/70 px-4 py-2 text-sm font-semibold tracking-wide text-slate-700 transition hover:-translate-y-0.5 hover:bg-white md:self-center"
-					onClick={goBackToStart}
-				>
-					{i18n("match.createNewMixButton.label")}
-				</button>
+				</h1>
+
+				<h2 className="text-right w-1/4 text-md 2xl:text-2xl tracking-[0.25em] text-[#1e2402] drop-shadow font-title">
+					{i18n("match.subtitle")}
+				</h2>
 			</div>
 
-			<div className="relative flex w-full max-w-[1540px] 2xl:max-w-[1820px] flex-1 items-center gap-6 px-12">
+			<div className="relative flex w-full max-w-[1540px] 2xl:max-w-[2300px] items-center justify-between gap-12">
 				{/* Stacked cards*/}
-				<div className="relative flex items-center z-50 h-[600px] 2xl:h-[850px] overflow-visible ml-20">
+				<div className="relative flex z-50 h-[600px] 2xl:h-[850px] overflow-visible ml-44">
 					<MatchCards
 						matchStack={matchStack}
 						selectedIndex={selectedIndex}
 						handleSelect={handleSelect}
 					/>
 				</div>
-
-				{/* Front card by default; updates with selection/reorder */}
 				{currentMatch && (
-					<>
-						<div className="absolute translate-x-4/5">
-							<CircleChart
-								key={currentMatch.segment_id}
-								data={getTrafficModal(currentMatch)}
+					<div className="translate-x-3/12">
+						<CircleChart
+							key={currentMatch.segment_id}
+							data={getTrafficModal(currentMatch)}
+						/>
+					</div>
+				)}
+				{currentMatch && (
+					<div className="flex flex-col gap-5 w-1/4 h-full 2xl:w-1/3  items-center justify-center">
+						{currentMatch && (
+							<BerlinMap
+								lat={currentMatch.coordinates[0][1]}
+								lon={currentMatch.coordinates[0][0]}
+								width={isLargeScreen ? 320 : 220}
+								height={isLargeScreen ? 270 : 170}
 							/>
+						)}
+						<div className="border h-full w-full bg-white">
+							{currentMatch.nearestNoiseLevel}dB
 						</div>
-
-						<div className="flex flex-col gap-2 items-end">
-							<MatchDescription
-								data={getTrafficModal(currentMatch)}
-								coordinates={currentMatch.coordinates}
-							/>
-
-							{currentMatch.nearestNoiseLevel !== null && (
-								<NoiseChart
-									title={i18n("noiseChart.title")}
-									value={currentMatch.nearestNoiseLevel}
-									markerSize={8}
-								/>
-							)}
-							<AirQualityChart
-								title={i18n("airQualityChart.title")}
-								value={currentMatch.airQuality}
-								markerSize={8}
-							/>
+						<div className="border h-full w-full bg-white">
+							Luftqualität {currentMatch.airQuality}
 						</div>
-					</>
+					</div>
 				)}
 			</div>
+			<button
+				className="absolute bottom-10 left-1/2 -translate-x-1/2 border border-gray-600 bg-white/70 px-4 py-2 text-sm font-semibold tracking-wide text-slate-700 transition hover:-translate-y-0.5 hover:bg-white md:self-center"
+				onClick={goBackToStart}
+			>
+				{i18n("match.createNewMixButton.label")}
+			</button>
 		</div>
 	);
 };
