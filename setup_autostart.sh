@@ -72,9 +72,6 @@ npm run process-data-hourly &
 echo "Waiting for hourly data processing to start..."
 sleep 10
 
-
-
-
 # 5) Start yolo detect
 echo "Starting yolo detect..."
 cd "$PROJECT_DIR/apps/api"

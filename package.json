@@ -8,6 +8,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
+    "start-all": "bash start_all.sh",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently \"npm run dev --workspace=api\" \"npm run dev --workspace=web-app\"",
     "stop": "pkill -f 'vite|nodemon|ts-node.*server.ts|npm.*dev' || true",
