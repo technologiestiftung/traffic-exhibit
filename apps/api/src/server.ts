@@ -22,7 +22,7 @@ const segmentIdsWithImage = new Set(
 );
 
 // Store current detection data (default to example values)
-let currentDetections = { car: 40, bike: 40, pedestrian: 10, heavy: 10 };
+let currentDetections = { car: 20, bike: 60, pedestrian: 10, heavy: 10 };
 
 // Calculate initial matches (only features that have images)
 let closestMatch = findClosestMatches(

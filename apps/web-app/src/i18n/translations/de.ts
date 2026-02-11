@@ -28,11 +28,13 @@ export const de = {
 
 	/* AIR QUALITY CHART */
 	"airQualityChart.title": "Bedarf für Luftverbesserung",
-	"airQualityChart.step.veryLow": "Sehr niedrig",
-	"airQualityChart.step.low": "Niedrig",
-	"airQualityChart.step.moderate": "Mäßig",
-	"airQualityChart.step.elevated": "Erhöht",
-	"airQualityChart.step.high": "Hoch",
+	"airQualityChart.step.veryLow": "sehr niedrig",
+	"airQualityChart.step.low": "niedrig",
+	"airQualityChart.step.moderate": "mäßig",
+	"airQualityChart.step.elevated": "erhöht",
+	"airQualityChart.step.high": "hoch",
+	"airQualityChart.description":
+		"Basierend auf der Analyse der drei bedeutendsten Luftschadstoffe: Stickstoffdioxid, grober Feinstaub und feiner Feinstaub. (Digitale Berliner Luftkarte, 2024)",
 
 	/* NOISE CHART */
 	"noiseChart.title": "Lärmbelästigung",
