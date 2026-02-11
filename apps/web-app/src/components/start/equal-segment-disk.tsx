@@ -11,7 +11,7 @@ type EqualSegmentsDiscProps = {
 
 export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 	size = 300,
-	segmentColors = [{ occupied: trafficColors.green, empty: "#999999" }],
+	segmentColors = [{ occupied: trafficColors.yellow, empty: "#999999" }],
 	occupiedBlocks = [],
 	showLabels = true,
 	isLoading = false,
@@ -30,11 +30,10 @@ export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 
 	// Colors
 	const palette = segmentColors[0] ?? {
-		occupied: trafficColors.green,
+		occupied: trafficColors.yellow,
 		empty: "#999999",
 	};
 
-	// 1-based occupied indices -> fast lookup
 	const occupiedIndexSet = useMemo(() => {
 		const set = new Set<number>();
 		for (const index of occupiedBlocks) {

@@ -58,6 +58,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 				top: 0,
 				left: stackPosition.leftOffset,
 				zIndex: stackPosition.zIndex,
+				transformOrigin: "70% 60%",
 				transform:
 					stackPosition.transformStyle || `scale(${stackPosition.scale})`,
 			}}
@@ -74,7 +75,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 								<Pill
 									key={type}
 									value={type}
-									className="bg-black text-bp-green"
+											className="bg-black text-bp-green"
 								/>
 							))}
 						</div>
