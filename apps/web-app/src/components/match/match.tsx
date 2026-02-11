@@ -118,10 +118,12 @@ export const Match: React.FC = () => {
 								height={isLargeScreen ? 270 : 170}
 							/>
 						)}
-						<NoiseChart
-							title={i18n("noiseChart.title")}
-							value={currentMatch.nearestNoiseLevel}
-						/>
+						{currentMatch.nearestNoiseLevel !== null && (
+							<NoiseChart
+								title={i18n("noiseChart.title")}
+								value={currentMatch.nearestNoiseLevel}
+							/>
+						)}
 						<div className="border h-full w-full bg-white">
 							Luftqualität {currentMatch.airQuality}
 						</div>
