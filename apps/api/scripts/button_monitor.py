@@ -19,9 +19,8 @@ STEP_DELAY = 0.0005  # Delay between step pulses in seconds (0.5ms for smooth op
 ROTATIONS_PER_PRESS = 2  # Number of complete rotations to perform when triggered
 
 # GPIO pin assignments (BCM numbering)
-# Start button pins (motor control)
-CLK_PIN = 5   # Start button rotary encoder CLK pin
-DT_PIN = 6    # Start button rotary encoder DT pin
+# Start control: toggle switch (ON = start, OFF = stop)
+START_SWITCH_PIN = 5   # Toggle switch GPIO (physical pin 29); pull-down: OFF=LOW, ON=HIGH
 
 # Selection button pins (step counter)
 CLK2_PIN = 12   # Selection button rotary encoder CLK pin
@@ -42,11 +41,9 @@ ENABLE_PIN = 23
 # =============================================
 # System State Variables
 # =============================================
-# Start button state
-start_button_position = 0
-last_clk_state = None
-last_direction = None
-encoder_running = True
+# Start toggle switch state
+last_switch_state = None
+monitoring_active = True
 
 # Selection button state
 selection_button_position = 0
@@ -78,10 +75,9 @@ try:
     m1.off()  # M1 = LOW  
     m2.on()   # M2 = HIGH
     
-    # Start button pins
-    clk = DigitalInputDevice(CLK_PIN, pull_up=True)
-    dt = DigitalInputDevice(DT_PIN, pull_up=True)
-    last_clk_state = clk.value
+    # Start toggle switch (pull-down: OFF=LOW, ON=HIGH)
+    start_switch = DigitalInputDevice(START_SWITCH_PIN, pull_up=False)
+    last_switch_state = start_switch.value
     
     # Selection button pins
     clk2 = DigitalInputDevice(CLK2_PIN, pull_up=True)
@@ -91,7 +87,7 @@ try:
     print("=== GPIO Initialization Complete ===")
     print(f"Motor pins - STEP: {STEP_PIN}, DIR: {DIRECTION_PIN}, ENABLE: {ENABLE_PIN}")
     print(f"Microstep pins - M0: {M0_PIN}, M1: {M1_PIN}, M2: {M2_PIN}")
-    print(f"Start button pins - CLK: {CLK_PIN}, DT: {DT_PIN}")
+    print(f"Start toggle switch - GPIO: {START_SWITCH_PIN}")
     print(f"Selection button pins - CLK2: {CLK2_PIN}, DT2: {DT2_PIN}")
     print("Microstep mode: 1/32 for quiet operation")
     
@@ -188,12 +184,16 @@ def cleanup_motor():
 
 def cleanup_and_exit(_signum=None, _frame=None):
     print("\nCleaning up...")
-    global encoder_running
-    encoder_running = False  # Stop encoder monitoring
+    global monitoring_active
+    monitoring_active = False  # Stop monitoring threads
     try:
         cleanup_motor()
     except Exception as e:  # noqa: BLE001
         print(f"Motor cleanup error: {e}")
+    try:
+        start_switch.close()
+    except Exception as e:  # noqa: BLE001
+        print(f"Switch cleanup error: {e}")
     try:
         sio.disconnect()
     except Exception as e:  # noqa: BLE001
@@ -214,8 +214,8 @@ def disconnect():
     print("Disconnected from Node.js server")
 
 def start_button_trigger():
-    """Callback when start button rotates clockwise - sends start event"""
-    print("Start button clockwise - sending start event!")
+    """Callback when toggle switch is ON - sends start event"""
+    print("Toggle switch ON - sending start event!")
     
     # Send start event to web interface
     try:
@@ -232,8 +232,8 @@ def start_button_trigger():
     start_motor()
 
 def start_button_stop_trigger():
-    """Callback when start button rotates counter-clockwise - sends stop event"""
-    print("Start button counter-clockwise - sending stop event!")
+    """Callback when toggle switch is OFF - sends stop event"""
+    print("Toggle switch OFF - sending stop event!")
     
     # Send stop event to web interface
     try:
@@ -242,55 +242,29 @@ def start_button_stop_trigger():
         print(f"Socket.IO emit failed: {e}")
     
     # Stop motor
-    print("Stopping motor due to start button counter-clockwise...")
+    print("Stopping motor due to toggle switch OFF...")
     stop_motor()
 
 def monitor_start_button():
-    """Monitor start button for direction changes"""
-    global start_button_position, last_clk_state, last_direction, encoder_running
+    """Monitor toggle switch: ON (HIGH) = start, OFF (LOW) = stop"""
+    global last_switch_state, monitoring_active
     
     try:
-        while encoder_running:
-            current_clk_state = clk.value
-            
-            # Check if CLK pin has changed state (falling edge detection)
-            if current_clk_state != last_clk_state:
-                # Determine direction (corrected logic)
-                if dt.value != current_clk_state:
-                    current_direction = "Counter-clockwise"  # Swapped
-                    start_button_position -= 1  # Swapped
-                else:
-                    current_direction = "Clockwise"  # Swapped
-                    start_button_position += 1  # Swapped
-                
-                # Check for direction change
-                if last_direction is not None and last_direction != current_direction:
-                    if current_direction == "Clockwise":
-                        print(f"Start button direction changed to clockwise (position: {start_button_position})")
-                        start_button_trigger()
-                    elif current_direction == "Counter-clockwise":
-                        print(f"Start button direction changed to counter-clockwise (position: {start_button_position})")
-                        start_button_stop_trigger()
-                elif last_direction != current_direction and current_direction == "Clockwise":
-                    # First time detecting clockwise motion
-                    print(f"Start button initial clockwise (position: {start_button_position})")
+        while monitoring_active:
+            current = start_switch.value
+            if current != last_switch_state:
+                if current:
                     start_button_trigger()
-                elif last_direction != current_direction and current_direction == "Counter-clockwise":
-                    # First time detecting counter-clockwise motion
-                    print(f"Start button initial counter-clockwise (position: {start_button_position})")
+                else:
                     start_button_stop_trigger()
-                
-                last_direction = current_direction
-            
-            last_clk_state = current_clk_state
-            time.sleep(0.001)  # Small delay to prevent excessive CPU usage
-            
+                last_switch_state = current
+            time.sleep(0.02)  # 50 Hz poll
     except Exception as e:
-        print(f"Error monitoring start button: {e}")
+        print(f"Error monitoring start toggle switch: {e}")
 
 def monitor_selection_button():
     """Monitor the selection button for rotation and emit on each detent"""
-    global selection_button_position, last_clk2_state, last_direction2, encoder_running
+    global selection_button_position, last_clk2_state, last_direction2, monitoring_active
     
     print("Starting selection button monitoring...")
     
@@ -299,7 +273,7 @@ def monitor_selection_button():
     TOTAL_PULSES = 20
     
     try:
-        while encoder_running:
+        while monitoring_active:
             current_clk2_state = clk2.value
             
             # Detect any state change
@@ -346,7 +320,7 @@ def monitor_selection_button():
         print(f"Error monitoring selection button: {e}")
 
 def main():
-    """Main function - handles start button (radial) and selection button"""
+    """Main function - handles start toggle switch and selection button"""
     try:
         print("=== Traffic Exhibit Control System ===")
         print("Initializing...")
@@ -371,9 +345,9 @@ def main():
         
         print("\n=== System Ready ===")
         print("Controls:")
-        print(f"• Start Button (Pins {CLK_PIN}, {DT_PIN}): Motor control")
-        print("  - Clockwise: Start motor")
-        print("  - Counter-clockwise: Stop motor")
+        print(f"• Start Toggle Switch (GPIO {START_SWITCH_PIN}): Motor control")
+        print("  - ON: Start motor")
+        print("  - OFF: Stop motor")
         print(f"• Selection Button (Pins {CLK2_PIN}, {DT2_PIN}): Pulse logging")
         print(f"• Motor rotations per trigger: {ROTATIONS_PER_PRESS}")
         print("\nPress Ctrl+C to exit")
