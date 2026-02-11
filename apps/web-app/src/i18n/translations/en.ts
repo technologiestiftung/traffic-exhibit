@@ -36,6 +36,8 @@ export const en = {
 
 	/* NOISE CHART */
 	"noiseChart.title": "Noise Pollution",
+	"noiseChart.scale.quiet": "Quiet",
+	"noiseChart.scale.loud": "Loud",
 
 	/* CIRCLE CHART */
 	"circleChart.summary.trailingMessage.p1": "while",

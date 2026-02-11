@@ -72,6 +72,21 @@
 		will-change: transform, opacity;
 	}
 
+	/* Noise chart: subtle VU meter segment glow */
+	@keyframes vu-segment-glow {
+		0%,
+		100% {
+			filter: brightness(1);
+		}
+		50% {
+			filter: brightness(1.15);
+		}
+	}
+
+	.animate-vu-glow {
+		animation: vu-segment-glow 1.2s ease-in-out infinite;
+	}
+
 	/* Loading wedges: show one wedge at a time (pop/step) */
 	@keyframes loading-wedge-step {
 		0%,
