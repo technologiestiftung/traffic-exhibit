@@ -100,7 +100,6 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 						<NoiseChart
 							title={i18n("noiseChart.title")}
 							value={match.nearestNoiseLevel}
-							markerSize={8}
 						/>
 					)}
 					<AirQualityChart
