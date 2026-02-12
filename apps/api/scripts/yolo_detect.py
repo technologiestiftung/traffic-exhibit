@@ -64,17 +64,34 @@ if listen_motor:
     
     @sio.on('start-event')
     def on_start_event():
-        global detection_enabled
+        global detection_enabled, camera_paused, capture
         print("Start event received - sending data and disabling YOLO detection")
-        # Send current detection data to server
+        # Send current detection data to server (server forwards to frontend via socket.io)
         send_detection_data()
         # Turn off detection
         detection_enabled = False
+        # Turn off camera for video/usb/picamera sources
+        if source_type == 'video' or source_type == 'usb':
+            capture.release()
+            camera_paused = True
+        elif source_type == 'picamera':
+            capture.stop()
+            camera_paused = True
     
     @sio.on('stop-event')
     def on_stop_event():
-        global detection_counts, detection_enabled
+        global detection_counts, detection_enabled, camera_paused, capture
         print("Stop event received - enabling YOLO detection and resetting counts")
+        # Turn camera back on
+        if source_type == 'video' or source_type == 'usb':
+            capture = cv2.VideoCapture(capture_arg)
+            if user_res:
+                capture.set(3, resW)
+                capture.set(4, resH)
+            camera_paused = False
+        elif source_type == 'picamera':
+            capture.start()
+            camera_paused = False
         # Reset counts and turn on detection
         detection_counts = {'car': 0, 'bike': 0, 'pedestrian': 0, 'heavy': 0}
         detection_enabled = True
@@ -162,20 +179,20 @@ elif source_type == 'folder':
             imgs_list.append(file)
 elif source_type == 'video' or source_type == 'usb':
 
-    if source_type == 'video': cap_arg = img_source
-    elif source_type == 'usb': cap_arg = usb_idx
-    cap = cv2.VideoCapture(cap_arg)
+    if source_type == 'video': capture_arg = img_source
+    elif source_type == 'usb': capture_arg = usb_idx
+    capture = cv2.VideoCapture(capture_arg)
 
     # Set camera or video resolution if specified by user
     if user_res:
-        ret = cap.set(3, resW)
-        ret = cap.set(4, resH)
+        ret = capture.set(3, resW)
+        ret = capture.set(4, resH)
 
 elif source_type == 'picamera':
     from picamera2 import Picamera2
-    cap = Picamera2()
-    cap.configure(cap.create_video_configuration(main={"format": 'XRGB8888', "size": (resW, resH)}))
-    cap.start()
+    capture = Picamera2()
+    capture.configure(capture.create_video_configuration(main={"format": 'XRGB8888', "size": (resW, resH)}))
+    capture.start()
 
 # Set bounding box colors (using the Tableu 10 color scheme)
 bbox_colors = [(164,120,87), (68,148,228), (93,97,209), (178,182,133), (88,159,106), 
@@ -191,6 +208,7 @@ img_count = 0
 detection_counts = {'car': 0, 'bike': 0, 'pedestrian': 0, 'heavy': 0}
 last_send_time = 0
 detection_enabled = True  # Start enabled, will be disabled on start-event (after sending data)
+camera_paused = False  # True when camera is released on start-event, turned back on on stop-event
 
 def send_detection_data():
     """Send current detection data to server"""
@@ -234,6 +252,11 @@ while True:
 
     t_start = time.perf_counter()
 
+    # When camera is paused (released on start-event), wait until stop-event turns it back on
+    if (source_type == 'video' or source_type == 'usb' or source_type == 'picamera') and camera_paused:
+        time.sleep(0.1)
+        continue
+
     # Load frame from image source
     if source_type == 'image' or source_type == 'folder': # If source is image or image folder, load the image using its filename
         if img_count >= len(imgs_list):
@@ -244,19 +267,19 @@ while True:
         img_count = img_count + 1
     
     elif source_type == 'video': # If source is a video, load next frame from video file
-        ret, frame = cap.read()
+        ret, frame = capture.read()
         if not ret:
             print('Reached end of the video file. Exiting program.')
             break
     
     elif source_type == 'usb': # If source is a USB camera, grab frame from camera
-        ret, frame = cap.read()
+        ret, frame = capture.read()
         if (frame is None) or (not ret):
             print('Unable to read frames from the camera. This indicates the camera is disconnected or not working. Exiting program.')
             break
 
     elif source_type == 'picamera': # If source is a Picamera, grab frames using picamera interface
-        frame_bgra = cap.capture_array()
+        frame_bgra = capture.capture_array()
         frame = cv2.cvtColor(np.copy(frame_bgra), cv2.COLOR_BGRA2BGR)
         if (frame is None):
             print('Unable to read frames from the Picamera. This indicates the camera is disconnected or not working. Exiting program.')
@@ -399,9 +422,10 @@ while True:
 # Clean up
 print(f'Average pipeline FPS: {avg_frame_rate:.2f}')
 if source_type == 'video' or source_type == 'usb':
-    cap.release()
+    if not camera_paused:
+        capture.release()
 elif source_type == 'picamera':
-    cap.stop()
+    capture.stop()
 if record: recorder.release()
 if not headless:
     cv2.destroyAllWindows()
