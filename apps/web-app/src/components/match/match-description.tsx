@@ -6,23 +6,15 @@ type MatchDescriptionProps = {
 	coordinates: number[][];
 };
 
-const iconForSegmentName = (name: string): string | null => {
-	const n = name.trim().toLowerCase();
-	// Support both English and German labels
-	if (n.includes("pedestrian") || n.includes("fuß") || n.includes("fuss")) {
-		return "/walking_icon.svg";
-	}
-	if (n.includes("bike") || n.includes("fahrr")) {
-		return "/bike_icon.svg";
-	}
-	if (n.includes("car") || n.includes("auto")) {
-		return "/Car_icon.svg";
-	}
-	if (n.includes("truck") || n.includes("lkw")) {
-		return "/LKW_icon.svg";
-	}
-	return null;
+const SEGMENT_ICONS: Record<string, string> = {
+	pedestrian: "/walking_icon.svg",
+	bike: "/bike_icon.svg",
+	car: "/Car_icon.svg",
+	truck: "/LKW_icon.svg",
 };
+
+const iconForSegmentName = (name: string): string | null =>
+	SEGMENT_ICONS[name.trim().toLowerCase()] ?? null;
 
 export const MatchDescription = ({ data }: MatchDescriptionProps) => {
 	const sortedDescendingData = [...data].sort(

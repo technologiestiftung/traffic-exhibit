@@ -24,7 +24,7 @@ export const en = {
 	"trafficStats.pedestrians": "Pedestrians",
 	"trafficStats.bikes": "Bikes",
 	"trafficStats.cars": "Cars",
-	"trafficStats.trucks": "Trucks",
+	"trafficStats.trucks": "Heavy vehicles",
 
 	/* AIR QUALITY CHART */
 	"airQualityChart.title": "Need for Air Improvement",
