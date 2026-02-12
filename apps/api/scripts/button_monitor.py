@@ -258,7 +258,7 @@ def start_button_stop_trigger():
     stop_motor()
 
 def monitor_start_button():
-    """Monitor toggle switch: ON (HIGH) = start, OFF (LOW) = stop"""
+    """Monitor toggle switch. Inverted so HIGH = stop, LOW = start (matches typical wiring)."""
     global last_switch_state, monitoring_active
     
     try:
@@ -266,9 +266,9 @@ def monitor_start_button():
             current = start_switch.value
             if current != last_switch_state:
                 if current:
-                    start_button_trigger()
-                else:
                     start_button_stop_trigger()
+                else:
+                    start_button_trigger()
                 last_switch_state = current
             time.sleep(0.02)  # 50 Hz poll
     except Exception as e:
