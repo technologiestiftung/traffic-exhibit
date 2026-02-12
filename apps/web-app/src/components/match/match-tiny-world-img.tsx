@@ -261,7 +261,7 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 		}
 	}, [shouldAnimate]);
 
-	// Toggle tiny planet ↔ street view every 10s; reset timer when selection button is pressed
+	// Toggle tiny planet ↔ street view every 3s; reset timer when selection button is pressed
 	useEffect(() => {
 		if (!shouldAnimate) {
 			return undefined;
@@ -270,7 +270,7 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 			setCurrentView((prev) =>
 				prev === "tinyPlanet" ? "streetView" : "tinyPlanet",
 			);
-		}, 10000);
+		}, 3000);
 
 		return () => {
 			clearInterval(intervalId);
