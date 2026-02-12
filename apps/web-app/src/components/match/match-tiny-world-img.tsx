@@ -236,13 +236,15 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 		}
 	}, [currentView]);
 
-	// When hardware button (SW) triggers, transition to street view
+	// When hardware button (SW) triggers, toggle between tiny planet and street view
 	useEffect(() => {
 		if (
 			typeof transitionToStreetViewTrigger === "number" &&
 			transitionToStreetViewTrigger > 0
 		) {
-			setCurrentView("streetView");
+			setCurrentView((prev) =>
+				prev === "tinyPlanet" ? "streetView" : "tinyPlanet",
+			);
 		}
 	}, [transitionToStreetViewTrigger]);
 
@@ -259,6 +261,7 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 		}
 	}, [shouldAnimate]);
 
+	// Toggle tiny planet ↔ street view every 10s; reset timer when selection button is pressed
 	useEffect(() => {
 		if (!shouldAnimate) {
 			return undefined;
@@ -272,7 +275,7 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 		return () => {
 			clearInterval(intervalId);
 		};
-	}, [shouldAnimate]);
+	}, [shouldAnimate, transitionToStreetViewTrigger]);
 
 	return (
 		<div className="relative w-full h-full">
