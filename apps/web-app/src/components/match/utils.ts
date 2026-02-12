@@ -33,11 +33,19 @@ export const getImageUrl = (imageURL: string | null): string | null => {
 	return matchImage ? `/api/${matchImage[0]}` : null;
 };
 
+// Traffic modal colors - references to CSS theme variables in index.css
 export const trafficColors = {
-	yellow: "#e7fe64", // var(--color-bp-yellow)
-	green: "#00a980", // var(--color-bp-green)
-	pink: "#e98cbd", // var(--color-bp-pink)
-	blue: "#3360e9", // var(--color-bp-blue)
+	blue: "var(--color-bp-blue)",
+	yellow: "var(--color-bp-yellow)",
+	red: "var(--color-bp-red)",
+	orange: "var(--color-bp-orange)",
+} as const;
+
+// UI colors - references to CSS theme variables in index.css
+export const uiColors = {
+	grayLight: "var(--color-bp-gray-light)",
+	grayDark: "var(--color-bp-gray-dark)",
+	grayLoading: "var(--color-bp-gray-loading)",
 } as const;
 
 export function getTrafficModal(telraamMatch: TelraamMatch) {
@@ -48,7 +56,7 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 			percentage: parseFloat(
 				telraamMatch?.originalProperties.pedestrian_percentage.toFixed(0),
 			),
-			color: trafficColors.yellow,
+			color: trafficColors.blue,
 			labelOffset: "15%",
 		},
 		{
@@ -57,7 +65,7 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 			percentage: parseFloat(
 				telraamMatch?.originalProperties.bike_percentage.toFixed(0),
 			),
-			color: trafficColors.green,
+			color: trafficColors.yellow,
 			labelOffset: "25%",
 		},
 		{
@@ -66,7 +74,7 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 			percentage: parseFloat(
 				telraamMatch?.originalProperties.car_percentage.toFixed(0),
 			),
-			color: trafficColors.pink,
+			color: trafficColors.red,
 			labelOffset: "30%",
 		},
 		{
@@ -75,7 +83,7 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 			percentage: parseFloat(
 				telraamMatch?.originalProperties.heavy_percentage.toFixed(0),
 			),
-			color: trafficColors.blue,
+			color: trafficColors.orange,
 			labelOffset: "35%",
 		},
 	];
@@ -107,18 +115,18 @@ export function getDominantTrafficGradientClass(dominantIndex: number): string {
 	switch (dominantIndex) {
 		// pedestrians
 		case 0:
-			return "bg-gradient-to-b from-bp-yellow to-white";
+			return "bg-gradient-to-b from-bp-blue to-white";
 		// bikes
 		case 1:
-			return "bg-gradient-to-b from-bp-green to-white";
+			return "bg-gradient-to-b from-bp-yellow to-white";
 		// cars
 		case 2:
-			return "bg-gradient-to-b from-bp-pink to-white";
+			return "bg-gradient-to-b from-bp-red to-white";
 		// trucks
 		case 3:
-			return "bg-gradient-to-b from-bp-blue to-white";
+			return "bg-gradient-to-b from-bp-orange to-white";
 		default:
-			return "bg-gradient-to-b from-bp-yellow to-white";
+			return "bg-gradient-to-b from-bp-red to-white";
 	}
 }
 

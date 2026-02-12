@@ -14,7 +14,9 @@ export const en = {
 	"loading.trafficMixAnalyzing": "Your traffic mix is being analyzed",
 
 	/* MATCH */
-	"match.title": "Your traffic mix matches ...",
+	"match.title": "Top results for your search",
+	"match.subtitle":
+		"These streets best match your search – based on data from the last hour.",
 	"match.createNewMixButton.label": "Create new mix",
 
 	/* TRAFFIC STATS */
@@ -26,14 +28,20 @@ export const en = {
 
 	/* AIR QUALITY CHART */
 	"airQualityChart.title": "Need for Air Improvement",
-	"airQualityChart.step.veryLow": "Very Low",
-	"airQualityChart.step.low": "Low",
-	"airQualityChart.step.moderate": "Moderate",
-	"airQualityChart.step.elevated": "Elevated",
-	"airQualityChart.step.high": "High",
+	"airQualityChart.step.veryLow": "very low",
+	"airQualityChart.step.low": "low",
+	"airQualityChart.step.moderate": "moderate",
+	"airQualityChart.step.elevated": "elevated",
+	"airQualityChart.step.high": "high",
+	"airQualityChart.description":
+		"Based on the analysis of the most important air pollutants: Nitrogen dioxide and fine particles. (Digital Berlin Air Map, 2024)",
 
 	/* NOISE CHART */
 	"noiseChart.title": "Noise Pollution",
+	"noiseChart.description":
+		"Weighted 24-hour average noise level. (Strategic Noise Maps Berlin, 2022)",
+	"noiseChart.scale.quiet": "Quiet",
+	"noiseChart.scale.loud": "Loud",
 
 	/* CIRCLE CHART */
 	"circleChart.summary.trailingMessage.p1": "while",

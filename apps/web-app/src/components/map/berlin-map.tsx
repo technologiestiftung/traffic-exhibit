@@ -22,7 +22,7 @@ export const BerlinMap: React.FC<BerlinMapProps> = ({
 	const svgMargin = { top: 0, right: 0, bottom: 0, left: 0 };
 	const innerHeight = height - svgMargin.top - svgMargin.bottom;
 
-	const scale = width < height ? width / 0.014 : height / 0.014;
+	const scale = width < height ? width / 0.01 : height / 0.01;
 
 	const projection = useCallback(
 		d3
@@ -33,7 +33,7 @@ export const BerlinMap: React.FC<BerlinMapProps> = ({
 		[width, height, scale],
 	);
 	return (
-		<svg width={width} height={height}>
+		<svg width={width} height={height} className="shrink-0">
 			<BerlinPaths projection={projection} berlinGeoJson={berlinGeoJson} />
 
 			{location && projection

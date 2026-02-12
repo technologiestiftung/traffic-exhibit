@@ -1,9 +1,6 @@
 import React from "react";
 import { Pill } from "../pill/pill";
-import { NoiseChart } from "../charts/noise-chart";
-import { AirQualityChart } from "../charts/air-quality-chart";
 import type { TelraamMatch } from "../../../../api/src/common";
-import { i18n } from "../../i18n/i18n-utils";
 import { MatchTinyWorldImg } from "./match-tiny-world-img";
 import {
 	getImageUrl,
@@ -58,30 +55,25 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 				top: 0,
 				left: stackPosition.leftOffset,
 				zIndex: stackPosition.zIndex,
+				transformOrigin: "70% 60%",
 				transform:
 					stackPosition.transformStyle || `scale(${stackPosition.scale})`,
 			}}
 		>
-			<div className="flex flex-col justify-between h-full">
+			<div className="flex flex-col justify-between h-full relative aspect-square">
 				{/* HEADER */}
-				<div className="flex justify-between items-center p-2.5 w-full">
-					<div>
-						<div className="flex gap-5 items-center max-w-md">
-							<h2 className="text-4xl 2xl:text-5xl font-pixel truncate">
-								{match.address?.split(",")[0] ?? ""}
-							</h2>
-							{match.bikeLaneTypes?.map((type) => (
-								<Pill
-									key={type}
-									value={type}
-									className="bg-black text-bp-green"
-								/>
-							))}
-						</div>
-						<p className="text-base 2xl:text-lg py-1.5 text-start">
-							{match.district ?? ""}
-						</p>
+				<div className="absolute top-0 left-0 z-10 w-full h-1/3 bg-gradient-to-b from-white/80 to-transparent p-5">
+					<div className="flex gap-5 items-center max-w-md">
+						<h2 className="text-4xl 2xl:text-5xl font-pixel">
+							{match.address?.split(",")[0] ?? ""}
+						</h2>
+						{match.bikeLaneTypes?.map((type) => (
+							<Pill key={type} value={type} className="bg-black text-bp-blue" />
+						))}
 					</div>
+					<p className="text-base 2xl:text-lg py-1.5 text-start">
+						{match.district ?? ""}
+					</p>
 				</div>
 
 				{/* IMAGE */}
@@ -91,23 +83,9 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 							imageUrl={imageSrc}
 							shouldAnimate={selected}
 							width={isLargeScreen ? 850 : 600}
-							height={isLargeScreen ? 550 : 340}
+							height={isLargeScreen ? 850 : 600}
 						/>
 					)}
-				</div>
-				<div className="flex flex-col gap-2 mb-2">
-					{match.nearestNoiseLevel !== null && (
-						<NoiseChart
-							title={i18n("noiseChart.title")}
-							value={match.nearestNoiseLevel}
-							markerSize={8}
-						/>
-					)}
-					<AirQualityChart
-						title={i18n("airQualityChart.title")}
-						value={match.airQuality}
-						markerSize={8}
-					/>
 				</div>
 			</div>
 		</div>

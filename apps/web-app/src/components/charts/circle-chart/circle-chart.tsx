@@ -42,6 +42,10 @@ export const CircleChart: FC<CircleChartProps> = ({
 					viewBox={`0 0 ${size} ${size}`}
 					role="img"
 					aria-label="Concentric circle chart"
+					style={{
+						filter:
+							"drop-shadow(0 10px 18px rgba(156, 155, 155, 0.1)) drop-shadow(0 2px 6px rgba(0,0,0,0.10))",
+					}}
 				>
 					<defs>
 						{segments.map((segment, index) => (
@@ -79,7 +83,7 @@ export const CircleChart: FC<CircleChartProps> = ({
 									href={`#${chartInstanceId}-label-${index}`}
 									startOffset={baseOffset}
 									textAnchor="middle"
-									fill={segment.color}
+									fill="#000"
 									dominantBaseline="middle"
 								>
 									{`${segment.name} ${segment.percentage}%`}

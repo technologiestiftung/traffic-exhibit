@@ -14,7 +14,9 @@ export const de = {
 	"loading.trafficMixAnalyzing": "Dein Verkehrs-Mix wird analysiert",
 
 	/* MATCH */
-	"match.title": "Dein Verkehrs-Mix passt zu ...",
+	"match.title": "Top Treffer zu deinem Verkehrs-Mix",
+	"match.subtitle":
+		"Diese Straßen passen am besten zu deiner Suche – basierend auf Daten der letzten Stunde.",
 	"match.createNewMixButton.label": "Neuer Mix",
 
 	/* TRAFFIC STATS */
@@ -26,14 +28,20 @@ export const de = {
 
 	/* AIR QUALITY CHART */
 	"airQualityChart.title": "Bedarf für Luftverbesserung",
-	"airQualityChart.step.veryLow": "Sehr niedrig",
-	"airQualityChart.step.low": "Niedrig",
-	"airQualityChart.step.moderate": "Mäßig",
-	"airQualityChart.step.elevated": "Erhöht",
-	"airQualityChart.step.high": "Hoch",
+	"airQualityChart.step.veryLow": "sehr niedrig",
+	"airQualityChart.step.low": "niedrig",
+	"airQualityChart.step.moderate": "mäßig",
+	"airQualityChart.step.elevated": "erhöht",
+	"airQualityChart.step.high": "hoch",
+	"airQualityChart.description":
+		"Basierend auf der Analyse der bedeutendsten Luftschadstoffe: Stickstoffdioxid und Feinstaub. (Digitale Berliner Luftkarte, 2024)",
 
 	/* NOISE CHART */
-	"noiseChart.title": "Lärmbelästigung",
+	"noiseChart.title": "Lärmbelastung",
+	"noiseChart.description":
+		"Gewichteter 24-Stunden-Mittelwert der Lärmbelastung. (Strategische Lärmkarten Berlin, 2022)",
+	"noiseChart.scale.quiet": "Leise",
+	"noiseChart.scale.loud": "Laut",
 
 	/* CIRCLE CHART */
 	"circleChart.summary.trailingMessage.p1": ", Während",

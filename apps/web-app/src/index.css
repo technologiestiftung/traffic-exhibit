@@ -38,15 +38,51 @@
 
 @theme {
 	--color-bp-yellow: #e7fe64;
-	--color-bp-green: #00a980;
-	--color-bp-pink: #e98cbd;
-	--color-bp-blue: #3360e9;
+	--color-bp-blue: #48cdf7;
+	--color-bp-red: #ff4155;
+	--color-bp-orange: #ff7715;
 	--color-bp-gray-light: #999999;
 	--color-bp-gray-dark: #25252a;
+	--color-bp-gray-loading: #d9d9d9;
 	--font-pixel: "Pixel Grotesk";
 }
 
 @layer utilities {
+	@keyframes fade-out {
+		0% {
+			opacity: 1;
+		}
+		100% {
+			opacity: 0;
+		}
+	}
+
+	.animate-fade-out {
+		animation: fade-out 1200ms ease-in-out;
+		animation-fill-mode: both;
+	}
+
+	@keyframes fade-in {
+		0% {
+			opacity: 0;
+			transform: translateY(10px);
+		}
+		100% {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.animate-fade-in {
+		animation: fade-in 1000ms ease-out;
+		animation-fill-mode: both;
+	}
+
+	.animate-fade-in-delay-200 {
+		animation: fade-in 1000ms ease-out 200ms;
+		animation-fill-mode: both;
+	}
+
 	@keyframes pulse-scale-soft {
 		0%,
 		100% {
@@ -108,10 +144,10 @@
 		--loading-filled: var(--color-bp-yellow);
 	}
 	.loading-seg-color-2 {
-		--loading-filled: var(--color-bp-green);
+		--loading-filled: var(--color-bp-red);
 	}
 	.loading-seg-color-3 {
-		--loading-filled: var(--color-bp-pink);
+		--loading-filled: var(--color-bp-orange);
 	}
 	.loading-seg-color-4 {
 		--loading-filled: var(--color-bp-blue);

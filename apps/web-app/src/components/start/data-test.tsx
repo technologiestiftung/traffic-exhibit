@@ -44,7 +44,7 @@ const DataCard: React.FC<{ segment: Segment }> = ({ segment }) => {
 
 	const chartData = [
 		{ label: "PKWs", value: car_percentage ?? 0, color: "#FF6384" },
-		{ label: "Rad", value: bike_percentage ?? 0, color: "#36A2EB" },
+		{ label: "Rad", value: bike_percentage ?? 0, color: "#c8ff00" },
 		{ label: "Zu Fuß", value: pedestrian_percentage ?? 0, color: "#4BC0C0" },
 		{ label: "LKWs", value: heavy_percentage ?? 0, color: "#FFCE56" },
 	].filter((item) => item.value > 0); // Only show items with actual values
@@ -54,9 +54,9 @@ const DataCard: React.FC<{ segment: Segment }> = ({ segment }) => {
 	// Calculate color based on noise level (0-100dB range)
 	const getNoiseColor = (noiseLevel: number) => {
 		const ratio = Math.min(noiseLevel / 80, 35); // Clamp to 0-1
-		const green = Math.round(255 * (1 - ratio * 0.5)); // Green component decreases from 200 to 0
+		const yellow = Math.round(255 * (1 - ratio * 0.5)); // yellow component decreases from 200 to 0
 		const red = Math.round(255 * ratio); // Red component increases from 0 to 255
-		return `rgb(${red}, ${green}, 0)`;
+		return `rgb(${red}, ${yellow}, 0)`;
 	};
 
 	// Format noise display (show placeholder when no data)
@@ -86,7 +86,7 @@ const DataCard: React.FC<{ segment: Segment }> = ({ segment }) => {
 					<div className="flex flex-row gap-2">
 						<strong>Straßentyp</strong>{" "}
 						{segment.bikeLaneTypes.length > 0 ? (
-							<div className="bg-green-300 rounded-full px-2 inline-block w-fit">
+							<div className="bg-yellow-300 rounded-full px-2 inline-block w-fit">
 								{segment.bikeLaneTypes.join(", ")}
 							</div>
 						) : (
@@ -123,7 +123,7 @@ const DataCard: React.FC<{ segment: Segment }> = ({ segment }) => {
 									key={level}
 									className={`w-4 h-4 rounded border ${
 										segment.airQuality === level
-											? "border-pink-700 border-2"
+											? "border-blue-700 border-2"
 											: "border-gray-300"
 									}`}
 									style={{

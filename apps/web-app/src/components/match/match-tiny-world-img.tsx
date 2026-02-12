@@ -26,7 +26,7 @@ const views: Record<ViewType, ViewConfig> = {
 		distanceFromCenter: 0.01,
 		horizontalAngle: 70,
 		verticalAngle: 100,
-		zoomFactor: 0.5,
+		zoomFactor: 0.325,
 		animated: true,
 	},
 	tinyPlanet: {
@@ -40,7 +40,7 @@ const views: Record<ViewType, ViewConfig> = {
 
 const animationSpeed = 0.2;
 const tinyPlanetSpinSpeed = 0.3;
-const streetViewSpinSpeed = 0.05;
+const streetViewSpinSpeed = 0.2;
 
 const rad = (deg: number): number => THREE.MathUtils.degToRad(deg);
 
@@ -247,40 +247,28 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 		}
 	}, [shouldAnimate]);
 
+	useEffect(() => {
+		if (!shouldAnimate) {
+			return undefined;
+		}
+		const intervalId = setInterval(() => {
+			setCurrentView((prev) =>
+				prev === "tinyPlanet" ? "streetView" : "tinyPlanet",
+			);
+		}, 10000);
+
+		return () => {
+			clearInterval(intervalId);
+		};
+	}, [shouldAnimate]);
+
 	return (
 		<div className="relative w-full h-full">
-			<canvas ref={canvasRef} className="w-full h-full" />
-			<div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2">
-				<button
-					type="button"
-					onClick={(e) => {
-						e.stopPropagation();
-						setCurrentView("streetView");
-					}}
-					disabled={currentView === "streetView"}
-					className={`px-4 py-2 rounded-sm ${
-						currentView === "streetView"
-							? "bg-gray-300"
-							: "bg-platte-yellow-400 hover:bg-platte-yellow-600"
-					}`}
-				>
-					Street View
-				</button>
-				<button
-					type="button"
-					onClick={(e) => {
-						e.stopPropagation();
-						setCurrentView("tinyPlanet");
-					}}
-					disabled={currentView === "tinyPlanet"}
-					className={`px-4 py-2 rounded-sm ${
-						currentView === "tinyPlanet"
-							? "bg-gray-300"
-							: "bg-platte-yellow-400 hover:bg-platte-yellow-600"
-					}`}
-				>
-					Tiny Planet
-				</button>
+			<div className="w-full h-full overflow-hidden">
+				<canvas
+					ref={canvasRef}
+					className={`w-full h-full ${!shouldAnimate && "blur-xs"}`}
+				/>
 			</div>
 		</div>
 	);

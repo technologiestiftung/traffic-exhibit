@@ -1,32 +1,18 @@
 import type { CircleChartSegment } from "../charts/circle-chart/circle-chart-utils";
 import { lightenColor } from "../charts/circle-chart/circle-chart-utils";
-import { i18n } from "../../i18n/i18n-utils";
-import { BerlinMap } from "../map/berlin-map";
 
 type MatchDescriptionProps = {
 	data: CircleChartSegment[];
 	coordinates: number[][];
 };
 
-export const MatchDescription = ({
-	data,
-	coordinates,
-}: MatchDescriptionProps) => {
+export const MatchDescription = ({ data }: MatchDescriptionProps) => {
 	const sortedDescendingData = [...data].sort(
 		(a, b) => b.percentage - a.percentage,
 	);
-	const summary = describeSegments(data);
 
 	return (
-		<div className="flex lg:w-1/5 flex-col self-center text-slate-800 lg:ml-auto">
-			{Array.isArray(coordinates) && Array.isArray(coordinates[0]) && (
-				<BerlinMap
-					lat={coordinates[0][1]}
-					lon={coordinates[0][0]}
-					width={270}
-					height={270}
-				/>
-			)}
+		<div className="flex w-full flex-col self-center text-slate-800 lg:ml-auto">
 			<ul className="space-y-3">
 				{sortedDescendingData.map((segment, index) => (
 					<li
@@ -49,30 +35,6 @@ export const MatchDescription = ({
 					</li>
 				))}
 			</ul>
-			<p className="text-base 2xl:text-xl leading-relaxed mt-8">{summary}</p>
 		</div>
 	);
-};
-
-const describeSegments = (segments: CircleChartSegment[]): string | null => {
-	if (!segments.length) {
-		return null;
-	}
-
-	const totalCount = segments.reduce((sum, segment) => sum + segment.count, 0);
-	const sorted = [...segments].sort((a, b) => b.percentage - a.percentage);
-	const topSegment = sorted[0];
-	const trailingSegment = sorted[sorted.length - 1];
-	const categories = segments.length;
-
-	const trailingMessage =
-		trailingSegment &&
-		trailingSegment !== topSegment &&
-		` ${i18n("circleChart.summary.trailingMessage.p1")} ${trailingSegment.name} ${i18n("circleChart.summary.trailingMessage.p2")} ${trailingSegment.percentage}% `;
-
-	const totalMessage =
-		totalCount &&
-		`${i18n("circleChart.summary.totalMessage.p1")} ${totalCount.toLocaleString()} ${i18n("circleChart.summary.totalMessage.p2")}`;
-
-	return `${topSegment.name} ${i18n("circleChart.summary.leadsThisMessage.p1")} ${categories}${i18n("circleChart.summary.leadsThisMessage.p2")} ${topSegment.percentage}%${trailingMessage}${totalMessage}${i18n("circleChart.summary.usageDistributionMessage")}`;
 };

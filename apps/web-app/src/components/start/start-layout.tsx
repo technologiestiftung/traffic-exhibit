@@ -17,7 +17,7 @@ export const StartLayout = ({
 			className={`w-full bg-gradient-to-b from-[#171719] via-[#3b3b41] to-[#d7d7dd] text-white h-screen overflow-y-auto`}
 		>
 			<div
-				className={`mx-auto flex items-center justify-center gap-10 max-w-[1540px] xl:max-w-[1820px] flex-col px-6 xl:px-0 py-10 min-h-screen`}
+				className={`mx-auto flex items-center justify-center gap-10 max-w-[1540px] xl:max-w-[1920px] flex-col px-6 xl:px-0 py-10 min-h-screen`}
 			>
 				<div
 					className={`flex w-full flex-col gap-12 xl:gap-20 xl:flex-row xl:items-center xl:justify-center`}
