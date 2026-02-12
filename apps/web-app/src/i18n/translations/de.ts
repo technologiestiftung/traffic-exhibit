@@ -36,6 +36,11 @@ export const de = {
 	"airQualityChart.description":
 		"Basierend auf der Analyse der bedeutendsten Luftschadstoffe: Stickstoffdioxid und Feinstaub. (Digitale Berliner Luftkarte, 2024)",
 
+	/* LANGUAGE TOGGLE */
+	"languageToggle.aria.de": "Deutsch",
+	"languageToggle.aria.en": "Englisch",
+	"languageToggle.aria.current": "(aktuell)",
+
 	/* NOISE CHART */
 	"noiseChart.title": "Lärmbelastung",
 	"noiseChart.description":

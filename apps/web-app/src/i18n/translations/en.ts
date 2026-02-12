@@ -36,6 +36,11 @@ export const en = {
 	"airQualityChart.description":
 		"Based on the analysis of the most important air pollutants: Nitrogen dioxide and fine particles. (Digital Berlin Air Map, 2024)",
 
+	/* LANGUAGE TOGGLE */
+	"languageToggle.aria.de": "German",
+	"languageToggle.aria.en": "English",
+	"languageToggle.aria.current": "(current)",
+
 	/* NOISE CHART */
 	"noiseChart.title": "Noise Pollution",
 	"noiseChart.description":

@@ -138,12 +138,14 @@ export const Match: React.FC = () => {
 					</div>
 				)}
 			</div>
-			<button
-				className="absolute bottom-10 left-1/2 -translate-x-1/2 border border-gray-600 bg-white/70 px-4 py-2 text-sm font-semibold tracking-wide text-slate-700 transition hover:-translate-y-0.5 hover:bg-white md:self-center z-10 animate-fade-in-delay-200"
-				onClick={goBackToStart}
-			>
-				{i18n("match.createNewMixButton.label")}
-			</button>
+			{import.meta.env.VITE_IS_DEVELOPMENT === "true" && (
+				<button
+					className="absolute bottom-10 left-1/2 -translate-x-1/2 border border-gray-600 bg-white/70 px-4 py-2 text-sm font-semibold tracking-wide text-slate-700 transition hover:-translate-y-0.5 hover:bg-white md:self-center z-10 animate-fade-in-delay-200"
+					onClick={goBackToStart}
+				>
+					{i18n("match.createNewMixButton.label")}
+				</button>
+			)}
 		</div>
 	);
 };

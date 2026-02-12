@@ -1,5 +1,25 @@
-import { type AvailableTranslations, translations } from "./translations";
+import {
+	type AvailableLanguages,
+	type AvailableTranslations,
+	translations,
+} from "./translations";
 import { isLanguageSupported } from "./is-language-supported";
+
+export function switchLanguage(newLang: AvailableLanguages) {
+	const pathname =
+		typeof window !== "undefined" ? window.location.pathname : "/";
+	const segments = pathname.split("/").filter(Boolean);
+	const first = segments[0];
+	if (isLanguageSupported(first)) {
+		segments[0] = newLang;
+	} else {
+		segments.unshift(newLang);
+	}
+	const newPath = `/${segments.join("/")}`;
+	if (typeof window !== "undefined") {
+		window.location.pathname = newPath;
+	}
+}
 
 export function formatNumber(number: number, options?: { toFixed?: number }) {
 	const { toFixed } = options ? options : { toFixed: 0 };
