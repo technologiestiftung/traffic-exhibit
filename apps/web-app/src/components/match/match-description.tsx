@@ -27,7 +27,7 @@ export const MatchDescription = ({ data }: MatchDescriptionProps) => {
 				{sortedDescendingData.map((segment, index) => (
 					<li
 						key={`legend-${segment.name}-${index}`}
-						className="flex items-center justify-between border border-gray-600 px-4 py-2 text-sm font-semibold shadow"
+						className="flex items-center justify-between border border-gray-600 px-4 py-2 text-sm font-semibold shadow rounded-xs"
 						style={{
 							backgroundColor: lightenColor(segment.color, 0.55),
 							color: "#1a1a1a",

@@ -68,7 +68,11 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 							{match.address?.split(",")[0] ?? ""}
 						</h2>
 						{match.bikeLaneTypes?.map((type) => (
-							<Pill key={type} value={type} className="bg-black text-bp-blue" />
+							<Pill
+								key={type}
+								value={type}
+								className="bg-black font-pixel text-bp-gray-loading"
+							/>
 						))}
 					</div>
 					<p className="text-base 2xl:text-lg py-1.5 text-start">

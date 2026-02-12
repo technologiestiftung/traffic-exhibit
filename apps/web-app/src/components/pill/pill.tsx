@@ -7,9 +7,7 @@ type pillProps = {
 
 export const Pill: React.FC<pillProps> = ({ value, className = "" }) => {
 	return (
-		<span
-			className={`px-3 py-1 text-xs font-medium rounded-full h-fit ${className}`}
-		>
+		<span className={`p-2 text-xs font-medium rounded-xs h-fit ${className}`}>
 			{value}
 		</span>
 	);
