@@ -250,6 +250,20 @@ def start_button_stop_trigger():
     print("Stopping motor due to toggle switch OFF...")
     stop_motor()
 
+def apply_initial_start_switch_state():
+    """Check start switch position at boot and trigger start or stop so app/motor match physical switch."""
+    global last_switch_state
+    current = start_switch.value
+    last_switch_state = current
+    if current:
+        # HIGH = stop position
+        # start_button_stop_trigger()
+        print("Start switch initial position: OFF (stop)")
+    else:
+        # LOW = start position
+        # start_button_trigger()
+        print("Start switch initial position: ON (start)")
+
 def monitor_start_button():
     """Monitor toggle switch. Inverted so HIGH = stop, LOW = start (matches typical wiring)."""
     global last_switch_state, monitoring_active
@@ -350,9 +364,13 @@ def main():
         try:
             sio.connect(server_url)
             print("✅ Connected to Node.js server")
+            # Apply initial switch state so frontend and motor match physical switch
+            time.sleep(0.1)
+            apply_initial_start_switch_state()
         except Exception as e:
             print(f"⚠️  Failed to connect to Node.js server: {e}")
             print("Continuing without web interface connection...")
+            apply_initial_start_switch_state()
         
         # Start button monitoring in a separate thread
         start_button_thread = threading.Thread(target=monitor_start_button, daemon=True)
