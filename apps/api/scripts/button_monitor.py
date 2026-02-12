@@ -26,8 +26,6 @@ START_SWITCH_PIN = 5   # Toggle switch GPIO (physical pin 29); pull-down: OFF=LO
 CLK2_PIN = 12   # Selection button rotary encoder CLK pin
 DT2_PIN = 16    # Selection button rotary encoder DT pin
 SELECTION_SW_PIN = 6   # Selection button push switch (SW); pull-up: pressed = LOW
-ROTARY_DEBOUNCE_SEC = 0.015  # Ignore rotary transitions within 15 ms (debounce)
-SELECTION_SW_DEBOUNCE_SEC = 0.25  # Ignore repeat presses within 250 ms
 
 # Motor control pins
 STEP_PIN = 21
@@ -52,9 +50,7 @@ monitoring_active = True
 selection_button_position = 0
 last_clk2_state = None
 last_direction2 = None
-last_rotary_event_time = 0.0  # For debounce
 last_sw_state = None
-last_sw_press_time = 0.0  # For push debounce
 
 # Motor control state
 motor_running = False
@@ -96,7 +92,7 @@ try:
     print(f"Motor pins - STEP: {STEP_PIN}, DIR: {DIRECTION_PIN}, ENABLE: {ENABLE_PIN}")
     print(f"Microstep pins - M0: {M0_PIN}, M1: {M1_PIN}, M2: {M2_PIN}")
     print(f"Start toggle switch - GPIO: {START_SWITCH_PIN}")
-    print(f"Selection button pins - CLK2: {CLK2_PIN}, DT2: {DT2_PIN}, SW: {SELECTION_SW_PIN} (rotary debounce: {ROTARY_DEBOUNCE_SEC}s)")
+    print(f"Selection button pins - CLK2: {CLK2_PIN}, DT2: {DT2_PIN}, SW: {SELECTION_SW_PIN}")
     print("Microstep mode: 1/32 for quiet operation")
     
 except Exception as e:
@@ -275,8 +271,8 @@ def monitor_start_button():
         print(f"Error monitoring start toggle switch: {e}")
 
 def monitor_selection_button():
-    """Monitor the selection button for rotation and emit on each detent (with debounce)"""
-    global selection_button_position, last_clk2_state, last_direction2, last_rotary_event_time, monitoring_active
+    """Monitor the selection button for rotation and emit on each detent"""
+    global selection_button_position, last_clk2_state, last_direction2, monitoring_active
     
     pulse_count = 0
     skip_counter = 0  # Counter to skip every other pulse
@@ -284,18 +280,10 @@ def monitor_selection_button():
     
     try:
         while monitoring_active:
-            now = time.monotonic()
             current_clk2_state = clk2.value
             
             # Detect any state change
             if current_clk2_state != last_clk2_state:
-                # Debounce: ignore transitions too soon after the last one
-                if (now - last_rotary_event_time) < ROTARY_DEBOUNCE_SEC:
-                    last_clk2_state = current_clk2_state
-                    time.sleep(0.001)
-                    continue
-                last_rotary_event_time = now
-
                 # Determine direction: use CLK edge (rising vs falling) + DT state
                 # Quadrature: one signal leads the other; edge type + DT disambiguates.
                 rising_edge = last_clk2_state is False and current_clk2_state is True
@@ -335,8 +323,8 @@ def monitor_selection_button():
         print(f"Error monitoring selection button: {e}")
 
 def monitor_selection_sw_button():
-    """Monitor the selection button SW (push). Emit selection_button_pressed on press (with debounce)."""
-    global last_sw_state, last_sw_press_time, monitoring_active
+    """Monitor the selection button SW (push). Emit selection_button_pressed on press."""
+    global last_sw_state, monitoring_active
 
     try:
         while monitoring_active:
@@ -344,13 +332,10 @@ def monitor_selection_sw_button():
             # With pull-up: not pressed = HIGH (True), pressed = LOW (False)
             if not current and last_sw_state:
                 # Transition HIGH -> LOW = button pressed
-                now = time.monotonic()
-                if (now - last_sw_press_time) >= SELECTION_SW_DEBOUNCE_SEC:
-                    last_sw_press_time = now
-                    try:
-                        sio.emit("selection_button_pressed", {})
-                    except Exception as e:
-                        print(f"Socket.IO emit failed: {e}")
+                try:
+                    sio.emit("selection_button_pressed", {})
+                except Exception as e:
+                    print(f"Socket.IO emit failed: {e}")
             last_sw_state = current
             time.sleep(0.02)  # 50 Hz poll
     except Exception as e:
