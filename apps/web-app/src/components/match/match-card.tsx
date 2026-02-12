@@ -23,6 +23,7 @@ export type MatchCardProps = {
 	stackPosition: StackPositionStyles;
 	selected: boolean;
 	onSelect: (index: number) => void;
+	transitionToStreetViewTrigger?: number;
 };
 
 export const MatchCard: React.FC<MatchCardProps> = ({
@@ -31,6 +32,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 	stackPosition,
 	selected,
 	onSelect,
+	transitionToStreetViewTrigger,
 }) => {
 	const imageSrc = match.imageURL ? getImageUrl(match.imageURL) : null;
 	const dominantIndex = getDominantTrafficModalIndex(match);
@@ -84,6 +86,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 							shouldAnimate={selected}
 							width={isLargeScreen ? 850 : 600}
 							height={isLargeScreen ? 850 : 600}
+							transitionToStreetViewTrigger={transitionToStreetViewTrigger}
 						/>
 					)}
 				</div>

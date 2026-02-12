@@ -6,10 +6,12 @@ export const MatchCards = ({
 	matchStack,
 	selectedIndex,
 	handleSelect,
+	streetViewTrigger,
 }: {
 	matchStack: TelraamMatch[];
 	selectedIndex: number;
 	handleSelect: (index: number) => void;
+	streetViewTrigger?: number;
 }) => {
 	return matchStack.map((match, index) => {
 		const stackLength = matchStack.length;
@@ -56,6 +58,7 @@ export const MatchCards = ({
 				stackPosition={stackPosition}
 				selected={isSelectedCard}
 				onSelect={handleSelect}
+				transitionToStreetViewTrigger={streetViewTrigger}
 			/>
 		);
 	});
