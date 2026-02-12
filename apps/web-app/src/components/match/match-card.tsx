@@ -62,7 +62,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 		>
 			<div className="flex flex-col justify-between h-full relative aspect-square">
 				{/* HEADER */}
-				<div className="absolute top-0 left-0 z-10 w-full h-1/3 bg-gradient-to-b from-white/80 to-transparent p-5">
+				<div className="absolute bottom-0 left-0 z-10 flex w-full h-1/3 flex-col justify-end bg-gradient-to-t from-white/80 to-transparent p-5">
 					<div className="flex gap-5 items-center max-w-md">
 						<h2 className="text-4xl 2xl:text-5xl font-pixel">
 							{match.address?.split(",")[0] ?? ""}

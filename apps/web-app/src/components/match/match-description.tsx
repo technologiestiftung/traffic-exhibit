@@ -6,6 +6,24 @@ type MatchDescriptionProps = {
 	coordinates: number[][];
 };
 
+const iconForSegmentName = (name: string): string | null => {
+	const n = name.trim().toLowerCase();
+	// Support both English and German labels
+	if (n.includes("pedestrian") || n.includes("fuß") || n.includes("fuss")) {
+		return "/walking_icon.svg";
+	}
+	if (n.includes("bike") || n.includes("fahrr")) {
+		return "/bike_icon.svg";
+	}
+	if (n.includes("car") || n.includes("auto")) {
+		return "/Car_icon.svg";
+	}
+	if (n.includes("truck") || n.includes("lkw")) {
+		return "/LKW_icon.svg";
+	}
+	return null;
+};
+
 export const MatchDescription = ({ data }: MatchDescriptionProps) => {
 	const sortedDescendingData = [...data].sort(
 		(a, b) => b.percentage - a.percentage,
@@ -24,11 +42,31 @@ export const MatchDescription = ({ data }: MatchDescriptionProps) => {
 						}}
 					>
 						<span className="flex items-center gap-3">
-							<span
-								aria-hidden="true"
-								className="inline-block h-3 w-6 rounded-sm 2xl:h-4 2xl:w-8 border border-black/20"
-								style={{ backgroundColor: segment.color }}
-							/>
+							{(() => {
+								const iconSrc = iconForSegmentName(segment.name);
+								if (!iconSrc) {
+									return (
+										<span
+											aria-hidden="true"
+											className="inline-block h-3 w-6 rounded-sm 2xl:h-4 2xl:w-8 border border-black/20"
+											style={{ backgroundColor: segment.color }}
+										/>
+									);
+								}
+
+								return (
+									<span
+										aria-hidden="true"
+										className="inline-block h-3 w-6 2xl:h-4 2xl:w-8"
+										style={{
+											backgroundColor: "#000",
+											WebkitMask: `url(${iconSrc}) center / contain no-repeat`,
+											mask: `url(${iconSrc}) center / contain no-repeat`,
+											filter: "drop-shadow(0 1px 0 rgba(0,0,0,0.12))",
+										}}
+									/>
+								);
+							})()}
 							<span className="text-base 2xl:text-lg">{segment.name}</span>
 						</span>
 						<span className="font-numbers">{`${segment.percentage}%`}</span>

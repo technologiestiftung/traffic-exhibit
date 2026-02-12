@@ -23,6 +23,9 @@ export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 	const centerY = size / 2;
 	const outerRadius = size / 2;
 	const sliceRadius = outerRadius - 10;
+	// Old design used: cx=350, cy=350, r=204 on a 700x700 viewBox.
+	// Keep the same proportion so the look stays consistent when `size` changes.
+	const innerCutoutRadius = (204 / 700) * size;
 
 	// Angles
 	const FULL_CIRCLE_RADIANS = Math.PI * 2;
@@ -145,7 +148,7 @@ export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 					))}
 
 					{/* Inner cutout */}
-					<circle cx={centerX} cy={centerY} r={sliceRadius * 0.6} fill="#fff" />
+					<circle cx={centerX} cy={centerY} r={innerCutoutRadius} fill="#fff" />
 				</svg>
 			</div>
 		</div>
