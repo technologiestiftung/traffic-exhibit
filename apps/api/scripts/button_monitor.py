@@ -133,9 +133,6 @@ def do_rotation():
             step.off()
             time.sleep(STEP_DELAY)
             steps_done += 1
-            
-            if steps_done % 1000 == 0:
-                print(f"Microsteps completed: {steps_done}")
         
         # Disable motor to prevent overheating
         enable.on()  # Disable motor (HIGH = disabled)
