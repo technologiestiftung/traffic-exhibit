@@ -12,6 +12,7 @@ import { MatchCards } from "./match-cards";
 import { BerlinMap } from "../map/berlin-map";
 import NoiseChart from "../charts/noise-chart";
 import { AirQualityGrid } from "../charts/air-quality-grid";
+import { MatchDescription } from "./match-description";
 
 const isLargeScreen = window.innerWidth > 1920;
 
@@ -85,7 +86,7 @@ export const Match: React.FC = () => {
 			{/* Transition overlay: starts with loading gradient, fades out to reveal match gradient */}
 			<div className="absolute inset-0 bg-gradient-to-b from-[#171719] via-[#3b3b41] to-[#d7d7dd] animate-fade-out pointer-events-none" />
 
-			<div className="mb-8 2xl:mb-16 flex w-full max-w-[1540px] 2xl:max-w-[2300px] xl:px-0 gap-4 2xl:gap-10 flex-row md:justify-between px-10 relative z-10 animate-fade-in">
+			<div className="mb-8 2xl:mb-16 flex w-full max-w-[1540px] 2xl:max-w-[2000px] xl:px-0 gap-4 2xl:gap-10 flex-row md:justify-between px-10 relative z-10 animate-fade-in">
 				<h1 className="font-pixel text-left text-4xl 2xl:text-6xl font-semibold text-[#1e2402] drop-shadow font-title">
 					{i18n("match.title")}
 				</h1>
@@ -95,7 +96,7 @@ export const Match: React.FC = () => {
 				</h2>
 			</div>
 
-			<div className="relative flex w-full max-w-[1540px] 2xl:max-w-[2300px] items-center justify-between gap-12 z-10 animate-fade-in-delay-200">
+			<div className="relative flex w-full max-w-[1540px] 2xl:max-w-[2000px] items-center justify-between gap-12 z-10 animate-fade-in-delay-200">
 				{/* Stacked cards*/}
 				<div className="relative flex z-50 h-[600px] 2xl:h-[850px] overflow-visible ml-44">
 					<MatchCards
@@ -113,15 +114,20 @@ export const Match: React.FC = () => {
 					</div>
 				)}
 				{currentMatch && (
-					<div className="flex flex-col gap-5 w-1/4 h-full 2xl:w-1/3  items-center justify-center">
+					<div className="flex flex-col gap-10 w-[23%] h-full items-center justify-between">
 						{currentMatch && (
 							<BerlinMap
 								lat={currentMatch.coordinates[0][1]}
 								lon={currentMatch.coordinates[0][0]}
-								width={isLargeScreen ? 320 : 220}
-								height={isLargeScreen ? 270 : 170}
+								width={isLargeScreen ? 280 : 220}
+								height={isLargeScreen ? 220 : 170}
 							/>
 						)}
+
+						<MatchDescription
+							data={getTrafficModal(currentMatch)}
+							coordinates={currentMatch.coordinates}
+						/>
 						{currentMatch.nearestNoiseLevel !== null && (
 							<NoiseChart
 								title={i18n("noiseChart.title")}

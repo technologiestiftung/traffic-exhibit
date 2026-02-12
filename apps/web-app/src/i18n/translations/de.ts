@@ -34,10 +34,12 @@ export const de = {
 	"airQualityChart.step.elevated": "erhöht",
 	"airQualityChart.step.high": "hoch",
 	"airQualityChart.description":
-		"Basierend auf der Analyse der drei bedeutendsten Luftschadstoffe: Stickstoffdioxid, grober Feinstaub und feiner Feinstaub. (Digitale Berliner Luftkarte, 2024)",
+		"Basierend auf der Analyse der bedeutendsten Luftschadstoffe: Stickstoffdioxid und Feinstaub. (Digitale Berliner Luftkarte, 2024)",
 
 	/* NOISE CHART */
-	"noiseChart.title": "Lärmbelästigung",
+	"noiseChart.title": "Lärmbelastung",
+	"noiseChart.description":
+		"Gewichteter 24-Stunden-Mittelwert der Lärmbelastung. (Strategische Lärmkarten Berlin, 2022)",
 	"noiseChart.scale.quiet": "Leise",
 	"noiseChart.scale.loud": "Laut",
 

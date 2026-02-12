@@ -8,9 +8,9 @@ interface AirQualityGridProps {
 export const AirQualityGrid: React.FC<AirQualityGridProps> = ({
 	airQuality,
 }) => {
-	const TOTAL_CELLS = 456; // 10 rows × 28 columns
-	const rows = 12;
-	const cols = 38;
+	const TOTAL_CELLS = 400;
+	const rows = 8;
+	const cols = 50;
 
 	// Map air quality level to translation key
 	const getAirQualityLabel = (level: number): string => {
@@ -63,34 +63,47 @@ export const AirQualityGrid: React.FC<AirQualityGridProps> = ({
 	}, [blackCellCount]);
 
 	return (
-		<div className="w-full h-full flex flex-col items-center justify-center">
-			<h3 className="text-base text-start font-semibold w-full text-black">
-				{i18n("airQualityChart.title")}: {getAirQualityLabel(airQuality)}
-			</h3>
-			<div
-				className="grid gap-[1px] my-2"
-				style={{
-					gridTemplateRows: `repeat(${rows}, 1fr)`,
-					gridTemplateColumns: `repeat(${cols}, 1fr)`,
-					width: "100%",
-					height: "100%",
-				}}
-			>
-				{Array.from({ length: TOTAL_CELLS }).map((_, index) => (
-					<div
-						key={index}
-						className={`transition-all duration-2000 ease-in-out rounded-xs ${
-							blackPositions.has(index) ? "bg-black" : "bg-transparent"
-						}`}
-						style={{
-							aspectRatio: "1",
-						}}
+		<div className="w-full h-fit flex flex-col gap-2">
+			<div className="flex items-center gap-2 self-start">
+				<h3 className="text-2xl font-pixel font-semibold text-black">
+					{i18n("airQualityChart.title")}: {getAirQualityLabel(airQuality)}
+				</h3>
+				<div className="relative group">
+					<img
+						src="/info-icon.svg"
+						alt="Info"
+						className="w-5 h-5 cursor-help"
 					/>
-				))}
+					{/* Tooltip */}
+					<div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-black text-white text-xs rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-10">
+						{i18n("airQualityChart.description")}
+						{/* Tooltip arrow */}
+						<div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px border-4 border-transparent border-t-black" />
+					</div>
+				</div>
 			</div>
-			<p className="text-sm text-start w-full text-black">
-				{i18n("airQualityChart.description")}
-			</p>
+			<div className="flex-1 w-full min-h-0 flex items-center justify-center">
+				<div
+					className="flex flex-wrap gap-[1px] w-full"
+					style={{
+						aspectRatio: `${cols} / ${rows}`,
+						maxHeight: "100%",
+					}}
+				>
+					{Array.from({ length: TOTAL_CELLS }).map((_, index) => (
+						<div
+							key={index}
+							className={`transition-all duration-2000 ease-in-out rounded-xs ${
+								blackPositions.has(index) ? "bg-black" : "bg-transparent"
+							}`}
+							style={{
+								width: `calc((100% - ${cols - 1}px) / ${cols})`,
+								aspectRatio: "1",
+							}}
+						/>
+					))}
+				</div>
+			</div>
 		</div>
 	);
 };

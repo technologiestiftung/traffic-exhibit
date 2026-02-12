@@ -42,7 +42,7 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 	isScaleVisible = true,
 	className = "",
 	isValueLabelVisible: _isValueLabelVisible = true,
-	animationDurationMs: _animationDurationMs = 400,
+	animationDurationMs: _animationDurationMs = 500,
 }) => {
 	const [rangeMin, rangeMax] = [VU_RANGE_MIN, VU_RANGE_MAX];
 	const clamped = clamp(value, rangeMin, rangeMax);
@@ -177,12 +177,27 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 	}, [fillPercent]);
 
 	return (
-		<section className={`w-full flex flex-col gap-2 p-3 ${className}`}>
-			<h3 className="font-normal self-start text-base 2xl:text-xl">
-				{title}{" "}
-				<span className="font-semibold">({Math.round(clamped)} dB)</span>
-			</h3>
-			<div className="flex flex-col gap-1 w-full">
+		<section className={`w-full flex flex-col gap-2 ${className}`}>
+			<div className="flex items-center gap-2 self-start">
+				<h3 className="text-2xl font-pixel">
+					{title}:{" "}
+					<span className="font-semibold">{Math.round(clamped)} dB</span>
+				</h3>
+				<div className="relative group">
+					<img
+						src="/info-icon.svg"
+						alt="Info"
+						className="w-5 h-5 cursor-help"
+					/>
+					{/* Tooltip */}
+					<div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-black text-white text-xs rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-10">
+						{i18n("noiseChart.description")}
+						{/* Tooltip arrow */}
+						<div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px border-4 border-transparent border-t-black" />
+					</div>
+				</div>
+			</div>
+			<div className="flex flex-col gap-2 w-full">
 				<div
 					role="meter"
 					aria-label="Noise level"
@@ -212,7 +227,7 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 							return (
 								<div
 									key={i}
-									className="min-h-0 min-w-0 box-border border border-black"
+									className="min-h-0 min-w-0 box-border rounded-xs border border-black"
 									style={{
 										backgroundColor: isOn ? FILLED_COLOR : GRID_BG,
 									}}
@@ -224,7 +239,7 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 				{/* Labels underneath: Leise under first column, Laut under last column */}
 				{isScaleVisible && (
 					<div
-						className="flex justify-between text-xs text-neutral-700 w-full"
+						className="flex justify-between text-base text-neutral-700 w-full"
 						style={{ paddingLeft: PAD, paddingRight: PAD }}
 					>
 						<span>{i18n("noiseChart.scale.quiet")}</span>

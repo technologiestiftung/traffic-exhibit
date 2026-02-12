@@ -34,10 +34,12 @@ export const en = {
 	"airQualityChart.step.elevated": "elevated",
 	"airQualityChart.step.high": "high",
 	"airQualityChart.description":
-		"Based on the analysis of the three most important air pollutants: Nitrogen dioxide, coarse particles and fine particles. (Digital Berlin Air Map, 2024)",
+		"Based on the analysis of the most important air pollutants: Nitrogen dioxide and fine particles. (Digital Berlin Air Map, 2024)",
 
 	/* NOISE CHART */
 	"noiseChart.title": "Noise Pollution",
+	"noiseChart.description":
+		"Weighted 24-hour average noise level. (Strategic Noise Maps Berlin, 2022)",
 	"noiseChart.scale.quiet": "Quiet",
 	"noiseChart.scale.loud": "Loud",
 
