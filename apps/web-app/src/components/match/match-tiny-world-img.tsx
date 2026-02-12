@@ -19,6 +19,7 @@ type MatchTinyWorldImgProps = {
 	width?: number;
 	height?: number;
 	shouldAnimate?: boolean;
+	transitionToStreetViewTrigger?: number;
 };
 
 const views: Record<ViewType, ViewConfig> = {
@@ -49,6 +50,7 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 	width = 618,
 	height = 340,
 	shouldAnimate = true,
+	transitionToStreetViewTrigger,
 }) => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const sceneRef = useRef<THREE.Scene | null>(null);
@@ -233,6 +235,16 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 			setView(views[currentView]);
 		}
 	}, [currentView]);
+
+	// When hardware button (SW) triggers, transition to street view
+	useEffect(() => {
+		if (
+			typeof transitionToStreetViewTrigger === "number" &&
+			transitionToStreetViewTrigger > 0
+		) {
+			setCurrentView("streetView");
+		}
+	}, [transitionToStreetViewTrigger]);
 
 	useEffect(() => {
 		shouldAnimateRef.current = shouldAnimate;

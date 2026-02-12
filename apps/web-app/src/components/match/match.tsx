@@ -21,9 +21,11 @@ export const Match: React.FC = () => {
 		goBackToStart,
 		telraamMatches = [],
 		onSelectionButtonRotated,
+		onSelectionButtonPressed,
 	} = useWebSocket();
 	const [stack, setStack] = useState<TelraamMatch[]>([]);
 	const [selectedIndex, setSelectedIndex] = useState<number>(0);
+	const [streetViewTrigger, setStreetViewTrigger] = useState(0);
 
 	// Initialize stack when telraamMatches first loads
 	useEffect(() => {
@@ -40,9 +42,6 @@ export const Match: React.FC = () => {
 	// Handle selection button rotation to navigate between matches
 	useEffect(() => {
 		onSelectionButtonRotated((data) => {
-			// eslint-disable-next-line no-console
-			console.log("Selection button in match.tsx:", data);
-
 			const activeStack =
 				stack.length > 0
 					? stack
@@ -61,6 +60,14 @@ export const Match: React.FC = () => {
 			}
 		});
 	}, [onSelectionButtonRotated, telraamMatches]);
+
+	// Handle selection button push (SW): transition tiny planet → street view
+	useEffect(() => {
+		onSelectionButtonPressed(() => {
+			setStreetViewTrigger((prev) => prev + 1);
+		});
+	}, [onSelectionButtonPressed]);
+
 	const pageBackgroundClass = currentMatch
 		? getDominantTrafficGradientClass(
 				getDominantTrafficModalIndex(currentMatch),
@@ -103,6 +110,7 @@ export const Match: React.FC = () => {
 						matchStack={matchStack}
 						selectedIndex={selectedIndex}
 						handleSelect={handleSelect}
+						streetViewTrigger={streetViewTrigger}
 					/>
 				</div>
 				{currentMatch && (

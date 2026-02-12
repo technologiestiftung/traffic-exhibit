@@ -25,7 +25,9 @@ START_SWITCH_PIN = 5   # Toggle switch GPIO (physical pin 29); pull-down: OFF=LO
 # Selection button pins (step counter)
 CLK2_PIN = 12   # Selection button rotary encoder CLK pin
 DT2_PIN = 16    # Selection button rotary encoder DT pin
+SELECTION_SW_PIN = 6   # Selection button push switch (SW); pull-up: pressed = LOW
 ROTARY_DEBOUNCE_SEC = 0.015  # Ignore rotary transitions within 15 ms (debounce)
+SELECTION_SW_DEBOUNCE_SEC = 0.25  # Ignore repeat presses within 250 ms
 
 # Motor control pins
 STEP_PIN = 21
@@ -51,6 +53,8 @@ selection_button_position = 0
 last_clk2_state = None
 last_direction2 = None
 last_rotary_event_time = 0.0  # For debounce
+last_sw_state = None
+last_sw_press_time = 0.0  # For push debounce
 
 # Motor control state
 motor_running = False
@@ -81,16 +85,18 @@ try:
     start_switch = DigitalInputDevice(START_SWITCH_PIN, pull_up=False)
     last_switch_state = start_switch.value
     
-    # Selection button pins
+    # Selection button pins (rotary encoder + push switch)
     clk2 = DigitalInputDevice(CLK2_PIN, pull_up=True)
     dt2 = DigitalInputDevice(DT2_PIN, pull_up=True)
+    selection_sw = DigitalInputDevice(SELECTION_SW_PIN, pull_up=True)  # SW: pressed = LOW
     last_clk2_state = clk2.value
+    last_sw_state = selection_sw.value
     
     print("=== GPIO Initialization Complete ===")
     print(f"Motor pins - STEP: {STEP_PIN}, DIR: {DIRECTION_PIN}, ENABLE: {ENABLE_PIN}")
     print(f"Microstep pins - M0: {M0_PIN}, M1: {M1_PIN}, M2: {M2_PIN}")
     print(f"Start toggle switch - GPIO: {START_SWITCH_PIN}")
-    print(f"Selection button pins - CLK2: {CLK2_PIN}, DT2: {DT2_PIN} (debounce: {ROTARY_DEBOUNCE_SEC}s)")
+    print(f"Selection button pins - CLK2: {CLK2_PIN}, DT2: {DT2_PIN}, SW: {SELECTION_SW_PIN} (rotary debounce: {ROTARY_DEBOUNCE_SEC}s)")
     print("Microstep mode: 1/32 for quiet operation")
     
 except Exception as e:
@@ -197,6 +203,10 @@ def cleanup_and_exit(_signum=None, _frame=None):
     except Exception as e:  # noqa: BLE001
         print(f"Switch cleanup error: {e}")
     try:
+        selection_sw.close()
+    except Exception as e:  # noqa: BLE001
+        print(f"Selection SW cleanup error: {e}")
+    try:
         sio.disconnect()
     except Exception as e:  # noqa: BLE001
         print(f"Socket cleanup error: {e}")
@@ -268,8 +278,6 @@ def monitor_selection_button():
     """Monitor the selection button for rotation and emit on each detent (with debounce)"""
     global selection_button_position, last_clk2_state, last_direction2, last_rotary_event_time, monitoring_active
     
-    print("Starting selection button monitoring...")
-    
     pulse_count = 0
     skip_counter = 0  # Counter to skip every other pulse
     TOTAL_PULSES = 20
@@ -310,22 +318,12 @@ def monitor_selection_button():
                 # Only emit every other pulse (to get one event per detent)
                 if skip_counter % 2 == 0:
                     pulse_count += 1
-                    
-                    # Debug: Log every pulse
-                    print(f"[SELECTION DEBUG] Pulse detected - Direction: {direction}")
-                    
-                    # Emit event immediately
                     try:
                         sio.emit('selection_button_rotated', {
                             'direction': direction
                         })
-                        print(f"✅ [SELECTION BUTTON] Event emitted!")
                     except Exception as e:
                         print(f"Socket.IO emit failed: {e}")
-                    
-                    # Log the event
-                    progress = (abs(selection_button_position) % TOTAL_PULSES)
-                    print(f"[SELECTION BUTTON] Direction: {current_direction2}")
                 
                 # Update direction tracking
                 last_direction2 = current_direction2
@@ -335,6 +333,28 @@ def monitor_selection_button():
             
     except Exception as e:
         print(f"Error monitoring selection button: {e}")
+
+def monitor_selection_sw_button():
+    """Monitor the selection button SW (push). Emit selection_button_pressed on press (with debounce)."""
+    global last_sw_state, last_sw_press_time, monitoring_active
+
+    try:
+        while monitoring_active:
+            current = selection_sw.value
+            # With pull-up: not pressed = HIGH (True), pressed = LOW (False)
+            if not current and last_sw_state:
+                # Transition HIGH -> LOW = button pressed
+                now = time.monotonic()
+                if (now - last_sw_press_time) >= SELECTION_SW_DEBOUNCE_SEC:
+                    last_sw_press_time = now
+                    try:
+                        sio.emit("selection_button_pressed", {})
+                    except Exception as e:
+                        print(f"Socket.IO emit failed: {e}")
+            last_sw_state = current
+            time.sleep(0.02)  # 50 Hz poll
+    except Exception as e:
+        print(f"Error monitoring selection SW button: {e}")
 
 def main():
     """Main function - handles start toggle switch and selection button"""
@@ -359,13 +379,17 @@ def main():
         # Selection button monitoring in a separate thread
         selection_button_thread = threading.Thread(target=monitor_selection_button, daemon=True)
         selection_button_thread.start()
+
+        # Selection button SW (push) monitoring
+        selection_sw_thread = threading.Thread(target=monitor_selection_sw_button, daemon=True)
+        selection_sw_thread.start()
         
         print("\n=== System Ready ===")
         print("Controls:")
         print(f"• Start Toggle Switch (GPIO {START_SWITCH_PIN}): Motor control")
         print("  - ON: Start motor")
         print("  - OFF: Stop motor")
-        print(f"• Selection Button (Pins {CLK2_PIN}, {DT2_PIN}): Pulse logging")
+        print(f"• Selection Button (Pins CLK:{CLK2_PIN}, DT:{DT2_PIN}, SW:{SELECTION_SW_PIN}): Rotate + push")
         print(f"• Motor rotations per trigger: {ROTATIONS_PER_PRESS}")
         print("\nPress Ctrl+C to exit")
         print("=" * 40)

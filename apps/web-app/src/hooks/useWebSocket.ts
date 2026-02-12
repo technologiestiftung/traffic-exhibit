@@ -18,6 +18,7 @@ export const useWebSocket = () => {
 	const selectionButtonCallbackRef = useRef<
 		((data: SelectionButtonData) => void) | null
 	>(null);
+	const selectionButtonPressedCallbackRef = useRef<(() => void) | null>(null);
 
 	const { setCurrentScreen, setStartStopButton } = useScreenStore();
 
@@ -49,10 +50,15 @@ export const useWebSocket = () => {
 
 		// Handle selection button rotation from backend
 		newSocket.on("selection_button_rotated", (data: SelectionButtonData) => {
-			// eslint-disable-next-line no-console
-			console.log("selection_button_rotated signal received:", data);
 			if (selectionButtonCallbackRef.current) {
 				selectionButtonCallbackRef.current(data);
+			}
+		});
+
+		// Handle selection button push (SW) - triggers tiny planet → street view
+		newSocket.on("selection_button_pressed", () => {
+			if (selectionButtonPressedCallbackRef.current) {
+				selectionButtonPressedCallbackRef.current();
 			}
 		});
 
@@ -72,10 +78,15 @@ export const useWebSocket = () => {
 		selectionButtonCallbackRef.current = callback;
 	};
 
+	const onSelectionButtonPressed = (callback: () => void) => {
+		selectionButtonPressedCallbackRef.current = callback;
+	};
+
 	return {
 		occupiedBlocks,
 		goBackToStart,
 		telraamMatches,
 		onSelectionButtonRotated,
+		onSelectionButtonPressed,
 	};
 };

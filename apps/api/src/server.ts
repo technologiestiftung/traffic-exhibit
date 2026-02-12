@@ -124,9 +124,12 @@ io.on("connection", (socket) => {
 
 	// Handle selection button rotation from Python script
 	socket.on("selection_button_rotated", (data) => {
-		logger.info("Selection button rotated", data);
-		// Forward to all connected frontend clients
 		io.emit("selection_button_rotated", data);
+	});
+
+	// Handle selection button push (SW) from Python script - triggers tiny planet → street view
+	socket.on("selection_button_pressed", () => {
+		io.emit("selection_button_pressed");
 	});
 
 	socket.emit("telraam-matches", enrichedMatches);
