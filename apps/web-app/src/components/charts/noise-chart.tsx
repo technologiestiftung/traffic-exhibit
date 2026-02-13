@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import { clamp } from "../match/utils";
+import { InfoTooltip } from "../tooltip/info-tooltip";
 import { i18n } from "../../i18n/i18n-utils";
 
 const INITIAL_FILL_DURATION_MS = 1200; // 0 → value on first load (per row)
@@ -183,19 +184,13 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 					{title}:{" "}
 					<span className="font-semibold">{Math.round(clamped)} dB</span>
 				</h3>
-				<div className="relative group">
+				<InfoTooltip type="noiseChart" content={i18n("noiseChart.description")}>
 					<img
 						src="/info-icon.svg"
 						alt="Info"
 						className="w-5 h-5 cursor-help"
 					/>
-					{/* Tooltip */}
-					<div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-black text-white text-xs rounded opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 w-64 z-10">
-						{i18n("noiseChart.description")}
-						{/* Tooltip arrow */}
-						<div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px border-4 border-transparent border-t-black" />
-					</div>
-				</div>
+				</InfoTooltip>
 			</div>
 			<div className="flex flex-col gap-2 w-full">
 				<div
