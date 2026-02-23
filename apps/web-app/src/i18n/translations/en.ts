@@ -18,6 +18,19 @@ export const en = {
 	"match.subtitle":
 		"These streets best match your search – based on data from the last hour.",
 	"match.createNewMixButton.label": "Create new mix",
+	"match.bikeLaneType.secondaryBikeNetwork": "Secondary bike network",
+	"match.bikeLaneType.bikePriorityStreet": "Bicycle street",
+	"match.bikeLaneType.primaryBikeNetwork": "Priority cycle network",
+	"match.bikeLaneType.networkConnector": "Network connector",
+
+	"match.bikeLaneType.secondaryBikeNetwork.description":
+		"Local cycling routes that connect neighborhoods and complement the main bike network.",
+	"match.bikeLaneType.bikePriorityStreet.description":
+		"Street where bicycles have priority; motor traffic is limited or subordinate.",
+	"match.bikeLaneType.primaryBikeNetwork.description":
+		"Main high-quality cycling routes designed for fast and direct travel across the city.",
+	"match.bikeLaneType.networkConnector.description":
+		"Segment that closes a gap and connects previously separated cycling routes.",
 
 	/* TRAFFIC STATS */
 	"trafficStats.liveData": "Live Data",
