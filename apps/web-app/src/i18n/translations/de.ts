@@ -18,6 +18,19 @@ export const de = {
 	"match.subtitle":
 		"Diese Straßen passen am besten zu deiner Suche – basierend auf Daten der letzten Stunde.",
 	"match.createNewMixButton.label": "Neuer Mix",
+	"match.bikeLaneType.secondaryBikeNetwork": "Ergänzungsnetz",
+	"match.bikeLaneType.bikePriorityStreet": "Fahrradstraße",
+	"match.bikeLaneType.primaryBikeNetwork": "Radvorrangnetz",
+	"match.bikeLaneType.networkConnector": "Lückenschluss",
+
+	"match.bikeLaneType.secondaryBikeNetwork.description":
+		"Lokale Radverbindungen, die Stadtteile verbinden und das Hauptradnetz ergänzen.",
+	"match.bikeLaneType.bikePriorityStreet.description":
+		"Straße mit Vorrang für den Radverkehr; Kfz-Verkehr ist eingeschränkt oder untergeordnet.",
+	"match.bikeLaneType.primaryBikeNetwork.description":
+		"Zentrale, hochwertige Radverbindungen für schnelle und direkte Wege durch die Stadt.",
+	"match.bikeLaneType.networkConnector.description":
+		"Streckenabschnitt, der eine Netzlücke schließt und bestehende Radwege verbindet.",
 
 	/* TRAFFIC STATS */
 	"trafficStats.liveData": "Livedaten",

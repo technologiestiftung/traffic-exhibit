@@ -12,9 +12,12 @@ export const Start = () => {
 
 	return (
 		<StartLayout>
-			<h1 className="text-7xl 2xl:text-8xl font-pixel font-semibold tracking-wide font-title mb-4">
-				{i18n("start.title")}
-			</h1>
+			<img
+				src="/Berliner%20platte.svg"
+				alt={i18n("start.title")}
+				className="mb-4 w-[520px] 2xl:w-[620px] h-auto"
+				draggable={false}
+			/>
 			<h2 className="text-3xl 2xl:text-4xl font-semibold tracking-wide">
 				{i18n("start.subHeading")}
 			</h2>
@@ -25,7 +28,7 @@ export const Start = () => {
 			{isDevelopment && (
 				<>
 					<button
-						className="mt-2 rounded-full border-2 border-black bg-black px-6 py-3 text-lg font-semibold text-white shadow-[0_10px_20px_rgba(0,0,0,0.55)] transition hover:-translate-y-0.5 hover:bg-[#111]"
+						className="mt-2 border-2 border-black bg-black px-6 py-3 text-lg font-semibold text-white shadow-[0_10px_20px_rgba(0,0,0,0.55)] transition hover:-translate-y-0.5 hover:bg-[#111]"
 						onClick={() => setLoadingScreen()}
 					>
 						{i18n("start.simulateButton.label")}

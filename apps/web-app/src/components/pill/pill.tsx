@@ -3,14 +3,20 @@ import React from "react";
 type pillProps = {
 	value: string;
 	className?: string;
+	children?: React.ReactNode;
 };
 
-export const Pill: React.FC<pillProps> = ({ value, className = "" }) => {
+export const Pill: React.FC<pillProps> = ({
+	value,
+	className = "",
+	children,
+}) => {
 	return (
-		<span
-			className={`px-3 py-1 text-xs font-medium rounded-full h-fit ${className}`}
+		<div
+			className={`relative group flex items-center gap-2 p-2 text-xs font-medium rounded-xs h-fit ${className}`}
 		>
-			{value}
-		</span>
+			<span className="font-pixel">{value}</span>
+			{children}
+		</div>
 	);
 };
