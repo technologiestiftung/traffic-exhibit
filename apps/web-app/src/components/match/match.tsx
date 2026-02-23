@@ -21,9 +21,11 @@ export const Match: React.FC = () => {
 		goBackToStart,
 		telraamMatches = [],
 		onSelectionButtonRotated,
+		onSelectionButtonPressed,
 	} = useWebSocket();
 	const [stack, setStack] = useState<TelraamMatch[]>([]);
 	const [selectedIndex, setSelectedIndex] = useState<number>(0);
+	const [streetViewTrigger, setStreetViewTrigger] = useState(0);
 
 	// Initialize stack when telraamMatches first loads
 	useEffect(() => {
@@ -40,9 +42,6 @@ export const Match: React.FC = () => {
 	// Handle selection button rotation to navigate between matches
 	useEffect(() => {
 		onSelectionButtonRotated((data) => {
-			// eslint-disable-next-line no-console
-			console.log("Selection button in match.tsx:", data);
-
 			const activeStack =
 				stack.length > 0
 					? stack
@@ -61,6 +60,14 @@ export const Match: React.FC = () => {
 			}
 		});
 	}, [onSelectionButtonRotated, telraamMatches]);
+
+	// Handle selection button push (SW): transition tiny planet → street view
+	useEffect(() => {
+		onSelectionButtonPressed(() => {
+			setStreetViewTrigger((prev) => prev + 1);
+		});
+	}, [onSelectionButtonPressed]);
+
 	const pageBackgroundClass = currentMatch
 		? getDominantTrafficGradientClass(
 				getDominantTrafficModalIndex(currentMatch),
@@ -106,6 +113,7 @@ export const Match: React.FC = () => {
 						matchStack={matchStack}
 						selectedIndex={selectedIndex}
 						handleSelect={handleSelect}
+						streetViewTrigger={streetViewTrigger}
 					/>
 				</div>
 				{currentMatch && (
@@ -141,12 +149,14 @@ export const Match: React.FC = () => {
 					</div>
 				)}
 			</div>
-			<button
-				className="absolute bottom-10 left-1/2 -translate-x-1/2 border border-gray-600 bg-white/70 px-4 py-2 text-sm font-semibold tracking-wide text-slate-700 transition hover:-translate-y-0.5 hover:bg-white md:self-center z-10 animate-fade-in-delay-200"
-				onClick={goBackToStart}
-			>
-				{i18n("match.createNewMixButton.label")}
-			</button>
+			{import.meta.env.VITE_IS_DEVELOPMENT === "true" && (
+				<button
+					className="absolute bottom-10 left-1/2 -translate-x-1/2 border border-gray-600 bg-white/70 px-4 py-2 text-sm font-semibold tracking-wide text-slate-700 transition hover:-translate-y-0.5 hover:bg-white md:self-center z-10 animate-fade-in-delay-200"
+					onClick={goBackToStart}
+				>
+					{i18n("match.createNewMixButton.label")}
+				</button>
+			)}
 		</div>
 	);
 };
