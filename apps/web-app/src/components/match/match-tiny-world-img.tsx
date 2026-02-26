@@ -39,9 +39,13 @@ const views: Record<ViewType, ViewConfig> = {
 	},
 };
 
-const animationSpeed = 0.2;
-const tinyPlanetSpinSpeed = 0.3;
-const streetViewSpinSpeed = 0.2;
+const animationSpeed = 0.12;
+const tinyPlanetSpinSpeed = 0.2;
+const streetViewSpinSpeed = 0.12;
+
+// Controls how long it takes to interpolate between the tiny-planet and street-view
+// camera states (position/rotation/zoom). Higher = slower transitions.
+const viewTransitionSeconds = 10;
 
 const rad = (deg: number): number => THREE.MathUtils.degToRad(deg);
 
@@ -61,6 +65,7 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 	const clockRef = useRef<THREE.Clock>(new THREE.Clock());
 	const animationFrameRef = useRef<number | null>(null);
 	const [currentView, setCurrentView] = useState<ViewType>("tinyPlanet");
+	const [autoTransitionResetKey, setAutoTransitionResetKey] = useState(0);
 	const currentViewRef = useRef<ViewType>("tinyPlanet");
 	const shouldAnimateRef = useRef<boolean>(shouldAnimate);
 
@@ -245,6 +250,8 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 			setCurrentView((prev) =>
 				prev === "tinyPlanet" ? "streetView" : "tinyPlanet",
 			);
+			// Reset the auto-transition countdown so we don't immediately toggle again.
+			setAutoTransitionResetKey((k) => k + 1);
 		}
 	}, [transitionToStreetViewTrigger]);
 
@@ -261,21 +268,21 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 		}
 	}, [shouldAnimate]);
 
-	// Toggle tiny planet ↔ street view every 3s; reset timer when selection button is pressed
+	// Auto-toggle tiny planet ↔ street view; reset timer when selection button is pressed
 	useEffect(() => {
 		if (!shouldAnimate) {
 			return undefined;
 		}
-		const intervalId = setInterval(() => {
+		const timeoutId = window.setTimeout(() => {
 			setCurrentView((prev) =>
 				prev === "tinyPlanet" ? "streetView" : "tinyPlanet",
 			);
-		}, 3000);
+		}, viewTransitionSeconds * 1000);
 
 		return () => {
-			clearInterval(intervalId);
+			clearTimeout(timeoutId);
 		};
-	}, [shouldAnimate, transitionToStreetViewTrigger]);
+	}, [shouldAnimate, autoTransitionResetKey, currentView]);
 
 	return (
 		<div className="relative w-full h-full">
