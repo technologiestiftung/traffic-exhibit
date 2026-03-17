@@ -16,7 +16,9 @@ export const de = {
 	/* MATCH */
 	"match.title": "Top Treffer zu deinem Verkehrs-Mix",
 	"match.subtitle":
-		"Diese Straßen passen am besten zu deiner Suche – basierend auf Daten der letzten Stunde.",
+		"Diese Straßen passen am besten zu deiner Suche – basierend auf Daten der ",
+	"match.subtitle.highlight": "letzten Stunde",
+	"match.subtitle.end": ".",
 	"match.createNewMixButton.label": "Neuer Mix",
 	"match.bikeLaneType.secondaryBikeNetwork": "Ergänzungsnetz",
 	"match.bikeLaneType.bikePriorityStreet": "Fahrradstraße",

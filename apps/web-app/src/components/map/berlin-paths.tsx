@@ -25,7 +25,14 @@ export const BerlinPaths: React.FC<BerlinPaths> = ({
 	return (
 		<>
 			{berlinDistrictsPaths.map((path, i) => (
-				<path key={i} d={path ?? ""} fill="#000000" role="presentation" />
+				<path
+					key={i}
+					d={path ?? ""}
+					fill="#000000"
+					stroke="#ffffff"
+					strokeWidth={1}
+					role="presentation"
+				/>
 			))}
 		</>
 	);

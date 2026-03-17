@@ -93,17 +93,32 @@ export const Match: React.FC = () => {
 			{/* Transition overlay: starts with loading gradient, fades out to reveal match gradient */}
 			<div className="absolute inset-0 bg-gradient-to-b from-[#171719] via-[#3b3b41] to-[#d7d7dd] animate-fade-out pointer-events-none" />
 
-			<div className="mb-8 2xl:mb-16 flex w-full max-w-[1540px] 2xl:max-w-[2000px] xl:px-0 gap-4 2xl:gap-10 flex-row md:justify-between px-10 relative z-10 animate-fade-in">
+			<div className="mb-2 2xl:mb-4 flex w-full max-w-[1540px] 2xl:max-w-[2000px] xl:px-0 gap-4 2xl:gap-10 flex-row md:justify-between px-10 relative z-10 animate-fade-in mt-16 2xl:mt-24">
 				<div className="flex flex-col gap-3 max-w-[900px]">
-					<h1 className="font-pixel text-left text-4xl 2xl:text-6xl font-semibold text-[#1e2402] drop-shadow font-title">
+					<h1 className="font-pixel text-left text-4xl 2xl:text-6xl font-semibold text-[#1e2402] drop-shadow font-title uppercase">
 						{i18n("match.title")}
 					</h1>
-					<h2 className="w-full text-left text-md 3xl:text-2xl tracking-[0.18em] 2xl:tracking-[0.25em] text-[#1e2402] drop-shadow font-title">
-						{i18n("match.subtitle")}
-					</h2>
 				</div>
 
-				<div className="w-1/4" />
+				{/* Live indicator — top right */}
+				<div className="w-[23%] flex items-start justify-end">
+					<div className="flex items-start gap-4">
+						<p className="text-left text-base 2xl:text-lg font-light tracking-[0.18em] 2xl:tracking-[0.25em] text-[#1e2402] drop-shadow">
+							{i18n("match.subtitle")}
+							<span className="underline decoration-black decoration-2">{i18n("match.subtitle.highlight")}</span>
+							{i18n("match.subtitle.end")}
+						</p>
+						<div className="flex shrink-0 items-center gap-3 border border-black px-4 py-2">
+							<span className="relative flex h-4 w-4">
+								<span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75" />
+								<span className="relative inline-flex rounded-full h-4 w-4 bg-red-500" />
+							</span>
+							<span className="text-base 2xl:text-lg font-semibold tracking-[0.18em] 2xl:tracking-[0.25em] text-[#1e2402] uppercase">
+								Live
+							</span>
+						</div>
+					</div>
+				</div>
 			</div>
 
 			<div className="relative flex w-full max-w-[1540px] 2xl:max-w-[2000px] items-center justify-between gap-12 z-10 animate-fade-in-delay-200">
@@ -125,15 +140,13 @@ export const Match: React.FC = () => {
 					</div>
 				)}
 				{currentMatch && (
-					<div className="flex flex-col gap-10 w-[23%] h-full items-center justify-between">
-						{currentMatch && (
-							<BerlinMap
-								lat={currentMatch.coordinates[0][1]}
-								lon={currentMatch.coordinates[0][0]}
-								width={isLargeScreen ? 280 : 220}
-								height={isLargeScreen ? 220 : 170}
-							/>
-						)}
+					<div className="flex flex-col gap-10 w-[23%] h-full items-center justify-between border border-black p-4">
+						<BerlinMap
+							lat={currentMatch.coordinates[0][1]}
+							lon={currentMatch.coordinates[0][0]}
+							width={isLargeScreen ? 420 : 330}
+							height={isLargeScreen ? 330 : 260}
+						/>
 
 						<MatchDescription
 							data={getTrafficModal(currentMatch)}

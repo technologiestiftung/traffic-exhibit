@@ -45,11 +45,28 @@ export const BerlinMap: React.FC<BerlinMapProps> = ({
 						const [x, y] = point as [number, number];
 						return (
 							<g>
+								<style>{`
+									@keyframes map-ping {
+										0% { r: 6; opacity: 0.75; }
+										100% { r: 18; opacity: 0; }
+									}
+									.map-ping { animation: map-ping 1s cubic-bezier(0,0,0.2,1) infinite; }
+								`}</style>
+								{/* Pulsing ring */}
 								<circle
 									cx={x}
 									cy={y}
-									r={4}
-									fill={d3.color("#ff5722")?.toString() ?? "#ff5722"} //red
+									r={6}
+									fill="#ff5722"
+									opacity={0.75}
+									className="map-ping"
+								/>
+								{/* Solid dot */}
+								<circle
+									cx={x}
+									cy={y}
+									r={6}
+									fill={d3.color("#ff5722")?.toString() ?? "#ff5722"}
 									stroke="#ffffff"
 									strokeWidth={0}
 									role="img"

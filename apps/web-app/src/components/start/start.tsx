@@ -21,9 +21,6 @@ export const Start = () => {
 			<h2 className="text-3xl 2xl:text-4xl font-semibold tracking-wide">
 				{i18n("start.subHeading")}
 			</h2>
-			<p className="text-lg 2xl:text-xl text-white/70">
-				{i18n("start.description")}
-			</p>
 
 			{isDevelopment && (
 				<>

@@ -180,9 +180,9 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 	return (
 		<section className={`w-full flex flex-col gap-2 ${className}`}>
 			<div className="flex items-center gap-2 self-start">
-				<h3 className="text-2xl font-pixel">
+				<h3 className="text-base 2xl:text-lg font-semibold">
 					{title}:{" "}
-					<span className="font-semibold">{Math.round(clamped)} dB</span>
+					<span>{Math.round(clamped)} dB</span>
 				</h3>
 				<InfoTooltip type="noiseChart" content={i18n("noiseChart.description")}>
 					<img
