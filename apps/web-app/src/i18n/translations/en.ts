@@ -14,7 +14,7 @@ export const en = {
 	"loading.trafficMixAnalyzing": "Your traffic mix is being analyzed",
 
 	/* MATCH */
-	"match.title": "Top results for your search",
+	"match.title": "Top results for your search:",
 	"match.subtitle":
 		"These streets best match your search – based on data from the ",
 	"match.subtitle.highlight": "last hour",
