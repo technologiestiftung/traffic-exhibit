@@ -42,7 +42,7 @@ export const de = {
 	"trafficStats.trucks": "LKWs",
 
 	/* AIR QUALITY CHART */
-	"airQualityChart.title": "Bedarf für Luftverbesserung",
+	"airQualityChart.title": "Bedarf für Luftverbesserung ist ",
 	"airQualityChart.step.veryLow": "sehr niedrig",
 	"airQualityChart.step.low": "niedrig",
 	"airQualityChart.step.moderate": "mäßig",

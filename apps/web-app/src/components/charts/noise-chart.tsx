@@ -33,7 +33,7 @@ type NoiseChartProps = {
 };
 
 const VU_RANGE_MIN = 0;
-const VU_RANGE_MAX = 100;
+const VU_RANGE_MAX = 75;
 
 export const NoiseChart: React.FC<NoiseChartProps> = ({
 	title,

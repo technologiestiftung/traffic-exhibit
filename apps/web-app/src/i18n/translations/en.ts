@@ -42,7 +42,7 @@ export const en = {
 	"trafficStats.trucks": "Heavy vehicles",
 
 	/* AIR QUALITY CHART */
-	"airQualityChart.title": "Need for Air Improvement",
+	"airQualityChart.title": "Need for Air Improvement is ",
 	"airQualityChart.step.veryLow": "very low",
 	"airQualityChart.step.low": "low",
 	"airQualityChart.step.moderate": "moderate",
