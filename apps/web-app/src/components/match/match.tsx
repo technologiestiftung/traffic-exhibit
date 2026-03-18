@@ -105,7 +105,9 @@ export const Match: React.FC = () => {
 					<div className="flex items-start gap-4">
 						<p className="text-left text-base 2xl:text-lg font-light tracking-[0.18em] 2xl:tracking-[0.25em] text-[#1e2402] drop-shadow">
 							{i18n("match.subtitle")}
-							<span className="underline decoration-black decoration-2">{i18n("match.subtitle.highlight")}</span>
+							<span className="underline decoration-black decoration-2">
+								{i18n("match.subtitle.highlight")}
+							</span>
 							{i18n("match.subtitle.end")}
 						</p>
 						<div className="flex shrink-0 items-center gap-3 border border-black px-4 py-2">
