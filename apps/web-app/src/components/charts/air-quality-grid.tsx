@@ -103,7 +103,6 @@ export const AirQualityGrid: React.FC<AirQualityGridProps> = ({
 					))}
 				</div>
 			</div>
-			<p className="text-base 2xl:text-lg font-light text-black"></p>
 		</div>
 	);
 };
