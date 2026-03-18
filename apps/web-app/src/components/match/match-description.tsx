@@ -1,20 +1,38 @@
 import type { CircleChartSegment } from "../charts/circle-chart/circle-chart-utils";
-import { lightenColor } from "../charts/circle-chart/circle-chart-utils";
 
 type MatchDescriptionProps = {
 	data: CircleChartSegment[];
 	coordinates: number[][];
 };
 
-const SEGMENT_ICONS: Record<string, string> = {
-	pedestrian: "/walking_icon.svg",
-	bike: "/bike_icon.svg",
-	car: "/Car_icon.svg",
-	truck: "/LKW_icon.svg",
+const iconForSegmentName = (name: string): string | null => {
+	const n = name.trim().toLowerCase();
+	// Support both English and German labels (and plurals)
+	if (
+		n.includes("pedestrian") ||
+		n.includes("pedestrians") ||
+		n.includes("fuß") ||
+		n.includes("fuss")
+	) {
+		return "/walking_icon.svg";
+	}
+	if (n.includes("bike") || n.includes("bikes") || n.includes("fahrr")) {
+		return "/bike_icon.svg";
+	}
+	if (n.includes("car") || n.includes("cars") || n.includes("auto")) {
+		return "/Car_icon.svg";
+	}
+	if (
+		n.includes("heavy vehicle") ||
+		n.includes("heavy vehicles") ||
+		n.includes("truck") ||
+		n.includes("trucks") ||
+		n.includes("lkw")
+	) {
+		return "/LKW_icon.svg";
+	}
+	return null;
 };
-
-const iconForSegmentName = (name: string): string | null =>
-	SEGMENT_ICONS[name.trim().toLowerCase()] ?? null;
 
 export const MatchDescription = ({ data }: MatchDescriptionProps) => {
 	const sortedDescendingData = [...data].sort(
@@ -29,7 +47,7 @@ export const MatchDescription = ({ data }: MatchDescriptionProps) => {
 						key={`legend-${segment.name}-${index}`}
 						className="flex items-center justify-between border border-gray-600 px-4 py-2 text-sm font-semibold shadow rounded-xs"
 						style={{
-							backgroundColor: lightenColor(segment.color, 0.55),
+							backgroundColor: segment.color,
 							color: "#1a1a1a",
 						}}
 					>
@@ -37,24 +55,18 @@ export const MatchDescription = ({ data }: MatchDescriptionProps) => {
 							{(() => {
 								const iconSrc = iconForSegmentName(segment.name);
 								if (!iconSrc) {
-									return (
-										<span
-											aria-hidden="true"
-											className="inline-block h-3 w-6 rounded-sm 2xl:h-4 2xl:w-8 border border-black/20"
-											style={{ backgroundColor: segment.color }}
-										/>
-									);
+									return null;
 								}
 
 								return (
-									<span
+									<img
+										alt=""
 										aria-hidden="true"
-										className="inline-block h-3 w-6 2xl:h-4 2xl:w-8"
+										src={iconSrc}
+										className="h-4 w-auto 2xl:h-5"
 										style={{
-											backgroundColor: "#000",
-											WebkitMask: `url(${iconSrc}) center / contain no-repeat`,
-											mask: `url(${iconSrc}) center / contain no-repeat`,
-											filter: "drop-shadow(0 1px 0 rgba(0,0,0,0.12))",
+											filter:
+												"brightness(0) saturate(100%) drop-shadow(0 1px 0 rgba(0,0,0,0.12))",
 										}}
 									/>
 								);

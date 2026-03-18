@@ -66,8 +66,9 @@ export const AirQualityGrid: React.FC<AirQualityGridProps> = ({
 	return (
 		<div className="w-full h-fit flex flex-col gap-2">
 			<div className="flex items-center gap-2 self-start">
-				<h3 className="text-2xl font-pixel font-semibold text-black">
-					{i18n("airQualityChart.title")}: {getAirQualityLabel(airQuality)}
+				<h3 className="text-base 2xl:text-lg font-semibold text-black">
+					{i18n("airQualityChart.title")}
+					{getAirQualityLabel(airQuality)}
 				</h3>
 				<InfoTooltip
 					type="airQualityChart"

@@ -14,9 +14,11 @@ export const de = {
 	"loading.trafficMixAnalyzing": "Dein Verkehrs-Mix wird analysiert",
 
 	/* MATCH */
-	"match.title": "Top Treffer zu deinem Verkehrs-Mix",
+	"match.title": "Top Treffer zu deinem Verkehrs-Mix:",
 	"match.subtitle":
-		"Diese Straßen passen am besten zu deiner Suche – basierend auf Daten der letzten Stunde.",
+		"Diese Straßen passen am besten zu deiner Suche – basierend auf Daten der ",
+	"match.subtitle.highlight": "letzten Stunde",
+	"match.subtitle.end": ".",
 	"match.createNewMixButton.label": "Neuer Mix",
 	"match.bikeLaneType.secondaryBikeNetwork": "Ergänzungsnetz",
 	"match.bikeLaneType.bikePriorityStreet": "Fahrradstraße",
@@ -40,7 +42,7 @@ export const de = {
 	"trafficStats.trucks": "LKWs",
 
 	/* AIR QUALITY CHART */
-	"airQualityChart.title": "Bedarf für Luftverbesserung",
+	"airQualityChart.title": "Bedarf für Luftverbesserung ist ",
 	"airQualityChart.step.veryLow": "sehr niedrig",
 	"airQualityChart.step.low": "niedrig",
 	"airQualityChart.step.moderate": "mäßig",
