@@ -19,6 +19,10 @@ traffic-exhibit/
 └── README.md
 ```
 
+## **Wiring Diagram**
+
+![Wiring Diagram](./apps/web-app/public/wiring-diagram.svg)
+
 ## Installation
 
 ### **1. Install Node.js Dependencies**
