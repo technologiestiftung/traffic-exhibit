@@ -20,8 +20,7 @@ export const MatchCards = ({
 		// We want a stable 3-slot layout:
 		// slot 1 = left/back, slot 2 = middle, slot 3 = right/front (selected)
 		// This gives a "cards" feel while keeping the overall layout stable.
-		const baseX = -40;
-		const slotX = [-160 + baseX, -60 + baseX, 60 + baseX] as const;
+		const slotX = [-160, -60, 60] as const;
 		const slotRotate = [-10, -4, 0] as const;
 		const slotScale = [0.92, 0.97, 1.02] as const;
 		const slotZ = [1, 2, 4] as const;
@@ -40,7 +39,7 @@ export const MatchCards = ({
 
 		const zIndex = isSelectedCard ? stackLength + 1 : slotZ[slotIndex];
 		const scale = slotScale[slotIndex];
-		const leftOffset = 0;
+		const leftOffset = 10;
 		const transformStyle = `translateX(${slotX[slotIndex]}px) rotate(${slotRotate[slotIndex]}deg) scale(${scale})`;
 
 		const stackPosition: StackPositionStyles = {

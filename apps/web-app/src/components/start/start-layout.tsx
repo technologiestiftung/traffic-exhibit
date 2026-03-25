@@ -20,9 +20,7 @@ export const StartLayout = ({
 			<div
 				className={`mx-auto flex items-center justify-center gap-10 max-w-[1540px] xl:max-w-[1920px] flex-col px-6 xl:px-0 py-10 min-h-screen`}
 			>
-				<div className="w-full flex justify-end">
-					<LanguageToggle />
-				</div>
+				<LanguageToggle />
 				<div
 					className={`flex w-full flex-col gap-12 xl:gap-20 xl:flex-row xl:items-center xl:justify-center`}
 				>

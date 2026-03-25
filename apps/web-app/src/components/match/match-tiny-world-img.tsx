@@ -51,8 +51,8 @@ const rad = (deg: number): number => THREE.MathUtils.degToRad(deg);
 
 export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 	imageUrl,
-	width = 618,
-	height = 340,
+	width,
+	height,
 	shouldAnimate = true,
 	transitionToStreetViewTrigger,
 }) => {

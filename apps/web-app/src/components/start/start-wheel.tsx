@@ -12,7 +12,7 @@ export function StartWheel({
 	animateDecorations = false,
 }: StartWheelProps) {
 	const { occupiedBlocks } = useWebSocket();
-	const isLargeScreen = window.innerWidth > 1620;
+	const isLargeScreen = window.innerWidth >= 1920;
 
 	return (
 		<div className="relative flex basis-4/7 flex-col items-center gap-8">

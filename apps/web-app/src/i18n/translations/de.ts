@@ -14,7 +14,7 @@ export const de = {
 	"loading.trafficMixAnalyzing": "Dein Verkehrs-Mix wird analysiert",
 
 	/* MATCH */
-	"match.title": "Top Treffer zu deinem Verkehrs-Mix:",
+	"match.title": "Top Treffer zu deinem Verkehrs-Mix",
 	"match.subtitle":
 		"Diese Straßen passen am besten zu deiner Suche – basierend auf Daten der ",
 	"match.subtitle.highlight": "letzten Stunde",

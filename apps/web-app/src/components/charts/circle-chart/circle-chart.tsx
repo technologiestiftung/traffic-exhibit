@@ -3,7 +3,7 @@ import type { FC } from "react";
 import type { CircleChartSegment } from "./circle-chart-utils";
 import { buildSegments } from "./circle-chart-utils";
 
-const isLargeScreen = window.innerWidth > 1620;
+const isLargeScreen = window.innerWidth >= 1920;
 
 export type CircleChartProps = {
 	data: CircleChartSegment[];
@@ -15,7 +15,7 @@ export const CircleChart: FC<CircleChartProps> = ({
 	minRadius = 0.3,
 }) => {
 	const fontSize = isLargeScreen ? 16 : 12;
-	const size = isLargeScreen ? 775 : 620;
+	const size = isLargeScreen ? 750 : 650;
 	const chartInstanceId = useId();
 	const center = size / 2;
 	const maxRadius = center - 4; // leave a little padding to avoid clipping

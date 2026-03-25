@@ -13,7 +13,7 @@ export function LanguageToggle() {
 		<div
 			role="group"
 			aria-label="Language"
-			className="inline-flex border-2 border-black rounded-lg overflow-hidden bg-black font-pixel text-sm font-medium"
+			className="absolute top-8 right-8 border-2 border-black rounded-lg overflow-hidden bg-black font-pixel text-sm font-medium"
 		>
 			{options.map(({ value, label }) => {
 				const isActive = current === value;

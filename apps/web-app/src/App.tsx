@@ -29,12 +29,12 @@ function App() {
 	}, [currentScreen]);
 
 	return (
-		<div className="h-full w-full">
+		<div className="h-full w-full overflow-hidden">
 			{currentScreen === "start" && <Start />}
 			{currentScreen === "loading" && <Loading />}
 			{currentScreen === "match" && (
 				<div
-					className="min-h-full w-full transition-opacity duration-300 ease-out"
+					className="transition-opacity duration-300 ease-out"
 					style={{
 						opacity: matchReady ? 1 : 0,
 						pointerEvents: matchReady ? undefined : "none",
