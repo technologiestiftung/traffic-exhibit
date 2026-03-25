@@ -125,7 +125,7 @@ export const Match: React.FC = () => {
 
 			<div className="relative flex w-full max-w-[1540px] 2xl:max-w-[2000px] justify-between gap-12 z-10 animate-fade-in-delay-200">
 				{/* Stacked cards*/}
-				<div className="relative flex z-50 overflow-visible ml-44 mt-5 2xl:mt-0">
+				<div className="relative flex z-50 overflow-visible ml-44 mt-10 2xl:mt-0">
 					<MatchCards
 						matchStack={matchStack}
 						selectedIndex={selectedIndex}
@@ -134,7 +134,7 @@ export const Match: React.FC = () => {
 					/>
 				</div>
 				{currentMatch && (
-					<div className="translate-x-3/12">
+					<div className="translate-x-3/12 mt-4 2xl:mt-0">
 						<CircleChart
 							key={currentMatch.segment_id}
 							data={getTrafficModal(currentMatch)}
@@ -142,7 +142,7 @@ export const Match: React.FC = () => {
 					</div>
 				)}
 				{currentMatch && (
-					<div className="flex flex-col gap-10 w-[23%] h-full items-center justify-between border border-black p-4">
+					<div className="flex flex-col gap-5 2xl:gap-10 w-[23%] h-full items-center justify-between border border-black p-4">
 						<BerlinMap
 							lat={currentMatch.coordinates[0][1]}
 							lon={currentMatch.coordinates[0][0]}
