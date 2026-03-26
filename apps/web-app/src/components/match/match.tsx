@@ -4,6 +4,7 @@ import { i18n } from "../../i18n/i18n-utils";
 import type { TelraamMatch } from "../../../../api/src/common";
 import {
 	getDominantTrafficGradientClass,
+	getDominantTrafficGradientFromColor,
 	getDominantTrafficModalIndex,
 	getTrafficModal,
 } from "./utils";
@@ -68,11 +69,19 @@ export const Match: React.FC = () => {
 		});
 	}, [onSelectionButtonPressed]);
 
-	const pageBackgroundClass = currentMatch
-		? getDominantTrafficGradientClass(
-				getDominantTrafficModalIndex(currentMatch),
-			)
-		: "bg-gradient-to-b from-bp-gray-light to-bp-white";
+	const dominantTrafficModalIndex = currentMatch
+		? getDominantTrafficModalIndex(currentMatch)
+		: null;
+
+	const pageBackgroundClass =
+		dominantTrafficModalIndex !== null
+			? getDominantTrafficGradientClass(dominantTrafficModalIndex)
+			: "bg-gradient-to-b from-bp-gray-light to-bp-white";
+
+	const liveIndicatorDotClass =
+		dominantTrafficModalIndex === 2 || dominantTrafficModalIndex === 3
+			? "bg-white"
+			: "bg-red-500";
 
 	const handleSelect = (clickedIndex: number) => {
 		if (!matchStack.length) {
@@ -112,8 +121,12 @@ export const Match: React.FC = () => {
 						</p>
 						<div className="flex shrink-0 items-center gap-3 border border-black px-4 py-2">
 							<span className="relative flex h-4 w-4">
-								<span className="animate-ping absolute inline-flex size-4 rounded-full bg-red-500 opacity-75" />
-								<span className="relative inline-flex rounded-full h-4 w-4 bg-red-500" />
+								<span
+									className={`animate-ping absolute inline-flex size-4 rounded-full opacity-75 ${liveIndicatorDotClass}`}
+								/>
+								<span
+									className={`relative inline-flex rounded-full h-4 w-4 ${liveIndicatorDotClass}`}
+								/>
 							</span>
 							<span className="text-base 2xl:text-lg font-semibold tracking-[0.18em] 2xl:tracking-[0.25em] text-[#1e2402] uppercase">
 								Live
@@ -148,6 +161,9 @@ export const Match: React.FC = () => {
 							lon={currentMatch.coordinates[0][0]}
 							width={isLargeScreen ? 330 : 260}
 							height={isLargeScreen ? 260 : 200}
+							districtStrokeColor={getDominantTrafficGradientFromColor(
+								getDominantTrafficModalIndex(currentMatch),
+							)}
 						/>
 
 						<MatchDescription

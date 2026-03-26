@@ -6,6 +6,7 @@ import { BerlinPaths } from "./berlin-paths";
 type BerlinMapProps = {
 	lat: number;
 	lon: number;
+	districtStrokeColor: string;
 	width?: number;
 	height?: number;
 };
@@ -13,11 +14,12 @@ type BerlinMapProps = {
 export const BerlinMap: React.FC<BerlinMapProps> = ({
 	lat,
 	lon,
+	districtStrokeColor,
 	width = 200,
 	height = 200,
 }) => {
 	const location = { lat, lon };
-	const berlinGeoJson = useBerlinGeojson();
+	const { city, districts } = useBerlinGeojson();
 
 	const svgMargin = { top: 0, right: 0, bottom: 0, left: 0 };
 	const innerHeight = height - svgMargin.top - svgMargin.bottom;
@@ -34,7 +36,12 @@ export const BerlinMap: React.FC<BerlinMapProps> = ({
 	);
 	return (
 		<svg width={width} height={height} className="shrink-0">
-			<BerlinPaths projection={projection} berlinGeoJson={berlinGeoJson} />
+			<BerlinPaths
+				projection={projection}
+				cityGeoJson={city}
+				districtsGeoJson={districts}
+				districtStrokeColor={districtStrokeColor}
+			/>
 
 			{location && projection
 				? (() => {
