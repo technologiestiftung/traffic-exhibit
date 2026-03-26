@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { useInfoTooltipStore } from "../../stores/useInfoTooltipStore";
 
 type InfoTooltipProps = {
@@ -12,8 +12,28 @@ export const InfoTooltip: React.FC<InfoTooltipProps> = ({
 	content,
 	children,
 }) => {
-	const { openTooltipType, toggleTooltip } = useInfoTooltipStore();
+	const containerRef = useRef<HTMLSpanElement>(null);
+	const { openTooltipType, toggleTooltip, closeTooltip } =
+		useInfoTooltipStore();
 	const isOpen = openTooltipType === type;
+
+	useEffect(() => {
+		let cleanup: (() => void) | undefined;
+		if (isOpen) {
+			const handlePointerDown = (event: PointerEvent) => {
+				const el = containerRef.current;
+				if (el && !el.contains(event.target as Node)) {
+					closeTooltip();
+				}
+			};
+
+			document.addEventListener("pointerdown", handlePointerDown);
+			cleanup = () => {
+				document.removeEventListener("pointerdown", handlePointerDown);
+			};
+		}
+		return cleanup;
+	}, [isOpen, closeTooltip]);
 
 	const handleClick = (e: React.MouseEvent) => {
 		e.stopPropagation();
@@ -28,6 +48,7 @@ export const InfoTooltip: React.FC<InfoTooltipProps> = ({
 
 	return (
 		<span
+			ref={containerRef}
 			className="relative inline-flex overflow-visible group"
 			onClick={handleClick}
 		>

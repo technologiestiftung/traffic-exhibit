@@ -130,6 +130,24 @@ export function getDominantTrafficGradientClass(dominantIndex: number): string {
 	}
 }
 
+/** CSS color for the gradient start color in `getDominantTrafficGradientClass` (matches `pageBackgroundClass` when a match is selected). */
+export function getDominantTrafficGradientFromColor(
+	dominantIndex: number,
+): string {
+	switch (dominantIndex) {
+		case 0:
+			return trafficColors.blue;
+		case 1:
+			return trafficColors.yellow;
+		case 2:
+			return trafficColors.red;
+		case 3:
+			return trafficColors.orange;
+		default:
+			return trafficColors.red;
+	}
+}
+
 export function scaleForStackPosition(
 	index: number, // 0 = back, stackSize - 1 = front
 	size: number,

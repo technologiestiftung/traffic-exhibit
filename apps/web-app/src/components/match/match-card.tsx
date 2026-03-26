@@ -40,7 +40,7 @@ function getBikeLaneTypeDescription(type: string): string {
 	return key ? i18n(key) : "";
 }
 
-const isLargeScreen = window.innerWidth > 1620;
+const isLargeScreen = window.innerWidth >= 1920;
 
 export type StackPositionStyles = {
 	zIndex: number;
@@ -130,17 +130,15 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 				</div>
 
 				{/* IMAGE */}
-				<div className="bg-amber-200 relative">
-					{imageSrc && (
-						<MatchTinyWorldImg
-							imageUrl={imageSrc}
-							shouldAnimate={selected}
-							width={isLargeScreen ? 850 : 600}
-							height={isLargeScreen ? 850 : 600}
-							transitionToStreetViewTrigger={transitionToStreetViewTrigger}
-						/>
-					)}
-				</div>
+				{imageSrc && (
+					<MatchTinyWorldImg
+						imageUrl={imageSrc}
+						shouldAnimate={selected}
+						width={isLargeScreen ? 750 : 600}
+						height={isLargeScreen ? 750 : 600}
+						transitionToStreetViewTrigger={transitionToStreetViewTrigger}
+					/>
+				)}
 			</div>
 		</div>
 	);
