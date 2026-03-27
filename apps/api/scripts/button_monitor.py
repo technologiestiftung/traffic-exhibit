@@ -16,11 +16,11 @@ except ImportError:
 # Motor configuration
 FULL_STEPS_PER_REV = 200  # Number of full steps per revolution for 1.8° motor
 STEP_DELAY = 0.0005  # Delay between step pulses in seconds (0.5ms for smooth operation)
-ROTATIONS_PER_PRESS = 2  # Number of complete rotations to perform when triggered
+ROTATIONS_PER_PRESS = 4  # Number of complete rotations to perform when triggered
 
 # GPIO pin assignments (BCM numbering)
-# Start control: toggle switch (ON = start, OFF = stop)
-START_SWITCH_PIN = 5   # Toggle switch GPIO (physical pin 29); pull-down: OFF=LOW, ON=HIGH
+# Start control: physical toggle switch; each flip toggles exhibit on/off (not fixed ON=start / OFF=stop)
+START_SWITCH_PIN = 5   # Toggle switch GPIO (physical pin 29); pull-down: open=LOW, closed to 3.3V=HIGH
 
 # Selection button pins (step counter)
 CLK2_PIN = 12   # Selection button rotary encoder CLK pin
@@ -42,8 +42,9 @@ ENABLE_PIN = 23
 # =============================================
 # System State Variables
 # =============================================
-# Start toggle switch state
+# Start toggle switch state (logical on/off flips on every physical state change)
 last_switch_state = None
+start_toggle_logical_on = False
 monitoring_active = True
 
 # Selection button state
@@ -114,7 +115,7 @@ def do_rotation():
     
     try:
         # Calculate steps for microstep mode (same as test_motor.py)
-        # 2 full rotations = 2 * 200 steps * 32 microsteps = 12800 steps
+        # Each revolution: FULL_STEPS_PER_REV × 32 microsteps (1/32 mode)
         target_steps = ROTATIONS_PER_PRESS * FULL_STEPS_PER_REV * 32  # 32 for 1/32 microsteps
         
         print(f"Starting rotation for {ROTATIONS_PER_PRESS} revolutions ({target_steps} microsteps)")
@@ -219,8 +220,8 @@ def disconnect():
     print("Disconnected from Node.js server")
 
 def start_button_trigger():
-    """Callback when toggle switch is ON - sends start event"""
-    print("Toggle switch ON - sending start event!")
+    """Callback when logical state is toggled to ON - sends start event."""
+    print("Toggle → ON - sending start event!")
     
     # Send start event to web interface
     try:
@@ -237,8 +238,8 @@ def start_button_trigger():
     start_motor()
 
 def start_button_stop_trigger():
-    """Callback when toggle switch is OFF - sends stop event"""
-    print("Toggle switch OFF - sending stop event!")
+    """Callback when logical state is toggled to OFF - sends stop event."""
+    print("Toggle → OFF - sending stop event!")
     
     # Send stop event to web interface
     try:
@@ -247,35 +248,29 @@ def start_button_stop_trigger():
         print(f"Socket.IO emit failed: {e}")
     
     # Stop motor
-    print("Stopping motor due to toggle switch OFF...")
+    print("Stopping motor due to toggle → OFF...")
     stop_motor()
 
 def apply_initial_start_switch_state():
-    """Check start switch position at boot and trigger start or stop so app/motor match physical switch."""
+    """Record physical switch level at boot; logical start/stop only changes on later flips."""
     global last_switch_state
     current = start_switch.value
     last_switch_state = current
-    if current:
-        # HIGH = stop position
-        # start_button_stop_trigger()
-        print("Start switch initial position: OFF (stop)")
-    else:
-        # LOW = start position
-        # start_button_trigger()
-        print("Start switch initial position: ON (start)")
+    print(f"Start switch initial GPIO level: {'HIGH' if current else 'LOW'} (first flip toggles exhibit on)")
 
 def monitor_start_button():
-    """Monitor toggle switch. Inverted so HIGH = stop, LOW = start (matches typical wiring)."""
-    global last_switch_state, monitoring_active
-    
+    """On each physical state change, flip logical on/off and run start or stop accordingly."""
+    global last_switch_state, start_toggle_logical_on, monitoring_active
+
     try:
         while monitoring_active:
             current = start_switch.value
             if current != last_switch_state:
-                if current:
-                    start_button_stop_trigger()
-                else:
+                start_toggle_logical_on = not start_toggle_logical_on
+                if start_toggle_logical_on:
                     start_button_trigger()
+                else:
+                    start_button_stop_trigger()
                 last_switch_state = current
             time.sleep(0.02)  # 50 Hz poll
     except Exception as e:
@@ -386,9 +381,7 @@ def main():
         
         print("\n=== System Ready ===")
         print("Controls:")
-        print(f"• Start Toggle Switch (GPIO {START_SWITCH_PIN}): Motor control")
-        print("  - ON: Start motor")
-        print("  - OFF: Stop motor")
+        print(f"• Start Toggle Switch (GPIO {START_SWITCH_PIN}): Each flip toggles start/stop")
         print(f"• Selection Button (Pins CLK:{CLK2_PIN}, DT:{DT2_PIN}, SW:{SELECTION_SW_PIN}): Rotate + push")
         print(f"• Motor rotations per trigger: {ROTATIONS_PER_PRESS}")
         print("\nPress Ctrl+C to exit")
