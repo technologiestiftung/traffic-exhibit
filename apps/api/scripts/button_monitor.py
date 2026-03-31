@@ -14,13 +14,13 @@ except ImportError:
 # Configuration
 # =============================================
 # Motor configuration
-FULL_STEPS_PER_REV = 200  # Number of full steps per revolution for 1.8° motor
 STEP_DELAY = 0.0005  # Delay between step pulses in seconds (0.5ms for smooth operation)
-ROTATIONS_PER_PRESS = 2  # Number of complete rotations to perform when triggered
+# Motor runs continuously for this duration (seconds) unless the toggle stops it earlier.
+MOTOR_RUN_DURATION_SEC = 240  # 4 minutes
 
 # GPIO pin assignments (BCM numbering)
-# Start control: toggle switch (ON = start, OFF = stop)
-START_SWITCH_PIN = 5   # Toggle switch GPIO (physical pin 29); pull-down: OFF=LOW, ON=HIGH
+# Start control: physical toggle switch; each flip toggles exhibit on/off (not fixed ON=start / OFF=stop)
+START_SWITCH_PIN = 5   # Toggle switch GPIO (physical pin 29); pull-down: open=LOW, closed to 3.3V=HIGH
 
 # Selection button pins (step counter)
 CLK2_PIN = 12   # Selection button rotary encoder CLK pin
@@ -42,14 +42,13 @@ ENABLE_PIN = 23
 # =============================================
 # System State Variables
 # =============================================
-# Start toggle switch state
+# Start toggle switch state (logical on/off flips on every physical state change)
 last_switch_state = None
+start_toggle_logical_on = False
 monitoring_active = True
 
 # Selection button state
-selection_button_position = 0
 last_clk2_state = None
-last_direction2 = None
 last_sw_state = None
 
 # Motor control state
@@ -109,15 +108,15 @@ sio = socketio.Client()
 # =============================================
 
 def do_rotation():
-    """Perform motor rotation"""
+    """Run the motor for MOTOR_RUN_DURATION_SEC or until the toggle requests a stop."""
     global motor_running
     
     try:
-        # Calculate steps for microstep mode (same as test_motor.py)
-        # 2 full rotations = 2 * 200 steps * 32 microsteps = 12800 steps
-        target_steps = ROTATIONS_PER_PRESS * FULL_STEPS_PER_REV * 32  # 32 for 1/32 microsteps
-        
-        print(f"Starting rotation for {ROTATIONS_PER_PRESS} revolutions ({target_steps} microsteps)")
+        end_time = time.time() + MOTOR_RUN_DURATION_SEC
+        print(
+            f"Starting rotation for up to {MOTOR_RUN_DURATION_SEC}s "
+            f"(until {time.strftime('%H:%M:%S', time.localtime(end_time))})"
+        )
         
         # Enable motor for movement
         enable.off()  # Enable motor (LOW = enabled)
@@ -127,21 +126,27 @@ def do_rotation():
         steps_done = 0
         
         # Pulse STEP pin for each microstep: HIGH then LOW (with delay) moves motor one microstep.
-        while not stop_event.is_set() and steps_done < target_steps:
+        while not stop_event.is_set() and time.time() < end_time:
             step.on()
             time.sleep(STEP_DELAY)
             step.off()
             time.sleep(STEP_DELAY)
             steps_done += 1
         
+        completed_full_duration = not stop_event.is_set()
+        
         # Disable motor to prevent overheating
         enable.on()  # Disable motor (HIGH = disabled)
         print("Motor disabled for cooling - preventing overheating")
         
-        if steps_done >= target_steps:
-            print(f"Completed {ROTATIONS_PER_PRESS} rotations ({steps_done} microsteps)")
+        if completed_full_duration:
+            print(f"Completed full {MOTOR_RUN_DURATION_SEC}s run ({steps_done} microsteps)")
+            try:
+                sio.emit("motor-session-complete", {})
+            except Exception as e:
+                print(f"Socket.IO emit motor-session-complete failed: {e}")
         else:
-            print("Rotation stopped early")
+            print(f"Rotation stopped early ({steps_done} microsteps)")
             
     except Exception as e:
         print(f"Motor error: {e}")
@@ -219,8 +224,8 @@ def disconnect():
     print("Disconnected from Node.js server")
 
 def start_button_trigger():
-    """Callback when toggle switch is ON - sends start event"""
-    print("Toggle switch ON - sending start event!")
+    """Callback when logical state is toggled to ON - sends start event."""
+    print("Toggle → ON - sending start event!")
     
     # Send start event to web interface
     try:
@@ -233,12 +238,12 @@ def start_button_trigger():
         print("Motor is already running, ignoring start button trigger")
         return
     
-    print(f"Starting motor for {ROTATIONS_PER_PRESS} complete rotations...")
+    print(f"Starting motor for up to {MOTOR_RUN_DURATION_SEC}s...")
     start_motor()
 
 def start_button_stop_trigger():
-    """Callback when toggle switch is OFF - sends stop event"""
-    print("Toggle switch OFF - sending stop event!")
+    """Callback when logical state is toggled to OFF - sends stop event."""
+    print("Toggle → OFF - sending stop event!")
     
     # Send stop event to web interface
     try:
@@ -247,35 +252,22 @@ def start_button_stop_trigger():
         print(f"Socket.IO emit failed: {e}")
     
     # Stop motor
-    print("Stopping motor due to toggle switch OFF...")
+    print("Stopping motor due to toggle → OFF...")
     stop_motor()
 
-def apply_initial_start_switch_state():
-    """Check start switch position at boot and trigger start or stop so app/motor match physical switch."""
-    global last_switch_state
-    current = start_switch.value
-    last_switch_state = current
-    if current:
-        # HIGH = stop position
-        # start_button_stop_trigger()
-        print("Start switch initial position: OFF (stop)")
-    else:
-        # LOW = start position
-        # start_button_trigger()
-        print("Start switch initial position: ON (start)")
-
 def monitor_start_button():
-    """Monitor toggle switch. Inverted so HIGH = stop, LOW = start (matches typical wiring)."""
-    global last_switch_state, monitoring_active
-    
+    """On each physical state change, flip logical on/off and run start or stop accordingly."""
+    global last_switch_state, start_toggle_logical_on, monitoring_active
+
     try:
         while monitoring_active:
             current = start_switch.value
             if current != last_switch_state:
-                if current:
-                    start_button_stop_trigger()
-                else:
+                start_toggle_logical_on = not start_toggle_logical_on
+                if start_toggle_logical_on:
                     start_button_trigger()
+                else:
+                    start_button_stop_trigger()
                 last_switch_state = current
             time.sleep(0.02)  # 50 Hz poll
     except Exception as e:
@@ -283,11 +275,9 @@ def monitor_start_button():
 
 def monitor_selection_button():
     """Monitor the selection button for rotation and emit on each detent"""
-    global selection_button_position, last_clk2_state, last_direction2, monitoring_active
+    global last_clk2_state, monitoring_active
     
-    pulse_count = 0
     skip_counter = 0  # Counter to skip every other pulse
-    TOTAL_PULSES = 20
     
     try:
         while monitoring_active:
@@ -304,28 +294,20 @@ def monitor_selection_button():
                 else:
                     direction_clockwise = dt_val  # CW when DT is high on CLK fall
                 if direction_clockwise:
-                    current_direction2 = "Clockwise"
-                    selection_button_position += 1
-                    direction = "clockwise"
+                    rotation_direction = "clockwise"
                 else:
-                    current_direction2 = "Counter-Clockwise"
-                    selection_button_position -= 1
-                    direction = "counter-clockwise"
+                    rotation_direction = "counter-clockwise"
                 
                 skip_counter += 1
                 
                 # Only emit every other pulse (to get one event per detent)
                 if skip_counter % 2 == 0:
-                    pulse_count += 1
                     try:
                         sio.emit('selection_button_rotated', {
-                            'direction': direction
+                            'direction': rotation_direction
                         })
                     except Exception as e:
                         print(f"Socket.IO emit failed: {e}")
-                
-                # Update direction tracking
-                last_direction2 = current_direction2
             
             last_clk2_state = current_clk2_state
             time.sleep(0.001)  # Small delay to prevent excessive CPU usage
@@ -364,13 +346,9 @@ def main():
         try:
             sio.connect(server_url)
             print("✅ Connected to Node.js server")
-            # Apply initial switch state so frontend and motor match physical switch
-            time.sleep(0.1)
-            apply_initial_start_switch_state()
         except Exception as e:
             print(f"⚠️  Failed to connect to Node.js server: {e}")
             print("Continuing without web interface connection...")
-            apply_initial_start_switch_state()
         
         # Start button monitoring in a separate thread
         start_button_thread = threading.Thread(target=monitor_start_button, daemon=True)
@@ -386,11 +364,9 @@ def main():
         
         print("\n=== System Ready ===")
         print("Controls:")
-        print(f"• Start Toggle Switch (GPIO {START_SWITCH_PIN}): Motor control")
-        print("  - ON: Start motor")
-        print("  - OFF: Stop motor")
+        print(f"• Start Toggle Switch (GPIO {START_SWITCH_PIN}): Each flip toggles start/stop")
         print(f"• Selection Button (Pins CLK:{CLK2_PIN}, DT:{DT2_PIN}, SW:{SELECTION_SW_PIN}): Rotate + push")
-        print(f"• Motor rotations per trigger: {ROTATIONS_PER_PRESS}")
+        print(f"• Motor run duration per start: {MOTOR_RUN_DURATION_SEC}s")
         print("\nPress Ctrl+C to exit")
         print("=" * 40)
         
