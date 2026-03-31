@@ -91,7 +91,9 @@ export const useWebSocket = () => {
 	}, [setStartStopButton]);
 
 	useEffect(() => {
-		if (!socket) return undefined;
+		if (!socket) {
+			return undefined;
+		}
 		const id = setInterval(() => {
 			const state = useScreenStore.getState();
 			if (!state.pendingIdleReturnToStart || state.currentScreen === "start") {
