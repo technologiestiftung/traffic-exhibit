@@ -122,6 +122,12 @@ io.on("connection", (socket) => {
 		io.emit("stop-event");
 	});
 
+	// Natural end of timed motor run (e.g. 5 min) from button_monitor.py
+	socket.on("motor-session-complete", () => {
+		logger.info("Motor session completed (timed run finished)");
+		io.emit("motor-session-complete");
+	});
+
 	// Handle selection button rotation from Python script
 	socket.on("selection_button_rotated", (data) => {
 		io.emit("selection_button_rotated", data);

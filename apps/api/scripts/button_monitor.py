@@ -14,9 +14,9 @@ except ImportError:
 # Configuration
 # =============================================
 # Motor configuration
-FULL_STEPS_PER_REV = 200  # Number of full steps per revolution for 1.8° motor
 STEP_DELAY = 0.0005  # Delay between step pulses in seconds (0.5ms for smooth operation)
-ROTATIONS_PER_PRESS = 4  # Number of complete rotations to perform when triggered
+# Motor runs continuously for this duration (seconds) unless the toggle stops it earlier.
+MOTOR_RUN_DURATION_SEC = 240  # 4 minutes
 
 # GPIO pin assignments (BCM numbering)
 # Start control: physical toggle switch; each flip toggles exhibit on/off (not fixed ON=start / OFF=stop)
@@ -110,15 +110,15 @@ sio = socketio.Client()
 # =============================================
 
 def do_rotation():
-    """Perform motor rotation"""
+    """Run the motor for MOTOR_RUN_DURATION_SEC or until the toggle requests a stop."""
     global motor_running
     
     try:
-        # Calculate steps for microstep mode (same as test_motor.py)
-        # Each revolution: FULL_STEPS_PER_REV × 32 microsteps (1/32 mode)
-        target_steps = ROTATIONS_PER_PRESS * FULL_STEPS_PER_REV * 32  # 32 for 1/32 microsteps
-        
-        print(f"Starting rotation for {ROTATIONS_PER_PRESS} revolutions ({target_steps} microsteps)")
+        end_time = time.time() + MOTOR_RUN_DURATION_SEC
+        print(
+            f"Starting rotation for up to {MOTOR_RUN_DURATION_SEC}s "
+            f"(until {time.strftime('%H:%M:%S', time.localtime(end_time))})"
+        )
         
         # Enable motor for movement
         enable.off()  # Enable motor (LOW = enabled)
@@ -128,21 +128,27 @@ def do_rotation():
         steps_done = 0
         
         # Pulse STEP pin for each microstep: HIGH then LOW (with delay) moves motor one microstep.
-        while not stop_event.is_set() and steps_done < target_steps:
+        while not stop_event.is_set() and time.time() < end_time:
             step.on()
             time.sleep(STEP_DELAY)
             step.off()
             time.sleep(STEP_DELAY)
             steps_done += 1
         
+        completed_full_duration = not stop_event.is_set()
+        
         # Disable motor to prevent overheating
         enable.on()  # Disable motor (HIGH = disabled)
         print("Motor disabled for cooling - preventing overheating")
         
-        if steps_done >= target_steps:
-            print(f"Completed {ROTATIONS_PER_PRESS} rotations ({steps_done} microsteps)")
+        if completed_full_duration:
+            print(f"Completed full {MOTOR_RUN_DURATION_SEC}s run ({steps_done} microsteps)")
+            try:
+                sio.emit("motor-session-complete", {})
+            except Exception as e:
+                print(f"Socket.IO emit motor-session-complete failed: {e}")
         else:
-            print("Rotation stopped early")
+            print(f"Rotation stopped early ({steps_done} microsteps)")
             
     except Exception as e:
         print(f"Motor error: {e}")
@@ -234,7 +240,7 @@ def start_button_trigger():
         print("Motor is already running, ignoring start button trigger")
         return
     
-    print(f"Starting motor for {ROTATIONS_PER_PRESS} complete rotations...")
+    print(f"Starting motor for up to {MOTOR_RUN_DURATION_SEC}s...")
     start_motor()
 
 def start_button_stop_trigger():
@@ -383,7 +389,7 @@ def main():
         print("Controls:")
         print(f"• Start Toggle Switch (GPIO {START_SWITCH_PIN}): Each flip toggles start/stop")
         print(f"• Selection Button (Pins CLK:{CLK2_PIN}, DT:{DT2_PIN}, SW:{SELECTION_SW_PIN}): Rotate + push")
-        print(f"• Motor rotations per trigger: {ROTATIONS_PER_PRESS}")
+        print(f"• Motor run duration per start: {MOTOR_RUN_DURATION_SEC}s")
         print("\nPress Ctrl+C to exit")
         print("=" * 40)
         
