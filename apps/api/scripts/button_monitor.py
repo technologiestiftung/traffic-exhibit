@@ -48,9 +48,7 @@ start_toggle_logical_on = False
 monitoring_active = True
 
 # Selection button state
-selection_button_position = 0
 last_clk2_state = None
-last_direction2 = None
 last_sw_state = None
 
 # Motor control state
@@ -257,13 +255,6 @@ def start_button_stop_trigger():
     print("Stopping motor due to toggle → OFF...")
     stop_motor()
 
-def apply_initial_start_switch_state():
-    """Record physical switch level at boot; logical start/stop only changes on later flips."""
-    global last_switch_state
-    current = start_switch.value
-    last_switch_state = current
-    print(f"Start switch initial GPIO level: {'HIGH' if current else 'LOW'} (first flip toggles exhibit on)")
-
 def monitor_start_button():
     """On each physical state change, flip logical on/off and run start or stop accordingly."""
     global last_switch_state, start_toggle_logical_on, monitoring_active
@@ -284,11 +275,9 @@ def monitor_start_button():
 
 def monitor_selection_button():
     """Monitor the selection button for rotation and emit on each detent"""
-    global selection_button_position, last_clk2_state, last_direction2, monitoring_active
+    global last_clk2_state, monitoring_active
     
-    pulse_count = 0
     skip_counter = 0  # Counter to skip every other pulse
-    TOTAL_PULSES = 20
     
     try:
         while monitoring_active:
@@ -305,28 +294,20 @@ def monitor_selection_button():
                 else:
                     direction_clockwise = dt_val  # CW when DT is high on CLK fall
                 if direction_clockwise:
-                    current_direction2 = "Clockwise"
-                    selection_button_position += 1
-                    direction = "clockwise"
+                    rotation_direction = "clockwise"
                 else:
-                    current_direction2 = "Counter-Clockwise"
-                    selection_button_position -= 1
-                    direction = "counter-clockwise"
+                    rotation_direction = "counter-clockwise"
                 
                 skip_counter += 1
                 
                 # Only emit every other pulse (to get one event per detent)
                 if skip_counter % 2 == 0:
-                    pulse_count += 1
                     try:
                         sio.emit('selection_button_rotated', {
-                            'direction': direction
+                            'direction': rotation_direction
                         })
                     except Exception as e:
                         print(f"Socket.IO emit failed: {e}")
-                
-                # Update direction tracking
-                last_direction2 = current_direction2
             
             last_clk2_state = current_clk2_state
             time.sleep(0.001)  # Small delay to prevent excessive CPU usage
@@ -365,13 +346,9 @@ def main():
         try:
             sio.connect(server_url)
             print("✅ Connected to Node.js server")
-            # Apply initial switch state so frontend and motor match physical switch
-            time.sleep(0.1)
-            apply_initial_start_switch_state()
         except Exception as e:
             print(f"⚠️  Failed to connect to Node.js server: {e}")
             print("Continuing without web interface connection...")
-            apply_initial_start_switch_state()
         
         # Start button monitoring in a separate thread
         start_button_thread = threading.Thread(target=monitor_start_button, daemon=True)
