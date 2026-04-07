@@ -14,6 +14,7 @@ import { BerlinMap } from "../map/berlin-map";
 import NoiseChart from "../charts/noise-chart";
 import { AirQualityGrid } from "../charts/air-quality-grid";
 import { MatchDescription } from "./match-description";
+import { InfoTooltip } from "../tooltip/info-tooltip";
 
 const isLargeScreen = window.innerWidth >= 1920;
 
@@ -114,11 +115,22 @@ export const Match: React.FC = () => {
 					<div className="flex items-start gap-4">
 						<p className="text-left text-base 2xl:text-lg font-light tracking-[0.18em] 2xl:tracking-[0.25em] text-[#1e2402] drop-shadow">
 							{i18n("match.subtitle")}
-							<span className="underline decoration-black decoration-2">
+							<span className="underline underline-offset-2 decoration-black decoration-2">
 								{i18n("match.subtitle.highlight")}
 							</span>
 							{i18n("match.subtitle.end")}
+							<InfoTooltip
+								type="livedata"
+								content={i18n("match.livedata.tooltip")}
+							>
+								<img
+									src="/info-icon.svg"
+									alt="Info"
+									className="w-5 h-5 cursor-help"
+								/>
+							</InfoTooltip>
 						</p>
+
 						<div className="flex shrink-0 items-center gap-3 border border-black px-4 py-2">
 							<span className="relative flex h-4 w-4">
 								<span

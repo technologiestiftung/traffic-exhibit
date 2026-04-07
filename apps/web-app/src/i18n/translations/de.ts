@@ -16,6 +16,8 @@ export const de = {
 		"Diese Straßen passen am besten zu deiner Suche – basierend auf Verkehrsdaten der ",
 	"match.subtitle.highlight": "letzten Stunde",
 	"match.subtitle.end": ".",
+	"match.livedata.tooltip":
+		"Telraam Verkehrsdaten von über 100 Sensoren in Berlin. (ADFC & DLR Projekt „Berlin zählt Mobilität“)",
 	"match.createNewMixButton.label": "Neuer Mix",
 	"match.bikeLaneType.secondaryBikeNetwork": "Ergänzungsnetz",
 	"match.bikeLaneType.bikePriorityStreet": "Fahrradstraße",

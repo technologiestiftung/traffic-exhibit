@@ -16,6 +16,8 @@ export const en = {
 		"These streets best match your search – based on traffic data from the ",
 	"match.subtitle.highlight": "last hour",
 	"match.subtitle.end": ".",
+	"match.livedata.tooltip":
+		"Telraam traffic data from over 100 sensors in Berlin. (ADFC & DLR project „Berlin zählt Mobilität“)",
 	"match.createNewMixButton.label": "Create new mix",
 	"match.bikeLaneType.secondaryBikeNetwork": "Secondary bike network",
 	"match.bikeLaneType.bikePriorityStreet": "Bicycle street",
