@@ -14,13 +14,13 @@ export const CircleChart: FC<CircleChartProps> = ({
 	data,
 	minRadius = 0.3,
 }) => {
-	const fontSize = isLargeScreen ? 16 : 12;
+	const fontSize = isLargeScreen ? 14 : 12;
 	const size = isLargeScreen ? 765 : 650;
 	const chartInstanceId = useId();
 	const center = size / 2;
 	const maxRadius = center - 4; // leave a little padding to avoid clipping
 	const clampedMinRadius = minRadius * maxRadius;
-	const gap = fontSize * 1.5;
+	const gap = fontSize * 1.6;
 
 	const segments = buildSegments({
 		data,
@@ -75,14 +75,16 @@ export const CircleChart: FC<CircleChartProps> = ({
 					))}
 
 					{segments.map((segment, index) => {
-						const baseOffset = segment.labelOffset ?? "25%";
+						if (segment.percentage === 0) {
+							return null;
+						}
 
 						return (
 							<text key={`label-${segment.key}`} fontSize={fontSize}>
 								<textPath
 									href={`#${chartInstanceId}-label-${index}`}
-									startOffset={baseOffset}
-									textAnchor="middle"
+									startOffset="25%"
+									textAnchor="end"
 									fill="#000"
 									dominantBaseline="middle"
 								>

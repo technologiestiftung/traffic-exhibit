@@ -22,6 +22,7 @@ export const Match: React.FC = () => {
 	const {
 		goBackToStart,
 		telraamMatches = [],
+		noCloseMatch,
 		onSelectionButtonRotated,
 		onSelectionButtonPressed,
 	} = useWebSocket();
@@ -104,10 +105,15 @@ export const Match: React.FC = () => {
 			<div className="absolute inset-0 bg-gradient-to-b from-[#171719] via-[#3b3b41] to-[#d7d7dd] animate-fade-out pointer-events-none" />
 
 			<div className="mb-2 2xl:mb-4 flex w-full max-w-[1540px] 2xl:max-w-[2000px] xl:px-0 gap-4 2xl:gap-10 flex-row md:justify-between px-10 relative z-10 animate-fade-in mt-16 2xl:mt-24">
-				<div className="flex flex-col gap-3 flex-1">
-					<h1 className="text-left text-5xl 2xl:text-6xl font-semibold text-[#1e2402] drop-shadow uppercase pl-5">
+				<div className="flex flex-col gap-3 flex-1 pl-5">
+					<h1 className="text-left text-5xl 2xl:text-6xl font-semibold text-[#1e2402] drop-shadow uppercase">
 						{i18n("match.title")}
 					</h1>
+					{noCloseMatch && (
+						<p className="text-left text-base 2xl:text-lg font-light tracking-[0.18em] 2xl:tracking-[0.25em] text-[#1e2402] drop-shadow">
+							{i18n("match.title.noCloseMatch.subtitle")}
+						</p>
+					)}
 				</div>
 
 				{/* Live indicator — top right */}

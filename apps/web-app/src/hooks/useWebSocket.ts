@@ -4,7 +4,10 @@ import {
 	IDLE_BEFORE_RETURN_TO_START_MS,
 	useScreenStore,
 } from "../stores/useScreenStore";
-import type { TelraamMatch } from "../../../api/src/common";
+import type {
+	TelraamMatch,
+	TelraamMatchesPayload,
+} from "../../../api/src/common";
 
 const wsUrl = import.meta.env.VITE_WS_URL;
 
@@ -18,6 +21,7 @@ export const useWebSocket = () => {
 	const [socket, setSocket] = useState<Socket | null>(null);
 	const [occupiedBlocks, setOccupiedBlocks] = useState<number[]>([]);
 	const [telraamMatches, setTelraamMatches] = useState<TelraamMatch[]>([]);
+	const [noCloseMatch, setNoCloseMatch] = useState(false);
 	const selectionButtonCallbackRef = useRef<
 		((data: SelectionButtonData) => void) | null
 	>(null);
@@ -45,8 +49,9 @@ export const useWebSocket = () => {
 			setOccupiedBlocks(data);
 		});
 
-		newSocket.on("telraam-matches", (data: TelraamMatch[]) => {
-			setTelraamMatches(data);
+		newSocket.on("telraam-matches", (data: TelraamMatchesPayload) => {
+			setTelraamMatches(data.matches as TelraamMatch[]);
+			setNoCloseMatch(data.noCloseMatch);
 		});
 
 		// Handle start event from start button (clockwise rotation)
@@ -129,6 +134,7 @@ export const useWebSocket = () => {
 		occupiedBlocks,
 		goBackToStart,
 		telraamMatches,
+		noCloseMatch,
 		onSelectionButtonRotated,
 		onSelectionButtonPressed,
 	};

@@ -1,5 +1,13 @@
 import type { ModalSplitPercentages, TrafficFeature } from "../common";
 
+/** Above this Euclidean distance (modal split space), the best match is treated as weak. */
+export const MATCH_DISTANCE_WEAK_THRESHOLD = 20;
+
+export type ClosestMatchesResult = {
+	matches: TrafficFeature[] | null;
+	noCloseMatch: boolean;
+};
+
 function calculateDistance(
 	dist1: ModalSplitPercentages,
 	dist2: ModalSplitPercentages,
@@ -22,9 +30,9 @@ export function findClosestMatches(
 	currentDetections: ModalSplitPercentages,
 	fetchedTrafficData: TrafficFeature[],
 	segmentIdsWithImage?: Set<number>,
-): TrafficFeature[] | null {
+): ClosestMatchesResult {
 	if (!Array.isArray(fetchedTrafficData) || fetchedTrafficData.length === 0) {
-		return null;
+		return { matches: null, noCloseMatch: false };
 	}
 
 	// compute distances for each feature relative to current detections
@@ -57,16 +65,35 @@ export function findClosestMatches(
 	// pick top 3 closest features; if segmentIdsWithImage is set, only include features that have an image
 	if (segmentIdsWithImage) {
 		const result: TrafficFeature[] = [];
+		let firstReturnedDistance: number | null = null;
 		for (const entry of featuresWithDistances) {
 			if (result.length >= 3) {
 				break;
 			}
 			if (segmentIdsWithImage.has(entry.feature.properties.segment_id)) {
+				if (firstReturnedDistance === null) {
+					firstReturnedDistance = entry.distance;
+				}
 				result.push(entry.feature);
 			}
 		}
-		return result.length > 0 ? result : null;
+		if (result.length === 0) {
+			return { matches: null, noCloseMatch: false };
+		}
+		return {
+			matches: result,
+			noCloseMatch:
+				firstReturnedDistance !== null &&
+				firstReturnedDistance > MATCH_DISTANCE_WEAK_THRESHOLD,
+		};
 	}
 
-	return featuresWithDistances.slice(0, 3).map((entry) => entry.feature);
+	const top = featuresWithDistances.slice(0, 3);
+	const matches = top.map((entry) => entry.feature);
+	const bestDistance = top.length > 0 ? top[0].distance : null;
+	return {
+		matches,
+		noCloseMatch:
+			bestDistance !== null && bestDistance > MATCH_DISTANCE_WEAK_THRESHOLD,
+	};
 }

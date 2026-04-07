@@ -12,6 +12,8 @@ export const de = {
 
 	/* MATCH */
 	"match.title": "Top 3 Treffer zu deinem Verkehrs-Mix",
+	"match.title.noCloseMatch.subtitle":
+		"Leider konnten wir aktuell keinen passenderen Verkehrs-Mix finden.",
 	"match.subtitle":
 		"Diese Straßen passen am besten zu deiner Suche – basierend auf Verkehrsdaten der ",
 	"match.subtitle.highlight": "letzten Stunde",
@@ -35,7 +37,7 @@ export const de = {
 
 	/* TRAFFIC STATS */
 	"trafficStats.liveData": "Livedaten",
-	"trafficStats.pedestrians": "Fußgänger",
+	"trafficStats.pedestrians": "Fußgänger:innen",
 	"trafficStats.bikes": "Fahrräder",
 	"trafficStats.cars": "Autos",
 	"trafficStats.trucks": "LKWs",

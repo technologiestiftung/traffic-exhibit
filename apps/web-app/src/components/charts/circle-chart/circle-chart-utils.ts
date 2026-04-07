@@ -3,7 +3,6 @@ export type CircleChartSegment = {
 	count: number;
 	percentage: number;
 	color: string;
-	labelOffset?: string;
 };
 
 type ComputedSegment = {
@@ -11,7 +10,6 @@ type ComputedSegment = {
 	count: number;
 	percentage: number;
 	color: string;
-	labelOffset?: string;
 	radius: number;
 	strokeWidth: number;
 	labelRadius: number;
