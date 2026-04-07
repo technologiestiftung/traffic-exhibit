@@ -63,7 +63,7 @@ export const MatchDescription = ({ data }: MatchDescriptionProps) => {
 										alt=""
 										aria-hidden="true"
 										src={iconSrc}
-										className="h-4 w-auto 2xl:h-5"
+										className="h-4 w-6 2xl:h-5"
 										style={{
 											filter:
 												"brightness(0) saturate(100%) drop-shadow(0 1px 0 rgba(0,0,0,0.12))",

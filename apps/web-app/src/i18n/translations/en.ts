@@ -3,20 +3,17 @@ export const en = {
 	"start.title": "Berliner Platte",
 	"start.subHeading":
 		"Which traffic mix do you want to see on Berlin's streets?",
-	"start.description":
-		"Create your own traffic mix and explore Berlin's streets. Place 10 traffic blocks on the wheel - each block represents 10% of the traffic.",
 	"start.simulateButton.label": "Simulate Start",
 	"start.showAllDataButton.label": "Show all data",
 	"start.hideAllDataButton.label": "Hide all data",
 
 	/* LOADING */
-	"loading.title": "Loading...",
-	"loading.trafficMixAnalyzing": "Your traffic mix is being analyzed",
+	"loading.title": "Your traffic mix is being analyzed",
 
 	/* MATCH */
-	"match.title": "Top results for your search",
+	"match.title": "Top 3 results for your search",
 	"match.subtitle":
-		"These streets best match your search – based on data from the ",
+		"These streets best match your search – based on traffic data from the ",
 	"match.subtitle.highlight": "last hour",
 	"match.subtitle.end": ".",
 	"match.createNewMixButton.label": "Create new mix",
@@ -62,14 +59,4 @@ export const en = {
 		"Weighted 24-hour average noise level. (Strategic Noise Maps Berlin, 2022)",
 	"noiseChart.scale.quiet": "Quiet",
 	"noiseChart.scale.loud": "Loud",
-
-	/* CIRCLE CHART */
-	"circleChart.summary.trailingMessage.p1": "while",
-	"circleChart.summary.trailingMessage.p2": "trails at",
-	"circleChart.summary.totalMessage.p1": "across",
-	"circleChart.summary.totalMessage.p2": "total observations",
-	"circleChart.summary.leadsThisMessage.p1": "leads this",
-	"circleChart.summary.leadsThisMessage.p2": "-segment profile with",
-	"circleChart.summary.usageDistributionMessage":
-		", highlighting how usage is distributed today.",
 };

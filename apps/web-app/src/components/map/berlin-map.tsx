@@ -9,6 +9,7 @@ type BerlinMapProps = {
 	districtStrokeColor: string;
 	width?: number;
 	height?: number;
+	liveIndicatorDotClass: string;
 };
 
 export const BerlinMap: React.FC<BerlinMapProps> = ({
@@ -17,6 +18,7 @@ export const BerlinMap: React.FC<BerlinMapProps> = ({
 	districtStrokeColor,
 	width = 200,
 	height = 200,
+	liveIndicatorDotClass,
 }) => {
 	const location = { lat, lon };
 	const { city, districts } = useBerlinGeojson();
@@ -25,6 +27,9 @@ export const BerlinMap: React.FC<BerlinMapProps> = ({
 	const innerHeight = height - svgMargin.top - svgMargin.bottom;
 
 	const scale = width < height ? width / 0.01 : height / 0.01;
+
+	const liveIndicatorDotColor =
+		liveIndicatorDotClass === "bg-white" ? "#ffffff" : "#ff5722";
 
 	const projection = useCallback(
 		d3
@@ -64,7 +69,7 @@ export const BerlinMap: React.FC<BerlinMapProps> = ({
 									cx={x}
 									cy={y}
 									r={6}
-									fill="#ff5722"
+									fill={liveIndicatorDotColor}
 									opacity={0.75}
 									className="map-ping"
 								/>
@@ -73,7 +78,7 @@ export const BerlinMap: React.FC<BerlinMapProps> = ({
 									cx={x}
 									cy={y}
 									r={6}
-									fill={d3.color("#ff5722")?.toString() ?? "#ff5722"}
+									fill={liveIndicatorDotColor}
 									stroke="#ffffff"
 									strokeWidth={0}
 									role="img"

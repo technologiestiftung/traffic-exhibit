@@ -164,6 +164,7 @@ export const Match: React.FC = () => {
 							districtStrokeColor={getDominantTrafficGradientFromColor(
 								getDominantTrafficModalIndex(currentMatch),
 							)}
+							liveIndicatorDotClass={liveIndicatorDotClass}
 						/>
 
 						<MatchDescription

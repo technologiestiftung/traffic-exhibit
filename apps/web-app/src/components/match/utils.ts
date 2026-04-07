@@ -57,7 +57,7 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 				telraamMatch?.originalProperties.pedestrian_percentage.toFixed(0),
 			),
 			color: trafficColors.blue,
-			labelOffset: "15%",
+			labelOffset: "13%",
 		},
 		{
 			name: i18n("trafficStats.bikes"),
@@ -66,7 +66,7 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 				telraamMatch?.originalProperties.bike_percentage.toFixed(0),
 			),
 			color: trafficColors.yellow,
-			labelOffset: "25%",
+			labelOffset: "17%",
 		},
 		{
 			name: i18n("trafficStats.cars"),
@@ -75,7 +75,7 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 				telraamMatch?.originalProperties.car_percentage.toFixed(0),
 			),
 			color: trafficColors.red,
-			labelOffset: "30%",
+			labelOffset: "20.5%",
 		},
 		{
 			name: i18n("trafficStats.trucks"),
@@ -84,7 +84,7 @@ export function getTrafficModal(telraamMatch: TelraamMatch) {
 				telraamMatch?.originalProperties.heavy_percentage.toFixed(0),
 			),
 			color: trafficColors.orange,
-			labelOffset: "35%",
+			labelOffset: "21.2%",
 		},
 	];
 }
