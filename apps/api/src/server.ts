@@ -9,7 +9,11 @@ import path from "path";
 import { findClosestMatches } from "./data-processing/find-modal-split-match";
 import telraamDataRaw from "./../data/telraam-data.json";
 import enrichedTelraamDataRaw from "./../data/enriched-telraam-data.json";
-import type { TrafficFeature, TelraamMatch } from "./common";
+import type {
+	TrafficFeature,
+	TelraamMatch,
+	TelraamMatchesPayload,
+} from "./common";
 
 const telraamData = telraamDataRaw as { features: TrafficFeature[] };
 const enrichedTelraamData = enrichedTelraamDataRaw as TelraamMatch[];
@@ -22,10 +26,10 @@ const segmentIdsWithImage = new Set(
 );
 
 // Store current detection data (default to example values)
-let currentDetections = { car: 20, bike: 60, pedestrian: 10, heavy: 10 };
+let currentDetections = { car: 40, bike: 40, pedestrian: 10, heavy: 10 };
 
 // Calculate initial matches (only features that have images)
-let closestMatch = findClosestMatches(
+let closestMatchesResult = findClosestMatches(
 	currentDetections,
 	telraamData.features,
 	segmentIdsWithImage,
@@ -33,12 +37,17 @@ let closestMatch = findClosestMatches(
 
 // for each match the closest result with enriched-telraam-data
 let enrichedMatches =
-	closestMatch?.map((match) =>
+	closestMatchesResult.matches?.map((match) =>
 		enrichedTelraamData.find(
 			(feature) =>
 				feature.originalProperties.segment_id === match.properties.segment_id,
 		),
 	) || [];
+
+let telraamMatchesPayload: TelraamMatchesPayload = {
+	matches: enrichedMatches,
+	noCloseMatch: closestMatchesResult.noCloseMatch,
+};
 
 const app = express();
 
@@ -70,7 +79,7 @@ app.post("/api/detections", (req, res) => {
 		logger.info("Received detection data:", currentDetections);
 
 		// Recalculate matches with new detection data (only features that have images)
-		closestMatch = findClosestMatches(
+		closestMatchesResult = findClosestMatches(
 			currentDetections,
 			telraamData.features,
 			segmentIdsWithImage,
@@ -78,7 +87,7 @@ app.post("/api/detections", (req, res) => {
 
 		// Update enriched matches
 		enrichedMatches =
-			closestMatch?.map((match) =>
+			closestMatchesResult.matches?.map((match) =>
 				enrichedTelraamData.find(
 					(feature) =>
 						feature.originalProperties.segment_id ===
@@ -86,8 +95,13 @@ app.post("/api/detections", (req, res) => {
 				),
 			) || [];
 
+		telraamMatchesPayload = {
+			matches: enrichedMatches,
+			noCloseMatch: closestMatchesResult.noCloseMatch,
+		};
+
 		// Broadcast updated matches to all connected clients
-		io.emit("telraam-matches", enrichedMatches);
+		io.emit("telraam-matches", telraamMatchesPayload);
 		io.emit("detection-update", currentDetections);
 
 		return res.json({ success: true, detections: currentDetections });
@@ -138,7 +152,7 @@ io.on("connection", (socket) => {
 		io.emit("selection_button_pressed");
 	});
 
-	socket.emit("telraam-matches", enrichedMatches);
+	socket.emit("telraam-matches", telraamMatchesPayload);
 
 	/*
 	 * TO DO: Handle "go-back-to-start" event from frontend
