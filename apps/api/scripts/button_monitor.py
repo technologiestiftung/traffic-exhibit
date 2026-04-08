@@ -109,8 +109,8 @@ sio = socketio.Client()
 
 def do_rotation():
     """Run the motor for MOTOR_RUN_DURATION_SEC or until the toggle requests a stop."""
-    global motor_running
-    
+    global motor_running, start_toggle_logical_on
+
     try:
         end_time = time.time() + MOTOR_RUN_DURATION_SEC
         print(
@@ -141,6 +141,14 @@ def do_rotation():
         
         if completed_full_duration:
             print(f"Completed full {MOTOR_RUN_DURATION_SEC}s run ({steps_done} microsteps)")
+            # The physical switch did not move, but logical "on" was still True. Without
+            # this reset, the next flip would be interpreted as OFF (stop) and the flip
+            # after that as ON — so the motor would need two toggles to restart.
+            start_toggle_logical_on = False
+            print(
+                "Timed run finished: logical exhibit state reset to OFF "
+                "(next switch edge starts a new run)."
+            )
             try:
                 sio.emit("motor-session-complete", {})
             except Exception as e:
