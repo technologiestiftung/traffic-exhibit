@@ -49,6 +49,13 @@ server_url = args.server_url
 send_interval = args.send_interval
 listen_motor = args.listen_motor
 
+# After toggle ON (start-event), keep camera + detection running this many seconds before
+# sending counts to the server (frontend) and shutting down capture.
+POST_START_CAPTURE_SEC = 4.0
+
+# Set by start-event; main loop finalizes (send + pause camera) when time.monotonic() >= this.
+post_start_finalize_deadline = None
+
 # Socket.IO client for listening to motor events
 sio = None
 if listen_motor:
@@ -64,23 +71,17 @@ if listen_motor:
     
     @sio.on('start-event')
     def on_start_event():
-        global detection_enabled, camera_paused, capture
-        print("Start event received - sending data and disabling YOLO detection")
-        # Send current detection data to server (server forwards to frontend via socket.io)
-        send_detection_data()
-        # Turn off detection
-        detection_enabled = False
-        # Turn off camera for video/usb/picamera sources
-        if source_type == 'video' or source_type == 'usb':
-            capture.release()
-            camera_paused = True
-        elif source_type == 'picamera':
-            capture.stop()
-            camera_paused = True
+        global post_start_finalize_deadline
+        print(
+            f"Start event received - camera and detection continue for {POST_START_CAPTURE_SEC:.0f}s, "
+            "then data is sent and capture stops"
+        )
+        post_start_finalize_deadline = time.monotonic() + POST_START_CAPTURE_SEC
     
     @sio.on('stop-event')
     def on_stop_event():
-        global detection_counts, detection_enabled, camera_paused, capture
+        global detection_counts, detection_enabled, camera_paused, capture, post_start_finalize_deadline
+        post_start_finalize_deadline = None
         print("Stop event received - enabling YOLO detection and resetting counts")
         # Turn camera back on
         if source_type == 'video' or source_type == 'usb':
@@ -252,6 +253,19 @@ while True:
 
     t_start = time.perf_counter()
 
+    if post_start_finalize_deadline is not None and time.monotonic() >= post_start_finalize_deadline:
+        post_start_finalize_deadline = None
+        print("Post-start delay elapsed - sending detection data and disabling YOLO")
+        send_detection_data()
+        detection_enabled = False
+        if source_type == 'video' or source_type == 'usb':
+            capture.release()
+            camera_paused = True
+        elif source_type == 'picamera':
+            capture.stop()
+            camera_paused = True
+        continue
+
     # When camera is paused (released on start-event), wait until stop-event turns it back on
     if (source_type == 'video' or source_type == 'usb' or source_type == 'picamera') and camera_paused:
         time.sleep(0.1)
@@ -369,12 +383,14 @@ while True:
     status_color = (0, 255, 0) if detection_enabled else (0, 0, 255)
     cv2.putText(frame, f'Status: {status_text}', (10, y_offset + 20), cv2.FONT_HERSHEY_SIMPLEX, .5, status_color, 1)
     
-    # Send detection data to server at specified interval (only when enabled)
+    # Send detection data to server at specified interval (only when enabled).
+    # During the post-start-event delay, defer all sends until the final snapshot at deadline.
     if detection_enabled:
         current_time = time.time()
         if current_time - last_send_time >= send_interval:
-            send_detection_data()
-            last_send_time = current_time
+            if post_start_finalize_deadline is None:
+                send_detection_data()
+                last_send_time = current_time
     
     if not headless:
         cv2.imshow('YOLO detection results',frame) # Display image
