@@ -27,7 +27,8 @@ export const useWebSocket = () => {
 	>(null);
 	const selectionButtonPressedCallbackRef = useRef<(() => void) | null>(null);
 
-	const { setStartStopButton } = useScreenStore();
+	const applyStartEvent = useScreenStore((s) => s.applyStartEvent);
+	const applyStopEvent = useScreenStore((s) => s.applyStopEvent);
 
 	useEffect(() => {
 		const onInteract = () => {
@@ -54,18 +55,18 @@ export const useWebSocket = () => {
 			setNoCloseMatch(data.noCloseMatch);
 		});
 
-		// Handle start event from start button (clockwise rotation)
+		// Handle start event from start button (logical ON)
 		newSocket.on("start-event", () => {
 			useScreenStore.getState().recordInteraction();
-			setStartStopButton();
+			applyStartEvent();
 			// eslint-disable-next-line no-console
 			console.log("start event received from start button");
 		});
 
-		// Handle stop event from start button (counter-clockwise rotation)
+		// Handle stop event from start button (logical OFF)
 		newSocket.on("stop-event", () => {
 			useScreenStore.getState().recordInteraction();
-			setStartStopButton();
+			applyStopEvent();
 			// eslint-disable-next-line no-console
 			console.log("stop event received from start button");
 		});
@@ -93,7 +94,7 @@ export const useWebSocket = () => {
 		return () => {
 			newSocket.disconnect();
 		};
-	}, [setStartStopButton]);
+	}, [applyStartEvent, applyStopEvent]);
 
 	useEffect(() => {
 		if (!socket) {
