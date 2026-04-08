@@ -56,54 +56,8 @@ POST_START_CAPTURE_SEC = 4.0
 # Set by start-event; main loop finalizes (send + pause camera) when time.monotonic() >= this.
 post_start_finalize_deadline = None
 
-# Socket.IO client for listening to motor events
+# Socket.IO client (connected after source/capture init; see below)
 sio = None
-if listen_motor:
-    sio = socketio.Client()
-    
-    @sio.event
-    def connect():
-        print("YOLO: Connected to server for motor event listening")
-    
-    @sio.event
-    def disconnect():
-        print("YOLO: Disconnected from server")
-    
-    @sio.on('start-event')
-    def on_start_event():
-        global post_start_finalize_deadline
-        print(
-            f"Start event received - camera and detection continue for {POST_START_CAPTURE_SEC:.0f}s, "
-            "then data is sent and capture stops"
-        )
-        post_start_finalize_deadline = time.monotonic() + POST_START_CAPTURE_SEC
-    
-    @sio.on('stop-event')
-    def on_stop_event():
-        global detection_counts, detection_enabled, camera_paused, capture, post_start_finalize_deadline
-        post_start_finalize_deadline = None
-        print("Stop event received - enabling YOLO detection and resetting counts")
-        # Turn camera back on
-        if source_type == 'video' or source_type == 'usb':
-            capture = cv2.VideoCapture(capture_arg)
-            if user_res:
-                capture.set(3, resW)
-                capture.set(4, resH)
-            camera_paused = False
-        elif source_type == 'picamera':
-            capture.start()
-            camera_paused = False
-        # Reset counts and turn on detection
-        detection_counts = {'car': 0, 'bike': 0, 'pedestrian': 0, 'heavy': 0}
-        detection_enabled = True
-    
-    try:
-        sio.connect(server_url)
-        print(f"YOLO: Connected to server at {server_url} for motor events")
-    except Exception as e:
-        print(f"YOLO: Failed to connect to server for motor events: {e}")
-        print("YOLO: Continuing without motor event listening")
-        sio = None
 
 # Map YOLO class names to our categories
 # Your model classes: Pedestrian, Car, Bike, Truck
@@ -210,6 +164,65 @@ detection_counts = {'car': 0, 'bike': 0, 'pedestrian': 0, 'heavy': 0}
 last_send_time = 0
 detection_enabled = True  # Start enabled, will be disabled on start-event (after sending data)
 camera_paused = False  # True when camera is released on start-event, turned back on on stop-event
+
+
+def resume_yolo_capture_after_exhibit_stop():
+    """Re-open camera and reset detection after toggle OFF or timed motor run end."""
+    global detection_counts, detection_enabled, camera_paused, capture, post_start_finalize_deadline
+    post_start_finalize_deadline = None
+    if source_type == "video" or source_type == "usb":
+        capture = cv2.VideoCapture(capture_arg)
+        if user_res:
+            capture.set(3, resW)
+            capture.set(4, resH)
+        camera_paused = False
+    elif source_type == "picamera":
+        capture.start()
+        camera_paused = False
+    detection_counts = {"car": 0, "bike": 0, "pedestrian": 0, "heavy": 0}
+    detection_enabled = True
+
+
+if listen_motor:
+    sio = socketio.Client()
+
+    @sio.event
+    def connect():
+        print("YOLO: Connected to server for motor event listening")
+
+    @sio.event
+    def disconnect():
+        print("YOLO: Disconnected from server")
+
+    @sio.on("start-event")
+    def on_start_event():
+        global post_start_finalize_deadline
+        print(
+            f"Start event received - camera and detection continue for {POST_START_CAPTURE_SEC:.0f}s, "
+            "then data is sent and capture stops"
+        )
+        post_start_finalize_deadline = time.monotonic() + POST_START_CAPTURE_SEC
+
+    @sio.on("stop-event")
+    def on_stop_event():
+        print("Stop event received - enabling YOLO detection and resetting counts")
+        resume_yolo_capture_after_exhibit_stop()
+
+    @sio.on("motor-session-complete")
+    def on_motor_session_complete():
+        print(
+            "Motor session complete (timed run) - enabling YOLO detection and resetting counts"
+        )
+        resume_yolo_capture_after_exhibit_stop()
+
+    try:
+        sio.connect(server_url)
+        print(f"YOLO: Connected to server at {server_url} for motor events")
+    except Exception as e:
+        print(f"YOLO: Failed to connect to server for motor events: {e}")
+        print("YOLO: Continuing without motor event listening")
+        sio = None
+
 
 def send_detection_data():
     """Send current detection data to server"""
