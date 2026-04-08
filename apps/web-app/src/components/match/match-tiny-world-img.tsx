@@ -66,6 +66,7 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 	const animationFrameRef = useRef<number | null>(null);
 	const [currentView, setCurrentView] = useState<ViewType>("tinyPlanet");
 	const [autoTransitionResetKey, setAutoTransitionResetKey] = useState(0);
+	const [sceneReady, setSceneReady] = useState(false);
 	const currentViewRef = useRef<ViewType>("tinyPlanet");
 	const shouldAnimateRef = useRef<boolean>(shouldAnimate);
 
@@ -152,51 +153,55 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 		}
 
 		let isMounted = true;
+		setSceneReady(false);
 
 		const initScene = async () => {
-			// Create environment sphere
-			const environmentSphere = await createEnvironmentSphere(imageUrl);
-			if (!isMounted) {
-				return;
-			}
+			try {
+				const environmentSphere = await createEnvironmentSphere(imageUrl);
+				if (!isMounted) {
+					return;
+				}
 
-			environmentSphereRef.current = environmentSphere;
+				environmentSphereRef.current = environmentSphere;
 
-			// Create scene
-			const scene = new THREE.Scene();
-			scene.add(environmentSphere);
-			sceneRef.current = scene;
+				const scene = new THREE.Scene();
+				scene.add(environmentSphere);
+				sceneRef.current = scene;
 
-			// Create renderer
-			const renderer = new THREE.WebGLRenderer({
-				antialias: true,
-				canvas,
-			});
-			renderer.outputColorSpace = THREE.SRGBColorSpace;
-			renderer.setPixelRatio(window.devicePixelRatio);
-			renderer.setSize(width, height);
-			rendererRef.current = renderer;
+				const renderer = new THREE.WebGLRenderer({
+					antialias: true,
+					canvas,
+				});
+				renderer.outputColorSpace = THREE.SRGBColorSpace;
+				renderer.setPixelRatio(window.devicePixelRatio);
+				renderer.setSize(width, height);
+				rendererRef.current = renderer;
 
-			// Create camera
-			const camera = new THREE.PerspectiveCamera(45, width / height, 0.2, 2000);
-			cameraRef.current = camera;
+				const camera = new THREE.PerspectiveCamera(45, width / height, 0.2, 2000);
+				cameraRef.current = camera;
 
-			// Create camera controls
-			const cameraControls = new CameraControls(camera, canvas);
-			cameraControls.restThreshold = 1;
-			cameraControls.addEventListener("rest", () => {
-				cameraControls.enabled = true;
-			});
-			cameraControlsRef.current = cameraControls;
+				const cameraControls = new CameraControls(camera, canvas);
+				cameraControls.restThreshold = 1;
+				cameraControls.addEventListener("rest", () => {
+					cameraControls.enabled = true;
+				});
+				cameraControlsRef.current = cameraControls;
 
-			// Set initial view
-			setView({ ...views.tinyPlanet, animated: false });
+				setView({ ...views.tinyPlanet, animated: false });
 
-			// Start animation loop
-			if (shouldAnimateRef.current) {
-				render();
-			} else {
-				renderer.render(scene, camera);
+				if (shouldAnimateRef.current) {
+					render();
+				} else {
+					renderer.render(scene, camera);
+				}
+
+				if (isMounted) {
+					setSceneReady(true);
+				}
+			} catch {
+				if (isMounted) {
+					setSceneReady(true);
+				}
 			}
 		};
 
@@ -205,6 +210,7 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 		// eslint-disable-next-line consistent-return
 		return () => {
 			isMounted = false;
+			setSceneReady(false);
 
 			if (animationFrameRef.current) {
 				cancelAnimationFrame(animationFrameRef.current);
@@ -285,11 +291,17 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 	}, [shouldAnimate, autoTransitionResetKey, currentView]);
 
 	return (
-		<div className="relative w-full h-full">
-			<div className="w-full h-full overflow-hidden">
+		<div className="relative h-full min-h-0 w-full">
+			{!sceneReady && (
+				<div
+					className="absolute inset-0 z-[1] animate-pulse bg-gradient-to-br from-neutral-500/35 via-neutral-400/25 to-neutral-600/30"
+					aria-hidden
+				/>
+			)}
+			<div className="relative z-[2] h-full w-full overflow-hidden">
 				<canvas
 					ref={canvasRef}
-					className={`w-full h-full ${!shouldAnimate && "blur-xs"}`}
+					className={`h-full w-full transition-opacity duration-500 ease-out ${sceneReady ? "opacity-100" : "opacity-0"} ${!shouldAnimate && "blur-xs"}`}
 				/>
 			</div>
 		</div>

@@ -68,6 +68,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 }) => {
 	const closeTooltip = useInfoTooltipStore((s) => s.closeTooltip);
 	const imageSrc = match.imageURL ? getImageUrl(match.imageURL) : null;
+	const imgSize = isLargeScreen ? 750 : 600;
 	const dominantIndex = getDominantTrafficModalIndex(match);
 	const backgroundClass = getDominantTrafficGradientClass(dominantIndex);
 
@@ -98,7 +99,10 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 					stackPosition.transformStyle || `scale(${stackPosition.scale})`,
 			}}
 		>
-			<div className="flex flex-col justify-between h-full relative aspect-square">
+			<div
+				className="relative overflow-hidden"
+				style={{ width: imgSize, height: imgSize }}
+			>
 				{/* HEADER */}
 				<div className="absolute bottom-0 left-0 z-10 flex w-full h-1/3 flex-col justify-end bg-gradient-to-t from-white/80 to-transparent p-5 overflow-visible">
 					<div className="flex gap-5 items-center max-w-md overflow-visible">
@@ -129,14 +133,19 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 					</p>
 				</div>
 
-				{/* IMAGE */}
-				{imageSrc && (
+				{/* IMAGE — fixed box avoids layout shift; skeleton inside component or when no URL */}
+				{imageSrc ? (
 					<MatchTinyWorldImg
 						imageUrl={imageSrc}
 						shouldAnimate={selected}
-						width={isLargeScreen ? 750 : 600}
-						height={isLargeScreen ? 750 : 600}
+						width={imgSize}
+						height={imgSize}
 						transitionToStreetViewTrigger={transitionToStreetViewTrigger}
+					/>
+				) : (
+					<div
+						className="h-full w-full animate-pulse bg-gradient-to-br from-neutral-500/35 via-neutral-400/25 to-neutral-600/30"
+						aria-hidden
 					/>
 				)}
 			</div>

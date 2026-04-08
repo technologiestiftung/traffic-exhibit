@@ -1,4 +1,31 @@
+import { useState } from "react";
 import type { CircleChartSegment } from "../charts/circle-chart/circle-chart-utils";
+
+function DescriptionIcon({ iconSrc }: { iconSrc: string }) {
+	const [loaded, setLoaded] = useState(false);
+
+	return (
+		<span className="relative inline-block h-4 w-6 shrink-0 2xl:h-5 2xl:w-8">
+			{!loaded && (
+				<span
+					className="absolute inset-0 rounded-sm bg-neutral-600/25 animate-pulse"
+					aria-hidden
+				/>
+			)}
+			<img
+				alt=""
+				aria-hidden="true"
+				src={iconSrc}
+				onLoad={() => setLoaded(true)}
+				className={`relative h-full w-full object-contain transition-opacity duration-200 ${loaded ? "opacity-100" : "opacity-0"}`}
+				style={{
+					filter:
+						"brightness(0) saturate(100%) drop-shadow(0 1px 0 rgba(0,0,0,0.12))",
+				}}
+			/>
+		</span>
+	);
+}
 
 type MatchDescriptionProps = {
 	data: CircleChartSegment[];
@@ -58,18 +85,7 @@ export const MatchDescription = ({ data }: MatchDescriptionProps) => {
 									return null;
 								}
 
-								return (
-									<img
-										alt=""
-										aria-hidden="true"
-										src={iconSrc}
-										className="h-4 w-6 2xl:h-5"
-										style={{
-											filter:
-												"brightness(0) saturate(100%) drop-shadow(0 1px 0 rgba(0,0,0,0.12))",
-										}}
-									/>
-								);
+								return <DescriptionIcon iconSrc={iconSrc} />;
 							})()}
 							<span className="text-base 2xl:text-lg">{segment.name}</span>
 						</span>
