@@ -75,6 +75,7 @@ export type TelraamMatch = {
 	address: string;
 	district: string;
 	originalProperties: TrafficFeature["properties"];
+	active?: boolean;
 };
 
 export type TelraamMatchesPayload = {

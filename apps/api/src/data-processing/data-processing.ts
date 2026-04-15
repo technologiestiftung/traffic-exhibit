@@ -22,6 +22,7 @@ interface EnrichedFeatureData {
 	address: string | null;
 	district: string | null;
 	originalProperties: TrafficFeature["properties"];
+	active: boolean;
 }
 
 /**
@@ -159,6 +160,7 @@ async function processFeature(
 			address,
 			district,
 			originalProperties: feature.properties,
+			active: true,
 		};
 	} catch (error) {
 		logger.error(
@@ -178,6 +180,7 @@ async function processFeature(
 			address: null,
 			district: null,
 			originalProperties: feature.properties,
+			active: true,
 		};
 	}
 }
@@ -216,7 +219,12 @@ export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
 		try {
 			const rawPrev = await readFile(previousEnrichedPath, "utf-8");
 			const parsedPrev: EnrichedFeatureData[] = JSON.parse(rawPrev);
-			previousBySegment = new Map(parsedPrev.map((f) => [f.segment_id, f]));
+			previousBySegment = new Map(
+				parsedPrev.map((f) => [
+					f.segment_id,
+					{ ...f, active: f.active !== false },
+				]),
+			);
 			logger.info(
 				`Loaded ${previousBySegment.size} previously enriched segments for reuse`,
 			);
@@ -228,6 +236,7 @@ export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
 		const enrichedResults: EnrichedFeatureData[] = [];
 		let reusedSegments = 0;
 		let newSegments = 0;
+		let reactivatedSegments = 0;
 		const mapillaryFetchStats: MapillaryFetchStats = {
 			panoramic: 0,
 			nonPanoramic: 0,
@@ -239,6 +248,12 @@ export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
 			);
 
 			const prev = previousBySegment.get(feature.properties.segment_id);
+			if (prev?.active === false) {
+				reactivatedSegments += 1;
+				logger.info(
+					`Reactivated segment ${feature.properties.segment_id} (was inactive, now in Telraam feed)`,
+				);
+			}
 			if (prev) {
 				reusedSegments += 1;
 			} else {
@@ -253,6 +268,24 @@ export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
 
 			// Add a small delay to avoid overwhelming external APIs
 			await new Promise((resolve) => setTimeout(resolve, 100));
+		}
+
+		const processedSegmentIds = new Set(
+			(telraamData.features as TrafficFeature[]).map(
+				(feat) => feat.properties.segment_id,
+			),
+		);
+		const deactivatedSegmentIds: number[] = [];
+		for (const [segmentId, prev] of previousBySegment) {
+			if (!processedSegmentIds.has(segmentId)) {
+				enrichedResults.push({ ...prev, active: false });
+				deactivatedSegmentIds.push(segmentId);
+			}
+		}
+		if (deactivatedSegmentIds.length > 0) {
+			logger.info(
+				`Preserved ${deactivatedSegmentIds.length} inactive segment(s) not in current Telraam data (segment_id: ${deactivatedSegmentIds.join(", ")})`,
+			);
 		}
 
 		// Step 4: Save enriched results
@@ -277,6 +310,9 @@ export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
 		const featuresWithBikeLanes = enrichedResults.filter(
 			(f) => f.bikeLaneTypes.length > 0,
 		).length;
+		const inactivePreserved = enrichedResults.filter(
+			(f) => f.active === false,
+		).length;
 
 		logger.info("\nSummary:");
 		logger.info(
@@ -285,6 +321,8 @@ export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
 		logger.info(
 			`- Newly fetched telraam segments: ${newSegments} / ${enrichedResults.length}`,
 		);
+		logger.info(`- Reactivated segments: ${reactivatedSegments}`);
+		logger.info(`- Inactive preserved (not in feed): ${inactivePreserved}`);
 		logger.info(
 			`- Features with images: ${featuresWithImages}/${enrichedResults.length}`,
 		);
