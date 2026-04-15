@@ -16,6 +16,7 @@ interface EnrichedFeatureData {
 	coordinates: Coordinates[];
 	airQuality: number | null;
 	imageURL: string | null;
+	imageIsPano?: boolean | null;
 	bikeLaneTypes: string[];
 	nearestNoiseLevel: number | null;
 	address: string | null;
@@ -45,10 +46,37 @@ function extractCoordinatesFromFeature(feature: TrafficFeature): Coordinates[] {
 /**
  * Process a single Telraam feature to enrich it with additional data
  */
+/** Counts saved images from new Mapillary fetches (not when reusing a saved image). */
+interface MapillaryFetchStats {
+	panoramic: number;
+	nonPanoramic: number;
+}
+
+function recordPanoramicMapillaryStats(
+	stats: MapillaryFetchStats,
+	isPano: boolean,
+): void {
+	if (isPano) {
+		stats.panoramic += 1;
+	} else {
+		stats.nonPanoramic += 1;
+	}
+}
+
+function recordMapillaryStatsIfPresent(
+	stats: MapillaryFetchStats | undefined,
+	isPano: boolean,
+): void {
+	if (stats) {
+		recordPanoramicMapillaryStats(stats, isPano);
+	}
+}
+
 // eslint-disable-next-line complexity
 async function processFeature(
 	feature: TrafficFeature,
 	previous?: EnrichedFeatureData,
+	mapillaryStats?: MapillaryFetchStats,
 ): Promise<EnrichedFeatureData> {
 	const coordinates = extractCoordinatesFromFeature(feature);
 
@@ -65,6 +93,7 @@ async function processFeature(
 
 		// Image: reuse previous if available and already processed, otherwise fetch and process
 		let imageURL: string | null = null;
+		let imageIsPano: boolean | null = null;
 		if (
 			previous &&
 			previous.imageURL &&
@@ -72,15 +101,20 @@ async function processFeature(
 		) {
 			// Reuse previously processed image
 			imageURL = previous.imageURL;
+			imageIsPano = previous.imageIsPano ?? true;
 		} else {
 			// Fetch new image URL
-			const fetchedImageURL = await getImage(coordinates);
-			if (fetchedImageURL) {
+			const selection = await getImage(coordinates);
+			if (selection) {
 				// Process the image: download and save
 				imageURL = await saveImage(
-					fetchedImageURL,
+					selection.url,
 					feature.properties.segment_id,
 				);
+				if (imageURL) {
+					imageIsPano = selection.isPano;
+					recordMapillaryStatsIfPresent(mapillaryStats, selection.isPano);
+				}
 			}
 		}
 
@@ -102,7 +136,7 @@ async function processFeature(
 		// Address & district: reuse if present
 		let address: string | null = previous?.address ?? null;
 		let district: string | null = previous?.district ?? null;
-		// Fetch fresh address data if either field is missing
+		// Fetch fresh address data if either field is missing (Nominatim throttled in getAddress)
 		if (address === null || district === null) {
 			const addressData = await getAddress(coordinates);
 			// Only fill in missing parts
@@ -119,6 +153,7 @@ async function processFeature(
 			coordinates,
 			airQuality,
 			imageURL,
+			imageIsPano,
 			bikeLaneTypes,
 			nearestNoiseLevel,
 			address,
@@ -137,6 +172,7 @@ async function processFeature(
 			coordinates,
 			airQuality: null,
 			imageURL: null,
+			imageIsPano: null,
 			bikeLaneTypes: [],
 			nearestNoiseLevel: null,
 			address: null,
@@ -192,6 +228,10 @@ export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
 		const enrichedResults: EnrichedFeatureData[] = [];
 		let reusedSegments = 0;
 		let newSegments = 0;
+		const mapillaryFetchStats: MapillaryFetchStats = {
+			panoramic: 0,
+			nonPanoramic: 0,
+		};
 
 		for (const [index, feature] of telraamData.features.entries()) {
 			logger.debug(
@@ -204,7 +244,11 @@ export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
 			} else {
 				newSegments += 1;
 			}
-			const enrichedFeature = await processFeature(feature, prev);
+			const enrichedFeature = await processFeature(
+				feature,
+				prev,
+				mapillaryFetchStats,
+			);
 			enrichedResults.push(enrichedFeature);
 
 			// Add a small delay to avoid overwhelming external APIs
@@ -244,6 +288,17 @@ export async function processAllTelraamData(): Promise<EnrichedFeatureData[]> {
 		logger.info(
 			`- Features with images: ${featuresWithImages}/${enrichedResults.length}`,
 		);
+		const mapillaryFetched =
+			mapillaryFetchStats.panoramic + mapillaryFetchStats.nonPanoramic;
+		if (mapillaryFetched > 0) {
+			logger.info(
+				`- New Mapillary images saved: ${mapillaryFetched} (panoramic: ${mapillaryFetchStats.panoramic}, non-panoramic: ${mapillaryFetchStats.nonPanoramic})`,
+			);
+		} else {
+			logger.info(
+				"- New Mapillary images saved: 0 (all images reused from previous run, fetch failed, or none)",
+			);
+		}
 		logger.info(
 			`- Features with air quality data: ${featuresWithAirQuality}/${enrichedResults.length}`,
 		);

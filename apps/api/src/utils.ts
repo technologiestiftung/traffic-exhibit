@@ -74,14 +74,18 @@ export function calculateDistanceMeters(
 
 /**
  * Create a bounding box string in format "minLon,minLat,maxLon,maxLat" from coordinates array
+ * @param paddingDegrees Half-width padding in degrees on each side (defaults to WFS coordinate precision)
  */
-export function createBoundingBoxString(coordinates: Coordinates[]): string {
+export function createBoundingBoxString(
+	coordinates: Coordinates[],
+	paddingDegrees: number = COORDINATE_PRECISION,
+): string {
 	const lons = coordinates.map((c) => c[0]); // longitude is first element
 	const lats = coordinates.map((c) => c[1]); // latitude is second element
-	const minLon = Math.min(...lons) - COORDINATE_PRECISION;
-	const maxLon = Math.max(...lons) + COORDINATE_PRECISION;
-	const minLat = Math.min(...lats) - COORDINATE_PRECISION;
-	const maxLat = Math.max(...lats) + COORDINATE_PRECISION;
+	const minLon = Math.min(...lons) - paddingDegrees;
+	const maxLon = Math.max(...lons) + paddingDegrees;
+	const minLat = Math.min(...lats) - paddingDegrees;
+	const maxLat = Math.max(...lats) + paddingDegrees;
 
 	return `${minLon},${minLat},${maxLon},${maxLat}`;
 }

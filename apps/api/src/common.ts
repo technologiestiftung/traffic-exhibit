@@ -69,6 +69,7 @@ export type TelraamMatch = {
 	coordinates: number[][];
 	airQuality: number;
 	imageURL: string;
+	imageIsPano?: boolean | null;
 	bikeLaneTypes: string[];
 	nearestNoiseLevel: number | null;
 	address: string;

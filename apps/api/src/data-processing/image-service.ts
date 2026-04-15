@@ -3,11 +3,15 @@ import { createBoundingBoxString } from "../utils";
 
 const ACCESS_TOKEN = process.env.MAPILLARY_ACCESS_TOKEN;
 
+/** Padding in degrees (each side) for Mapillary bbox search; widen if no images match. */
+const IMAGE_BBOX_PADDING_SEQUENCE = [0.0002, 0.0004, 0.0006] as const;
+
 interface MapillaryImage {
 	id: string;
 	is_pano: boolean;
 	thumb_256_url?: string;
 	thumb_1024_url?: string;
+	thumb_original_url?: string;
 	captured_at: number;
 }
 
@@ -15,37 +19,50 @@ interface MapillaryResponse {
 	data: MapillaryImage[];
 }
 
+/** Selected Mapillary image URL and whether it is a panorama (360°). */
+export interface MapillaryImageSelection {
+	url: string;
+	isPano: boolean;
+}
+
 /**
- * Searches for the newest non-panoramic image within a bounding box created from coordinates
+ * Searches for the newest image within a bounding box created from coordinates
  * @param coordinates Array of coordinates to create bounding box from
  * @param limit Maximum number of images to fetch (max 2000)
- * @returns Promise<string | null> URL of the newest image or null if none found
+ * @returns Selected image or null if none found
  */
 export async function getImage(
 	coordinates: Coordinates[],
 	limit: number = 10,
-): Promise<string | null> {
+): Promise<MapillaryImageSelection | null> {
 	if (coordinates.length === 0) {
 		return null;
 	}
 
-	const bbox = createBoundingBoxString(coordinates);
-	return getImageInBoundingBox(bbox, limit);
+	for (const padding of IMAGE_BBOX_PADDING_SEQUENCE) {
+		const bbox = createBoundingBoxString(coordinates, padding);
+		const selection = await getImageInBoundingBox(bbox, limit);
+		if (selection !== null) {
+			return selection;
+		}
+	}
+
+	return null;
 }
 
 /**
  * Searches for the newest image within a bounding box
  * @param bbox Bounding box in format "left,bottom,right,top" (minLon,minLat,maxLon,maxLat)
  * @param limit Maximum number of images to fetch (max 2000)
- * @returns Promise<string | null> URL of the newest image or null if none found
+ * @returns Selected image or null if none found
  */
 export async function getImageInBoundingBox(
 	bbox: string,
 	limit: number = 10,
-): Promise<string | null> {
+): Promise<MapillaryImageSelection | null> {
 	try {
 		// Request images with required fields
-		const url = `https://graph.mapillary.com/images?access_token=${ACCESS_TOKEN}&fields=id,is_pano,altitude,thumb_256_url,thumb_1024_url,captured_at&&bbox=${bbox}&limit=${limit}`;
+		const url = `https://graph.mapillary.com/images?access_token=${ACCESS_TOKEN}&fields=id,is_pano,altitude,thumb_256_url,thumb_1024_url,thumb_original_url,captured_at&bbox=${bbox}&limit=${limit}`;
 
 		const response = await fetch(url);
 
@@ -73,13 +90,15 @@ export async function getImageInBoundingBox(
 		}
 
 		const imageUrl =
-			imagesToUse[0].thumb_1024_url || imagesToUse[0].thumb_256_url;
+			imagesToUse[0].thumb_original_url ||
+			imagesToUse[0].thumb_1024_url ||
+			imagesToUse[0].thumb_256_url;
 
 		if (!imageUrl) {
 			return null;
 		}
 
-		return imageUrl;
+		return { url: imageUrl, isPano: imagesToUse[0].is_pano === true };
 	} catch (_error) {
 		return null;
 	}
