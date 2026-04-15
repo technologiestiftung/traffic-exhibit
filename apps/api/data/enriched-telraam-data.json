@@ -97,7 +97,7 @@
     ],
     "airQuality": 3,
     "imageURL": "data/raw-images/image-9000002109.jpg",
-    "imageIsPano": false,
+    "imageIsPano": true,
     "bikeLaneTypes": [
       "Ergänzungsnetz"
     ],
