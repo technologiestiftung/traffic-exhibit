@@ -8,14 +8,15 @@ export const de = {
 	"start.hideAllDataButton.label": "Alle Daten verbergen",
 
 	/* LOADING */
-	"loading.title": "Dein Verkehrs-Mix wird analysiert",
+	"loading.title.line1": "Dein Verkehrs-Mix",
+	"loading.title.line2": "wird analysiert",
 
 	/* MATCH */
 	"match.title": "Top 3 Treffer zu deinem Verkehrs-Mix",
 	"match.title.noCloseMatch.subtitle":
 		"Leider konnten wir aktuell keinen passenderen Verkehrs-Mix finden.",
 	"match.subtitle":
-		"Diese Straßen passen am besten zu deiner Suche – basierend auf Verkehrsdaten der ",
+		"basierend auf den Verkehrsdaten der ",
 	"match.subtitle.highlight": "letzten Stunde",
 	"match.subtitle.end": ".",
 	"match.livedata.tooltip":

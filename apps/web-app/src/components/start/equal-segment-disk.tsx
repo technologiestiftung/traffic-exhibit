@@ -134,15 +134,30 @@ export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 								className={slice.loadingClasses}
 							/>
 							{showLabels && (
-								<text
-									x={slice.labelX}
-									y={slice.labelY}
-									textAnchor="middle"
-									dominantBaseline="central"
-									fontSize={size * 0.07}
-								>
-									{slice.key}
-								</text>
+								<>
+									<text
+										x={slice.labelX}
+										y={slice.labelY}
+										textAnchor="middle"
+										dominantBaseline="central"
+										fontSize={size * 0.07}
+										className={isLoading ? `loading-number loading-number-${slice.key}` : ""}
+									>
+										{slice.key}
+									</text>
+									{isLoading && (
+										<text
+											x={slice.labelX}
+											y={slice.labelY}
+											textAnchor="middle"
+											dominantBaseline="central"
+											fontSize={size * 0.07}
+											className={`loading-label loading-label-${slice.key}`}
+										>
+											?
+										</text>
+									)}
+								</>
 							)}
 						</g>
 					))}

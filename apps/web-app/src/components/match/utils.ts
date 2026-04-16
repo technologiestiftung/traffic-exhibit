@@ -41,6 +41,13 @@ export const trafficColors = {
 	orange: "var(--color-bp-orange)",
 } as const;
 
+export const trafficColorsLight: Record<string, string> = {
+	[trafficColors.blue]: trafficColors.blue,
+	[trafficColors.yellow]: trafficColors.yellow,
+	[trafficColors.red]: trafficColors.red,
+	[trafficColors.orange]: "var(--color-bp-orange-light)",
+};
+
 // UI colors - references to CSS theme variables in index.css
 export const uiColors = {
 	grayLight: "var(--color-bp-gray-light)",

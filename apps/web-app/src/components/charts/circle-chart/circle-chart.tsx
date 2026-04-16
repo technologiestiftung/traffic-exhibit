@@ -2,6 +2,7 @@ import { useId } from "react";
 import type { FC } from "react";
 import type { CircleChartSegment } from "./circle-chart-utils";
 import { buildSegments } from "./circle-chart-utils";
+import { trafficColorsLight } from "../../match/utils";
 
 const isLargeScreen = window.innerWidth >= 1920;
 
@@ -64,7 +65,7 @@ export const CircleChart: FC<CircleChartProps> = ({
 							cx={center}
 							cy={center}
 							r={segment.radius}
-							stroke={segment.color}
+							stroke={trafficColorsLight[segment.color] ?? segment.color}
 							strokeWidth={segment.strokeWidth}
 							fill="none"
 							strokeLinecap="round"

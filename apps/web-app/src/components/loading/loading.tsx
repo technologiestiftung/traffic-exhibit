@@ -4,8 +4,10 @@ import { StartLayout } from "../start/start-layout";
 export const Loading = () => {
 	return (
 		<StartLayout isLoading={true} animateDecorations={true}>
-			<h1 className="text-3xl 2xl:text-4xl font-semibold tracking-wide max-w-sm">
-				{i18n("loading.title")}
+			<h1 className="text-5xl 2xl:text-6xl font-semibold tracking-wide">
+				<span className="whitespace-nowrap">{i18n("loading.title.line1")}</span>
+				<br />
+				{i18n("loading.title.line2")}
 			</h1>
 		</StartLayout>
 	);

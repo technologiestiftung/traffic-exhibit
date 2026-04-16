@@ -8,7 +8,8 @@ export const en = {
 	"start.hideAllDataButton.label": "Hide all data",
 
 	/* LOADING */
-	"loading.title": "Your traffic mix is being analyzed",
+	"loading.title.line1": "Your traffic mix",
+	"loading.title.line2": "is being analyzed",
 
 	/* MATCH */
 	"match.title": "Top 3 results for your search",

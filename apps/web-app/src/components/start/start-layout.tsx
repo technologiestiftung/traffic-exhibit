@@ -29,7 +29,7 @@ export const StartLayout = ({
 						animateDecorations={animateDecorations}
 					/>
 
-					<div className="flex max-w-md flex-1 flex-col items-start gap-4 text-left text-white drop-shadow-lg">
+					<div className="flex max-w-md flex-1 flex-col items-start gap-4 text-left text-white drop-shadow-lg xl:-ml-24">
 						{children}
 					</div>
 				</div>

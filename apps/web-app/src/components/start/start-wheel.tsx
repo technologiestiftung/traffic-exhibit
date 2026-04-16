@@ -40,7 +40,7 @@ export function StartWheel({
 					/>
 				</div>
 
-				<div className="relative flex items-center justify-center rounded-full border-[14px] border-black bg-gradient-to-b from-[#1b1b1e] to-[#333338] p-6 shadow-[0_25px_60px_rgba(0,0,0,0.55)]">
+				<div className="relative flex items-center justify-center rounded-full border-[14px] border-black bg-gradient-to-b from-[#333338] to-[#1b1b1e] p-6 shadow-[0_25px_60px_rgba(0,0,0,0.55)]">
 					<EqualSegmentsDisc
 						size={isLargeScreen ? 700 : 520}
 						occupiedBlocks={occupiedBlocks}
