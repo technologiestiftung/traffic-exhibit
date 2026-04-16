@@ -109,28 +109,30 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 			>
 				{/* HEADER */}
 				<div className="absolute bottom-0 left-0 z-10 flex w-full h-1/3 flex-col justify-end bg-gradient-to-t from-white/80 to-transparent p-5 overflow-visible">
-					<div className="flex gap-5 items-center max-w-md overflow-visible">
+					<div className="flex items-center justify-between overflow-visible">
 						<h2 className="text-4xl 2xl:text-5xl font-pixel">
 							{match.address?.split(",")[0] ?? ""}
 						</h2>
-						{match.bikeLaneTypes?.map((type) => (
-							<InfoTooltip
-								key={type}
-								type={type}
-								content={getBikeLaneTypeDescription(type)}
-							>
-								<Pill
-									value={getBikeLaneTypeLabel(type)}
-									className="flex-shrink-0 bg-black text-bp-gray-loading overflow-visible cursor-help"
+						<div className="flex gap-3 items-center overflow-visible">
+							{match.bikeLaneTypes?.map((type) => (
+								<InfoTooltip
+									key={type}
+									type={type}
+									content={getBikeLaneTypeDescription(type)}
 								>
-									<img
-										src="/info-icon-white.svg"
-										alt="Info"
-										className="w-5 h-5 pointer-events-none"
-									/>
-								</Pill>
-							</InfoTooltip>
-						))}
+									<Pill
+										value={getBikeLaneTypeLabel(type)}
+										className="flex-shrink-0 bg-black text-bp-gray-loading overflow-visible cursor-help"
+									>
+										<img
+											src="/info-icon-white.svg"
+											alt="Info"
+											className="w-5 h-5 pointer-events-none"
+										/>
+									</Pill>
+								</InfoTooltip>
+							))}
+						</div>
 					</div>
 					<p className="text-base 2xl:text-lg py-1.5 text-start">
 						{match.district ?? ""}

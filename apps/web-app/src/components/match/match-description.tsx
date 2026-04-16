@@ -1,5 +1,6 @@
 import { useState } from "react";
 import type { CircleChartSegment } from "../charts/circle-chart/circle-chart-utils";
+import { trafficColorsLight } from "./utils";
 
 function DescriptionIcon({ iconSrc }: { iconSrc: string }) {
 	const [loaded, setLoaded] = useState(false);
@@ -74,7 +75,7 @@ export const MatchDescription = ({ data }: MatchDescriptionProps) => {
 						key={`legend-${segment.name}-${index}`}
 						className="flex items-center justify-between border border-gray-600 px-4 py-2 text-sm font-semibold shadow rounded-xs"
 						style={{
-							backgroundColor: segment.color,
+							backgroundColor: trafficColorsLight[segment.color] ?? segment.color,
 							color: "#1a1a1a",
 						}}
 					>

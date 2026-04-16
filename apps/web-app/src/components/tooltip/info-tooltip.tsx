@@ -54,7 +54,7 @@ export const InfoTooltip: React.FC<InfoTooltipProps> = ({
 		>
 			{children}
 			<div
-				className={`absolute bottom-full left-1/2 -translate-x-1/2 mb-2 px-3 py-2 bg-black tracking-normal text-white text-xs font-normal rounded transition-all duration-200 w-64 z-[100] pointer-events-none ${
+				className={`absolute bottom-full right-0 mb-2 px-3 py-2 bg-black tracking-normal text-white text-sm font-normal rounded transition-all duration-200 w-64 z-[100] pointer-events-none ${
 					isOpen
 						? "opacity-100 visible"
 						: "opacity-0 invisible group-hover:opacity-100 group-hover:visible"
@@ -62,7 +62,7 @@ export const InfoTooltip: React.FC<InfoTooltipProps> = ({
 				role="tooltip"
 			>
 				{content}
-				<div className="absolute top-full left-1/2 -translate-x-1/2 -mt-px border-4 border-transparent border-t-black" />
+				<div className="absolute top-full right-4 -mt-px border-4 border-transparent border-t-black" />
 			</div>
 		</span>
 	);
