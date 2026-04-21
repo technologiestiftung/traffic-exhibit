@@ -15,7 +15,7 @@ export const CircleChart: FC<CircleChartProps> = ({
 	data,
 	minRadius = 0.3,
 }) => {
-	const fontSize = isLargeScreen ? 14 : 12;
+	const fontSize = isLargeScreen ? 18 : 15;
 	const size = isLargeScreen ? 765 : 650;
 	const chartInstanceId = useId();
 	const center = size / 2;
