@@ -15,8 +15,10 @@ export const en = {
 	"match.title": "Top 3 results for your search",
 	"match.title.noCloseMatch.subtitle":
 		"Unfortunately, we couldn't find a closer match for your search.",
+	"match.subtitle.main":
+		"These streets best match your search",
 	"match.subtitle":
-		"These streets best match your search – based on traffic data from the ",
+		"based on traffic data from the ",
 	"match.subtitle.highlight": "last hour",
 	"match.subtitle.end": ".",
 	"match.livedata.tooltip":
