@@ -80,14 +80,8 @@ export const CircleChart: FC<CircleChartProps> = ({
 							return null;
 						}
 
-						const rotationOffset = index * 20;
-
 						return (
-							<text
-								key={`label-${segment.key}`}
-								fontSize={fontSize}
-								transform={`rotate(${rotationOffset} ${center} ${center})`}
-							>
+							<text key={`label-${segment.key}`} fontSize={fontSize}>
 								<textPath
 									href={`#${chartInstanceId}-label-${index}`}
 									startOffset="25%"
@@ -101,8 +95,8 @@ export const CircleChart: FC<CircleChartProps> = ({
 									key={`spin-${segment.key}`}
 									attributeName="transform"
 									type="rotate"
-									from={`${rotationOffset} ${center} ${center}`}
-									to={`${rotationOffset + 360} ${center} ${center}`}
+									from={`0 ${center} ${center}`}
+									to={`360 ${center} ${center}`}
 									dur="1s"
 									repeatCount="1"
 								/>

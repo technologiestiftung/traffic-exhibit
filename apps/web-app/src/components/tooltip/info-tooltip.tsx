@@ -54,7 +54,7 @@ export const InfoTooltip: React.FC<InfoTooltipProps> = ({
 		>
 			{children}
 			<div
-				className={`absolute bottom-full right-0 mb-2 px-3 py-2 bg-black tracking-normal text-white text-sm font-normal rounded transition-all duration-200 w-64 z-[100] pointer-events-none ${
+				className={`absolute bottom-full right-0 mb-2 px-3 py-2 bg-black tracking-normal text-white text-sm font-normal rounded transition-all duration-200 w-64 z-[100] pointer-events-none whitespace-normal ${
 					isOpen
 						? "opacity-100 visible"
 						: "opacity-0 invisible group-hover:opacity-100 group-hover:visible"
