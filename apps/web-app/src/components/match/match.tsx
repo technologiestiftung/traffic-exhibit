@@ -15,6 +15,7 @@ import NoiseChart from "../charts/noise-chart";
 import { AirQualityGrid } from "../charts/air-quality-grid";
 import { MatchDescription } from "./match-description";
 import { InfoTooltip } from "../tooltip/info-tooltip";
+import { MATCH_INLINE_LABEL_SIZE } from "./match-typography";
 
 const isLargeScreen = window.innerWidth >= 1920;
 
@@ -22,7 +23,6 @@ export const Match: React.FC = () => {
 	const {
 		goBackToStart,
 		telraamMatches = [],
-		noCloseMatch,
 		onSelectionButtonRotated,
 		onSelectionButtonPressed,
 	} = useWebSocket();
@@ -109,11 +109,6 @@ export const Match: React.FC = () => {
 					<h1 className="text-left text-5xl 2xl:text-6xl font-semibold text-[#1e2402] drop-shadow uppercase">
 						{i18n("match.title")}
 					</h1>
-					{noCloseMatch && (
-						<p className="text-left text-base 2xl:text-lg font-light tracking-[0.18em] 2xl:tracking-[0.25em] text-[#1e2402] drop-shadow">
-							{i18n("match.title.noCloseMatch.subtitle")}
-						</p>
-					)}
 				</div>
 
 				{/* Live indicator — top right */}
@@ -137,7 +132,9 @@ export const Match: React.FC = () => {
 							</span>
 						</div>
 					</div>
-					<p className="text-sm 2xl:text-base font-light tracking-normal text-[#1e2402] drop-shadow text-left whitespace-nowrap">
+					<p
+						className={`${MATCH_INLINE_LABEL_SIZE} font-light tracking-normal text-[#1e2402] drop-shadow text-left whitespace-nowrap`}
+					>
 						{i18n("match.subtitle")}
 						<span className="underline underline-offset-2 decoration-black decoration-2">
 							{i18n("match.subtitle.highlight")}

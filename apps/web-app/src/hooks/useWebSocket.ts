@@ -21,7 +21,6 @@ export const useWebSocket = () => {
 	const [socket, setSocket] = useState<Socket | null>(null);
 	const [occupiedBlocks, setOccupiedBlocks] = useState<number[]>([]);
 	const [telraamMatches, setTelraamMatches] = useState<TelraamMatch[]>([]);
-	const [noCloseMatch, setNoCloseMatch] = useState(false);
 	const selectionButtonCallbackRef = useRef<
 		((data: SelectionButtonData) => void) | null
 	>(null);
@@ -52,7 +51,6 @@ export const useWebSocket = () => {
 
 		newSocket.on("telraam-matches", (data: TelraamMatchesPayload) => {
 			setTelraamMatches(data.matches as TelraamMatch[]);
-			setNoCloseMatch(data.noCloseMatch);
 		});
 
 		// Handle start event from start button (logical ON)
@@ -135,7 +133,6 @@ export const useWebSocket = () => {
 		occupiedBlocks,
 		goBackToStart,
 		telraamMatches,
-		noCloseMatch,
 		onSelectionButtonRotated,
 		onSelectionButtonPressed,
 	};

@@ -13,8 +13,6 @@ export const de = {
 
 	/* MATCH */
 	"match.title": "Top 3 Treffer zu deinem Verkehrs-Mix",
-	"match.title.noCloseMatch.subtitle":
-		"Leider konnten wir aktuell keinen passenderen Verkehrs-Mix finden.",
 	"match.subtitle.main":
 		"Diese Straßen passen am besten zu deiner Suche",
 	"match.subtitle":

@@ -56,58 +56,59 @@ export const uiColors = {
 } as const;
 
 export function getTrafficModal(telraamMatch: TelraamMatch) {
+	const p = telraamMatch.originalProperties;
+	/* Inner → outer: Fußgänger:innen, Fahrräder, Autos, LKW (tilt in chart follows this index order). */
 	return [
 		{
 			name: i18n("trafficStats.pedestrians"),
-			count: parseFloat(telraamMatch?.originalProperties.pedestrian.toFixed(0)),
-			percentage: parseFloat(
-				telraamMatch?.originalProperties.pedestrian_percentage.toFixed(0),
-			),
+			count: parseFloat(p.pedestrian.toFixed(0)),
+			percentage: parseFloat(p.pedestrian_percentage.toFixed(0)),
 			color: trafficColors.blue,
 		},
 		{
 			name: i18n("trafficStats.bikes"),
-			count: parseFloat(telraamMatch?.originalProperties.bike.toFixed(0)),
-			percentage: parseFloat(
-				telraamMatch?.originalProperties.bike_percentage.toFixed(0),
-			),
+			count: parseFloat(p.bike.toFixed(0)),
+			percentage: parseFloat(p.bike_percentage.toFixed(0)),
 			color: trafficColors.yellow,
 		},
 		{
 			name: i18n("trafficStats.cars"),
-			count: parseFloat(telraamMatch?.originalProperties.car.toFixed(0)),
-			percentage: parseFloat(
-				telraamMatch?.originalProperties.car_percentage.toFixed(0),
-			),
+			count: parseFloat(p.car.toFixed(0)),
+			percentage: parseFloat(p.car_percentage.toFixed(0)),
 			color: trafficColors.red,
 		},
 		{
 			name: i18n("trafficStats.trucks"),
-			count: parseFloat(telraamMatch?.originalProperties.heavy.toFixed(0)),
-			percentage: parseFloat(
-				telraamMatch?.originalProperties.heavy_percentage.toFixed(0),
-			),
+			count: parseFloat(p.heavy.toFixed(0)),
+			percentage: parseFloat(p.heavy_percentage.toFixed(0)),
 			color: trafficColors.orange,
 		},
 	];
 }
 
+/**
+ * Dominant mode (independent of `getTrafficModal` ring order):
+ * 0 Fuß, 1 Fahrrad, 2 Auto, 3 LKW.
+ */
 export function getDominantTrafficModalIndex(
 	telraamMatch: TelraamMatch,
 ): number {
-	const modal = getTrafficModal(telraamMatch);
-	if (!modal.length) {
-		return 0;
-	}
+	const p = telraamMatch.originalProperties;
+	const candidates: { pct: number; semantic: number }[] = [
+		{ pct: p.pedestrian_percentage, semantic: 0 },
+		{ pct: p.bike_percentage, semantic: 1 },
+		{ pct: p.car_percentage, semantic: 2 },
+		{ pct: p.heavy_percentage, semantic: 3 },
+	];
 
-	let maxIndex = 0;
-	for (let i = 1; i < modal.length; i += 1) {
-		if (modal[i].percentage > modal[maxIndex].percentage) {
-			maxIndex = i;
+	let best = candidates[0];
+	for (let i = 1; i < candidates.length; i += 1) {
+		if (candidates[i].pct > best.pct) {
+			best = candidates[i];
 		}
 	}
 
-	return maxIndex;
+	return best.semantic;
 }
 
 /**

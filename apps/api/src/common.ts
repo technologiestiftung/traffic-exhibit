@@ -80,5 +80,4 @@ export type TelraamMatch = {
 
 export type TelraamMatchesPayload = {
 	matches: Array<TelraamMatch | undefined>;
-	noCloseMatch: boolean;
 };

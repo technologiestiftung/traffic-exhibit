@@ -4,6 +4,12 @@ import type { CircleChartSegment } from "./circle-chart-utils";
 import { buildSegments } from "./circle-chart-utils";
 import { trafficColorsLight } from "../../match/utils";
 
+/**
+ * Persistent tilt (deg) per ring index: Fuß → Rad → Auto → LKW (inner → outer).
+ * `-(index + 1) * TILT_STEP_DEG` → −5°, −10°, −15°, −20°.
+ */
+const TILT_STEP_DEG = 5;
+
 const isLargeScreen = window.innerWidth >= 1920;
 
 export type CircleChartProps = {
@@ -80,33 +86,34 @@ export const CircleChart: FC<CircleChartProps> = ({
 							return null;
 						}
 
-						const rotationOffset = index * 20;
+						const tiltDeg = -TILT_STEP_DEG * (index + 1);
 
 						return (
-							<text
-								key={`label-${segment.key}`}
-								fontSize={fontSize}
-								transform={`rotate(${rotationOffset} ${center} ${center})`}
+							<g
+								key={`label-wrap-${segment.key}`}
+								transform={`rotate(${tiltDeg} ${center} ${center})`}
 							>
-								<textPath
-									href={`#${chartInstanceId}-label-${index}`}
-									startOffset="25%"
-									textAnchor="end"
-									fill="#000"
-									dominantBaseline="middle"
-								>
-									{`${segment.name} ${segment.percentage}%`}
-								</textPath>
-								<animateTransform
-									key={`spin-${segment.key}`}
-									attributeName="transform"
-									type="rotate"
-									from={`${rotationOffset} ${center} ${center}`}
-									to={`${rotationOffset + 360} ${center} ${center}`}
-									dur="1s"
-									repeatCount="1"
-								/>
-							</text>
+								<text fontSize={fontSize}>
+									<textPath
+										href={`#${chartInstanceId}-label-${index}`}
+										startOffset="10%"
+										textAnchor="start"
+										fill="#000"
+										dominantBaseline="middle"
+									>
+										{`${segment.name} ${segment.percentage}%`}
+									</textPath>
+									<animateTransform
+										key={`spin-${segment.key}`}
+										attributeName="transform"
+										type="rotate"
+										from={`0 ${center} ${center}`}
+										to={`360 ${center} ${center}`}
+										dur="1s"
+										repeatCount="1"
+									/>
+								</text>
+							</g>
 						);
 					})}
 				</svg>

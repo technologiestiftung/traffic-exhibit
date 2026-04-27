@@ -209,44 +209,4 @@
 		animation: loading-seg-highlight 2000ms steps(1, end) infinite;
 		animation-delay: 1800ms;
 	}
-
-	/* Numbers: visible by default, hidden when segment is active */
-	@keyframes loading-number-hide {
-		0%, 89% { opacity: 1; }
-		90%, 100% { opacity: 0; }
-	}
-
-	.loading-number-1  { animation: loading-number-hide 2000ms steps(1, end) infinite; animation-delay: 0ms; }
-	.loading-number-2  { animation: loading-number-hide 2000ms steps(1, end) infinite; animation-delay: 200ms; }
-	.loading-number-3  { animation: loading-number-hide 2000ms steps(1, end) infinite; animation-delay: 400ms; }
-	.loading-number-4  { animation: loading-number-hide 2000ms steps(1, end) infinite; animation-delay: 600ms; }
-	.loading-number-5  { animation: loading-number-hide 2000ms steps(1, end) infinite; animation-delay: 800ms; }
-	.loading-number-6  { animation: loading-number-hide 2000ms steps(1, end) infinite; animation-delay: 1000ms; }
-	.loading-number-7  { animation: loading-number-hide 2000ms steps(1, end) infinite; animation-delay: 1200ms; }
-	.loading-number-8  { animation: loading-number-hide 2000ms steps(1, end) infinite; animation-delay: 1400ms; }
-	.loading-number-9  { animation: loading-number-hide 2000ms steps(1, end) infinite; animation-delay: 1600ms; }
-	.loading-number-10 { animation: loading-number-hide 2000ms steps(1, end) infinite; animation-delay: 1800ms; }
-
-	/* Question marks: hidden by default, visible only on the active segment */
-	.loading-label {
-		opacity: 0;
-		font-weight: 700;
-		fill: #000;
-	}
-
-	@keyframes loading-label-show {
-		0%, 89% { opacity: 0; }
-		90%, 100% { opacity: 1; }
-	}
-
-	.loading-label-1  { animation: loading-label-show 2000ms steps(1, end) infinite; animation-delay: 0ms; }
-	.loading-label-2  { animation: loading-label-show 2000ms steps(1, end) infinite; animation-delay: 200ms; }
-	.loading-label-3  { animation: loading-label-show 2000ms steps(1, end) infinite; animation-delay: 400ms; }
-	.loading-label-4  { animation: loading-label-show 2000ms steps(1, end) infinite; animation-delay: 600ms; }
-	.loading-label-5  { animation: loading-label-show 2000ms steps(1, end) infinite; animation-delay: 800ms; }
-	.loading-label-6  { animation: loading-label-show 2000ms steps(1, end) infinite; animation-delay: 1000ms; }
-	.loading-label-7  { animation: loading-label-show 2000ms steps(1, end) infinite; animation-delay: 1200ms; }
-	.loading-label-8  { animation: loading-label-show 2000ms steps(1, end) infinite; animation-delay: 1400ms; }
-	.loading-label-9  { animation: loading-label-show 2000ms steps(1, end) infinite; animation-delay: 1600ms; }
-	.loading-label-10 { animation: loading-label-show 2000ms steps(1, end) infinite; animation-delay: 1800ms; }
 }

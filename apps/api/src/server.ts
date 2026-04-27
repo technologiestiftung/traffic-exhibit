@@ -46,7 +46,6 @@ let enrichedMatches =
 
 let telraamMatchesPayload: TelraamMatchesPayload = {
 	matches: enrichedMatches,
-	noCloseMatch: closestMatchesResult.noCloseMatch,
 };
 
 const app = express();
@@ -97,7 +96,6 @@ app.post("/api/detections", (req, res) => {
 
 		telraamMatchesPayload = {
 			matches: enrichedMatches,
-			noCloseMatch: closestMatchesResult.noCloseMatch,
 		};
 
 		// Broadcast updated matches to all connected clients

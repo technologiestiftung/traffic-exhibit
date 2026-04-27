@@ -11,6 +11,7 @@ import {
 } from "./utils";
 import { i18n } from "../../i18n/i18n-utils";
 import type { AvailableTranslations } from "../../i18n/translations";
+import { MATCH_INLINE_LABEL_SIZE } from "./match-typography";
 
 const BIKE_LANE_TYPE_LABELS: Record<string, AvailableTranslations> = {
 	// WFS values from Berlin API
@@ -41,6 +42,8 @@ function getBikeLaneTypeDescription(type: string): string {
 }
 
 const isLargeScreen = window.innerWidth >= 1920;
+
+const MATCH_CARD_LABEL_TYPO = `${MATCH_INLINE_LABEL_SIZE} font-medium`;
 
 export type StackPositionStyles = {
 	zIndex: number;
@@ -118,7 +121,8 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 								>
 									<Pill
 										value={getBikeLaneTypeLabel(type)}
-										className="flex-shrink-0 bg-black text-bp-gray-loading overflow-visible cursor-help"
+										valueClassName={`${MATCH_CARD_LABEL_TYPO} text-white`}
+										className="flex-shrink-0 bg-black overflow-visible cursor-help"
 									>
 										<img
 											src="/info-icon-white.svg"
@@ -130,7 +134,9 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 							))}
 						</div>
 					</div>
-					<p className="text-base 2xl:text-lg py-1.5 text-start">
+					<p
+						className={`${MATCH_CARD_LABEL_TYPO} m-0 text-black py-1.5 text-start`}
+					>
 						{match.district ?? ""}
 					</p>
 				</div>
