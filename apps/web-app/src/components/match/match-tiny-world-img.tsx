@@ -177,7 +177,12 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 				renderer.setSize(width, height);
 				rendererRef.current = renderer;
 
-				const camera = new THREE.PerspectiveCamera(45, width / height, 0.2, 2000);
+				const camera = new THREE.PerspectiveCamera(
+					45,
+					width / height,
+					0.2,
+					2000,
+				);
 				cameraRef.current = camera;
 
 				const cameraControls = new CameraControls(camera, canvas);

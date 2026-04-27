@@ -13,10 +13,8 @@ export const de = {
 
 	/* MATCH */
 	"match.title": "Top 3 Treffer zu deinem Verkehrs-Mix",
-	"match.subtitle.main":
-		"Diese Straßen passen am besten zu deiner Suche",
-	"match.subtitle":
-		"basierend auf Verkehrsdaten der ",
+	"match.subtitle.main": "Diese Straßen passen am besten zu deiner Suche",
+	"match.subtitle": "basierend auf Verkehrsdaten der ",
 	"match.subtitle.highlight": "letzten Stunde",
 	"match.subtitle.end": ".",
 	"match.livedata.tooltip":

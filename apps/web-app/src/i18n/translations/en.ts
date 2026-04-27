@@ -13,10 +13,8 @@ export const en = {
 
 	/* MATCH */
 	"match.title": "Top 3 results for your search",
-	"match.subtitle.main":
-		"These streets best match your search",
-	"match.subtitle":
-		"based on traffic data from the ",
+	"match.subtitle.main": "These streets best match your search",
+	"match.subtitle": "based on traffic data from the ",
 	"match.subtitle.highlight": "last hour",
 	"match.subtitle.end": ".",
 	"match.livedata.tooltip":
