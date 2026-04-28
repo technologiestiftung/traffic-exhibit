@@ -8,6 +8,7 @@ import {
 	getImageUrl,
 	getDominantTrafficModalIndex,
 	getDominantTrafficGradientClass,
+	getDominantTrafficGradientFromColor,
 } from "./utils";
 import { i18n } from "../../i18n/i18n-utils";
 import type { AvailableTranslations } from "../../i18n/translations";
@@ -74,6 +75,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 	const imgSize = isLargeScreen ? 750 : 600;
 	const dominantIndex = getDominantTrafficModalIndex(match);
 	const backgroundClass = getDominantTrafficGradientClass(dominantIndex);
+	const loaderAccentColor = getDominantTrafficGradientFromColor(dominantIndex);
 
 	const handleKeyDown = (e: React.KeyboardEvent) => {
 		if (e.key === "Enter" || e.key === " ") {
@@ -149,6 +151,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 						width={imgSize}
 						height={imgSize}
 						transitionToStreetViewTrigger={transitionToStreetViewTrigger}
+						loaderAccentColor={loaderAccentColor}
 					/>
 				) : (
 					<div
