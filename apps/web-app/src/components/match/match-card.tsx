@@ -43,6 +43,10 @@ function getBikeLaneTypeDescription(type: string): string {
 
 const isLargeScreen = window.innerWidth >= 1920;
 
+function getMatchImagePanelSize(): number {
+	return isLargeScreen ? 750 : 600;
+}
+
 const MATCH_CARD_LABEL_TYPO = `${MATCH_INLINE_LABEL_SIZE} font-medium`;
 
 export type StackPositionStyles = {
@@ -71,7 +75,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 }) => {
 	const closeTooltip = useInfoTooltipStore((s) => s.closeTooltip);
 	const imageSrc = match.imageURL ? getImageUrl(match.imageURL) : null;
-	const imgSize = isLargeScreen ? 750 : 600;
+	const imagePanelSize = getMatchImagePanelSize();
 	const dominantIndex = getDominantTrafficModalIndex(match);
 	const backgroundClass = getDominantTrafficGradientClass(dominantIndex);
 
@@ -104,7 +108,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 		>
 			<div
 				className="relative overflow-hidden"
-				style={{ width: imgSize, height: imgSize }}
+				style={{ width: imagePanelSize, height: imagePanelSize }}
 			>
 				{/* HEADER */}
 				<div className="absolute bottom-0 left-0 z-10 flex w-full h-1/3 flex-col justify-end bg-gradient-to-t from-white/80 to-transparent p-5 overflow-visible">
@@ -141,21 +145,31 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 					</p>
 				</div>
 
-				{/* IMAGE — fixed box avoids layout shift; skeleton inside component or when no URL */}
-				{imageSrc ? (
-					<MatchTinyWorldImg
-						imageUrl={imageSrc}
-						shouldAnimate={selected}
-						width={imgSize}
-						height={imgSize}
-						transitionToStreetViewTrigger={transitionToStreetViewTrigger}
-					/>
-				) : (
-					<div
-						className="h-full w-full animate-pulse bg-gradient-to-br from-neutral-500/35 via-neutral-400/25 to-neutral-600/30"
-						aria-hidden
-					/>
-				)}
+				{/* IMAGE */}
+				{imageSrc &&
+					(match.imageIsPano ? (
+						<MatchTinyWorldImg
+							imageUrl={imageSrc}
+							shouldAnimate={selected}
+							width={imagePanelSize}
+							height={imagePanelSize}
+							transitionToStreetViewTrigger={transitionToStreetViewTrigger}
+						/>
+					) : (
+						<div
+							className="shrink-0 overflow-hidden"
+							style={{
+								width: imagePanelSize,
+								height: imagePanelSize,
+							}}
+						>
+							<img
+								src={imageSrc}
+								alt=""
+								className={`h-full w-full object-cover object-center transition-[filter] duration-500 ease-out ${!selected ? "blur-xs" : ""}`}
+							/>
+						</div>
+					))}
 			</div>
 		</div>
 	);
