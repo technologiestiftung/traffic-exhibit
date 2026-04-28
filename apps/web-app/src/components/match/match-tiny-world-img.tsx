@@ -20,6 +20,7 @@ type MatchTinyWorldImgProps = {
 	height?: number;
 	shouldAnimate?: boolean;
 	transitionToStreetViewTrigger?: number;
+	loaderAccentColor?: string;
 };
 
 const views: Record<ViewType, ViewConfig> = {
@@ -55,6 +56,7 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 	height = 600,
 	shouldAnimate = true,
 	transitionToStreetViewTrigger,
+	loaderAccentColor,
 }) => {
 	const canvasRef = useRef<HTMLCanvasElement>(null);
 	const sceneRef = useRef<THREE.Scene | null>(null);
@@ -298,10 +300,17 @@ export const MatchTinyWorldImg: React.FC<MatchTinyWorldImgProps> = ({
 	return (
 		<div className="relative h-full min-h-0 w-full">
 			{!sceneReady && (
-				<div
-					className="absolute inset-0 z-[1] animate-pulse bg-gradient-to-br from-neutral-500/35 via-neutral-400/25 to-neutral-600/30"
-					aria-hidden
-				/>
+				<div className="absolute inset-0 z-[1] grid place-items-center bg-gradient-to-br from-neutral-500/35 via-neutral-400/25 to-neutral-600/30">
+					<div className="flex flex-col items-center gap-3 rounded-md">
+						<span
+							aria-hidden
+							className="h-16 w-16 animate-spin rounded-full border-[3px] border-white/25"
+							style={{
+								borderTopColor: loaderAccentColor ?? "rgba(255,255,255,0.95)",
+							}}
+						/>
+					</div>
+				</div>
 			)}
 			<div className="relative z-[2] h-full w-full overflow-hidden">
 				<canvas
