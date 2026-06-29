@@ -28,25 +28,30 @@ const segmentIdsWithImage = new Set(
 // Store current detection data (default to example values)
 let currentDetections = { car: 61, bike: 14, pedestrian: 0, heavy: 25 };
 
-// Calculate initial matches (only features that have images)
-let closestMatchesResult = findClosestMatches(
-	currentDetections,
-	telraamData.features,
-	segmentIdsWithImage,
-);
+// Calculate initial matches
+let telraamMatchesPayload: TelraamMatchesPayload = { matches: [] };
 
-// for each match the closest result with enriched-telraam-data
-let enrichedMatches =
-	closestMatchesResult.matches?.map((match) =>
-		enrichedTelraamData.find(
-			(feature) =>
-				feature.originalProperties.segment_id === match.properties.segment_id,
-		),
-	) || [];
+function updateMatches(detections: typeof currentDetections) {
+	const closestMatchesResult = findClosestMatches(
+		detections,
+		telraamData.features,
+		segmentIdsWithImage,
+	);
 
-let telraamMatchesPayload: TelraamMatchesPayload = {
-	matches: enrichedMatches,
-};
+	const enrichedMatches =
+		closestMatchesResult.matches?.map((match) =>
+			enrichedTelraamData.find(
+				(feature) =>
+					feature.originalProperties.segment_id === match.properties.segment_id,
+			),
+		) || [];
+
+	telraamMatchesPayload = {
+		matches: enrichedMatches,
+	};
+}
+
+updateMatches(currentDetections);
 
 const app = express();
 
@@ -77,26 +82,7 @@ app.post("/api/detections", (req, res) => {
 
 		logger.info("Received detection data:", currentDetections);
 
-		// Recalculate matches with new detection data (only features that have images)
-		closestMatchesResult = findClosestMatches(
-			currentDetections,
-			telraamData.features,
-			segmentIdsWithImage,
-		);
-
-		// Update enriched matches
-		enrichedMatches =
-			closestMatchesResult.matches?.map((match) =>
-				enrichedTelraamData.find(
-					(feature) =>
-						feature.originalProperties.segment_id ===
-						match.properties.segment_id,
-				),
-			) || [];
-
-		telraamMatchesPayload = {
-			matches: enrichedMatches,
-		};
+		updateMatches(currentDetections);
 
 		// Broadcast updated matches to all connected clients
 		io.emit("telraam-matches", telraamMatchesPayload);
@@ -152,13 +138,6 @@ io.on("connection", (socket) => {
 
 	socket.emit("telraam-matches", telraamMatchesPayload);
 
-	/*
-	 * TO DO: Handle "go-back-to-start" event from frontend
-	 * 1. stop rotating disc
-	 * 2. start scan for checked for filled blocks
-	 * 3. run object recognition for modal split
-	 * (4. optional: turn light off or to red)
-	 */
 	socket.on("go-back-to-start", async () => {
 		logger.info("Motor stopped via Python script");
 	});

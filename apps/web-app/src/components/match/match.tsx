@@ -145,7 +145,7 @@ export const Match: React.FC = () => {
 							content={i18n("match.livedata.tooltip")}
 						>
 							<img
-								src="/info-icon.svg"
+								src="/icon/info-icon.svg"
 								alt="Info"
 								className="w-4 h-4 cursor-help"
 							/>

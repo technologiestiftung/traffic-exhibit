@@ -31,13 +31,11 @@ const DataCard: React.FC<{ segment: Segment }> = ({ segment }) => {
 			return null;
 		}
 
-		// Extract filename from relative paths
 		if (imageURL.includes("../")) {
 			const filename = imageURL.split("/").pop();
 			return filename ? `/api/data/raw-images/${filename}` : null;
 		}
 
-		// Extract relative path from absolute paths
 		const match = imageURL.match(/data\/raw-images\/[^/]+$/);
 		return match ? `/api/${match[0]}` : null;
 	};
@@ -47,19 +45,17 @@ const DataCard: React.FC<{ segment: Segment }> = ({ segment }) => {
 		{ label: "Rad", value: bike_percentage ?? 0, color: "#c8ff00" },
 		{ label: "Zu Fuß", value: pedestrian_percentage ?? 0, color: "#4BC0C0" },
 		{ label: "LKWs", value: heavy_percentage ?? 0, color: "#FFCE56" },
-	].filter((item) => item.value > 0); // Only show items with actual values
+	].filter((item) => item.value > 0);
 
-	const maxValue = Math.max(...chartData.map((item) => item.value), 1); // Ensure at least 1 to avoid division by zero
+	const maxValue = Math.max(...chartData.map((item) => item.value), 1);
 
-	// Calculate color based on noise level (0-100dB range)
 	const getNoiseColor = (noiseLevel: number) => {
-		const ratio = Math.min(noiseLevel / 80, 35); // Clamp to 0-1
-		const yellow = Math.round(255 * (1 - ratio * 0.5)); // yellow component decreases from 200 to 0
-		const red = Math.round(255 * ratio); // Red component increases from 0 to 255
+		const ratio = Math.min(noiseLevel / 80, 35);
+		const yellow = Math.round(255 * (1 - ratio * 0.5));
+		const red = Math.round(255 * ratio);
 		return `rgb(${red}, ${yellow}, 0)`;
 	};
 
-	// Format noise display (show placeholder when no data)
 	const formatNoiseDisplay = (noiseLevel: number | null): string => {
 		return noiseLevel === null ? "Keine Daten" : `${noiseLevel}`;
 	};

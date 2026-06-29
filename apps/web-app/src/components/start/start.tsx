@@ -13,7 +13,7 @@ export const Start = () => {
 	return (
 		<StartLayout>
 			<img
-				src="/Berliner%20platte.svg"
+				src="/icon/Berliner%20platte.svg"
 				alt={i18n("start.title")}
 				className="mb-4 w-[520px] 2xl:w-[620px] h-auto"
 				draggable={false}

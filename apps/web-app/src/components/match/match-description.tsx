@@ -42,13 +42,13 @@ const iconForSegmentName = (name: string): string | null => {
 		n.includes("fuß") ||
 		n.includes("fuss")
 	) {
-		return "/walking_icon.svg";
+		return "/icon/walking_icon.svg";
 	}
 	if (n.includes("bike") || n.includes("bikes") || n.includes("fahrr")) {
-		return "/bike_icon.svg";
+		return "/icon/bike_icon.svg";
 	}
 	if (n.includes("car") || n.includes("cars") || n.includes("auto")) {
-		return "/Car_icon.svg";
+		return "/icon/Car_icon.svg";
 	}
 	if (
 		n.includes("heavy vehicle") ||
@@ -57,7 +57,7 @@ const iconForSegmentName = (name: string): string | null => {
 		n.includes("trucks") ||
 		n.includes("lkw")
 	) {
-		return "/LKW_icon.svg";
+		return "/icon/LKW_icon.svg";
 	}
 	return null;
 };
