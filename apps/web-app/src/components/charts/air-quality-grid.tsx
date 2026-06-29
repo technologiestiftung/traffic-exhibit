@@ -3,7 +3,7 @@ import { InfoTooltip } from "../tooltip/info-tooltip";
 import { i18n } from "../../i18n/i18n-utils";
 
 interface AirQualityGridProps {
-	airQuality: number; // 1-5
+	airQuality: number;
 }
 
 export const AirQualityGrid: React.FC<AirQualityGridProps> = ({
@@ -13,7 +13,6 @@ export const AirQualityGrid: React.FC<AirQualityGridProps> = ({
 	const rows = 8;
 	const cols = 50;
 
-	// Map air quality level to translation key
 	const getAirQualityLabel = (level: number): string => {
 		const labels: Record<number, string> = {
 			1: i18n("airQualityChart.step.veryLow"),
@@ -25,7 +24,6 @@ export const AirQualityGrid: React.FC<AirQualityGridProps> = ({
 		return labels[level] || labels[3];
 	};
 
-	// Calculate number of black cells based on air quality level
 	const getBlackCellCount = (level: number): number => {
 		const percentages = {
 			1: 0.05, // 0-20% → use 10% (5 cells)
@@ -41,7 +39,6 @@ export const AirQualityGrid: React.FC<AirQualityGridProps> = ({
 
 	const blackCellCount = getBlackCellCount(airQuality);
 
-	// Generate random positions for black cells
 	const generateBlackPositions = (): Set<number> => {
 		const positions = new Set<number>();
 		while (positions.size < blackCellCount) {
@@ -54,7 +51,6 @@ export const AirQualityGrid: React.FC<AirQualityGridProps> = ({
 		generateBlackPositions(),
 	);
 
-	// Animate positions every 2 seconds
 	useEffect(() => {
 		const interval = setInterval(() => {
 			setBlackPositions(generateBlackPositions());
@@ -75,7 +71,7 @@ export const AirQualityGrid: React.FC<AirQualityGridProps> = ({
 					content={i18n("airQualityChart.description")}
 				>
 					<img
-						src="/info-icon.svg"
+						src="/icon/info-icon.svg"
 						alt="Info"
 						className="w-5 h-5 cursor-help"
 					/>

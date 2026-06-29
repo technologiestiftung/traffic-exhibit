@@ -3,19 +3,19 @@ import { clamp } from "../match/utils";
 import { InfoTooltip } from "../tooltip/info-tooltip";
 import { i18n } from "../../i18n/i18n-utils";
 
-const INITIAL_FILL_DURATION_MS = 1200; // 0 → value on first load (per row)
-const INITIAL_FILL_STAGGER_MS = 280; // delay before each row starts filling (row 0 first, then 1, then 2)
-const MIN_DISPLAY_PERCENT = 20; // minimum range so blocks visible when value is 0
-const ROW_LEVEL_OFFSET_PERCENT = 6; // each row sits slightly below the previous (row 0 = full, row 1 = -6%, row 2 = -12%)
-const LOOP_OVERSHOOT_PERCENT = 8; // bounce can go this much above current value
-const LOOP_DIP_PERCENT = 4; // bounce stays within this much below value (doesn't go down too much)
-const LOOP_SINE_AMPLITUDE_PERCENT = 12; // bounce range above value (one-sided)
-const LOOP_BASE_PERIOD_MS = 2500; // one full bounce cycle
-const LOOP_PERIOD_VARIANCE_MS = 400; // slight variance
-const LOOP_NOISE_AMOUNT = 1; // small jitter (±%)
-const LOOP_NOISE_SMOOTH = 0.995; // higher = slower, calmer jitter
-const ROW_SINE_AMPLITUDE_PERCENT = 3; // per-row bounce offset
-const ROW_NOISE_AMOUNT = 1; // per-row jitter (±%)
+const INITIAL_FILL_DURATION_MS = 1200;
+const INITIAL_FILL_STAGGER_MS = 280;
+const MIN_DISPLAY_PERCENT = 20;
+const ROW_LEVEL_OFFSET_PERCENT = 6;
+const LOOP_OVERSHOOT_PERCENT = 8;
+const LOOP_DIP_PERCENT = 4;
+const LOOP_SINE_AMPLITUDE_PERCENT = 12;
+const LOOP_BASE_PERIOD_MS = 2500;
+const LOOP_PERIOD_VARIANCE_MS = 400;
+const LOOP_NOISE_AMOUNT = 1;
+const LOOP_NOISE_SMOOTH = 0.995;
+const ROW_SINE_AMPLITUDE_PERCENT = 3;
+const ROW_NOISE_AMOUNT = 1;
 /** Set to true to add random jitter and per-row noise to the fill level. */
 const IS_JITTER_ENABLED = true;
 
@@ -51,7 +51,7 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 		0,
 		Math.min(100, ((clamped - rangeMin) / (rangeMax - rangeMin)) * 100),
 	);
-	const COLS = 20; // each column = 5% of 100%, fill left → right
+	const COLS = 20;
 	const ROWS = 3;
 	const COL_PERCENT = 5;
 	const FILLED_COLOR = "#000";
@@ -59,7 +59,6 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 	const GAP = 2;
 	const PAD = 2;
 
-	// Phase 1: 0 → value. Phase 2: loop with sine + jitter; each row has its own offset/jitter
 	const [displayPercentByRow, setDisplayPercentByRow] = useState<number[]>(() =>
 		Array(ROWS).fill(0),
 	);
@@ -133,7 +132,6 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 					);
 				}
 				const mainNoise = jitterOn ? noiseRef.current : 0;
-				// Bounce above the value: sine adds 0..amplitude (doesn't go down much)
 				const bounceUp =
 					LOOP_SINE_AMPLITUDE_PERCENT * (0.5 + 0.5 * Math.sin(cycle));
 				const base = targetPercent + bounceUp;
@@ -147,7 +145,6 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 					const rowLevelOffset = -row * ROW_LEVEL_OFFSET_PERCENT;
 					const rowBase = base + rowLevelOffset;
 					const rowPhase = cycle + rowPhaseOffsetRef.current[row];
-					// Per-row bounce also one-sided (only adds a little)
 					const rowBounce =
 						ROW_SINE_AMPLITUDE_PERCENT * (0.5 + 0.5 * Math.sin(rowPhase));
 					let rowNoise = 0;
@@ -185,7 +182,7 @@ export const NoiseChart: React.FC<NoiseChartProps> = ({
 				</h3>
 				<InfoTooltip type="noiseChart" content={i18n("noiseChart.description")}>
 					<img
-						src="/info-icon.svg"
+						src="/icon/info-icon.svg"
 						alt="Info"
 						className="w-5 h-5 cursor-help"
 					/>
