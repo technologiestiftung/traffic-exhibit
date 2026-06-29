@@ -66,6 +66,8 @@ The exhibit's tangible interface is powered by a **Raspberry Pi 5** running the 
 
 GPIO input and motor control are handled by `apps/api/scripts/button_monitor.py`, which communicates with the Node.js backend over Socket.IO. Standalone test scripts for individual components are available in `apps/api/scripts/` (`test_motor.py`, `test_toggle_switch.py`, `test_rotary_encoder.py`).
 
+The web app is designed to be shown on a 1920 x 1080px screen.
+
 ## Installation
 
 ### **1. Install Node.js Dependencies**
