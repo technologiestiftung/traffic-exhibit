@@ -2,11 +2,32 @@
 
 <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 
-[![All Contributors](https://img.shields.io/badge/all_contributors-0-orange.svg?style=flat-square)](#contributors-)
+[![All Contributors](https://img.shields.io/badge/all_contributors-3-orange.svg?style=flat-square)](#contributors-)
 
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
-# Traffic Exhibit
+# Berliner Platte
+
+**Berliner Platte** is an interactive exhibit that lets visitors explore Berlin's traffic mix by arranging physical blocks on a rotating disk. A Raspberry Pi camera uses YOLO object detection to read the composition of cars, bikes, pedestrians, and heavy vehicles, then matches it against live [Telraam](https://telraam.net/) sensor data to surface the three closest real Berlin streets — complete with street imagery, air quality, noise levels, and bike-lane infrastructure. The exhibit was developed based on the Telraam data collected by the [ADFC](https://www.adfc.de/) and is built as a monorepo with a React frontend, Node.js/WebSocket backend, and Python scripts for hardware control on a Raspberry Pi.
+
+<p align="center">
+  <img src="assets/exhibit-overview.png" alt="Visitor interacting with the Berliner Platte exhibit screen showing top search results for a Berlin street" width="48%" />
+  <img src="assets/exhibit-interaction.png" alt="Close-up of the physical traffic blocks on the rotating disk interface" width="48%" />
+</p>
+
+## Table of Contents
+
+- [📁 Project Structure](#project-structure)
+- [⚙️ Physical Computing](#physical-computing)
+- [📦 Installation](#installation)
+- [🚀 Usage or Deployment](#usage-or-deployment)
+- [💻 Development](#development)
+- [📊 Data Processing](#data-processing)
+- [🔁 Autostart Setup](#autostart-setup)
+- [🤝 Contributing](#contributing)
+- [👥 Contributors](#contributors-)
+- [📜 Content Licensing](#content-licensing)
+- [🙏 Credits](#credits)
 
 ## **Project Structure**
 
@@ -18,6 +39,34 @@ traffic-exhibit/
 ├── package.json       # Root package.json for npm workspaces
 └── README.md
 ```
+
+## Physical Computing
+
+The exhibit's tangible interface is powered by a **Raspberry Pi 5** running the software stack alongside dedicated Python scripts for GPIO, camera, and motor control.
+
+### Hardware
+
+| Component                             | Role                                                                            |
+| ------------------------------------- | ------------------------------------------------------------------------------- |
+| **Raspberry Pi 5**                    | Runs the frontend, backend, YOLO detection, and GPIO scripts                    |
+| **Raspberry Pi Camera Module (Wide)** | Captures the traffic blocks on the disk for real-time object detection          |
+| **DRV8825 stepper motor driver**      | Drives the stepper motor with microstepping for smooth, quiet rotation          |
+| **NEMA 17 stepper motor (20 mm)**     | Rotates the traffic-block disk via a lazy Susan bearing                         |
+| **Lazy Susan bearing**                | Supports the rotating disk that visitors arrange blocks on                      |
+| **Toggle switch**                     | Starts and stops the disk rotation (each flip toggles the exhibit on/off)       |
+| **Rotary switch (encoder)**           | Cycles through matched street results; pressing the switch confirms a selection |
+
+### How it works
+
+1. **Arrange blocks** — Visitors place up to ten coloured traffic blocks (cars, bikes, pedestrians, heavy vehicles) on the rotating disk.
+2. **Start the plate** — Flipping the toggle switch starts the stepper motor, which spins the disk for up to four minutes (or until toggled off again).
+3. **Detect the mix** — The wide-angle Pi camera feeds frames to a YOLO model (`apps/api/scripts/yolo_detect.py`), which classifies the modal split and sends counts to the backend via WebSocket.
+4. **Match streets** — The backend compares the detected composition against enriched Telraam data and returns the three closest Berlin streets.
+5. **Explore results** — Turning the rotary switch cycles through the top matches on screen; pushing it triggers the street-view transition.
+
+GPIO input and motor control are handled by `apps/api/scripts/button_monitor.py`, which communicates with the Node.js backend over Socket.IO. Standalone test scripts for individual components are available in `apps/api/scripts/` (`test_motor.py`, `test_toggle_switch.py`, `test_rotary_encoder.py`).
+
+The web app is designed to be shown on a 1920 x 1080px screen.
 
 ## Installation
 
@@ -88,7 +137,7 @@ cd apps/api
 npm run start-button-monitor
 ```
 
-- The frontend will be available at: [http://localhost:5174](http://localhost:5174)
+- The frontend will be available at: [http://localhost:5173](http://localhost:5173)
 - The backend WebSocket server will run on: [http://localhost:3001](http://localhost:3001)
 - The Python button monitor will be running in the background
 
@@ -134,6 +183,17 @@ http://localhost:5173
 ## Data Processing
 
 The project includes automated data processing capabilities to enrich traffic data with additional environmental and infrastructure information.
+
+### **Data Sources**
+
+The exhibit combines several open data sources, all enriched per traffic segment:
+
+- **Traffic data** — [Telraam](https://telraam.net/): real-time traffic counts (cars, bikes, pedestrians, heavy vehicles) from citizen-operated sensors.
+- **Street images** — [Mapillary](https://www.mapillary.com/): crowd-sourced street-level imagery for visualizing each matched street.
+- **Address & district** — [Nominatim (OpenStreetMap)](https://nominatim.openstreetmap.org/): reverse geocoding to resolve coordinates into street addresses and districts.
+- **Air quality** — [Digitale Berliner Luftkarte](https://www.berlin.de/sen/uvk/umwelt/luft/luftqualitaet/digitale-berliner-luftkarte/): air quality measurements, provided by our open data team.
+- **Bike network** — Geoportal Berlin: [Radverkehrsnetz](https://gdi.berlin.de/services/wfs/radverkehrsnetz) and [Fahrradstraßen](https://gdi.berlin.de/services/wfs/fahrradstrassen) for bike lane types and infrastructure.
+- **Noise data** — Geoportal Berlin: [Strategische Lärmkarte 2022](https://gdi.berlin.de/services/wfs/ua_stratlaerm_2022) for nearest noise level measurements.
 
 ### **Running Data Processing**
 
@@ -185,7 +245,7 @@ npm run stop-hourly
 
 ### **YOLO Detect**
 
-The exhibit uses YOLO (object detection) to classify live traffic from the camera (cars, bikes, pedestrians, heavy vehicles) and send real-time counts to the backend for pattern matching.
+The exhibit uses YOLO (object detection) to classify live traffic from the camera (cars, bikes, pedestrians, heavy vehicles) and send real-time counts to the backend for pattern matching. We trained an existing YOLO Model based on the wonderful tutorials by Edje Electronics: [running Yolo on the Raspberyy Pi](https://youtu.be/z70ZrSZNi-8?si=XoyLzp5_CDNgmDwJ) and [training YOLO object detection models](https://youtu.be/r0RspiLG260?si=0TsFmmjb9OiAUIFh)
 
 **Run YOLO detection** from the `apps/api` directory:
 
@@ -218,10 +278,6 @@ The system also includes intelligent traffic pattern matching functionality:
 2. **Pattern Matching**: Uses Euclidean distance calculation to find the closest match between current detections and historical Telraam data
 3. **Data Enrichment**: Matches the closest traffic pattern with the corresponding enriched dataset
 4. **Frontend Integration**: Sends the matched enriched data to the frontend via WebSocket for real-time visualization
-
-## Tests
-
-tbd...
 
 ## Autostart Setup
 
@@ -362,8 +418,13 @@ Thanks goes to these wonderful people ([emoji key](https://allcontributors.org/d
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
 <table>
-  <tr>
-  </tr>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/zainab-tariq"><img src="https://github.com/zainab-tariq.png?s=64" width="64px;" alt="zainab-tariq"/></a><br /><sub><b><a href="https://github.com/zainab-tariq">zainab-tariq</a></b></sub><br /><a href="https://github.com/technologiestiftung/traffic-exhibit/commits?author=zainab-tariq" title="Code">💻</a> <a href="#ideas-zainab-tariq" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-zainab-tariq" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/aeschi"><img src="https://github.com/aeschi.png?s=64" width="64px;" alt="aeschi"/></a><br /><sub><b><a href="https://github.com/aeschi">aeschi</a></b></sub><br /><a href="https://github.com/technologiestiftung/traffic-exhibit/commits?author=aeschi" title="Code">💻</a> <a href="#ideas-aeschi" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-aeschi" title="Design">🎨</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Engy-ai"><img src="https://github.com/Engy-ai.png?s=64" width="64px;" alt="Engy-ai"/></a><br /><sub><b><a href="https://github.com/Engy-ai">Engy-ai</a></b></sub><br /><a href="https://github.com/technologiestiftung/traffic-exhibit/commits?author=Engy-ai" title="Code">💻</a> <a href="#ideas-Engy-ai" title="Ideas, Planning, & Feedback">🤔</a> <a href="#design-Engy-ai" title="Design">🎨</a></td>
+    </tr>
+  </tbody>
 </table>
 
 <!-- markdownlint-restore -->
@@ -404,5 +465,3 @@ Texts and content available as [CC BY](https://creativecommons.org/licenses/by/3
     </td>
   </tr>
 </table>
-
-## Related Projects

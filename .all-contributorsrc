@@ -1,5 +1,5 @@
 {
-  "projectName": "template-default",
+  "projectName": "traffic-exhibit",
   "projectOwner": "technologiestiftung",
   "repoType": "github",
   "repoHost": "https://github.com",
@@ -10,6 +10,30 @@
   "commit": true,
   "commitConvention": "angular",
   "contributors": [
+    {
+      "login": "zainab-tariq",
+      "contributions": [
+        "code",
+        "ideas",
+        "design"
+      ]
+    },
+    {
+      "login": "aeschi",
+      "contributions": [
+        "code",
+        "ideas",
+        "design"
+      ]
+    },
+    {
+      "login": "Engy-ai",
+      "contributions": [
+        "code",
+        "ideas",
+        "design"
+      ]
+    }
   ],
   "contributorsPerLine": 7,
   "skipCi": true

@@ -31,7 +31,7 @@
     "url": "https://github.com/technologiestiftung/traffic-exhibit/issues"
   },
   "homepage": "https://github.com/technologiestiftung/traffic-exhibit#readme",
-  "description": "",
+  "description": "Interactive exhibit (Berliner Platte) that matches physical traffic block compositions with real Berlin street data via YOLO detection and Telraam sensors.",
   "devDependencies": {
     "@technologiestiftung/eslint-config": "^0.4.0",
     "@turf/turf": "^7.2.0",
