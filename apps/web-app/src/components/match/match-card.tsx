@@ -131,7 +131,7 @@ export const MatchCard: React.FC<MatchCardProps> = ({
 										className="flex-shrink-0 bg-black overflow-visible cursor-help"
 									>
 										<img
-											src="/info-icon-white.svg"
+											src="/icon/info-icon-white.svg"
 											alt="Info"
 											className="w-5 h-5 pointer-events-none"
 										/>

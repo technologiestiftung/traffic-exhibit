@@ -19,22 +19,22 @@ export function StartWheel({
 			<div className="relative">
 				<div className="pointer-events-none absolute inset-0 hidden lg:block">
 					<img
-						src="/bike.svg"
+						src="/icon/bike.svg"
 						alt="bike"
 						className={`absolute -right-30 bottom-20 w-31 2xl:w-38 rotate-[120deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)] ${animateDecorations ? "animate-pulse-scale-soft-slow" : ""}`}
 					/>
 					<img
-						src="/walking.svg"
+						src="/icon/walking.svg"
 						alt="walking"
 						className={`absolute -left-36 top-20 w-28 2xl:w-43 rotate-[-60deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)] ${animateDecorations ? "animate-pulse-scale-soft-slow" : ""}`}
 					/>
 					<img
-						src="/lkw.svg"
+						src="/icon/lkw.svg"
 						alt="truck"
 						className={`absolute -left-40 bottom-10 w-35 2xl:w-51 rotate-[-120deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)] ${animateDecorations ? "animate-pulse-scale-soft-slow" : ""}`}
 					/>
 					<img
-						src="/icon.svg"
+						src="/icon/icon.svg"
 						alt="car"
 						className={`absolute -top-6 -right-30 w-43 2xl:w-55 rotate-[50deg] opacity-90 drop-shadow-[0_12px_22px_rgba(0,0,0,0.45)] ${animateDecorations ? "animate-pulse-scale-soft-slow" : ""}`}
 					/>
@@ -59,8 +59,8 @@ export function StartWheel({
 									aria-hidden
 									className="h-12 w-12 bg-white"
 									style={{
-										WebkitMask: "url(/flip.svg) center / contain no-repeat",
-										mask: "url(/flip.svg) center / contain no-repeat",
+										WebkitMask: "url(/icon/flip.svg) center / contain no-repeat",
+										mask: "url(/icon/flip.svg) center / contain no-repeat",
 									}}
 								/>
 							</div> */}

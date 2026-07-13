@@ -18,7 +18,6 @@ export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 	showLabels = true,
 	isLoading = false,
 }) => {
-	// Geometry
 	const centerX = size / 2;
 	const centerY = size / 2;
 	const outerRadius = size / 2;
@@ -27,13 +26,11 @@ export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 	// Keep the same proportion so the look stays consistent when `size` changes.
 	const innerCutoutRadius = (204 / 700) * size;
 
-	// Angles
 	const FULL_CIRCLE_RADIANS = Math.PI * 2;
 	const segmentsCount = 10;
 	const clampedSegmentsCount = Math.max(1, segmentsCount | 0);
-	const startAtTwelveOClock = -Math.PI / 2; // SVG coords: -π/2 is the top
+	const startAtTwelveOClock = -Math.PI / 2;
 
-	// Colors
 	const palette = segmentColors[0] ?? {
 		occupied: trafficColors.yellow,
 		empty: uiColors.grayLight,
@@ -57,7 +54,6 @@ export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 		const sliceAngle = FULL_CIRCLE_RADIANS / clampedSegmentsCount;
 
 		return Array.from({ length: clampedSegmentsCount }, (_, zeroBasedIndex) => {
-			// Clockwise sweep: add angles from the starting offset
 			const startAngle = startAtTwelveOClock + zeroBasedIndex * sliceAngle;
 			const endAngle = startAtTwelveOClock + (zeroBasedIndex + 1) * sliceAngle;
 
@@ -66,7 +62,6 @@ export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 			const endX = centerX + sliceRadius * Math.cos(endAngle);
 			const endY = centerY + sliceRadius * Math.sin(endAngle);
 
-			// Arc flags (small arc, clockwise)
 			const largeArcFlag = 0;
 			const sweepFlag = 1;
 
@@ -82,13 +77,11 @@ export const EqualSegmentsDisc: React.FC<EqualSegmentsDiscProps> = ({
 				? palette.occupied
 				: palette.empty;
 
-			// label position (midpoint of the slice)
 			const midAngle =
 				startAtTwelveOClock + (zeroBasedIndex + 0.5) * sliceAngle;
 			const labelX = centerX + sliceRadius * 0.75 * Math.cos(midAngle);
 			const labelY = centerY + sliceRadius * 0.75 * Math.sin(midAngle);
 
-			// Loading animation classes (cycle through 4 colors)
 			const colorIndex = ((oneBasedIndex - 1) % 4) + 1;
 			const loadingClasses = isLoading
 				? `loading-seg loading-seg-${oneBasedIndex} loading-seg-color-${colorIndex}`
