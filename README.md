@@ -27,6 +27,7 @@
 - [🤝 Contributing](#contributing)
 - [👥 Contributors](#contributors-)
 - [📜 Content Licensing](#content-licensing)
+- [©️ Data & Imagery Attribution](#data--imagery-attribution)
 - [🙏 Credits](#credits)
 
 ## **Project Structure**
@@ -188,12 +189,14 @@ The project includes automated data processing capabilities to enrich traffic da
 
 The exhibit combines several open data sources, all enriched per traffic segment:
 
-- **Traffic data** — [Telraam](https://telraam.net/): real-time traffic counts (cars, bikes, pedestrians, heavy vehicles) from citizen-operated sensors.
-- **Street images** — [Mapillary](https://www.mapillary.com/): crowd-sourced street-level imagery for visualizing each matched street.
-- **Address & district** — [Nominatim (OpenStreetMap)](https://nominatim.openstreetmap.org/): reverse geocoding to resolve coordinates into street addresses and districts.
-- **Air quality** — [Digitale Berliner Luftkarte](https://www.berlin.de/sen/uvk/umwelt/luft/luftqualitaet/digitale-berliner-luftkarte/): air quality measurements, provided by our open data team.
-- **Bike network** — Geoportal Berlin: [Radverkehrsnetz](https://gdi.berlin.de/services/wfs/radverkehrsnetz) and [Fahrradstraßen](https://gdi.berlin.de/services/wfs/fahrradstrassen) for bike lane types and infrastructure.
-- **Noise data** — Geoportal Berlin: [Strategische Lärmkarte 2022](https://gdi.berlin.de/services/wfs/ua_stratlaerm_2022) for nearest noise level measurements.
+- **Traffic data** — [Telraam](https://telraam.net/): real-time traffic counts (cars, bikes, pedestrians, heavy vehicles) from citizen-operated sensors. Licensed [CC BY-NC](https://faq.telraam.net/en/article/9/telraam-data-license-what-can-i-do-with-the-telraam-data) — attribution required.
+- **Street images** — [Mapillary](https://www.mapillary.com/): crowd-sourced street-level imagery for visualizing each matched street. Licensed [CC BY-SA](https://help.mapillary.com/hc/en-us/articles/115001770409-CC-BY-SA-license-for-open-data) — attribution required.
+- **Address & district** — [Nominatim (OpenStreetMap)](https://nominatim.openstreetmap.org/): reverse geocoding to resolve coordinates into street addresses and districts. Data © [OpenStreetMap contributors](https://www.openstreetmap.org/copyright), licensed [ODbL](https://opendatacommons.org/licenses/odbl/) — attribution required.
+- **Air quality** — [Digitale Berliner Luftkarte](https://www.berlin.de/sen/uvk/umwelt/luft/luftqualitaet/digitale-berliner-luftkarte/): air quality measurements, provided by our open data team. Licensed [Datenlizenz Deutschland – Zero – Version 2.0](https://www.govdata.de/dl-de/zero-2-0).
+- **Bike network** — Geoportal Berlin: [Radverkehrsnetz](https://gdi.berlin.de/services/wfs/radverkehrsnetz) and [Fahrradstraßen](https://gdi.berlin.de/services/wfs/fahrradstrassen) for bike lane types and infrastructure. Licensed [Datenlizenz Deutschland – Zero – Version 2.0](https://www.govdata.de/dl-de/zero-2-0).
+- **Noise data** — Geoportal Berlin: [Strategische Lärmkarte 2022](https://gdi.berlin.de/services/wfs/ua_stratlaerm_2022) for nearest noise level measurements. Licensed [Datenlizenz Deutschland – Zero – Version 2.0](https://www.govdata.de/dl-de/zero-2-0).
+
+> See [Data & Imagery Attribution](#data--imagery-attribution) for the exact attribution notices required by these sources.
 
 ### **Running Data Processing**
 
@@ -437,6 +440,15 @@ This project follows the [all-contributors](https://github.com/all-contributors/
 ## Content Licensing
 
 Texts and content available as [CC BY](https://creativecommons.org/licenses/by/3.0/de/).
+
+## Data & Imagery Attribution
+
+The exhibit displays and processes third-party open data (see [Data Sources](#data-processing)). The following notices apply in addition to this project's own [CC BY](#content-licensing) content license:
+
+- **[Mapillary](https://www.mapillary.com/)** — Street-level images shown in the exhibit are © Mapillary and its contributors, licensed under [CC BY-SA](https://help.mapillary.com/hc/en-us/articles/115001770409-CC-BY-SA-license-for-open-data). Any reuse or redistribution of these images must carry the same attribution and share-alike terms.
+- **[Telraam](https://telraam.net/)** — Traffic count data is © Telraam and its citizen sensor operators, licensed [CC BY-NC](https://faq.telraam.net/en/article/9/telraam-data-license-what-can-i-do-with-the-telraam-data) (non-commercial use only; contact Telraam to discuss commercial use). The exhibit was developed based on Telraam data collected by the [ADFC](https://www.adfc.de/).
+- **[OpenStreetMap](https://www.openstreetmap.org/copyright)** — Address and district lookups via [Nominatim](https://nominatim.openstreetmap.org/) use map data © OpenStreetMap contributors, available under the [Open Database License (ODbL)](https://opendatacommons.org/licenses/odbl/).
+- **Geoportal Berlin / Berlin Open Data** — Air quality ([Digitale Berliner Luftkarte](https://www.berlin.de/sen/uvk/umwelt/luft/luftqualitaet/digitale-berliner-luftkarte/)), bike network ([Radverkehrsnetz](https://gdi.berlin.de/services/wfs/radverkehrsnetz), [Fahrradstraßen](https://gdi.berlin.de/services/wfs/fahrradstrassen)), and noise ([Strategische Lärmkarte 2022](https://gdi.berlin.de/services/wfs/ua_stratlaerm_2022)) data are provided by Geoportal Berlin under the [Datenlizenz Deutschland – Zero – Version 2.0](https://www.govdata.de/dl-de/zero-2-0), which permits use without attribution; it is credited here for transparency.
 
 ## Credits
 
